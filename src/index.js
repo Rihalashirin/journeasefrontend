@@ -14,6 +14,12 @@ import{ Home } from './agency/Home';
 import{ Adminhome } from './admin/Adminhome';
 import { Adminnav } from './admin/Adminnav';
 import { Mngrequest } from './admin/Mngrequest';
+import { Resortsignup} from './admin/Resortsignup';
+import { Agencysignup } from './admin/Agencysignup';
+import { Booking } from './admin/Booking';
+import { Adminpackage } from './admin/Adminpackage';
+import { Viewpackage } from './agency/Viewpackage';
+import { Detailvwpkg } from './agency/Detailvwpkg';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -28,6 +34,9 @@ root.render(
 
     <Route path='/agency' element={<Navhome/>}>
         <Route index element={<Home/>}></Route>
+        <Route path='agencypkg' element={<Adminpackage/>}/>
+        <Route path='vwpkg' element={<Viewpackage/>}/>
+        <Route path='detailvwpkg' element={<Detailvwpkg/>}/>
     
     
 
@@ -36,6 +45,10 @@ root.render(
     <Route path='/admin' element={<Adminnav/>}>
       <Route index element={<Adminhome/>}></Route>
        <Route path='request' element={<Mngrequest/>}/>
+       <Route path='resortsign' element={<Resortsignup/>}/>
+       <Route path='agencysign' element={<Agencysignup/>}/>
+       <Route path='bookings' element={<Booking/>}/>
+       <Route path='pkg' element={<Adminpackage/>}/>
 
     </Route>
     
