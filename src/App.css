@@ -96,7 +96,8 @@ a{
    
     background-image: url('../src/packagebg.jpg');
     background-size: 100%;
-    height: calc(100vh - 64px);
+   background-repeat: no-repeat;
+   
     width: 100vw;
     /* padding-left: 100px; */
     /* align-items: center; */
@@ -109,3 +110,9 @@ a{
     width: 100%;
 
 }
+.resorthome{
+    background-image: url('../src/resort/Resort-Home.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+

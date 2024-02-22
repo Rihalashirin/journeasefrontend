@@ -51,6 +51,8 @@ export const Rgstrn = () => {
             </div>
             <div className='text-center text-white rounded-lg bg-orange-600 w-20 ms-[35rem]  mt-12'>
                 <input type="submit"  value="SUBMIT" name="" id="" /> 
+
+                <button><img src="" alt="" srcset="" /></button>
 </div>
         </div>
 

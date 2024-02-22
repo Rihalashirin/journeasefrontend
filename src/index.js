@@ -20,6 +20,16 @@ import { Booking } from './admin/Booking';
 import { Adminpackage } from './admin/Adminpackage';
 import { Viewpackage } from './agency/Viewpackage';
 import { Detailvwpkg } from './agency/Detailvwpkg';
+import { Addpkg } from './agency/Addpkg';
+import { Addpkg1 } from './agency/Addpkg1';
+import { Cstmrenqry } from './agency/Cstmrenqry';
+import { Vwcstrenqry } from './agency/Vwcstrenqry';
+import { Assignguide } from './agency/Assignguide';
+import { Detlguide } from './agency/Detlguide';
+import { Guidcnfrmtn } from './agency/Guidcnfrmtn';
+import { Rgstrguide } from './Rgstrguide';
+import { Resorthome } from './resort/Resorthome';
+import { Navresort } from './resort/Navresort';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -30,6 +40,7 @@ root.render(
     <Route index element={<Landing/>}/>
     <Route path='/login' element={<Login/>}/>
      <Route path='/agencyRegister' element={<Rgstrn/>}/>
+     <Route path='/guideregister' element={<Rgstrguide/>}/>
     </Route>
 
     <Route path='/agency' element={<Navhome/>}>
@@ -37,6 +48,13 @@ root.render(
         <Route path='agencypkg' element={<Adminpackage/>}/>
         <Route path='vwpkg' element={<Viewpackage/>}/>
         <Route path='detailvwpkg' element={<Detailvwpkg/>}/>
+        <Route path='addpkg' element={<Addpkg/>}/>
+        <Route path='addpkg1' element={<Addpkg1/>}/>
+        <Route path='cstmrenqry' element={<Cstmrenqry/>}/>
+        <Route path='detailcstrenqry' element={<Vwcstrenqry/>}/>
+        <Route path='assignguide' element={<Assignguide/>}/>
+        <Route path='detailguide' element={<Detlguide/>}/>
+        <Route path='cnfrmguide' element={<Guidcnfrmtn/>}/>
     
     
 
@@ -50,6 +68,11 @@ root.render(
        <Route path='bookings' element={<Booking/>}/>
        <Route path='pkg' element={<Adminpackage/>}/>
 
+    </Route>
+    <Route>
+      <Route path='/resort' element={<Navresort/>}>
+      <Route index element={<Resorthome/>}></Route>
+    </Route>
     </Route>
     
     

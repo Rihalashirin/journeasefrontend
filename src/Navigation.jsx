@@ -32,7 +32,7 @@ export const Navigation = () => {
             {drop &&
         <div className='list-none absolute sm:top[60px] top-[45px] bg-slate-400/50 text-center p-2'>
          <Link to='/agencyRegister'><li className='bg-white rounded-lg my-[3px]font w-[100px] text-[12px] text-black '>PLANNER</li> </Link> 
-            <li className='bg-white rounded-lg my-[3px] font w-[100px] text-[12px] text-black'>GUIDE</li>
+          <Link to='/guideregister'> <li className='bg-white rounded-lg my-[3px] font w-[100px] text-[12px] text-black'>GUIDE</li> </Link> 
             <li className='bg-white rounded-lg my-[3px] font text-[12px] w-[100px] text-black'>RESORT</li>
             <li className='bg-white rounded-lg my-[3px] font text-[12px] w-[100px] text-black'>CUSTOMER</li>
         </div>
