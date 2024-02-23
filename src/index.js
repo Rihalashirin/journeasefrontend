@@ -30,6 +30,9 @@ import { Guidcnfrmtn } from './agency/Guidcnfrmtn';
 import { Rgstrguide } from './Rgstrguide';
 import { Resorthome } from './resort/Resorthome';
 import { Navresort } from './resort/Navresort';
+import { Rgstrresort } from './Rgstrresort';
+import { Regresort1 } from './Regresort1';
+import { Regstrresort2 } from './Regstrresort2';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -41,6 +44,9 @@ root.render(
     <Route path='/login' element={<Login/>}/>
      <Route path='/agencyRegister' element={<Rgstrn/>}/>
      <Route path='/guideregister' element={<Rgstrguide/>}/>
+     <Route path='/regresort' element={<Rgstrresort/>}/>
+     <Route path='/regresort1' element={<Regresort1/>}/>
+     <Route path='/regresort2' element={<Regstrresort2/>}/>
     </Route>
 
     <Route path='/agency' element={<Navhome/>}>

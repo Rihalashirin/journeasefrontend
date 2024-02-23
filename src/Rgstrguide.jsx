@@ -6,62 +6,72 @@ export const Rgstrguide = () => {
     <div className='h-[64px] font text-[30px] font-bold m-0 text-left pl-10 '>
     <span className='text-white'>Resgister as a </span><span className='text-orange-600'>Private Guide</span>
   </div>
-    <div className='flex gap-20 justify-center pt-28'>
+  <form class="w-[100%] ">
 
+        <div className='flex w-[100%] justify-center sm:gap-10'>
 
-        <div>
+          <div className='w-[25%] '>
 
-            <div className='flex gap-4 mb-3 text-white'>
-                <label htmlFor="">Name</label>
-                <input type="text" name="" id="" />
+            <div >
+              <label for="name" class="block mb-2 text-sm font-medium text-white dark:text-white">Name :</label>
+              <input type="name" id="name" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required />
             </div>
-            <div className='flex mb-3 gap-4 text-white'>
-                <label htmlFor="">Age</label>
-                <input type="text" className='ml-[50px]' name="" id="" />
+            <div>
+              <label for="age" class="block mb-2 text-sm font-medium text-white dark:text-white">Age:</label>
+              <input type="age" id="age" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
-            <div className='flex mb-3 gap-4 text-white'>
-                <label htmlFor="">Gender</label>
-                <input type="text" className='ml-[50px]' name="" id="" />
+            <div >
+              <label for="place" class="block mb-2 text-sm font-medium text-white dark:text-white">Gender:</label>
+              <input type="place" id="place" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
-            <div className='flex mb-3 gap-4 text-white'>
-                <label htmlFor="">Contact Number</label>
-                <input type="text" className='ml-[50px]' name="" id="" />
+            <div>
+              <label for="email" class="block mb-2 text-sm font-medium text-white dark:text-white">Contact Number:</label>
+              <input type="email" id="place" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
-            <div className='flex mb-3 gap-4 text-white'>
-                <label htmlFor="">Location of Expertise</label>
-                <input type="text" className='ml-[50px]' name="" id="" />
+            <div>
+              <label for="email" class="block mb-2 text-sm font-medium text-white dark:text-white">Location of Expertise:</label>
+              <input type="email" id="place" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
+            <div >
+              <label for="contact" class="block mb-2 text-sm font-medium text-white dark:text-white">Address :</label>
+              <input type="contact" id="contact" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+            </div>
+          </div>
+          <div className='w-[25%]'>
+
+            <div >
+              <label for="house name" class="block mb-2 text-sm font-medium text-white dark:text-white">Image :</label>
+              <input type="file" id="house name" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required />
+            </div>
+            <div >
+              <label for="post" class="block mb-2 text-sm font-medium text-white dark:text-white">ID Proof :</label>
+              <input type="file" id="post" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+            </div>
+            <div >
+              <label for="post" class="block mb-2 text-sm font-medium text-white dark:text-white">Experience(in years) :</label>
+              <input type="post" id="post" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+            </div>
+            <div>
+              <label for="pin" class="block mb-2 text-sm font-medium text-white dark:text-white">Email:</label>
+              <input type="pin" id="pin" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+            </div>
+            <div >
+              <label for="district" class="block mb-2 text-sm font-medium text-white dark:text-white">Password:</label>
+              <input type="district" id="district" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+            </div>
+          </div>
+          
         </div>
 
-        <div>
 
-            <div className='flex gap-4 mb-3 text-white'>
-                <label htmlFor="">Image</label>
-                <input type="file" name="" id="" />
-            </div>
-            <div className='flex mb-3 gap-4 text-white'>
-                <label htmlFor="">ID Proof</label>
-                <input type="file" className='ml-[50px]' name="" id="" />
-            </div>
-            <div className='flex mb-3 gap-4 text-white'>
-                <label htmlFor="">Email</label>
-                <input type="text" className='ml-[50px]' name="" id="" />
-            </div>
-            <div className='flex mb-3 gap-4 text-white'>
-                <label htmlFor="">Password</label>
-                <input type="text" className='ml-[50px]' name="" id="" />
-            </div>
-            <div className='flex mb-3 gap-4 text-white'>
-                <label htmlFor="">Experience(in years)</label>
-                <input type="text" className='ml-[50px]' name="" id="" />
-            </div>
-        </div>
+
+
+        <div class="flex flex-wrap mb-5 mt-8">
+    
+  {/* <button type="submit" class="text-white m-auto m-a bg-red-800 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update</button> */}
+  <button type="submit" class="text-white m-auto m-a bg-orange-600 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">SUBMIT</button>
+  </div>
+      </form>
     </div>
-    <div className='text-center text-white rounded-lg bg-orange-600 w-20 ms-[35rem]  mt-12'>
-        <input type="submit"  value="SUBMIT" name="" id="" /> 
-
-        <button><img src="" alt="" srcset="" /></button>
-</div>
-</div>
   )
 }
