@@ -1,32 +1,29 @@
 import React from 'react'
 
-export const Adminpackage = () => {
+export const Resortmngprice = () => {
   return (
-    <div className='adminbg'>
-        
-
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <div>
+        <div className='resorthome h-screen w-[100%] '>
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg pt-10">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs bg-gray-800 text-white uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                    Agency
+                   Enquiriy Name
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Package
+                    Trip Duration
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Days
+                   Room Type
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    image
+                    Guest Count
                 </th>
                 <th scope="col" class="px-6 py-3">
-                   Brochure
+                  Action
                 </th>
-                <th scope="col" class="px-6 py-3">
-                    Description
-                </th>
+               
             </tr>
         </thead>
         <tbody>
@@ -35,19 +32,18 @@ export const Adminpackage = () => {
                     WellTrip planners
                 </th>
                 <td class="px-6 py-4">
-                   Delhi delight
+                   10/02/2024-14/02/2024
                 </td>
                 <td class="px-6 py-4">
-                  4
+                  Luxury
                 </td>
                 <td class="px-6 py-4">
-                    file
+                    4
                 </td>
-                <td class="px-6 py-4">
-                   file
-                </td>
-                <td class="px-6 py-4">
-                   information
+               
+                <td class="px-3 py-4 flex flex-wrap flex-col gap-2 text-center">
+                    <a href="#" class="font-bold text-sm text-black bg-gray-400 hover:underline hover:bg-gray p-1">Enter Price</a>
+                    <a href="#" class="font-bold text-sm text-black bg-green-600 hover:underline hover:bg-orange-600 p-1" >Accept</a>
                 </td>
                 
                 {/* <td class="px-6 py-4">
@@ -126,7 +122,7 @@ export const Adminpackage = () => {
         </tbody>
     </table>
 </div>
-
+</div>
     </div>
   )
 }

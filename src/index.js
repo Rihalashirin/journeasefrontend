@@ -33,6 +33,18 @@ import { Navresort } from './resort/Navresort';
 import { Rgstrresort } from './Rgstrresort';
 import { Regresort1 } from './Regresort1';
 import { Regstrresort2 } from './Regstrresort2';
+import { Viewagency } from './admin/Viewagency';
+import { Viewresort } from './admin/Viewresort';
+import { Addpkg3 } from './agency/Addpkg3';
+import { Enqryfinal } from './agency/Enqryfinal';
+import { Confrmbooking } from './agency/Confrmbooking';
+import { Mngbooking } from './agency/Mngbooking';
+import { Resortmngenqry } from './resort/Resortmngenqry';
+import { Vwbookingresort } from './resort/Vwbookingresort';
+import { Resortmngprice } from './resort/Resortmngprice';
+import { Navguide } from './guide/Navguide';
+import { Guidehome } from './guide/Guidehome';
+import { Guidemngenqry } from './guide/Guidemngenqry';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -49,6 +61,18 @@ root.render(
      <Route path='/regresort2' element={<Regstrresort2/>}/>
     </Route>
 
+    
+
+     <Route path='/guide' element={<Navguide/>}>
+      <Route index element={<Guidehome/>}/>
+      <Route path='guidemngenqry' element={<Guidemngenqry/>}/>
+
+      </Route>
+
+
+     
+
+
     <Route path='/agency' element={<Navhome/>}>
         <Route index element={<Home/>}></Route>
         <Route path='agencypkg' element={<Adminpackage/>}/>
@@ -61,6 +85,10 @@ root.render(
         <Route path='assignguide' element={<Assignguide/>}/>
         <Route path='detailguide' element={<Detlguide/>}/>
         <Route path='cnfrmguide' element={<Guidcnfrmtn/>}/>
+        <Route path='adventure' element={<Addpkg3/>}/>
+        <Route path='enqryfinal' element={<Enqryfinal/>}/>
+        <Route path='cnfrmbooking' element={<Confrmbooking/>}/>
+        <Route path='managebooking' element={<Mngbooking/>}/>
     
     
 
@@ -73,11 +101,16 @@ root.render(
        <Route path='agencysign' element={<Agencysignup/>}/>
        <Route path='bookings' element={<Booking/>}/>
        <Route path='pkg' element={<Adminpackage/>}/>
+       <Route path='vwandacceptagency' element={<Viewagency/>}/>
+       <Route path='vwacceptresort' element={<Viewresort/>}/>
 
     </Route>
     <Route>
       <Route path='/resort' element={<Navresort/>}>
       <Route index element={<Resorthome/>}></Route>
+      <Route path='resortmngenqry' element={<Resortmngenqry/>}/>
+      <Route path='resortvwbooking' element={<Vwbookingresort/>}/>
+      <Route path='resortenterprice' element={<Resortmngprice/>}/>
     </Route>
     </Route>
     

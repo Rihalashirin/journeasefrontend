@@ -8,8 +8,8 @@ export const Agencysignup = () => {
           <span className='text-white'>Agency,</span><span className='text-orange-600'> Sign Ups</span>
         </div>
       <div className='w-[90%] h-7 bg-white ms-16 me-10 rounded-lg flex flex-wrap flex-row justify-normal pl-5 items-center gap-[27rem]' >
-        <div className='font text-black'>Agency Name</div>
-        <div className='font text-black'>Location</div>
+        <div className='font text-black'>Company Name</div>
+        <div className='font text-black'>OfficeAddress</div>
         <div className='bg-white'></div>
         
       </div>

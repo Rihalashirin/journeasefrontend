@@ -1,32 +1,28 @@
 import React from 'react'
 
-export const Adminpackage = () => {
+export const Vwbookingresort = () => {
   return (
-    <div className='adminbg'>
-        
-
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <div className='resorthome h-screen w-[100%] '>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs bg-gray-800 text-white uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                    Agency
+                    BOOKING NAME
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Package
+                    ROOM TYPE
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Days
+                    GUEST COUNT
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    image
+                    CHECK-IN
                 </th>
                 <th scope="col" class="px-6 py-3">
-                   Brochure
+                   CHECK-OUT
                 </th>
-                <th scope="col" class="px-6 py-3">
-                    Description
-                </th>
+               
             </tr>
         </thead>
         <tbody>
@@ -35,20 +31,18 @@ export const Adminpackage = () => {
                     WellTrip planners
                 </th>
                 <td class="px-6 py-4">
-                   Delhi delight
+                   Luxury
                 </td>
                 <td class="px-6 py-4">
-                  4
+                  4A 3C
                 </td>
                 <td class="px-6 py-4">
-                    file
+                    Jan 14
                 </td>
                 <td class="px-6 py-4">
-                   file
+                   Jan 19
                 </td>
-                <td class="px-6 py-4">
-                   information
-                </td>
+                
                 
                 {/* <td class="px-6 py-4">
                     <a href="#" class="font-medium text-blue-600 bg-gray-600 dark:text-blue-500 hover:underline">Edit</a>

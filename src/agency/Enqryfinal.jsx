@@ -3,9 +3,9 @@ import seaview from './images/seaview.png'
 import guide1 from './images/guide1.png'
 import adventure from './images/adventure.png'
 
-export const Guidcnfrmtn = () => {
-    return (
-        <div className='pencil'>
+export const Enqryfinal = () => {
+  return (
+    <div className='pencil'>
             <div className='h-[64px] font text-[30px] font-bold m-0 text-left pl-10 '>
                 <span className='text-white'>Dennis philipp's</span><span className='text-orange-600'> Enquiry</span>
             </div>
@@ -41,14 +41,14 @@ export const Guidcnfrmtn = () => {
                     </div>
                 
                 <div className='flex flex-col gap-6 mt-3 '>
-                <button className='bg-gray-400 w-24 h-9 rounded-lg text-white'>ENQUIRE</button>
+                <button className='bg-gray-400 w-24 h-9 rounded-lg text-white'>Rs.5000</button>
                 <button className='bg-green-500 w-24 h-9 rounded-lg text-white'>ACCEPTED</button>
                 </div>
                 <div className='flex flex-wrap'>
                 <img src={guide1} className='m-auto' alt="" srcset="" />
                 <div className='font font-bold'>Valsaraj Kumar <br />Exp:5 years</div>
                 <div className='flex flex-col gap-6 mt-3 '>
-                <button className='bg-gray-400 w-24 h-9 rounded-lg text-white'>ENQUIRE</button>
+                <button className='bg-gray-400 w-24 h-9 rounded-lg text-white'>Rs.1500</button>
                 <button className='bg-green-500 w-24 h-9 rounded-lg text-white'>STATUS</button>
                 </div>
                 </div>
@@ -65,10 +65,9 @@ export const Guidcnfrmtn = () => {
                 </div>
 
                 
-                {/* <button className='bg-orange-600 ms-72 '>CONFIRM BOOKING</button> */}
+                <button className='bg-orange-600 ms-72 '>Create Estimate</button>
 
             </div>
             </div>
-            
-            )
+  )
 }

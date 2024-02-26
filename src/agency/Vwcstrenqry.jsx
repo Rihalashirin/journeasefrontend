@@ -1,5 +1,6 @@
 import React from 'react'
 import seaview from './images/seaview.png'
+import adventure from './images/adventure.png'
 
 export const Vwcstrenqry = () => {
   return (
@@ -41,6 +42,14 @@ export const Vwcstrenqry = () => {
                 <button className='bg-gray-400 w-20 h-9 rounded-lg text-white'>STATUS</button>
                 </div>
                 <button className='bg-orange-600 w-32 h-9 rounded-lg'>ASSIGN GUIDE</button>
+                <button className='bg-orange-600 w-32 h-9 rounded-lg'>ASSIGN A HA</button>
+                </div>
+                <div className='text-[20px]'>
+                Adventure Chosen </div><br/>
+                <div className='flex flexwrap  justify-start '>
+                <img src={adventure} alt="" srcset="" />
+                <div className='pt-10'>Bungee Jumping <br />3000-5000/Head</div>
+                {/* <div className='font text-[10px] pt-16 '>3000-5000/Head</div> */}
                 </div>
 
                 
