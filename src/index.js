@@ -45,6 +45,21 @@ import { Resortmngprice } from './resort/Resortmngprice';
 import { Navguide } from './guide/Navguide';
 import { Guidehome } from './guide/Guidehome';
 import { Guidemngenqry } from './guide/Guidemngenqry';
+import { Guidemngwage } from './guide/Guidemngwage';
+import { Photosupload } from './guide/Photosupload';
+import { Navuser } from './user/Navuser';
+import { Userhome } from './user/Userhome';
+import { Plantrip } from './user/Plantrip';
+import { Planpkg } from './user/Planpkg';
+import { Vwpkgdetail } from './user/Vwpkgdetail';
+import { Selectresort } from './user/Selectresort';
+import { Uservwresortdetail } from './user/Uservwresortdetail';
+import { Selectguide } from './user/Selectguide';
+import { Selectadventure } from './user/Selectadventure';
+import { Notification } from './user/Notification';
+import { Vwnotificatn } from './user/Vwnotificatn';
+import { Userpayment } from './user/Userpayment';
+import { Paysuccess } from './user/Paysuccess';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -66,6 +81,25 @@ root.render(
      <Route path='/guide' element={<Navguide/>}>
       <Route index element={<Guidehome/>}/>
       <Route path='guidemngenqry' element={<Guidemngenqry/>}/>
+      <Route path='guidemngwage' element={<Guidemngwage/>}/>
+      <Route path='photoupload' element={<Photosupload/>}/>
+
+      </Route>
+      
+
+      <Route path='/user' element={<Navuser/>}>
+        <Route index element={<Userhome/>}/>
+        <Route path='plantrip' element={<Plantrip/>}/>
+        <Route path='planpkg' element={<Planpkg/>}/>
+        <Route path='vwdetailpkg' element={<Vwpkgdetail/>}/>
+        <Route path='Accomodatn' element={<Selectresort/>}/>
+        <Route path='vwresortdet' element={<Uservwresortdetail/>}/>
+        <Route path='chooseguide' element={<Selectguide/>}/>
+        <Route path='selectadventure' element={<Selectadventure/>}/>
+        <Route path='notificatn' element={<Notification/>}/>
+        <Route path='vwnotificatn' element={<Vwnotificatn/>}/>
+        <Route path='userpay' element={<Userpayment/>}/>
+        <Route path='paysucccess' element={<Paysuccess/>}/>
 
       </Route>
 

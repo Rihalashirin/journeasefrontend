@@ -1,10 +1,9 @@
 import React from 'react'
 
-export const Resortmngprice = () => {
+export const Guidemngwage = () => {
   return (
-    <div>
-        <div className='resorthome h-screen w-[100%] '>
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg pt-10">
+    <div className='guidehome'>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg pt-10">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs bg-gray-800 text-white uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -12,10 +11,10 @@ export const Resortmngprice = () => {
                    Enquiriy Name
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Stay Duration
+                    Trip Duration
                 </th>
                 <th scope="col" class="px-6 py-3">
-                   Room Type
+                   Location
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Guest Count
@@ -35,14 +34,14 @@ export const Resortmngprice = () => {
                    10/02/2024-14/02/2024
                 </td>
                 <td class="px-6 py-4">
-                  Luxury
+                  Delhi
                 </td>
                 <td class="px-6 py-4">
                     4
                 </td>
                
                 <td class="px-3 py-4 flex flex-wrap flex-col gap-2 text-center">
-                    <a href="#" class="font-bold text-sm text-black bg-gray-400 hover:underline hover:bg-gray p-1">Enter Price</a>
+                    <a href="#" class="font-bold text-sm text-black bg-gray-400 hover:underline hover:bg-gray p-1">Enter Wage</a>
                     <a href="#" class="font-bold text-sm text-black bg-green-600 hover:underline hover:bg-orange-600 p-1" >Accept</a>
                 </td>
                 
@@ -123,6 +122,6 @@ export const Resortmngprice = () => {
     </table>
 </div>
 </div>
-    </div>
+    
   )
 }

@@ -9,6 +9,9 @@ export const Resorthome = () => {
   return (
     <div>
     <div className='resorthome h-screen w-[100%] '>
+    <div className=' font text-[30px] font-bold pl-5 pt-6'>
+            <span className='text-white'>Welcome,</span><span className='text-orange-600'> Resort Owner</span>
+          </div>
          <div className='flex gap-8 items-center justify-center pt-52 flex-wrap'>
         <div className='font'>
          <img src={bookicon} alt="" className='w-28 h-28' srcset="" />

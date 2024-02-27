@@ -14,7 +14,7 @@ export const Guidemngenqry = () => {
                     Trip Duration
                 </th>
                 <th scope="col" class="px-6 py-3">
-                   Room Type
+                   Location
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Guest Count
@@ -34,7 +34,7 @@ export const Guidemngenqry = () => {
                    10/02/2024-14/02/2024
                 </td>
                 <td class="px-6 py-4">
-                  Luxury
+                  Delhi
                 </td>
                 <td class="px-6 py-4">
                     4
@@ -124,3 +124,4 @@ export const Guidemngenqry = () => {
 </div>
   )
 }
+ 

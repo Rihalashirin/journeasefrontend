@@ -12,7 +12,7 @@ export const Resortmngenqry = () => {
                    Enquiriy Name
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Trip Duration
+                    Stay Duration
                 </th>
                 <th scope="col" class="px-6 py-3">
                    Room Type

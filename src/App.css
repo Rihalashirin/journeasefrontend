@@ -123,3 +123,16 @@ a{
     height: 40rem;
 
 }
+.userhome{
+    background-image: url('./user/User-Home.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 60rem;
+
+}
+.borderDown{
+    border-bottom: 2px solid black;
+}
+.borderLeft{
+    border-left: 2px solid #000;
+}
