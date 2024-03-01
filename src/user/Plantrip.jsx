@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export const Plantrip = () => {
   return (
@@ -20,7 +21,7 @@ export const Plantrip = () => {
             
             </div>
             <div className='flex justify-center'>
-            <button className='bg-orange-600 rounded-lg w-28 h-5 text-white  '>Next</button>
+           <Link to='/user/planpkg'> <button className='bg-orange-600 rounded-lg w-28 h-5 text-white  '>Next</button></Link>
             </div>
             </div>
 

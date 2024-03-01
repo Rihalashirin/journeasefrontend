@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export const Selectguide = () => {
   return (
@@ -97,8 +98,8 @@ export const Selectguide = () => {
   
 
           </div>
-          <div className='flex flex-wrap gap-11  justify-center m-7 '><button className='bg-orange-600 text-white rounded-lg w-40'>GO BACK</button>
-            <button className='bg-orange-600 text-white rounded-lg w-40'>PROCEED</button></div>
+          <Link to='/user/vwresortdet'></Link><div className='flex flex-wrap gap-11  justify-center m-7 '><button className='bg-orange-600 text-white rounded-lg w-40'>GO BACK</button>
+          <Link to='/user/selectadventure'> <button className='bg-orange-600 text-white rounded-lg w-40'>PROCEED</button></Link> </div>
         
 
     </div>

@@ -23,7 +23,10 @@ export const Booking = () => {
                     Resort
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Reviews
+                    Reviews-Resort
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Reviews-Package
                 </th>
             </tr>
         </thead>
@@ -40,6 +43,9 @@ export const Booking = () => {
                 </td>
                 <td class="px-6 py-4 text-black">
                    seav view 
+                </td>
+                <td class="px-6 py-4">
+                    review description
                 </td>
                 <td class="px-6 py-4">
                     review description

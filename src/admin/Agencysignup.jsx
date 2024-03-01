@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export const Agencysignup = () => {
   return (
@@ -16,7 +17,7 @@ export const Agencysignup = () => {
       <div className='w-[90%] h-16 bg-white ms-16 me-10 rounded-lg flex flex-wrap flex-row justify-between items-center pl-5 pr-8'>
       <div className='font text-black'>Well Trip Planners</div>
         <div className='font text-black'>Kerala</div>
-        <button className='font bg-orange-600 rounded-lg text-white '>View Details</button>
+        <Link to='/admin/vwandacceptagency'><button className='font bg-orange-600 rounded-lg text-white '>View Details</button></Link>
       </div></div>
   </div>
   )

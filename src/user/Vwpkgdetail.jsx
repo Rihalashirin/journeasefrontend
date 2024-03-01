@@ -1,5 +1,6 @@
 import React from 'react'
 import delhi from './delhi.png'
+import { Link } from 'react-router-dom'
 
 export const Vwpkgdetail = () => {
   return (
@@ -25,8 +26,9 @@ export const Vwpkgdetail = () => {
             <span>Discover Delhi's architectural heritage with a visit to the exquisite Humayun's Tomb, a masterpiece of Mughal architecture. Explore the Qutub Minar complex, marveling at the soaring minaret and the ancient iron pillar. This day offers a fascinating journey through the city's historical and artistic gems</span>
             <div className='font underline'>Day 4: Leisure and Departure</div>
             <p>Spend your final day at leisure, perhaps exploring local markets or indulging in optional activities. Bid farewell to Delhi, cherishing the memories of your "Delhi Delight" experience. Depart with a newfound appreciation for the city's cultural richness and historical grandeur</p>
-            <div className='flex flex-wrap gap-11  m-auto '><button className='bg-orange-600 text-white rounded-lg w-40'>GO BACK</button>
-            <button className='bg-orange-600 text-white rounded-lg w-40'>PROCEED</button></div>
+            <div className='flex flex-wrap gap-11  m-auto '>
+              <Link to='/user/planpkg'><button className='bg-orange-600 text-white rounded-lg w-40'>GO BACK</button></Link>
+          <Link to='/user/Accomodatn'> <button className='bg-orange-600 text-white rounded-lg w-40'>PROCEED</button></Link> </div>
 </div></div></div></div>
     
   )

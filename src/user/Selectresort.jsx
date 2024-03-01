@@ -1,6 +1,7 @@
 import React from 'react'
 import seaview from './seaview.png'
 import delux from './deluxmotel.png'
+import { Link } from 'react-router-dom'
 
 export const Selectresort = () => {
   return (
@@ -11,7 +12,7 @@ export const Selectresort = () => {
           <div className='flex flex-wrap sm:gap-5  '>
                 <div className=' pt-28 text-center text-white '>
                     <img src={seaview} className='m-auto' alt="" srcset="" />
-                    <div className='font font-bold'>Hotel Sea View</div>
+                   <Link to='/user/vwresortdet'> <div className='font font-bold'>Hotel Sea View</div></Link>
                 </div>
                 <div className=' pt-28 text-center text-white '>
                     <img src={delux} className='m-auto' alt="" srcset="" />

@@ -20,7 +20,10 @@ export const Guidemngwage = () => {
                     Guest Count
                 </th>
                 <th scope="col" class="px-6 py-3">
-                  Action
+                    Status
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Action 
                 </th>
                
             </tr>
@@ -39,9 +42,12 @@ export const Guidemngwage = () => {
                 <td class="px-6 py-4">
                     4
                 </td>
+                <td class="px-6 py-4">
+                    pending
+                </td>
                
                 <td class="px-3 py-4 flex flex-wrap flex-col gap-2 text-center">
-                    <a href="#" class="font-bold text-sm text-black bg-gray-400 hover:underline hover:bg-gray p-1">Enter Wage</a>
+                    <a href="#" class="font-bold text-sm text-black bg-gray-400 hover:underline hover:bg-gray p-1"><input type="text"placeholder='enter wage' /></a>
                     <a href="#" class="font-bold text-sm text-black bg-green-600 hover:underline hover:bg-orange-600 p-1" >Accept</a>
                 </td>
                 

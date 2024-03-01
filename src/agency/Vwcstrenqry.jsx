@@ -1,10 +1,11 @@
 import React from 'react'
 import seaview from './images/seaview.png'
 import adventure from './images/adventure.png'
+import { Link } from 'react-router-dom'
 
 export const Vwcstrenqry = () => {
   return (
-    <div className='pencil'>
+    <div className='pencillengthy'>
         <div className='h-[64px] font text-[30px] font-bold m-0 text-left pl-10 '>
             <span className='text-white'>Dennis philipp's</span><span className='text-orange-600'> Enquiry</span>
           </div>
@@ -32,6 +33,10 @@ export const Vwcstrenqry = () => {
                 Package info </div><br/>
                 </div>
              <div>  Delhi Delight</div><br/>
+             <div className='flex flex-wrap gap-10'>
+              <div>Guide : yes</div>
+              <div>Health Assistant : yes</div>
+             </div>
                <div className='text-[20px]'>
                 Accomodation Chosen </div><br/>
                 <div className='flex flexwrap  justify-between '>
@@ -41,7 +46,7 @@ export const Vwcstrenqry = () => {
                 <button className='bg-yellow-500 w-20 h-9 rounded-lg text-white'>ENQUIRE</button>
                 <button className='bg-gray-400 w-20 h-9 rounded-lg text-white'>STATUS</button>
                 </div>
-                <button className='bg-orange-600 w-32 h-9 rounded-lg'>ASSIGN GUIDE</button>
+               <Link to='/agency/assignguide'> <button className='bg-orange-600 w-32 h-9 rounded-lg'>ASSIGN GUIDE</button></Link>
                 <button className='bg-orange-600 w-32 h-9 rounded-lg'>ASSIGN A HA</button>
                 </div>
                 <div className='text-[20px]'>

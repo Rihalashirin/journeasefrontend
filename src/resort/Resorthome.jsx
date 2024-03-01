@@ -4,6 +4,7 @@ import bookicon from './bookingicon.png'
 import enqryicon from './enqryicon.png'
 import reviewicon from './reviewsicon.png'
 import profileicon from './profileicon.png'
+import { Link } from 'react-router-dom'
 
 export const Resorthome = () => {
   return (
@@ -13,12 +14,16 @@ export const Resorthome = () => {
             <span className='text-white'>Welcome,</span><span className='text-orange-600'> Resort Owner</span>
           </div>
          <div className='flex gap-8 items-center justify-center pt-52 flex-wrap'>
-        <div className='font'>
-         <img src={bookicon} alt="" className='w-28 h-28' srcset="" />
-         </div>
-         <img src={enqryicon} alt="" className='w-28 h-28' srcset="" />
-         <img src={reviewicon} alt="" className='w-28 h-28' srcset="" />
-         <img src={profileicon} alt="" className='w-28 h-28' srcset="" />
+        <Link to='/resort/resortvwbooking'><div className='font text-white text-center'>
+         <img src={bookicon} alt="" className='w-28 h-28 font ' srcset="" />
+         Bookings
+         </div></Link>
+        <Link to='/resort/resortmngenqry'><div className='font text-white text-center'> <img src={enqryicon} alt="" className='w-28 h-28' srcset="" />
+         Enquiries</div></Link>
+         <Link to='/resort/resortvwreview'><div className='font text-white text-center'><img src={reviewicon} alt="" className='w-28 h-28' srcset="" />
+         Reviews   </div></Link>
+       <Link to='/resort/resortprofile'> <div className='font text-white text-center'> <img src={profileicon} alt="" className='w-28 h-28' srcset="" />
+         Edit profile </div></Link>
          </div>
          </div>
     </div>

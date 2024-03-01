@@ -12,7 +12,7 @@ export const Detlguide = () => {
             <img src={guide1} alt="" srcset="" />
             <div className='font font-bold text-white'>Valsaraj Kumar <br />Exp:5 years</div>
             </div>
-            <button className='bg-orange-600'>Request</button>
+            <button className='bg-orange-600'>ENQUIRE</button>
 
         </div>
     </div>

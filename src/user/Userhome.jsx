@@ -1,4 +1,8 @@
 import React from 'react'
+import plantrip from './PlanTripIcon.png'
+import notificatn from './NotificationIcon.png'
+import reviews from './reviewsicon.png'
+import { Link } from 'react-router-dom'
 
 export const Userhome = () => {
   return (
@@ -7,9 +11,9 @@ export const Userhome = () => {
             <span className='text-white'>Welcome,</span><span className='text-orange-600'> Rihala</span>
           </div>
          <div className='flex flex-wrap gap-20 justify-center items-center  h-[80%]  font text-white '>
-        <div><img src="/images/Rectangle 516.png" alt="" className='w-20' />Plan a Trip</div>
-         <div> <img src="/images/Rectangle 517.png" alt="" className='w-20'/>Notifications</div> 
-            <div> <img src="/images/Rectangle 518.png" alt="" className='w-20' />Add Reviews</div> 
+       <Link to='/user/plantrip'> <div><img src={plantrip} alt="" className='w-20' />Plan a Trip</div></Link>
+        <Link to='/user/notificatn'> <div> <img src={notificatn} alt="" className='w-20'/>Notifications</div> </Link>
+            <Link to='/user/addreview' ><div> <img src={reviews} alt="" className='w-20' />Add Reviews</div></Link> 
   
       </div>
     </div>

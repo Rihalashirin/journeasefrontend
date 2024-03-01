@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export const Guidemngenqry = () => {
   return (
@@ -20,6 +21,9 @@ export const Guidemngenqry = () => {
                     Guest Count
                 </th>
                 <th scope="col" class="px-6 py-3">
+                    Status
+                </th>
+                <th scope="col" class="px-6 py-3">
                   Action
                 </th>
                
@@ -39,9 +43,12 @@ export const Guidemngenqry = () => {
                 <td class="px-6 py-4">
                     4
                 </td>
+                <td class="px-6 py-4">
+                   pending
+                </td>
                
                 <td class="px-3 py-4 flex flex-wrap flex-col gap-2 text-center">
-                    <a href="#" class="font-bold text-sm text-black bg-green-600 hover:underline hover:bg-gray p-1">Accept</a>
+                 <Link to='/guide/guidemngwage'>  <a href="#" class="font-bold text-sm text-black bg-green-600 hover:underline hover:bg-gray p-1">Accept</a></Link> 
                     <a href="#" class="font-bold text-sm text-black bg-red-600 hover:underline hover:bg-orange-600 p-1" >Reject</a>
                 </td>
                 

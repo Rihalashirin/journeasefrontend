@@ -2,6 +2,7 @@ import React from 'react'
 import seaview from './images/seaview.png'
 import delux from './images/deluxmotel.png'
 import crescent from './images/crescentarcade.png'
+import { Link } from 'react-router-dom'
 
 export const Addpkg1 = () => {
     return (
@@ -39,10 +40,10 @@ export const Addpkg1 = () => {
                 </div>
 
             </div>
-                <div className='text-center text-white rounded-lg bg-orange-600 w-20 ms-[35rem]  mt-12'>
+              <Link to='/agency/adventure'> <div className='text-center text-white rounded-lg bg-orange-600 w-20 ms-[35rem]  mt-12'>
                     <input type="submit" value="SAVE" name="" id="" />
 
-                    <button><img src="" alt="" srcset="" /></button> </div>
+                    <button><img src="" alt="" srcset="" /></button> </div></Link> 
         </div>
     )
 }

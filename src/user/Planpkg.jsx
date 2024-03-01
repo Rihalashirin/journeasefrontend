@@ -1,6 +1,7 @@
 import React from 'react'
 import delhi from './delhi.png'
 import agency2 from './agency2.png'
+import { Link } from 'react-router-dom'
 
 export const Planpkg = () => {
   return (
@@ -11,8 +12,8 @@ export const Planpkg = () => {
       <div className='flex flex-wrap gap-9'>
         <div className='flex flex-wrap sm:gap-5  '>
           <div className=' pt-28 text-center text-white '>
-            <img src={delhi} className='m-auto' alt="" srcset="" />
-            <div className='font font-bold'>Weltrip Planners <br />Delhi 4D</div>
+           <Link to='/user/vwdetailpkg'><img src={delhi} className='m-auto' alt="" srcset="" /></Link> 
+            <Link to='/user/vwpkgreview'><div className='font font-bold'>Weltrip Planners <br />Delhi 4D</div></Link>
           </div>
 
 

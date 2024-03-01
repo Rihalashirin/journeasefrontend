@@ -5,7 +5,7 @@ export const Rgstrresort = () => {
   return (
     <div className='bg-[#1a2954d6] h-[467px]'>
         <div className='h-[64px] font text-[30px] font-bold m-0 text-left pl-10 '>
-    <span className='text-white'>Resgister as a </span><span className='text-orange-600'>Resort Facility</span>
+    <span className='text-white'>Update</span><span className='text-orange-600'>Profile</span>
   </div>
   <form class="w-[100%] ">
 
@@ -70,7 +70,7 @@ export const Rgstrresort = () => {
         <div class="flex flex-wrap mb-5 mt-8">
     
   {/* <button type="submit" class="text-white m-auto m-a bg-red-800 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update</button> */}
-  <button type="submit" class="text-white m-auto m-a bg-orange-600 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-2xl text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><img src={arrow} alt="" srcset="" /></button>
+  <button type="submit" class="text-white m-auto m-a bg-orange-600 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-2xl text-sm px-3 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><img className='w-[35px]' src={arrow} alt="" srcset="" /></button>
   </div>
       </form>
     </div>
