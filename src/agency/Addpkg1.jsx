@@ -1,22 +1,48 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import seaview from './images/seaview.png'
 import delux from './images/deluxmotel.png'
 import crescent from './images/crescentarcade.png'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 export const Addpkg1 = () => {
+    const [data,setData]=useState('')
+    const [resortData,setResortdata]=useState([''])
+    
+    
+useEffect(()=>{
+    let fetchdata=async ()=>{
+        let response=await axios.get(`http://localhost:4000/agency/findresort`)
+        console.log(response.data)
+        setResortdata(response.data)
+    }
+    fetchdata()
+},[])
+    
+    
+     
+    let handleChange=(event)=>{
+        setData({...data,[event.target.name]:event.target.value})
+    }
+    let handleSubmit=async (event)=>{
+        event.preventDefault()
+       let response=await axios.post('http://localhost:4000/user',data)
+       console.log(response);
+        
+    }
     return (
+        
         <div className='bg-[#1a2954d6] h-screen' >
             <div className='h-[64px] font text-[30px] font-bold m-0 text-left pl-10 '>
-                <span className='text-white'>Select</span><span className='text-orange-600'> Accodomation option</span>
+                <span className='text-white'>Select</span><span className='text-orange-600'> Accomodation option</span>
             </div>
-            <form class="flex items-center max-w-sm mx-auto">
+            <form onSubmit={handleSubmit} class="flex items-center max-w-sm mx-auto">
                 <label for="simple-search" class="sr-only">Search</label>
                 <div class="relative w-full">
                     <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
 
                     </div>
-                    <input type="text" id="simple-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search a Location..." required />
+                    <input onChange={handleChange} type="text" id="simple-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search a Location..." required />
                 </div>
                 <button type="submit" class="p-2.5 ms-2 text-sm font-medium text-white bg-orange-600 rounded-lg border border-blue-700 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -26,18 +52,15 @@ export const Addpkg1 = () => {
                 </button>
             </form>
             <div className='flex flex-wrap sm:gap-5  '>
-                <div className=' pt-28 text-center text-white '>
+
+                {resortData.map((item)=>(
+                    <div className=' pt-28 text-center text-white '>
                     <img src={seaview} className='m-auto' alt="" srcset="" />
-                    <div className='font font-bold'>Hotel Sea View</div>
+                    <div className='font font-bold'>{item.propertyName}</div>
                 </div>
-                <div className=' pt-28 text-center text-white '>
-                    <img src={delux} className='m-auto' alt="" srcset="" />
-                    <div className='font font-bold'>Delux Motel</div>
-                </div>
-                <div className=' pt-28 text-center text-white '>
-                    <img src={crescent} className='m-auto' alt="" srcset="" />
-                    <div className='font font-bold'>Crescent Arcade</div>
-                </div>
+                ))}
+                
+             
 
             </div>
               <Link to='/agency/adventure'> <div className='text-center text-white rounded-lg bg-orange-600 w-20 ms-[35rem]  mt-12'>
@@ -45,5 +68,6 @@ export const Addpkg1 = () => {
 
                     <button><img src="" alt="" srcset="" /></button> </div></Link> 
         </div>
+       
     )
 }

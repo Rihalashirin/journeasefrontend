@@ -16,11 +16,11 @@ export const Home = () => {
           </div>
 
       <div className='flex flex-wrap gap-20 justify-center items-center  h-[80%]  font text-white '>
-        <Link to='/agency/addpkg'><div><img src={addpkg} alt="" className='w-20 ' />Add Package</div></Link>
-        <Link to='/agency/vwpkg'> <div> <img src={vwpkg} alt="" className='w-20 '/>View Package</div> </Link>
-          <Link to='/agency/cstmrenqry'> <div> <img src={mngenqry} alt="" className='w-20 ' />Customer Enquiries</div> </Link> 
-           <Link to='/agency/vwreviewagency'><div> <img src={revws} alt="" className='w-20' />Customer Reviews</div> </Link> 
-           <Link to='/agency/vwissuesagency'><div> <img src={uploads} alt="" className='w-20' />Guide Uploads</div></Link>
+        <Link to='/agency/addpkg'><div className='flex flex-col items-center gap-2'><img src={addpkg} alt="" className='w-20 ' /><p>Add Package</p></div></Link>
+        <Link to='/agency/vwpkg'> <div className='flex flex-col items-center gap-2'> <img src={vwpkg} alt="" className='w-20 '/><p>View Package</p></div> </Link>
+          <Link to='/agency/cstmrenqry'> <div className='flex flex-col items-center gap-2'> <img src={mngenqry} alt="" className='w-20 ' /><p>Customer Enquiries</p></div> </Link> 
+           <Link to='/agency/vwreviewagency'><div className='flex flex-col items-center gap-2'> <img src={revws} alt="" className='w-20' /><p>Customer Reviews</p></div> </Link> 
+           <Link to='/agency/vwissuesagency'><div className='flex flex-col items-center gap-2'> <img src={uploads} alt="" className='w-20' /><p>Guide Uploads</p></div></Link>
           
 
       </div>

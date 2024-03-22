@@ -1,15 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import arrow from './images/Arrow.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios'
+
 
 export const Addpkg = () => {
+  const navigate=useNavigate()
+  const [data,setData]=useState('')
+    
+    
+     
+  let handleChange=(event)=>{
+      setData({...data,[event.target.name]:event.target.value})
+      console.log(data);
+  }
+  let handleSubmit=async (event)=>{
+      event.preventDefault()
+     let response=await axios.post('http://localhost:4000/agency/package',data)
+     console.log(response);
+
+      navigate('/agency/addpkg1')
+  }
   return (
     <div className='bg-[#1a2954d6] h-[467px]' >
          <div className='h-[64px] font text-[30px] font-bold m-0 text-left pl-10 '>
             <span className='text-white'>Add a </span><span className='text-orange-600'> Package</span>
           </div>
           
-   
+   <form onSubmit={handleSubmit}>
 <div class="min-h-screen p-6 bg-[#1a2954d6] flex items-center justify-center">
   <div class="container max-w-screen-lg mx-auto">
     <div>
@@ -27,25 +45,29 @@ export const Addpkg = () => {
             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
               <div class="md:col-span-5">
                 <label for="full_name">Package Name</label>
-                <input type="text" name="" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
+                <input onChange={handleChange} type="text" name="packageName" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
               </div>
               <div class="md:col-span-5">
                 <label for="full_name">Location</label>
-                <input type="text" name="" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
+                <input onChange={handleChange} type="text" name="location" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
+              </div>
+              <div class="md:col-span-5">
+                <label for="destination">Destination</label>
+                <input onChange={handleChange} type="text" name="destination" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
               </div>
 
               <div class="md:col-span-5">
                 <label for="email">Cover Image</label>
-                <input type="file" name="email" id="email" class="h-10 border mt-1 w-60 rounded px-4 ms-6 bg-gray-50"  placeholder="email@domain.com" />
+                <input onChange={handleChange} type="file" name="coverImage" id="email" class="h-10 border mt-1 w-60 rounded px-4 ms-6 bg-gray-50"  placeholder="email@domain.com" />
               </div>
 
               <div class="md:col-span-3">
-                <label for="address">No of days</label>
-                <input type="text" name="address" id="address" class="h-10 border mt-1 rounded px-4 bg-gray-50 ms-6" value="" placeholder="" />
+                <label for="days">No of days</label>
+                <input onChange={handleChange} type="text" name="noOfDays" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
               </div>
               <div class="md:col-span-5">
                 <label for="email">upload Brochure</label>
-                <input type="file" name="email" id="email" class="h-10 border mt-1 w-60 rounded px-4 ms-6 bg-gray-50" value="" placeholder="email@domain.com" />
+                <input onChange={handleChange} type="file" name="uploadBrochure" id="brochure" class="h-10 border mt-1 w-60 rounded px-4 ms-6 bg-gray-50"   />
               </div>
 
               {/* <div class="md:col-span-2">
@@ -116,16 +138,16 @@ export const Addpkg = () => {
       <div class="md:col-span-5">
                 <label for="full_name">Basic Description</label>
                 {/* <input type="text" name="" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" /> */}
-                <textarea name="" id="" cols="30" rows="10"></textarea>
+                <textarea onChange={handleChange} name="basicDescription" id="" cols="30" rows="10"></textarea>
               </div>
               <div class="md:col-span-5">
                 <label for="full_name">Detailed Information</label>
                 {/* <input type="text" name="" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" /> */}
-                <textarea name="" id="" cols="30" rows="10"></textarea>
+                <textarea onChange={handleChange} name="detailedDescription" id="" cols="30" rows="10"></textarea>
               </div>
               <div class="md:col-span-5 text-right">
                 <div class="inline-flex items-end">
-                <Link to='/agency/addpkg1'> <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button></Link> 
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
                 </div>
               </div>
               
@@ -143,7 +165,7 @@ export const Addpkg = () => {
 </div>
                    
                     
-                    
+</form>                  
 
     </div>
   )

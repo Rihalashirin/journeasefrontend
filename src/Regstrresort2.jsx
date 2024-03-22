@@ -1,6 +1,32 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useState } from 'react'
 
 export const Regstrresort2 = () => {
+  const [Gym,setGym]=useState(false)
+  const [luxury,setluxury]=useState(false)
+  const [standard,setstandard]=useState(false)
+  console.log(Gym);
+  console.log(luxury);
+  // const [data,setData]=useState('')
+    
+    
+     
+        let handleChangeLuxury=(event,data)=>{
+          setGym({...Gym,luxury:!luxury})
+          setluxury(!luxury)
+        }
+     
+        let handleChangeStandard=(event)=>{
+          setGym({...Gym,standard:!standard})
+          setstandard(!standard)
+        }
+        let handleSubmit=async (event)=>{
+            event.preventDefault()
+    
+           let response=await axios.post('http://localhost:4000/resort/facilities',Gym)
+           console.log(response);
+            
+        }
   return (
     <div>
         <div className='bg-[#1a2954d6] h-[467px]'>
@@ -25,8 +51,8 @@ export const Regstrresort2 = () => {
   <tbody>
     <tr>
       <td className='text-center'>GYM</td>
-      <td className='borderLeft text-center '><input type='checkbox'></input></td>
-      <td className='borderLeft text-center '><input type='checkbox'></input></td>
+      <td className='borderLeft text-center '><input onChange={handleChangeLuxury} name='luxury' type='checkbox'></input></td>
+      <td className='borderLeft text-center '><input onChange={handleChangeStandard} name='standard' type='checkbox'></input></td>
     </tr>
     <tr>
       <td className='text-center'>SPA</td>
@@ -72,7 +98,7 @@ export const Regstrresort2 = () => {
   
 </table>
 <div className='text-center m-7'>
-<button type="submit" class="text-white m-auto m-a bg-orange-600 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-2xl  px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ">SUBMIT</button>
+<button onClick={handleSubmit} type="submit" class="text-white m-auto m-a bg-orange-600 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-2xl  px-3 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ">SUBMIT</button>
 </div>
 </div>
     </div>

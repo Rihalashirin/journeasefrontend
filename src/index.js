@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navigation } from './Navigation';
 import Landing from './Landing';
 import Login from './Login';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { BrowserRouter,Routes,Route} from 'react-router-dom'
 import { Rgstrn } from './agency/Rgstrn';
 import{ Navhome } from './agency/Navhome';
@@ -77,6 +78,8 @@ import { Vwreviewagency } from './agency/Vwreviewagency';
 import { Vwphotoagency } from './agency/Vwphotoagency';
 import { Proagencyupdate } from './agency/Proagencyupdate';
 import { Vwissuesagency } from './agency/Vwissuesagency';
+import { Reguser } from './Reguser';
+import { Vwdetailresort } from './agency/Vwdetailresort';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -91,6 +94,7 @@ root.render(
      <Route path='/regresort' element={<Rgstrresort/>}/>
      <Route path='/regresort1' element={<Regresort1/>}/>
      <Route path='/regresort2' element={<Regstrresort2/>}/>
+     <Route path='/userRegister' element={<Reguser/>}/>
     </Route>
 
     
@@ -150,6 +154,7 @@ root.render(
         <Route path='vwphoto' element={<Vwphotoagency/>}/>
         <Route path='updateproagency' element={<Proagencyupdate/>}/>
         <Route path='vwissuesagency' element={<Vwissuesagency/>}/>
+        <Route path='vwresortdetail' element={<Vwdetailresort/>}/>
     
     
 

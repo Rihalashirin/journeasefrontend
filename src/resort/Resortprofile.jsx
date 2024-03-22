@@ -3,6 +3,7 @@ import arrow from './Arrow.png'
 import { Link } from 'react-router-dom'
 
 export const Resortprofile = () => {
+  
   return (
     <div className='bg-[#1a2954d6] h-[467px]'>
     <div className='h-[64px] font text-[30px] font-bold m-0 text-left pl-10 '>

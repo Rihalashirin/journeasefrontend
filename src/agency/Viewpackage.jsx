@@ -1,10 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import delhi from './images/delhi.png'
 import manali from './images/manali.png'
 import kashmir from './images/kashmir.png'
 import goa from './images/goa.png'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 export const Viewpackage = () => {
+  const [data,setData]=useState('')
+
+  useEffect(()=>{
+    let fetchdata=async ()=>{
+      let {id}=localStorage.getItem('id')
+        // let response=await axios.get(`http://localhost:4000/agency/vwpkgagency/${id}`)
+    //     console.log(response.data)
+    //     setData(response.data)
+    }
+    fetchdata()
+},[])
+
   return (
     <div className='pencil'>
       <div className='h-[64px] font text-[30px] font-bold m-0 text-left pl-10 '>
