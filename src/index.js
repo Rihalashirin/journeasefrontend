@@ -33,7 +33,7 @@ import { Resorthome } from './resort/Resorthome';
 import { Navresort } from './resort/Navresort';
 import { Rgstrresort } from './Rgstrresort';
 import { Regresort1 } from './Regresort1';
-import { Regstrresort2 } from './Regstrresort2';
+
 import { Viewagency } from './admin/Viewagency';
 import { Viewresort } from './admin/Viewresort';
 import { Addpkg3 } from './agency/Addpkg3';
@@ -80,6 +80,9 @@ import { Proagencyupdate } from './agency/Proagencyupdate';
 import { Vwissuesagency } from './agency/Vwissuesagency';
 import { Reguser } from './Reguser';
 import { Vwdetailresort } from './agency/Vwdetailresort';
+import { Adventureadd } from './agency/Adventureadd';
+import { Addfacility } from './resort/Addfacility';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -93,7 +96,7 @@ root.render(
      <Route path='/guideregister' element={<Rgstrguide/>}/>
      <Route path='/regresort' element={<Rgstrresort/>}/>
      <Route path='/regresort1' element={<Regresort1/>}/>
-     <Route path='/regresort2' element={<Regstrresort2/>}/>
+    
      <Route path='/userRegister' element={<Reguser/>}/>
     </Route>
 
@@ -154,7 +157,8 @@ root.render(
         <Route path='vwphoto' element={<Vwphotoagency/>}/>
         <Route path='updateproagency' element={<Proagencyupdate/>}/>
         <Route path='vwissuesagency' element={<Vwissuesagency/>}/>
-        <Route path='vwresortdetail' element={<Vwdetailresort/>}/>
+        <Route path='vwresortdetail/:rid' element={<Vwdetailresort/>}/>
+        <Route path='addadventure' element={<Adventureadd/>}/>
     
     
 
@@ -172,6 +176,7 @@ root.render(
        <Route path='vwacceptresort' element={<Viewresort/>}/>
        <Route path='guidesignup' element={<Guidesignup/>}/>
        <Route path='viewguideadmin' element={<Viewguideadmin/>}/>
+      
 
     </Route>
     
@@ -182,8 +187,9 @@ root.render(
       <Route path='resortenterprice' element={<Resortmngprice/>}/>
       <Route path='resortvwreview' element={<Resortvwreview/>}/>
       <Route path='resortprofile' element={<Resortprofile/>}/>
-      <Route path='updatereg2' element={<Updatereg2/>}/>
-      <Route path='updatereg3' element={<Updatereg3/>}/>
+      <Route path='updatereg2/:id' element={<Updatereg2/>}/>
+      <Route path='updatereg3/:id' element={<Updatereg3/>}/>
+      <Route path='addfacilities' element={<Addfacility/>}/>
     </Route>
 
     

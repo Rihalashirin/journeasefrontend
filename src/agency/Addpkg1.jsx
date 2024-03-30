@@ -26,8 +26,8 @@ useEffect(()=>{
     }
     let handleSubmit=async (event)=>{
         event.preventDefault()
-       let response=await axios.post('http://localhost:4000/user',data)
-       console.log(response);
+    //    let response=await axios.post('http://localhost:4000/user',data)
+    //    console.log(response);
         
     }
     return (
@@ -55,7 +55,7 @@ useEffect(()=>{
 
                 {resortData.map((item)=>(
                     <div className=' pt-28 text-center text-white '>
-                    <img src={seaview} className='m-auto' alt="" srcset="" />
+                <Link to={ `/agency/vwresortdetail/${item._id}`} ><img src={`http://localhost:4000/uploads/${item.coverImage}`} className='m-auto w-28 rounded-lg' alt="" srcset="" /></Link>
                     <div className='font font-bold'>{item.propertyName}</div>
                 </div>
                 ))}

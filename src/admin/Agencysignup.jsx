@@ -1,7 +1,19 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import axios from 'axios'
 
 export const Agencysignup = () => {
+    const [data,setData]=useState([''])
+   
+   
+    useEffect(()=>{
+        let fetchdata = async ()=>{
+            let response=await axios.get(`http://localhost:4000/user/mngagency`)
+            console.log(response.data)
+            setData(response.data)
+        }
+        fetchdata()
+    },[])
   return (
     <div className='adminbg'>
     <div className='flex flex-col gap-2'>

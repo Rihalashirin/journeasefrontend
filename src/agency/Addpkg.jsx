@@ -5,8 +5,15 @@ import axios from 'axios'
 
 
 export const Addpkg = () => {
+  let id=localStorage.getItem('id')
   const navigate=useNavigate()
   const [data,setData]=useState('')
+
+  let handlefile=(event)=>{
+    console.log(event.target.files);
+    setData({...data,[event.target.name]:event.target.files[0]})
+    console.log(data);
+  }
     
     
      
@@ -16,11 +23,27 @@ export const Addpkg = () => {
   }
   let handleSubmit=async (event)=>{
       event.preventDefault()
-     let response=await axios.post('http://localhost:4000/agency/package',data)
-     console.log(response);
+      let formData = new FormData();
+      formData.append('packageName',data.packageName);
+      formData.append('location',data.location);
+      formData.append('destination',data.destination);
+      formData.append('coverImage',data.coverImage);
+      formData.append('noOfDays',data.noOfDays);
+      formData.append('uploadBrochure',data.uploadBrochure);
+      formData.append('basicDescription',data.basicDescription);
+      formData.append('detailedDescription',data.detailedDescription);
+      formData.append('agencyid',id);
+      setData(data)
+      console.log(data);
 
-      navigate('/agency/addpkg1')
-  }
+       let response=await axios.post('http://localhost:4000/agency/package',formData,{
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+       })
+       console.log(response.data);
+        
+    }
   return (
     <div className='bg-[#1a2954d6] h-[467px]' >
          <div className='h-[64px] font text-[30px] font-bold m-0 text-left pl-10 '>
@@ -58,7 +81,7 @@ export const Addpkg = () => {
 
               <div class="md:col-span-5">
                 <label for="email">Cover Image</label>
-                <input onChange={handleChange} type="file" name="coverImage" id="email" class="h-10 border mt-1 w-60 rounded px-4 ms-6 bg-gray-50"  placeholder="email@domain.com" />
+                <input onChange={handlefile} type="file" name="coverImage" id="email" class="h-10 border mt-1 w-60 rounded px-4 ms-6 bg-gray-50"  placeholder="email@domain.com" />
               </div>
 
               <div class="md:col-span-3">
@@ -67,7 +90,7 @@ export const Addpkg = () => {
               </div>
               <div class="md:col-span-5">
                 <label for="email">upload Brochure</label>
-                <input onChange={handleChange} type="file" name="uploadBrochure" id="brochure" class="h-10 border mt-1 w-60 rounded px-4 ms-6 bg-gray-50"   />
+                <input onChange={handlefile} type="file" name="uploadBrochure" id="brochure" class="h-10 border mt-1 w-60 rounded px-4 ms-6 bg-gray-50"   />
               </div>
 
               {/* <div class="md:col-span-2">
@@ -147,7 +170,7 @@ export const Addpkg = () => {
               </div>
               <div class="md:col-span-5 text-right">
                 <div class="inline-flex items-end">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+                <button type='submit' class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
                 </div>
               </div>
               

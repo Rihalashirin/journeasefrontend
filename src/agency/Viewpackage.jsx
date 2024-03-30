@@ -6,14 +6,17 @@ import goa from './images/goa.png'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 export const Viewpackage = () => {
+  let id=localStorage.getItem('id')
   const [data,setData]=useState('')
+  const [pkgData,setpkgData]=useState([''])
+  
 
   useEffect(()=>{
     let fetchdata=async ()=>{
-      let {id}=localStorage.getItem('id')
-        // let response=await axios.get(`http://localhost:4000/agency/vwpkgagency/${id}`)
-    //     console.log(response.data)
-    //     setData(response.data)
+      let id=localStorage.getItem('id')
+        let response=await axios.get(`http://localhost:4000/agency/vwpkgagency/${id}`)
+        console.log(response.data)
+        setData(response.data)
     }
     fetchdata()
 },[])
@@ -42,9 +45,13 @@ export const Viewpackage = () => {
 </form>
 <div >
   <div className='flex flex-wrap sm:gap-5  '>
+   {data.map((item)=>(
+    <> 
+  
   <div className=' pt-28 text-center text-white '> 
- <Link to='/agency/detailvwpkg'><img src={delhi} className='m-auto' alt="" srcset="" /></Link> 
-    <div className='font font-bold'>Delhi <br />4D</div>
+ <Link to='/agency/detailvwpkg'><img src={`http://localhost:4000/uploads/${item.coverImage}`} className='m-auto' alt="" srcset="" /></Link> 
+    <div className='font font-bold'>{item.location} <br />{item.noOfDays}</div>
+  <Link to='/agency/addadventure'> <button className='w-23 pl-2 pe-2 bg-orange-600 rounded-lg text-center ' >Add Adventure</button></Link> 
   </div>
   <div className=' pt-28 text-center text-white '> 
   <img src={manali} className='m-auto' alt="" srcset="" />
@@ -58,7 +65,8 @@ export const Viewpackage = () => {
   <img src={goa} className='m-auto' alt="" srcset="" />
     <div className='font font-bold'>Goa <br />4D</div>
   </div>
- 
+  </>
+ ))}
 </div>
 </div>
       

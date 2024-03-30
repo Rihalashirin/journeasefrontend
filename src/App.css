@@ -163,3 +163,13 @@ a{
 .selected{
     color: rgb(224, 176, 16);
 }
+.detail{
+background-color: rgb(65, 65, 243);
+width: 100%;
+/* height: 500px; */
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+padding-top: 100px;
+padding-bottom: 20px;
+}

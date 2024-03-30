@@ -4,6 +4,10 @@ import axios from 'axios'
 
 export const Rgstrn = () => {
   const [data,setData]=useState('')
+  let handlefile=(event)=>{
+    console.log(event.target.files);
+    setData({...data,[event.target.name]:event.target.files[0]})
+  }
     
     
      
@@ -11,8 +15,24 @@ export const Rgstrn = () => {
             setData({...data,[event.target.name]:event.target.value})
         }
         let handleSubmit=async (event)=>{
+          let formData = new FormData();
+          formData.append('companyName',data.companyName);
+          formData.append('licenseNumber',data.licenseNumber);
+          formData.append('officeAddress',data.officeAddress);
+          formData.append('contactNumber',data.contactNumber);
+          formData.append('licenseProof',data.licenseProof);
+          formData.append('companyLogo',data.companyLogo);
+          formData.append('email',data.email);
+          formData.append('password',data.password);
+          formData.append('userType','agency');
+          
+
             event.preventDefault()
-           let response=await axios.post('http://localhost:4000/user/registration',{...data,userType:'agency'})
+           let response=await axios.post('http://localhost:4000/user/registration',formData,{
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+           })
            console.log(response);
             
         }
@@ -49,7 +69,7 @@ export const Rgstrn = () => {
             </div>
             <div >
               <label for="licenseproof" class="block mb-2 text-sm font-medium text-white dark:text-white">Licence Proof :</label>
-              <input onChange={handleChange} value={data.proof} name="licenseProof" type="file" id="licenseproof" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required />
+              <input onChange={handlefile} value={data.proof} name="licenseProof" type="file" id="licenseproof" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required />
             </div>
           </div>
           <div className='w-[25%]'>
@@ -57,7 +77,7 @@ export const Rgstrn = () => {
             
             <div >
               <label for="logo" class="block mb-2 text-sm font-medium text-white dark:text-white">Company Logo :</label>
-              <input onChange={handleChange} value={data.companylogo} name="companyLogo" type="file" id="logo" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              <input onChange={handlefile} value={data.companylogo} name="companyLogo" type="file" id="logo" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
             <div>
               <label for="email" class="block mb-2 text-sm font-medium text-white dark:text-white">Email:</label>
@@ -65,11 +85,11 @@ export const Rgstrn = () => {
             </div>
             <div >
               <label for="password" class="block mb-2 text-sm font-medium text-white dark:text-white">Password:</label>
-              <input onChange={handleChange} value={data.password} name="password" type="password" id="password" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              <input onChange={handleChange}  name="password" type="password" id="password" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
             <div >
               <label for="password" class="block mb-2 text-sm font-medium text-white dark:text-white"> Confirm Password:</label>
-              <input onChange={handleChange} value={data.password} name="cpassword" type="password" id="password" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              <input onChange={handleChange}  name="cpassword" type="password" id="password" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
           </div>
           

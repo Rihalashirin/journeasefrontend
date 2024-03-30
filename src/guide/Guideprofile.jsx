@@ -1,18 +1,44 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 export const Guideprofile = () => {
+  let id = localStorage.getItem("id");
   const [data,setData]=useState('')
+  const [userData,setUserData] = useState('')
+  const [refresh, setrefresh] = useState(false);
     
-    
+  useEffect(() => {
+    let fetchdata = async () => {
+      let response = await axios.get(`http://localhost:4000/agency/vwagencyprofile/${id}`);
+      console.log(response.data);
+      setUserData({...response.data});
+      // setData({ ...response.data });
+    };
+    fetchdata();
+  }, [refresh]); 
      
   let handleChange=(event)=>{
       setData({...data,[event.target.name]:event.target.value})
+      console.log(data);
   }
   let handleSubmit=async (event)=>{
       event.preventDefault()
-     let response=await axios.post('http://localhost:4000/user',data)
+      const formData = new FormData();
+    for (const key in data) {
+      if (data[key]) {
+        formData.append(key, data[key]);
+        console.log(formData);
+      }
+    }
+     let response=await axios.put(`http://localhost:4000/agency/agencyeditprofile/${id}`,formData,
+     {
+      headers: {
+        "Content-Type": "multipart/form-data", // Set the content type for FormData
+      },
+    }
+     );
      console.log(response);
+     setrefresh(!refresh);
       
   }
   return (
@@ -28,50 +54,50 @@ export const Guideprofile = () => {
 
             <div >
               <label for="name" class="block mb-2 text-sm font-medium text-white dark:text-white">Name :</label>
-              <input onChange={handleChange} type="name" id="name" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required />
+              <input onChange={handleChange} placeholder={userData.name}  name='name' type="text" id="name" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
             </div>
             <div>
               <label for="age" class="block mb-2 text-sm font-medium text-white dark:text-white">Age:</label>
-              <input onChange={handleChange} type="age" id="age" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              <input onChange={handleChange} placeholder={userData.age} name='age' type="number" id="age" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
             </div>
             <div >
-              <label for="place" class="block mb-2 text-sm font-medium text-white dark:text-white">Gender:</label>
-              <input onChange={handleChange} type="place" id="place" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              <label for="gender" class="block mb-2 text-sm font-medium text-white dark:text-white">Gender:</label>
+              <input onChange={handleChange} value={userData.gender} name='gender' type="text" id="gender" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
             </div>
             <div>
-              <label for="email" class="block mb-2 text-sm font-medium text-white dark:text-white">Contact Number:</label>
-              <input onChange={handleChange} type="email" id="place" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              <label for="contactnumber" class="block mb-2 text-sm font-medium text-white dark:text-white">Contact Number:</label>
+              <input onChange={handleChange} value={userData.contactNumber} name='contactNumber' type="number" id="contactnumber" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
             </div>
             <div>
-              <label for="email" class="block mb-2 text-sm font-medium text-white dark:text-white">Location of Expertise:</label>
-              <input onChange={handleChange} type="email" id="place" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              <label for="place" class="block mb-2 text-sm font-medium text-white dark:text-white">Location of Expertise:</label>
+              <input onChange={handleChange} value={userData.locationExpertise} name='locationExpertise' type="text" id="place" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
             </div>
             <div >
-              <label for="contact" class="block mb-2 text-sm font-medium text-white dark:text-white">Address :</label>
-              <input onChange={handleChange} type="contact" id="contact" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              <label for="address" class="block mb-2 text-sm font-medium text-white dark:text-white">Address :</label>
+              <input onChange={handleChange} value={userData.address} name='address' type="text" id="address" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
             </div>
           </div>
           <div className='w-[25%]'>
 
             <div >
-              <label for="house name" class="block mb-2 text-sm font-medium text-white dark:text-white">Image :</label>
-              <input onChange={handleChange} type="file" id="house name" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required />
+              <label for="image" class="block mb-2 text-sm font-medium text-white dark:text-white">Image :</label>
+              <input onChange={handleChange}  name='image'  type="file" id="image" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder=""  />
             </div>
             <div >
-              <label for="post" class="block mb-2 text-sm font-medium text-white dark:text-white">ID Proof :</label>
-              <input onChange={handleChange} type="file" id="post" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              <label for="idproof" class="block mb-2 text-sm font-medium text-white dark:text-white">ID Proof :</label>
+              <input onChange={handleChange}  name='idProof' type="file" id="idproof" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
             </div>
             <div >
-              <label for="post" class="block mb-2 text-sm font-medium text-white dark:text-white">Experience(in years) :</label>
-              <input onChange={handleChange} type="post" id="post" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              <label for="years" class="block mb-2 text-sm font-medium text-white dark:text-white">Experience(in years) :</label>
+              <input onChange={handleChange} value={userData.experienceYears} name='experienceYears' type="text" id="years" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
             </div>
             <div>
-              <label for="pin" class="block mb-2 text-sm font-medium text-white dark:text-white">Email:</label>
-              <input onChange={handleChange} type="pin" id="pin" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              <label for="email" class="block mb-2 text-sm font-medium text-white dark:text-white">Email:</label>
+              <input onChange={handleChange} value={userData.email} name='email' type="email" id="email" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
             </div>
             <div >
-              <label for="district" class="block mb-2 text-sm font-medium text-white dark:text-white">Password:</label>
-              <input onChange={handleChange} type="district" id="district" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              <label for="password" class="block mb-2 text-sm font-medium text-white dark:text-white">Password:</label>
+              <input onChange={handleChange} value={userData.password} name='password' type="password" id="password" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
             </div>
           </div>
           

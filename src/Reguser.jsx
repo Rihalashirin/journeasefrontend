@@ -5,6 +5,10 @@ import axios from 'axios'
 export const Reguser = () => {
   
     const [data,setData]=useState('')
+    let handlefile=(event)=>{
+      console.log(event.target.files);
+      setData({...data,[event.target.name]:event.target.files[0]})
+    }
     
     
      
@@ -13,7 +17,14 @@ export const Reguser = () => {
         }
         let handleSubmit=async (event)=>{
             event.preventDefault()
-           let response=await axios.post('http://localhost:4000/user/registration',{...data,userType:'user'})
+            const formData = new FormData();
+            for (const key in data) {
+            if (data[key]) {
+              formData.append(key, data[key]);
+            }
+          }
+          formData.append('userType','user')
+           let response=await axios.post('http://localhost:4000/user/registration',formData)
            console.log(response);
             
         }
@@ -46,11 +57,11 @@ export const Reguser = () => {
             </div>
             <div>
               <label for="image" class="block mb-2 text-sm font-medium text-white dark:text-white">Image:</label>
-              <input onChange={handleChange}  name='image' type="file" id="image" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              <input onChange={handlefile}  name='image' type="file" id="image" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
             <div >
               <label for="idproof" class="block mb-2 text-sm font-medium text-white dark:text-white">ID proof:</label>
-              <input onChange={handleChange} name='idproof'type="file" id="idproof" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              <input onChange={handlefile} name='idProof'type="file" id="idproof" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
           </div>
           <div className='w-[25%]'>
@@ -77,7 +88,7 @@ export const Reguser = () => {
             </div>
             <div >
               <label for="password" class="block mb-2 text-sm font-medium text-white dark:text-white">Confirm Password:</label>
-              <input  onChange={handleChange} value={data.password} name='cpassword' type="password" id="password" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              <input  onChange={handleChange}  name='cpassword' type="password" id="password" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
           </div>
           
