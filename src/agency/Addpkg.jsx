@@ -6,7 +6,7 @@ import axios from 'axios'
 
 export const Addpkg = () => {
   let id=localStorage.getItem('id')
-  const navigate=useNavigate()
+  
   const [data,setData]=useState('')
 
   let handlefile=(event)=>{
@@ -23,12 +23,14 @@ export const Addpkg = () => {
   }
   let handleSubmit=async (event)=>{
       event.preventDefault()
+      
       let formData = new FormData();
       formData.append('packageName',data.packageName);
       formData.append('location',data.location);
       formData.append('destination',data.destination);
       formData.append('coverImage',data.coverImage);
       formData.append('noOfDays',data.noOfDays);
+      formData.append('price',data.price);
       formData.append('uploadBrochure',data.uploadBrochure);
       formData.append('basicDescription',data.basicDescription);
       formData.append('detailedDescription',data.detailedDescription);
@@ -87,6 +89,10 @@ export const Addpkg = () => {
               <div class="md:col-span-3">
                 <label for="days">No of days</label>
                 <input onChange={handleChange} type="text" name="noOfDays" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
+              </div>
+              <div class="md:col-span-3">
+                <label for="days">price</label>
+                <input onChange={handleChange} type="number" name="price" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
               </div>
               <div class="md:col-span-5">
                 <label for="email">upload Brochure</label>
@@ -170,7 +176,7 @@ export const Addpkg = () => {
               </div>
               <div class="md:col-span-5 text-right">
                 <div class="inline-flex items-end">
-                <button type='submit' class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+                     <button type='submit' class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
                 </div>
               </div>
               

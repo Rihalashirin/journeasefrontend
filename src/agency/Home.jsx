@@ -15,7 +15,7 @@ export const Home = () => {
             <span className='text-white'>Welcome,</span><span className='text-orange-600'> Planner</span>
           </div>
 
-      <div className='flex flex-wrap gap-20 justify-center items-center  h-[80%]  font text-white '>
+      <div className='flex flex-wrap gap-16 justify-center items-center  mt-28  font text-white '>
         <Link to='/agency/addpkg'><div className='flex flex-col items-center gap-2'><img src={addpkg} alt="" className='w-20 ' /><p>Add Package</p></div></Link>
         <Link to='/agency/vwpkg'> <div className='flex flex-col items-center gap-2'> <img src={vwpkg} alt="" className='w-20 '/><p>View Package</p></div> </Link>
           <Link to='/agency/cstmrenqry'> <div className='flex flex-col items-center gap-2'> <img src={mngenqry} alt="" className='w-20 ' /><p>Customer Enquiries</p></div> </Link> 

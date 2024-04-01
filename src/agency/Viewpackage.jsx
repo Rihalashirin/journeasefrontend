@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 export const Viewpackage = () => {
   let id=localStorage.getItem('id')
-  const [data,setData]=useState('')
+  const [data,setData]=useState([''])
   const [pkgData,setpkgData]=useState([''])
   
 
@@ -49,22 +49,13 @@ export const Viewpackage = () => {
     <> 
   
   <div className=' pt-28 text-center text-white '> 
- <Link to='/agency/detailvwpkg'><img src={`http://localhost:4000/uploads/${item.coverImage}`} className='m-auto' alt="" srcset="" /></Link> 
-    <div className='font font-bold'>{item.location} <br />{item.noOfDays}</div>
-  <Link to='/agency/addadventure'> <button className='w-23 pl-2 pe-2 bg-orange-600 rounded-lg text-center ' >Add Adventure</button></Link> 
+ <Link to={`/agency/detailvwpkg/${item._id}`}><img src={`http://localhost:4000/uploads/${item.coverImage}`} className='m-auto w-20' alt="" srcset="" /></Link> 
+    <div className='font font-bold'>{item.location} <br />{item.noOfDays}DAYS</div>
+   
   </div>
-  <div className=' pt-28 text-center text-white '> 
-  <img src={manali} className='m-auto' alt="" srcset="" />
-    <div className='font font-bold'>Manali <br />7D</div>
-  </div>
-  <div className=' pt-28 text-center text-white '> 
-  <img src={kashmir} className='m-auto' alt="" srcset="" />
-    <div className='font font-bold'>Kashmir <br />4D</div>
-  </div>
-  <div className=' pt-28 text-center text-white '> 
-  <img src={goa} className='m-auto' alt="" srcset="" />
-    <div className='font font-bold'>Goa <br />4D</div>
-  </div>
+  
+  
+  
   </>
  ))}
 </div>

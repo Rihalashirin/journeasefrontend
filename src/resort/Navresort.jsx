@@ -18,8 +18,9 @@ export const Navresort = () => {
       <Link to='/resort/resortvwreview'> <div className='font text-orange-600 '>REVIEWS</div></Link>
       <Link to='/regresort1'> <div className='font text-orange-600 '>add room</div></Link>
       <Link to='/resort/addfacilities'> <div className='font text-orange-600 '>facilities</div></Link>
+      <Link to='/resort/Viewfacility'><div className='font text-orange-600'>view facility</div></Link>
       <Link to={`/resort/updatereg2/${id}`}> <div className='font text-orange-600 '>updateroom</div></Link>
-      <Link to={`/resort/updatereg3/${id}`}> <div className='font text-orange-600 '>updatefacility</div></Link>
+       
         
        <Link to='/'> <div className='font pr-5 text-center text-orange-600'>LOG OUT</div></Link>
         </div>        

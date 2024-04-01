@@ -24,6 +24,9 @@ export const Rgstrn = () => {
           formData.append('companyLogo',data.companyLogo);
           formData.append('email',data.email);
           formData.append('password',data.password);
+          formData.append('aboutUs',data.aboutUs);
+          formData.append('whyUs',data.whyUs);
+          formData.append('description',data.description);
           formData.append('userType','agency');
           
 
@@ -37,7 +40,7 @@ export const Rgstrn = () => {
             
         }
     return (
-        <div className='bg-[#1a2954d6] h-[467px]'>
+        <div className='bg-[#1a2954d6] h-full'>
             <div className='h-[64px] font text-[30px] font-bold m-0 text-left pl-10 '>
             <span className='text-white'>Resgister as a </span><span className='text-orange-600'> Travel Planner</span>
           </div>
@@ -59,6 +62,12 @@ export const Rgstrn = () => {
               <label for="address" class="block mb-2 text-sm font-medium text-white dark:text-white">Office Address :</label>
               <input onChange={handleChange} value={data.officeaddress} name="officeAddress" type="text" id="address" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
+            
+            <div >
+              <label for="description" class="block mb-2 text-sm font-medium text-white dark:text-white">Description :</label>
+              <input onChange={handleChange} value={data.description} name="description" type="text" id="description" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+            </div>
+
             {/* <div>
               <label for="email" class="block mb-2 text-sm font-medium text-white dark:text-white">Contact Number:</label>
               <input type="email" id="place" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
@@ -79,6 +88,15 @@ export const Rgstrn = () => {
               <label for="logo" class="block mb-2 text-sm font-medium text-white dark:text-white">Company Logo :</label>
               <input onChange={handlefile} value={data.companylogo} name="companyLogo" type="file" id="logo" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
+            <div >
+              <label for="aboutUs" class="block mb-2 text-sm font-medium text-white dark:text-white">About us :</label>
+              <input onChange={handleChange} value={data.aboutUs} name="aboutUs" type="text" id="aboutUs" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+            </div>
+            <div >
+              <label for="whyUs" class="block mb-2 text-sm font-medium text-white dark:text-white">Why us :</label>
+              <input onChange={handleChange} value={data.whyUs} name="whyUs" type="text" id="whyUs" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+            </div>
+            
             <div>
               <label for="email" class="block mb-2 text-sm font-medium text-white dark:text-white">Email:</label>
               <input onChange={handleChange} value={data.email} name="email" type="email" id="email" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />

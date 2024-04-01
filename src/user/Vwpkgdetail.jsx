@@ -1,22 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import delhi from './delhi.png'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+import axios from 'axios'
 
 export const Vwpkgdetail = () => {
+  let {id}=useParams()
+  const [data,setData]=useState('')
+  useEffect(()=>{
+    let fetchdata=async ()=>{
+      let response=await axios.get(`http://localhost:4000/user/detailvwpackage/${id}`)
+      console.log(response.data)
+        setData(response.data) 
+    }
+    fetchdata()
+},[])
+
   return (
     <div className='userhome'>
          <div className='bg-white/50 w-[90%] p-3 ms-5 pt-2'>
           <div>
-            <div className='font text-white text-center text-[30px]'>WelTrip planners</div>
-            <div className='font text-white text-center'>Eranakulam,kerala</div>
+            <div className='font text-white text-center text-[30px]'>{data.agency?.companyName} </div>
+            <div className='font text-white text-center'>{data.agency?.officeAddress}</div>
           <div className='w-[208px] text-center'>
-          <span className='text-white font font-bold text-[30px] '>Delhi </span><span className='text-orange-600 font font-bold text-[30px]'> Delight</span><br /><p className='font text-[20px]  '>4 Days-3 Nights</p>
+          <span className='text-white font font-bold text-[30px] '> </span><span className='text-orange-600 font font-bold text-[30px]'> {data.response?.packageName}</span><br /><p className='font text-[20px]  '>{data.response?.noOfDays}</p>
           </div>
           <div className='flex sm:gap-5 flex-wrap'>
-            <img src={delhi}  className='w-[150px] h-[150px]'/>
+            <img src={`http://localhost:4000/uploads/${data.response?.coverImage}`}  className='w-[150px] h-[150px]'/>
             <div className='w-[78%]'>
 
-          <p className=''>Delhi Delight" is a 4-day, 3-night getaway that unveils the best of India's capital city. Dive into Delhi's cultural mosaic with guided tours of iconic landmarks like the Red Fort and Lotus Temple. Wander through the vibrant markets of Chandni Chowk and relish the diverse culinary scene. Indulge in the city's history with visits to Humayun's Tomb and Qutub Minar. Enjoy a comfortable stay and expert insights, ensuring a short yet immersive exploration of Delhi's rich heritage and contemporary charm</p>
+          <p className=''>{data.response?.basicDescription}</p>
+          <p className=''>{data.response?.detailedDescription}</p>
             </div>
             <div className='font underline'> Day 1: Historical Marvels</div>
             <span>Embark on your Delhi adventure with a guided tour of the awe-inspiring Red Fort, a UNESCO World Heritage Site. Explore the intricate architecture and rich history encapsulated within its walls. Continue to the iconic India Gate, a symbol of national pride, and conclude the day with a visit to the serene Lotus Temple, offering a tranquil retreat.</span>

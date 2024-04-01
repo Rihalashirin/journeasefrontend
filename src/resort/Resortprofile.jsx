@@ -51,19 +51,19 @@ let handleSubmit=async (event)=>{
 
         <div >
           <label for="name" class="block mb-2 text-sm font-medium text-white dark:text-white">Property Name:</label>
-          <input onChange={handleChange} value={userData.propertyName} placeholder={userData.propertyName} name='propertyName' type="text" id="name" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"   />
+          <input onChange={handleChange}  placeholder={userData.propertyName} name='propertyName' type="text" id="name" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"   />
         </div>
         <div>
           <label for="age" class="block mb-2 text-sm font-medium text-white dark:text-white">Registration No.:</label>
-          <input onChange={handleChange} value={userData.registrationNumber} placeholder={userData.registrationNumber} type="text" name='registrationNumber' id="age" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
+          <input onChange={handleChange}  placeholder={userData.registrationNumber} type="text" name='registrationNumber' id="age" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
         </div>
         <div >
           <label for="place" class="block mb-2 text-sm font-medium text-white dark:text-white">Property Address:</label>
-          <input onChange={handleChange} value={userData.propertyAddress}  placeholder={userData.propertyAddress} name="propertyAddress" type="text" id="place" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
+          <textarea onChange={handleChange}   placeholder={userData.propertyAddress} name="propertyAddress" type="text" id="place" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
         </div>
         <div>
           <label for="email" class="block mb-2 text-sm font-medium text-white dark:text-white">Contact Number:</label>
-          <input onChange={handleChange} value={userData.contactNumber} placeholder={userData.contactNumber} name='contactNumber' type="number" id="place" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" />
+          <input onChange={handleChange}  placeholder={userData.contactNumber} name='contactNumber' type="number" id="place" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" />
         </div>
         {/* <div>
           <label for="email" class="block mb-2 text-sm font-medium text-white dark:text-white">Location of Expertise:</label>
@@ -78,23 +78,36 @@ let handleSubmit=async (event)=>{
 
         <div >
           <label for="house name" class="block mb-2 text-sm font-medium text-white dark:text-white">Owner Name :</label>
-          <input onChange={handleChange} value={userData.ownerName} placeholder={userData.ownerName} name='ownerName' type="text" id="house name" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"   />
+          <input onChange={handleChange}  placeholder={userData.ownerName} name='ownerName' type="text" id="house name" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"   />
         </div>
         <div >
           <label for="post" class="block mb-2 text-sm font-medium text-white dark:text-white">Cover Image:</label>
           <input onChange={handlefile} name='coverImage' type="file" id="post" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" />
         </div>
+        <div >
+          <label for="description" class="block mb-2 text-sm font-medium text-white dark:text-white">Description:</label>
+          <input onChange={handleChange}  placeholder={userData.description} name='description' type="text" id="description" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" />
+        </div>
+        <div >
+          <label for="events" class="block mb-2 text-sm font-medium text-white dark:text-white">Events:</label>
+          <input onChange={handleChange}  placeholder={userData.events} name='events' type="text" id="events" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" />
+        </div>
+        <div >
+          <label for="post" class="block mb-2 text-sm font-medium text-white dark:text-white">About us:</label>
+          <input onChange={handleChange}  placeholder={userData.aboutUs} name='aboutUs' type="text" id="post" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" />
+        </div>
+
         {/* <div >
           <label for="post" class="block mb-2 text-sm font-medium text-white dark:text-white">Experience(in years) :</label>
           <input type="post" id="post" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
         </div> */}
         <div>
           <label for="pin" class="block mb-2 text-sm font-medium text-white dark:text-white">Email:</label>
-          <input onChange={handleChange} value={userData.email} placeholder={userData.email} name='email' type="email" id="pin" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" />
+          <input onChange={handleChange}  placeholder={userData.email} name='email' type="email" id="pin" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" />
         </div>
         <div >
           <label for="district" class="block mb-2 text-sm font-medium text-white dark:text-white">Password:</label>
-          <input onChange={handleChange} value={userData.password} placeholder={userData.password} name='password' type="password" id="district" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" />
+          <input onChange={handleChange}  placeholder={userData.password} name='password' type="password" id="district" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" />
         </div>
       </div>
       

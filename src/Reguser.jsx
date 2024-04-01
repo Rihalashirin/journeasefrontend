@@ -17,14 +17,24 @@ export const Reguser = () => {
         }
         let handleSubmit=async (event)=>{
             event.preventDefault()
-            const formData = new FormData();
-            for (const key in data) {
-            if (data[key]) {
-              formData.append(key, data[key]);
+            let formData = new FormData();
+            formData.append('name',data.name);
+            formData.append('age',data.age);
+            formData.append('gender',data.gender);
+            formData.append('contactNumber',data.contactNumber);
+            formData.append('idProof',data.idProof);
+            formData.append('email',data.email);
+            formData.append('password',data.password);
+            formData.append('image',data.image);
+            formData.append('place',data.place);
+            formData.append('userType','user');
+      
+          
+           let response=await axios.post('http://localhost:4000/user/registration',formData,{
+            headers: {
+              'Content-Type': 'multipart/form-data'
             }
-          }
-          formData.append('userType','user')
-           let response=await axios.post('http://localhost:4000/user/registration',formData)
+           })
            console.log(response);
             
         }
@@ -41,19 +51,19 @@ export const Reguser = () => {
 
             <div >
               <label for="name" class="block mb-2 text-sm font-medium text-white dark:text-white">Name :</label>
-              <input onChange={handleChange} value={data.name} name="name"type="name" id="name" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required />
+              <input onChange={handleChange}  name="name"type="name" id="name" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required />
             </div>
             <div>
               <label for="age" class="block mb-2 text-sm font-medium text-white dark:text-white">Age:</label>
-              <input onChange={handleChange} value={data.age} name='age' type="age" id="age" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              <input onChange={handleChange} name='age' type="age" id="age" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
             <div >
               <label for="gender" class="block mb-2 text-sm font-medium text-white dark:text-white">Gender:</label>
-              <input onChange={handleChange} value={data.gender} name='gender' type="place" id="gender" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              <input onChange={handleChange}  name='gender' type="place" id="gender" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
             <div>
               <label for="contact" class="block mb-2 text-sm font-medium text-white dark:text-white">Contact Number:</label>
-              <input onChange={handleChange} value={data.contact} name='contactNumber' type="contact" id="contact" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              <input onChange={handleChange}  name='contactNumber' type="contact" id="contact" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
             <div>
               <label for="image" class="block mb-2 text-sm font-medium text-white dark:text-white">Image:</label>

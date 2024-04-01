@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react'
 // import guide1 from './images/guide1.png'
 // import guide2 from './images/guide2.png'
 // import guide3 from './images/guide3.png'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
+
 
 export const Assignguide = () => {
    const [data,setData]=useState([''])
+   let {aid}=useParams()
    let id=localStorage.getItem('id')
+   const [resortData,setResortdata]=useState([''])
    useEffect(()=>{
     let fetchdata=async()=>{
       let response=await axios.get('http://localhost:4000/agency/findguide')
@@ -19,8 +22,9 @@ export const Assignguide = () => {
     }
     fetchdata()
    },[])
+   
     
-    
+   
      
   // let handleChange=(event)=>{
   //     setData({...data,[event.target.name]:event.target.value})
@@ -33,7 +37,7 @@ export const Assignguide = () => {
   // }
 
   return (
-    <div className='pencil h-[31rem]'>
+    <div className='pencil h-[39rem]'>
         <div className='h-[64px] font text-[30px] font-bold m-0 text-left pl-10 '>
                 <span className='text-white'>Assign a </span><span className='text-orange-600'> Guide</span>
             </div>
@@ -65,10 +69,11 @@ export const Assignguide = () => {
  <Link to={`/agency/detailguide/${item._id}`}> <img src={`http://localhost:4000/uploads/${item.image}`} className='m-auto w-24' alt="" srcset="" /></Link>
     <div className='font font-bold'>{item.name} <br /></div>
     <div>
-    {item.experienceYears}</div>
+   
+    Experience:(in years):{item.experienceYears}</div>
     
   </div>
-  
+
   </div>
  ))}
   

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import 'react-toastify/dist/ReactToastify.css';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navigation } from './Navigation';
@@ -50,7 +51,7 @@ import { Guidemngwage } from './guide/Guidemngwage';
 import { Photosupload } from './guide/Photosupload';
 import { Navuser } from './user/Navuser';
 import { Userhome } from './user/Userhome';
-import { Plantrip } from './user/Plantrip';
+
 import { Planpkg } from './user/Planpkg';
 import { Vwpkgdetail } from './user/Vwpkgdetail';
 import { Selectresort } from './user/Selectresort';
@@ -82,6 +83,12 @@ import { Reguser } from './Reguser';
 import { Vwdetailresort } from './agency/Vwdetailresort';
 import { Adventureadd } from './agency/Adventureadd';
 import { Addfacility } from './resort/Addfacility';
+import { Viewfacilityresort } from './resort/Viewfacilityresort';
+import { Editpkg } from './agency/Editpkg';
+import { Addedresortvw } from './agency/Addedresortvw';
+import { Vwaddedguide } from './agency/Vwaddedguide';
+import { Vwaddedadventure } from './agency/Vwaddedadventure';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -115,9 +122,9 @@ root.render(
 
       <Route path='/user' element={<Navuser/>}>
         <Route index element={<Userhome/>}/>
-        <Route path='plantrip' element={<Plantrip/>}/>
+       
         <Route path='planpkg' element={<Planpkg/>}/>
-        <Route path='vwdetailpkg' element={<Vwpkgdetail/>}/>
+        <Route path='vwdetailpkg/:id' element={<Vwpkgdetail/>}/>
         <Route path='Accomodatn' element={<Selectresort/>}/>
         <Route path='vwresortdet' element={<Uservwresortdetail/>}/>
         <Route path='chooseguide' element={<Selectguide/>}/>
@@ -141,13 +148,13 @@ root.render(
     <Route path='/agency' element={<Navhome/>}>
         <Route index element={<Home/>}></Route>
         <Route path='vwpkg' element={<Viewpackage/>}/>
-        <Route path='detailvwpkg' element={<Detailvwpkg/>}/>
+        <Route path='detailvwpkg/:id' element={<Detailvwpkg/>}/>
         <Route path='addpkg' element={<Addpkg/>}/>
-        <Route path='addpkg1' element={<Addpkg1/>}/>
+        <Route path='addpkg1/:id' element={<Addpkg1/>}/>
         <Route path='cstmrenqry' element={<Cstmrenqry/>}/>
         <Route path='detailcstrenqry' element={<Vwcstrenqry/>}/>
         <Route path='assignguide' element={<Assignguide/>}/>
-        <Route path='detailguide' element={<Detlguide/>}/>
+        <Route path='detailguide/:id' element={<Detlguide/>}/>
         <Route path='cnfrmguide' element={<Guidcnfrmtn/>}/>
         <Route path='adventure' element={<Addpkg3/>}/>
         <Route path='enqryfinal' element={<Enqryfinal/>}/>
@@ -159,6 +166,12 @@ root.render(
         <Route path='vwissuesagency' element={<Vwissuesagency/>}/>
         <Route path='vwresortdetail/:rid' element={<Vwdetailresort/>}/>
         <Route path='addadventure' element={<Adventureadd/>}/>
+        <Route path='editpkg/:id' element={<Editpkg/>}/>
+        <Route path='vwaddedresort/:id' element={<Addedresortvw/>}/>
+        <Route path='vwaddedguide'element={<Vwaddedguide/>}/>
+        <Route path='vwaddedadventure' element={<Vwaddedadventure/>}/>
+        
+        
     
     
 
@@ -172,7 +185,7 @@ root.render(
        <Route path='agencysign' element={<Agencysignup/>}/>
        <Route path='bookings' element={<Booking/>}/>
        <Route path='pkg' element={<Adminpackage/>}/>
-       <Route path='vwandacceptagency' element={<Viewagency/>}/>
+       <Route path='vwandacceptagency/:id' element={<Viewagency/>}/>
        <Route path='vwacceptresort' element={<Viewresort/>}/>
        <Route path='guidesignup' element={<Guidesignup/>}/>
        <Route path='viewguideadmin' element={<Viewguideadmin/>}/>
@@ -190,6 +203,7 @@ root.render(
       <Route path='updatereg2/:id' element={<Updatereg2/>}/>
       <Route path='updatereg3/:id' element={<Updatereg3/>}/>
       <Route path='addfacilities' element={<Addfacility/>}/>
+      <Route path='Viewfacility' element={<Viewfacilityresort/>}/>
     </Route>
 
     

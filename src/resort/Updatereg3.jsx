@@ -50,7 +50,7 @@ let handleSubmit=async (event)=>{
     <div className='flex w-[100%] justify-center sm:gap-10'>
     <div >
               <label for="name" class="block mb-2 text-sm font-medium text-white dark:text-white">facility:</label>
-              <input onChange={handleChange} name='name' type="name" id="name" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required />
+              <input onChange={handleChange} placeholder={data?.name} name='name' type="name" id="name" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required />
             </div>
     </div>
     <div >

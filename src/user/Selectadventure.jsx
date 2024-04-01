@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import zipline from './zipline.jpg'
 import adventure from './adventure.png'
+import axios from 'axios'
 
 export const Selectadventure = () => {
+  const [data,setData]=useState([''])
+  const [agencyData,setAgencydata]=useState([''])
+  useEffect(()=>{
+    let fetchdata=async ()=>{
+        let response=await axios.get(`http://localhost:4000/user/findpackage`)
+        console.log(response.data)
+        setAgencydata(response.data)
+    }
+    fetchdata()
+},[])
   return (
     <div className='userhome'>
         

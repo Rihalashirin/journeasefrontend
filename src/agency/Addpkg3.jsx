@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react'
 import advnture from './images/adventure.png'
 import zipline from './images/Rectangle 522 (1).png'
 import axios from 'axios'
+import { useParams } from 'react-router-dom'
 
 export const Addpkg3 = () => {
     const [data,setData]=useState('')
-    let id=localStorage.getItem('id')
+    let {id}=useParams()
     const [adventureData,setadventureData]=useState([''])
+    const [resortData,setResortdata]=useState([''])
 
     useEffect(()=>{
         let fetchdata=async ()=>{
@@ -16,6 +18,31 @@ export const Addpkg3 = () => {
         }
         fetchdata()
     },[])
+
+    const [selectAll, setSelectAll] = useState(false);
+   const [selectedResorts, setSelectedResorts] = useState([]);
+
+   const handleMasterCheckboxChange = () => {
+       setSelectAll(!selectAll);
+       const selectedResortIds = selectAll ? [] : resortData.map(item => item._id);
+       setSelectedResorts(selectedResortIds);
+       console.log("Selected resorts:", selectedResortIds);
+       console.log("Select all:", !selectAll);
+   };
+   const handleResortCheckboxChange = (resortId) => {
+    const isSelected = selectedResorts.includes(resortId);
+    if (isSelected) {
+        const updatedSelection = selectedResorts.filter(id => id !== resortId);
+        setSelectedResorts(updatedSelection);
+    } else {
+        setSelectedResorts([...selectedResorts, resortId]);
+    }
+    console.log("Selected resorts:", selectedResorts);
+};
+let handleSubmit=async()=>{
+    let response=await axios.put(`http://localhost:4000/agency/addAdventuretoPackage/${id}`,{resortId:selectedResorts})
+    console.log(response);
+}
     
     
      
@@ -55,24 +82,24 @@ export const Addpkg3 = () => {
                     <div className='font font-bold'>{item.adventureName}</div>
                     <div className='font text-[10px]'>{item.price}</div>
                     <div className='font text-[10px]'>{item.description}</div>
+                    <input
+                        type="checkbox"
+                        checked={selectedResorts.includes(item._id)}
+                        onChange={() => handleResortCheckboxChange(item._id)}
+                    />
                     
                 </div>
             ))}
-                <div className=' pt-28 text-center text-white '>
-                    <img src={zipline} className='m-auto' alt="" srcset="" />
-                    <div className='font font-bold'>Zipline</div>
-                    <div className='font text-[10px]'>3000-5000/Head</div>
-                </div>
+               
                 {/* <div className=' pt-28 text-center text-white '>
                     <img src={crescent} className='m-auto' alt="" srcset="" />
                     <div className='font font-bold'>Crescent Arcade</div>
                 </div> */}
 
             </div>
-                <div className='text-center text-white rounded-lg bg-orange-600 w-20 ms-[35rem]  mt-12'>
-                    <input type="submit" value="SAVE" name="" id="" />
+               
 
-                    <button><img src="" alt="" srcset="" /></button> </div>
-    </div>
+                    <button onClick={handleSubmit}  className='text-center text-white rounded-lg bg-orange-600 w-24  h-11 ml-[500px] mt-5  '>submit</button> </div>
+    
   )
 }

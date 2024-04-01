@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { Toast } from 'bootstrap'
+import { ToastContainer, toast } from 'react-toastify'
 
 
 
@@ -21,14 +23,30 @@ const Login = () => {
         navigate('/user')
       }
       else if(response.data.userType=='agency'){
+        if(response.data.status=='accepted'){
         navigate('/agency')
       }
+      else{
+        toast.error("not accepted admin");
+      }
+    }
       else if(response.data.userType=='resort'){
+        if(response.data.status=='accepted'){
+        
         navigate('/resort')
       }
+      else{
+        toast.error("not accepted admin");
+      }
+    }
       else if(response.data.userType=='guide'){
+        if(response.data.status=='accepted'){
         navigate('/guide')
       }
+      else{
+        toast.error("not accepted admin");
+      }
+    }
       else if(response.data.userType=='admin'){
         navigate('/admin')
       }
@@ -37,6 +55,7 @@ const Login = () => {
       alert("invalid username or password")
     }
   }
+
 
 // const navigate=useNavigate()
 // const [data,setData]=useState('')
@@ -67,6 +86,7 @@ const Login = () => {
 //   }
   return (
     <>
+    <ToastContainer/>
       <div className='flight'>
         <div className='box '>
 
@@ -86,7 +106,7 @@ const Login = () => {
           <div><input  onChange={handleChange} className='rounded-lg w-[100%] ml-3' type="text" name="password" id="" /></div>
           </div>
           <div className='text-center'>
-            <input  type="submit" className='bg-orange-600 p-1 rounded-lg w-40 text-white' name="" id="" value="LOGIN" />
+            <button onClick={handleSubmit} type="submit" className='bg-orange-600 p-1 rounded-lg w-40 text-white' name="" id="" >LOGIN</button>
             </div>
           <div className='forget font text-[10px] text-white underline italic text-center p-2'>forgot password</div>
 

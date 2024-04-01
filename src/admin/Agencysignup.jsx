@@ -8,7 +8,7 @@ export const Agencysignup = () => {
    
     useEffect(()=>{
         let fetchdata = async ()=>{
-            let response=await axios.get(`http://localhost:4000/user/mngagency`)
+            let response=await axios.get(`http://localhost:4000/admin/vwagency`)
             console.log(response.data)
             setData(response.data)
         }
@@ -44,7 +44,9 @@ export const Agencysignup = () => {
                 <th scope="col" class="px-6 py-3">
                     OFFICE ADDRESS
                 </th>
-                
+                <th scope="col" class="px-6 py-3">
+                    STATUS
+                </th>
                 
                 
                 <th scope="col" class="px-6 py-3">
@@ -54,25 +56,30 @@ export const Agencysignup = () => {
             </tr>
         </thead>
         <tbody>
+            {data.map((item,index)=>(
+
+           
             <tr class="bg-white border-b  font-semibold border-orange-600 hover:bg-[#f7b866d4]">
                 <td class="px-6 py-4 font-semibold">
-                    1.
+                    {index}
                 </td>
                 <td class="px-6 py-4">
-                    WellTrip Planners
+                    {item.companyName} 
                 </td>
                 <td class="px-6 py-4">
-                  Kozhikode
+                  {item.officeAddress}
                 </td>
-                
+                <td class="px-6 py-4">
+                  {item.status}
+                </td>
        
                 <td class="px-6 py-4 flex flex-wrap flex-col gap-2">
                     {/* <a href="#" class="font-bold text-sm text-black bg-orange-600 hover:underline hover:bg-gray p-1">view details</a> */}
-                    <Link to='/admin/vwandacceptagency'><button className='w-32 font bg-orange-600 rounded-lg text-white '>View Details</button></Link>
+                    <Link to={`/admin/vwandacceptagency/${item._id}`}><button className='w-32 font bg-orange-600 rounded-lg text-white '>View Details</button></Link>
                 </td>
                 
             </tr>
-            
+            ))} 
         </tbody>
     </table>
 </div>

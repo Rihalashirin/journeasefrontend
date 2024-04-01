@@ -48,7 +48,7 @@ export const Proagencyupdate = () => {
     setrefresh(!refresh);
   };
   return (
-    <div className="bg-[#1a2954d6] h-[467px]">
+    <div className="bg-[#1a2954d6] h-[600px]">
       <div className="h-[64px] font text-[30px] font-bold m-0 text-left pl-10 ">
         <span className="text-white">Update </span>
         <span className="text-orange-600"> Profile</span>
@@ -111,6 +111,25 @@ export const Proagencyupdate = () => {
                 required
               />
             </div>
+            <div>
+              <label
+                for="description"
+                class="block mb-2 text-sm font-medium text-white dark:text-white"
+              >
+                Description :
+              </label>
+              <input
+                onChange={handleChange}
+                name="description"
+                type="text"
+                id="description"
+                class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                placeholder={userData.description}
+                value={userData.description}
+                required
+              />
+            </div>
+
             {/* <div>
               <label for="email" class="block mb-2 text-sm font-medium text-white dark:text-white">Contact Number:</label>
               <input type="email" id="place" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
@@ -167,11 +186,10 @@ export const Proagencyupdate = () => {
                 />
               </div>
             </div>
-            <div>
+            <div  className="flex  gap-1 justify-center items-center">
               <label
                 for="post"
-                class="block mb-2 text-sm font-medium text-white dark:text-white"
-              >
+                class="block  mb-2 text-sm font-medium text-white dark:text-white">
                 Company Logo :
               </label>
               <input
@@ -181,7 +199,7 @@ export const Proagencyupdate = () => {
                 type="file"
                 id="post"
                 class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
-           
+                 width="80px"
             
                 
               />
@@ -190,6 +208,42 @@ export const Proagencyupdate = () => {
                   src={`http://localhost:4000/uploads/${userData.companyLogo}`}
                   alt="yfytf"
                 />
+            </div>
+            <div>
+              <label
+                for="aboutus"
+                class="block mb-2 text-sm font-medium text-white dark:text-white"
+              >
+                About Us :
+              </label>
+              <input
+                onChange={handleChange}
+                name="aboutUs"
+                type="text"
+                id="aboutus"
+                class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                placeholder={userData.aboutUs}
+                value={userData.aboutUs}
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="whyus"
+                class="block mb-2 text-sm font-medium text-white dark:text-white"
+              >
+                Why Us :
+              </label>
+              <input
+                onChange={handleChange}
+                name="whyUs"
+                type="text"
+                id="whyus"
+                class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                placeholder={userData.whyUs}
+                value={userData.whyUs}
+                required
+              />
             </div>
             <div>
               <label
