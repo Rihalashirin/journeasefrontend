@@ -156,7 +156,7 @@ root.render(
         <Route path='assignguide' element={<Assignguide/>}/>
         <Route path='detailguide/:id' element={<Detlguide/>}/>
         <Route path='cnfrmguide' element={<Guidcnfrmtn/>}/>
-        <Route path='adventure' element={<Addpkg3/>}/>
+        <Route path='adventure/:id' element={<Addpkg3/>}/>
         <Route path='enqryfinal' element={<Enqryfinal/>}/>
         <Route path='cnfrmbooking' element={<Confrmbooking/>}/>
         <Route path='managebooking' element={<Mngbooking/>}/>
@@ -186,9 +186,9 @@ root.render(
        <Route path='bookings' element={<Booking/>}/>
        <Route path='pkg' element={<Adminpackage/>}/>
        <Route path='vwandacceptagency/:id' element={<Viewagency/>}/>
-       <Route path='vwacceptresort' element={<Viewresort/>}/>
+       <Route path='vwacceptresort/:id' element={<Viewresort/>}/>
        <Route path='guidesignup' element={<Guidesignup/>}/>
-       <Route path='viewguideadmin' element={<Viewguideadmin/>}/>
+       <Route path='viewguideadmin/:id' element={<Viewguideadmin/>}/>
       
 
     </Route>

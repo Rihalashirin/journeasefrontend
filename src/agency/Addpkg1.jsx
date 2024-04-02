@@ -57,13 +57,14 @@ let handleSubmit=async()=>{
 
     return (
         
-        <div>
-            <input
+        <div className='pencil'>
+            <div className='flex flex-wrap gap-9'>
+            {/* <input
                 type="checkbox"
                 checked={selectAll}
                 onChange={handleMasterCheckboxChange}
             />
-            <label>Select All</label>
+            <label>Select All</label> */}
             {resortData.map((item) => (
                 <div key={item._id} className='pt-28 text-center text-white'>
                     <Link to={`/agency/vwresortdetail/${item._id}`}>
@@ -77,7 +78,9 @@ let handleSubmit=async()=>{
                     <div className='font font-bold'>{item.propertyName}</div>
                 </div>
             ))}
-            <button type='submit' onClick={handleSubmit} className='bg-orange-600 w-28'>submit</button>
+            </div>
+      <button type='submit' onClick={handleSubmit} className='bg-orange-600 w-28 h-10 text-white font-bold rounded-lg ml-[550px] mt-32'>submit</button>
+           
         </div>
        
     )

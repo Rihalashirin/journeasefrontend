@@ -49,7 +49,7 @@ export const Detailvwpkg = () => {
      <div className='mt-6 pl-72 flex flex-wrap gap-3'>
      
      <Link to='/agency/addadventure'><button type='submit' className='bg-yellow-700 w-52  rounded-full py-2 px-4'>Add adventure</button></Link>
-     <Link to='/agency/adventure'><button type='submit' className='bg-yellow-700 w-52  rounded-full py-2 px-4'>view adventure</button></Link>
+     <Link to={`/agency/adventure/${id}`}><button type='submit' className='bg-yellow-700 w-52  rounded-full py-2 px-4'>view adventure</button></Link>
      <Link to='/agency/vwaddedadventure'><button type='submit' className='bg-yellow-700 w-60  rounded-full py-2 px-4'>view added adventure</button></Link>
      </div>
      </div> 

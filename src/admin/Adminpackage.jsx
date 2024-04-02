@@ -1,6 +1,17 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 
 export const Adminpackage = () => {
+    const [data,setData]=useState(['']) 
+
+    useEffect(()=>{
+        let fetchdata = async ()=>{
+            let response=await axios.get(`http://localhost:4000/admin/vwpackage`)
+            console.log(response.data)
+            setData(response.data)
+        }
+        fetchdata()
+    },[])
   return (
     <div className='adminbg'>
         
@@ -34,18 +45,19 @@ export const Adminpackage = () => {
             </tr>
         </thead>
         <tbody>
+           {data.map((item,index)=>(
             <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
             <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                   1
+                  {index}
                 </td>
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    WellTrip planners
+                   {item.agency?.companyName}
                 </td>
                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                   Delhi delight
+                   {item.package?.packageName}
                 </td>
                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                  4
+                 {item.package?.noOfDays}
                 </td>
                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     file
@@ -54,82 +66,14 @@ export const Adminpackage = () => {
                    file
                 </td>
                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                   information
+                   {item.package?.basicDescription}
                 </td>
-                
-                {/* <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 bg-gray-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-                 */}
+               
             </tr>
-            {/* <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Microsoft Surface Pro
-                </th>
-                <td class="px-6 py-4">
-                    White
-                </td>
-                <td class="px-6 py-4">
-                    Laptop PC
-                </td>
-                <td class="px-6 py-4">
-                    $1999
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-            </tr> */}
-            {/* <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Magic Mouse 2
-                </th>
-                <td class="px-6 py-4">
-                    Black
-                </td>
-                <td class="px-6 py-4">
-                    Accessories
-                </td>
-                <td class="px-6 py-4">
-                    $99
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-            </tr> */}
-            {/* <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Google Pixel Phone
-                </th>
-                <td class="px-6 py-4">
-                    Gray
-                </td>
-                <td class="px-6 py-4">
-                    Phone
-                </td>
-                <td class="px-6 py-4">
-                    $799
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-            </tr> */}
-            {/* <tr>
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Apple Watch 5
-                </th>
-                <td class="px-6 py-4">
-                    Red
-                </td>
-                <td class="px-6 py-4">
-                    Wearables
-                </td>
-                <td class="px-6 py-4">
-                    $999
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-            </tr> */}
+          
+          ))} 
+            
+            
         </tbody>
     </table>
 </div>

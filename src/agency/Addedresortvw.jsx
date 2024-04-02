@@ -23,15 +23,17 @@ export const Addedresortvw = () => {
         <span className="text-white">Selected</span>
         <span className="text-orange-600"> Resorts</span>
       </div>
-      {data.map((item)=>(
+     
 
-        <div className="flex flex-wrap sm:gap-5  ">
-        <div className=" pt-28 text-center text-black ">
-          <img src={`http://localhost:4000/uploads/${item.resorts?.coverImage}`} className="m-auto w-20" alt="" srcset="" />
+      <div className="flex flex-wrap sm:gap-5  ">
+        {data.map((item)=>(
+        <div className=" pt-28 text-center text-black pl-5">
+          <img src={`http://localhost:4000/uploads/${item.resorts?.coverImage}`} className="m-auto w-28" alt="" srcset="" />
           <div className="font font-bold">{item?.resorts?.propertyName}</div>
         </div>
+        ))}
       </div>
-      ))}
+      
     </div>
   );
 };

@@ -1,7 +1,19 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export const Resortsignup = () => {
+    const [data,setData]=useState([''])
+    
+    useEffect(()=>{
+        let fetchdata = async ()=>{
+            let response=await axios.get(`http://localhost:4000/admin/vwresort`)
+            console.log(response.data)
+            setData(response.data)
+        }
+        fetchdata()
+    },[])
+
   return (
     <div className='adminbg'>
       <div className='flex flex-col gap-2'>
@@ -32,6 +44,9 @@ export const Resortsignup = () => {
                 <th scope="col" class="px-6 py-3">
                    LOCATION
                 </th>
+                <th scope="col" class="px-6 py-3">
+                    STATUS
+                </th>
                 
                 <th scope="col" class="px-6 py-3">
                     ACTION
@@ -40,25 +55,28 @@ export const Resortsignup = () => {
             </tr>
         </thead>
         <tbody>
+        {data.map((item,index)=>(
             <tr class="bg-white border-b  font-semibold border-orange-600 hover:bg-[#f7b866d4]">
                 <td class="px-6 py-4 font-semibold">
-                    1.
+                   {index}
                 </td>
                 <td class="px-6 py-4">
-                    seaview
+                    {item.propertyName}
                 </td>
                 <td class="px-6 py-4">
-                 delhi
+               {item.propertyAddress}
                 </td>
-                
+                <td class="px-6 py-4">
+             {item.status}
+                </td>
        
                 <td class="px-6 py-4 flex flex-wrap flex-col gap-2">
                     {/* <a href="#" class="font-bold text-sm text-black bg-orange-600 hover:underline hover:bg-gray p-1">view details</a> */}
-                    <Link to='/admin/vwacceptresort'><button className='font bg-orange-600 rounded-lg text-white w-32'>View Details</button></Link>
+                    <Link to={`/admin/vwacceptresort/${item._id}`}><button className='font bg-orange-600 rounded-lg text-white w-32'>View Details</button></Link>
                 </td>
                 
             </tr>
-            
+        ))}
         </tbody>
     </table>
 </div>
