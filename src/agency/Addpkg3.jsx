@@ -40,7 +40,7 @@ export const Addpkg3 = () => {
     console.log("Selected resorts:", selectedResorts);
 };
 let handleSubmit=async()=>{
-    let response=await axios.put(`http://localhost:4000/agency/addAdventuretoPackage/${id}`,{resortId:selectedResorts})
+    let response=await axios.put(`http://localhost:4000/agency/addAdventuretoPackage/${id}`,{adventureid:selectedResorts})
     console.log(response);
 }
     

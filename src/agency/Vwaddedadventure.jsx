@@ -23,7 +23,7 @@ export const Vwaddedadventure = () => {
                 <span className='text-white'>Selected</span><span className='text-orange-600'> Adventures</span>
             </div>
            
-      {/* <div className="flex flex-wrap sm:gap-5  ">
+      <div className="flex flex-wrap sm:gap-5  ">
         {data.map((item)=>(
         <div className=" pt-28 text-center text-black pl-5">
           <img src={`http://localhost:4000/uploads/${item.resorts?.image}`} className="m-auto w-28" alt="" srcset="" />
@@ -32,7 +32,7 @@ export const Vwaddedadventure = () => {
           <div className="font font-bold">{item?.resorts?.location}</div>
         </div>
         ))}
-      </div> */}
+      </div>
       
     </div> 
     </div>

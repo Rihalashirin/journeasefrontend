@@ -54,9 +54,9 @@ export const Vwdetailresort = () => {
          <div className='flex  gap-2 '>
            
          luxury room:
-         <img src={`http://localhost:4000/uploads/${data.rooms?.image}`} className='m-auto w-[70%]'alt=" " srcSet=" "/>
+         <img src={`http://localhost:4000/uploads/${item.image}`} className='m-auto w-[70%]'alt=" " srcSet=" "/>
          standardroom:
-         <img src={`http://localhost:4000/uploads/${data.rooms?.images}`} className='m-auto w-[70%]'alt=" " srcSet=" "/>
+         <img src={`http://localhost:4000/uploads/${item.images}`} className='m-auto w-[70%]'alt=" " srcSet=" "/>
         
         </div>
          ))}

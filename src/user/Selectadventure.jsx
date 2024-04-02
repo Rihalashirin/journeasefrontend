@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react'
 import zipline from './zipline.jpg'
 import adventure from './adventure.png'
 import axios from 'axios'
+import { useParams } from 'react-router-dom'
 
 export const Selectadventure = () => {
   const [data,setData]=useState([''])
+  let {id}=useParams()
   const [agencyData,setAgencydata]=useState([''])
   useEffect(()=>{
     let fetchdata=async ()=>{
-        let response=await axios.get(`http://localhost:4000/user/findpackage`)
+        let response=await axios.get(`http://localhost:4000/user/vwadventure/${id}`)
         console.log(response.data)
         setAgencydata(response.data)
     }
@@ -23,10 +25,12 @@ export const Selectadventure = () => {
           <div className='bg-white/50 w-[90%] p-3 ms-5 pt-2'>
           <div className='flex flex-wrap gap-9'>
         <div className='flex flex-wrap sm:gap-5  '>
+        {agencyData.map((item)=>(
           <div className=' pt-28 text-center text-white '>
             <img src={zipline} className='m-auto w-24 h-24 rounded-2xl' alt="" srcset="" />
             <div className='font font-bold'>Zipline <br /> <div className='font font-light'>3000-5000/Head</div></div>
           </div>
+           ))}
           </div>
           <div className='flex flex-wrap sm:gap-5  '>
           <div className=' pt-28 text-center text-white '>

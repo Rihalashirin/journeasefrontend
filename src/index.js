@@ -125,9 +125,9 @@ root.render(
        
         <Route path='planpkg' element={<Planpkg/>}/>
         <Route path='vwdetailpkg/:id' element={<Vwpkgdetail/>}/>
-        <Route path='Accomodatn' element={<Selectresort/>}/>
-        <Route path='vwresortdet' element={<Uservwresortdetail/>}/>
-        <Route path='chooseguide' element={<Selectguide/>}/>
+        <Route path='Accomodatn/:id' element={<Selectresort/>}/>
+        <Route path='vwresortdet/:rid' element={<Uservwresortdetail/>}/>
+        <Route path='chooseguide/:id' element={<Selectguide/>}/>
         <Route path='selectadventure' element={<Selectadventure/>}/>
         <Route path='notificatn' element={<Notification/>}/>
         <Route path='vwnotificatn' element={<Vwnotificatn/>}/>
@@ -169,7 +169,7 @@ root.render(
         <Route path='editpkg/:id' element={<Editpkg/>}/>
         <Route path='vwaddedresort/:id' element={<Addedresortvw/>}/>
         <Route path='vwaddedguide'element={<Vwaddedguide/>}/>
-        <Route path='vwaddedadventure' element={<Vwaddedadventure/>}/>
+        <Route path='vwaddedadventure/:id' element={<Vwaddedadventure/>}/>
         
         
     
