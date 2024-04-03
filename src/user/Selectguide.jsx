@@ -1,9 +1,11 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 
 export const Selectguide = () => {
   const [data,setData]=useState('')
+  // const navigate=useNavigate()
+  let id2=localStorage.getItem('id')  
   let {id}=useParams()
 
   let handleChange=(event)=>{
@@ -14,9 +16,9 @@ let handleSubmit=async (event)=>{
     event.preventDefault()
     setData(data)
     console.log(data)
-   let response=await axios.post(`http://localhost:4000/user/booking`,data)
+   let response=await axios.post(`http://localhost:4000/user/booking`,{...data,userId:id2,packageid:id})
    console.log(response);
-    
+    // navigate(`/user/selectadventure/${id}`)
 }
   return (
     <div className='userhome'>
@@ -115,7 +117,7 @@ let handleSubmit=async (event)=>{
 
           </div>
           <Link to='/user/vwresortdet'></Link><div className='flex flex-wrap gap-11  justify-center m-7 '><button className='bg-orange-600 text-white rounded-lg w-40'>GO BACK</button>
-          <Link to='/user/selectadventure'> <button className='bg-orange-600 text-white rounded-lg w-40'>PROCEED</button></Link> </div>
+           <button type='submit' className='bg-orange-600 text-white rounded-lg w-40'>PROCEED</button></div>
         
           </form>
     </div>

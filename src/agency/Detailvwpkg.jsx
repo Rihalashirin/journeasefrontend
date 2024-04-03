@@ -45,9 +45,10 @@ export const Detailvwpkg = () => {
      <Link to={`/agency/addpkg1/${id}`}> <button type='submit' className='bg-yellow-700 w-36  rounded-full py-2 px-4'>Add resort</button></Link>
      <Link to={`/agency/vwaddedresort/${id}`}> <button type='submit' className='bg-yellow-700 w-36  rounded-full py-2 px-4'>view resort</button></Link>
      <Link to='/agency/assignguide'> <button type='submit' className='bg-yellow-700 w-36  rounded-full py-2 px-4'>Add guide</button></Link>
-     <Link to='/agency/vwaddedguide'> <button type='submit' className='bg-yellow-700 w-36  rounded-full py-2 px-4'>view guide</button></Link></div>
-     <div className='mt-6 pl-72 flex flex-wrap gap-3'>
-     
+     <Link to='/agency/vwaddedguide'> <button type='submit' className='bg-yellow-700 w-36  rounded-full py-2 px-4'>view guide</button></Link>
+     </div>
+     <div className='mt-6 pl-48 flex flex-wrap gap-3'>
+     <Link to='/agency/adddestination'><button type='submit' className='bg-yellow-700 w-52 text-white rounded-full py-2  px-4'>Add Destination</button></Link>
      <Link to='/agency/addadventure'><button type='submit' className='bg-yellow-700 w-52  rounded-full py-2 px-4'>Add adventure</button></Link>
      <Link to={`/agency/adventure/${id}`}><button type='submit' className='bg-yellow-700 w-52  rounded-full py-2 px-4'>view adventure</button></Link>
      <Link to={`/agency/vwaddedadventure/${id}`}><button type='submit' className='bg-yellow-700 w-60  rounded-full py-2 px-4'>view added adventure</button></Link>

@@ -30,10 +30,11 @@ export const Addedresortvw = () => {
         <div className=" pt-28 text-center text-black pl-5">
           <img src={`http://localhost:4000/uploads/${item.resorts?.coverImage}`} className="m-auto w-28" alt="" srcset="" />
           <div className="font font-bold">{item?.resorts?.propertyName}</div>
+          <button className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Remove</button>
         </div>
         ))}
       </div>
-      
+   
     </div>
   );
 };

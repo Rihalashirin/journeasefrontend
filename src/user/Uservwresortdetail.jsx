@@ -31,26 +31,26 @@ export const Uservwresortdetail = () => {
         
         <div className='flex flex-wrap justify-between '>
         <div className='bg-white/45 w-72 mt-9 pl-3 rounded-lg text-amber-800 shadow-xl'>
-        <div>dgfdgdfhghrthrfgdfgbfdghgf</div>
+        <div>{data.response?.propertyAddress}</div>
        
         </div>
-        <div className='bg-white/45 w-80 mt-9 pt-1 rounded-lg text-center shadow-xl text-amber-800'>about us</div>
+        <div className='bg-white/45 w-80 mt-9 pt-1 rounded-lg text-center shadow-xl text-amber-800'>{data.response?.aboutUs}</div>
         <div className='bg-white/45 w-80 mt-9 p-2 rounded-lg shadow-xl text-amber-800'>
         <div>contact us:</div>
-        <div>2343242542</div></div>
+        <div>{data.response?.contactNumber}</div></div>
         </div>
         <div className=' bg-yellow-300 w-[80%] h-32 mb-24  text-red-600 ml-24 mt-9 p-2 rounded-lg shadow-xl border-l-2 border-r-2 border-t-2 border-b-2'>
-    events</div>
-
-    <div className='flex  gap-2 '>
+        {data.response?.events}</div>
+        {data.rooms?.map((item)=>(
+    <div className='flex bg-yellow-100 px-2 py-4 rounded text-yellow-300 animate-bounce  font-semibold font'>
            
            luxury room:
-           <img src="" className='m-auto w-[70%]'alt=" " srcSet=" "/>
+           <img src={`http://localhost:4000/uploads/${item.image}`} className='m-auto w-48'alt=" " srcSet=" "/>
            standardroom:
-           <img src=" " className='m-auto w-[70%]'alt=" " srcSet=" "/>
+           <img src={`http://localhost:4000/uploads/${item.images}`} className='m-auto w-48'alt=" " srcSet=" "/>
           
           </div>
-
+ ))}
 
     <div class="  overflow-x-auto shadow-md sm:rounded-lg mt-40 w-[50%] ml-72">
     <table class="w-full text-sm text-center rtl:text-right  text-gray-500 dark:text-gray-400">
@@ -65,39 +65,48 @@ export const Uservwresortdetail = () => {
                 <th >
                     Occupancy
                 </th>
+                <th >
+                  price
+                </th>
                 
             </tr>
         </thead>
         <tbody>
-           
+        {data.rooms?.map((item)=>(
             <tr class=" dark:border-gray-700 text-black bg-gray-950/40 hover:bg-slate-800/50">
                 <td scope="row" class="px-6 py-4 text-black">
                   luxury: 
                 </td>
                 <td class="px-6 py-4">
-               44
+                {item.luxury}
                 </td>
                 <td class="px-6 py-4">
-                   4r4t
+                {item.luxuryOccupancy}
+                </td>
+                <td>
+                {item.luxuryprice}/-
                 </td>
                 
             </tr>
             
-
- 
+            ))}
+  {data.rooms?.map((item)=>(
             <tr class=" dark:border-gray-700 text-black bg-gray-950/40 hover:bg-slate-800/50">
                 <td scope="row" class="px-6 py-4 text-black">
                   standard: 
                 </td>
                 <td class="px-6 py-4">
-               dfdgdfg
+                {item.standard}
                 </td>
                 <td class="px-6 py-4">
-                 fgfhghgh
+                {item.standardOccupancy}
+                </td>
+                <td class="px-6 py-4">
+                    {item.standardPrice}/-
                 </td>
                 
             </tr>
-            
+        ))}    
 
 
 
@@ -109,13 +118,13 @@ export const Uservwresortdetail = () => {
 </div>
 
 <div className='font-bold ml-24 mt-5'> Facilities
-
+{data.facilities?.map((item)=>(
 <div className='ml-14 mt-14 flex gap-10 '>
-        <p>efgffbhgdfh</p>
-        <p>dfgfbgfb</p>
-        <p>dfvbvbf</p>
+        <p>{item.name}</p>
+        <p>{item.luxury}</p>
+        <p>{item.standard}</p>
         </div>
-       
+        ))}
        </div> 
    
                     
@@ -124,7 +133,7 @@ export const Uservwresortdetail = () => {
         
         <div className='flex flex-wrap gap-8'>
        <Link to='/user/Accomodatn'><button className='bg-orange-600 w-32 h-5'>GO BACK</button></Link> 
-       <Link to={`/user/chooseguide/${id}`}> <button className='bg-orange-600 w-32 h-5'>PROCEED</button></Link>
+        <button className='bg-orange-600 w-32 h-5'>PROCEED</button>
         </div>
 
         </div>

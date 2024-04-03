@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import advnture from './images/adventure.png'
 import zipline from './images/Rectangle 522 (1).png'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 export const Addpkg3 = () => {
     const [data,setData]=useState('')
@@ -75,20 +75,24 @@ let handleSubmit=async()=>{
                     <span class="sr-only">Search</span>
                 </button>
             </form>
-            <div className='flex flex-wrap sm:gap-5  '>
+            <div className='flex flex-wrap sm:gap-10 '>
             {adventureData.map((item)=>(
                 <div className=' pt-28 text-center text-white '>
                     <img src={`http://localhost:4000/uploads/${item.image}`} className='m-auto w-20' alt="" srcset="" />
                     <div className='font font-bold'>{item.adventureName}</div>
                     <div className='font text-[10px]'>{item.price}</div>
                     <div className='font text-[10px]'>{item.description}</div>
+                    
                     <input
                         type="checkbox"
                         checked={selectedResorts.includes(item._id)}
                         onChange={() => handleResortCheckboxChange(item._id)}
+                         
                     />
-                    
+                   <Link to='/agency/editadventure'>   <button className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Edit</button></Link>  
+                 
                 </div>
+                
             ))}
                
                 {/* <div className=' pt-28 text-center text-white '>

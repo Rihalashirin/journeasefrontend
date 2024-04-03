@@ -24,7 +24,7 @@ export const Vwdetailresort = () => {
   return (
     <div className='pencil'>
         <div className='bg-white/70 w-[90%] p-3 ms-5 pt-2 h-[100%]'>
-          <div className='font text-center text-[30px] text-amber-800 pb-4 uppercase font-bold animate-pulse'>{data.response?.propertyName} </div>
+          <div className='font text-center text-[30px] text-amber-800 pb-4 uppercase font-bold '>{data.response?.propertyName} </div>
           {/* <div className='flex flex-wrap justify-center gap-4'> */}
          <img src={`http://localhost:4000/uploads/${data.response?.coverImage}`} className='m-auto w-[70%]'alt=" " srcSet=" "/>
         
@@ -51,12 +51,12 @@ export const Vwdetailresort = () => {
       
          </div>
          {data.rooms?.map((item)=>(
-         <div className='flex  gap-2 '>
+         <div className='flex bg-yellow-100 px-2 py-4 rounded text-yellow-300  font-semibold font'>
            
          luxury room:
-         <img src={`http://localhost:4000/uploads/${item.image}`} className='m-auto w-[70%]'alt=" " srcSet=" "/>
+         <img src={`http://localhost:4000/uploads/${item.image}`} className='m-auto w-48'alt=" " srcSet=" "/>
          standardroom:
-         <img src={`http://localhost:4000/uploads/${item.images}`} className='m-auto w-[70%]'alt=" " srcSet=" "/>
+         <img src={`http://localhost:4000/uploads/${item.images}`} className='m-auto w-48'alt=" " srcSet=" "/>
         
         </div>
          ))}
@@ -73,6 +73,9 @@ export const Vwdetailresort = () => {
                 <th >
                     Occupancy
                 </th>
+                <th >
+                   Price
+                </th>
                 
             </tr>
         </thead>
@@ -88,6 +91,9 @@ export const Vwdetailresort = () => {
                 <td class="px-6 py-4">
                    {item.luxuryOccupancy}
                 </td>
+                <td class="px-6 py-4">
+                    {item.luxuryprice}/-
+                </td>
                 
             </tr>
             
@@ -102,6 +108,9 @@ export const Vwdetailresort = () => {
                 </td>
                 <td class="px-6 py-4">
                    {item.standardOccupancy}
+                </td>
+                <td class="px-6 py-4">
+                    {item.standardPrice}/-
                 </td>
                 
             </tr>

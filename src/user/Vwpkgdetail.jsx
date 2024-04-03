@@ -43,6 +43,9 @@ export const Vwpkgdetail = () => {
             <div className='flex flex-wrap gap-11  m-auto '>
               <Link to='/user/planpkg'><button className='bg-orange-600 text-white rounded-lg w-40'>GO BACK</button></Link>
           <Link to={`/user/Accomodatn/${id}`}> <button className='bg-orange-600 text-white rounded-lg w-40'>PROCEED</button></Link> </div>
+       <Link to={`/user/selectadventure/${id}`}> <button className='bg-orange-600 text-white rounded-lg w-40'>View Adventure</button></Link>
+      <Link to={`/user/chooseguide/${id}`}> <button className='bg-orange-600 text-white rounded-lg w-40'>guide</button></Link>
+    <Link to={`/user/bookingpage/${id}`}> <button className='bg-orange-600 text-white rounded-lg w-40'>BOOK</button></Link> 
 </div></div></div></div>
     
   )

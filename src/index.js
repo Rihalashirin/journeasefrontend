@@ -88,6 +88,9 @@ import { Editpkg } from './agency/Editpkg';
 import { Addedresortvw } from './agency/Addedresortvw';
 import { Vwaddedguide } from './agency/Vwaddedguide';
 import { Vwaddedadventure } from './agency/Vwaddedadventure';
+import AddDetails from './agency/Adddestination';
+import BookingPage from './user/BookingPage';
+import { AdventureUpdate } from './agency/EditAdventure';
 
 
 
@@ -128,7 +131,7 @@ root.render(
         <Route path='Accomodatn/:id' element={<Selectresort/>}/>
         <Route path='vwresortdet/:rid' element={<Uservwresortdetail/>}/>
         <Route path='chooseguide/:id' element={<Selectguide/>}/>
-        <Route path='selectadventure' element={<Selectadventure/>}/>
+        <Route path='selectadventure/:id' element={<Selectadventure/>}/>
         <Route path='notificatn' element={<Notification/>}/>
         <Route path='vwnotificatn' element={<Vwnotificatn/>}/>
         <Route path='userpay' element={<Userpayment/>}/>
@@ -138,6 +141,7 @@ root.render(
         <Route path='vwpkgreview'element={<Uservwpkgreview/>}/>
         <Route path='vwreviewresort' element={<Uservwresortreview/>}/>
         <Route path='updateprofile' element={<Userprofile/>}/>
+        <Route path='bookingpage/:id' element={<BookingPage/>}/>
 
       </Route>
 
@@ -170,6 +174,9 @@ root.render(
         <Route path='vwaddedresort/:id' element={<Addedresortvw/>}/>
         <Route path='vwaddedguide'element={<Vwaddedguide/>}/>
         <Route path='vwaddedadventure/:id' element={<Vwaddedadventure/>}/>
+        <Route path='adddestination' element={<AddDetails/>}/>
+        <Route path='editadventure' element={<AdventureUpdate/>}/>
+
         
         
     

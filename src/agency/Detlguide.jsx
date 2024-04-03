@@ -4,9 +4,20 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
 export const Detlguide = () => {
+  let id1=localStorage.getItem('id')
   const [data,setData]=useState([''])
+  const [data1,setData2]=useState('')
   let {id}=useParams()
   console.log(id);
+
+
+  let handleSubmit=async(event)=>{
+    event.preventDefault()
+    setData2(data1)
+    console.log(data1)
+    let response=await axios.post('http://localhost:4000/agency/guiderequest',{...data1,agencyid:id1,guideid:id})
+    console.log(response)
+  }
   useEffect(()=>{
     let fetchdata=async()=>{
       let response=await axios.get(`http://localhost:4000/agency/detailguide/${id}`)
@@ -37,7 +48,7 @@ export const Detlguide = () => {
             <div className='font font-bold pl-72  '> Experience(in years):{data.experienceYears}</div> 
             <div className='font  font-bold pl-72 '>location of expertise:{data.locationExpertise}</div>
            
-            <button className='bg-orange-600 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded ml-80 mt-8'>ENQUIRE</button>
+            <button type='submit' onClick={handleSubmit} className='bg-orange-600 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded ml-80 mt-8'>ENQUIRE</button>
 
         </div></>
         
