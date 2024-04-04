@@ -109,6 +109,13 @@ let handleSubmit=async (event)=>{
       No,I don't want a Health Assistant
     </label>
   </div>
+  <div>Whom are you Traveling with:</div>
+  <div className='flex flex-wrap gap-5 font-medium'>
+  <div>Adult:</div>
+  <input type="number" onChange={handleChange} name="adult" className='w-12'></input>
+  <div>children:</div>
+  <input type="number" onChange={handleChange} name="child" className='w-12'></input>
+  </div>
   </div>
   
   

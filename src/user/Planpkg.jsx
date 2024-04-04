@@ -13,7 +13,7 @@ export const Planpkg = () => {
 useEffect(()=>{
     let fetchdata=async ()=>{
         let response=await axios.get(`http://localhost:4000/user/findpackage`)
-        console.log(response.data)
+        console.log(response.data,'log for ----')
         setAgencydata(response.data)
     }
     fetchdata()
@@ -40,13 +40,14 @@ useEffect(()=>{
         </svg>
         <span class="sr-only">Search</span>
     </button>
+    
 </form>
       <div className='flex flex-wrap gap-9'>
         <div className='flex flex-wrap sm:gap-5  '>
         {agencyData.map((item)=>(
           <div className=' pt-28 text-center text-white '>
            <Link to={`/user/vwdetailpkg/${item.package?._id}`}><img src={`http://localhost:4000/uploads/${item.package?.coverImage}`} className='m-auto w-20' alt="" srcset="" /></Link> 
-            <Link to='/user/vwpkgreview'><div className='font font-bold'>{item.agency?.companyName} <br />{item.package?.packageName}</div></Link>
+            <Link to={`/user/vwpkgreview/${item.agency?._id}`}><div className='font font-bold'>{item?.agency?.companyName} <br />{item.package?.packageName}</div></Link>
           </div>
 
         ))}

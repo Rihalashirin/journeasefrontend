@@ -1,9 +1,23 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 export const Uservwpkgreview = () => {
+  let id=localStorage.getItem('id')
+  const [data,setData]=useState('')
+  let {aid}=useParams('')
+
+  useEffect(()=>{
+    let fetchdata=async()=>{
+        let response=await axios.get(`http://localhost:4000/user/detailvwagency/${aid}`)
+        console.log(response.data)
+        setData(response.data)
+    }
+    fetchdata()
+},[])
   return (
     <div className='userhome'>
-     <div className='font font-bold text-white text-2xl pt-3 pl-4'> WelTrip Planners</div>
+     <div className='font font-bold text-white text-2xl pt-3 pl-4'>{data.companyName} </div>
      <div className='text-white font-serif text-sm pl-4 pe-4 pt-4'>WeTrip Planners is a one-stop shop for a variety of customized travel packages to destinations across the country. We have a dedicated team of travel professionals with extensive travel experience who can cater to the needs of all travel segments – Inbound, Domestic and Outbound.
 Besides offering time-tested popular itineraries, our specialty lies in creating vacation packages for 100+ countries, exclusively tailored to personal likes and interests. From bespoke itineraries to seeing a place like a local, our emphasis is on flexibility and personalisation across a range of authentic experiences in India and abroad. Be it family vacays, romantic getaways or solo stays, we’ve got you covered.
 Be spoilt for choice with our range of experiences, be it the thrill of water sports in the Maldives, hot-air ballooning in Turkey, a romantic honeymoon in Switzerland, the Big 5 in Africa, visiting the mecca of museums and architecture in Europe, mastering the culinary arts in Italy or road tripping through scenic New Zealand. Trust us to plan and execute an unparalleled, stress-free vacation package just for you.</div>

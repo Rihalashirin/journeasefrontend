@@ -39,13 +39,20 @@ export const Vwpkgdetail = () => {
             <span>Discover Delhi's architectural heritage with a visit to the exquisite Humayun's Tomb, a masterpiece of Mughal architecture. Explore the Qutub Minar complex, marveling at the soaring minaret and the ancient iron pillar. This day offers a fascinating journey through the city's historical and artistic gems</span>
             <div className='font underline'>Day 4: Leisure and Departure</div>
             <p>Spend your final day at leisure, perhaps exploring local markets or indulging in optional activities. Bid farewell to Delhi, cherishing the memories of your "Delhi Delight" experience. Depart with a newfound appreciation for the city's cultural richness and historical grandeur</p>
+            <div>Travel info:</div> 
+            <div className='flex flex-wrap'></div>
+            <div>BUS-(30-60 People)</div>
+            <div>VAN-(8-15 People)</div>
+            <div>CAR-(4-5 People)</div>
+            <div>TWO WHEELER-(1 People)</div>
             <div className='font text-[20px] m-auto bg-yellow-600/90 h-8 w-96 text-white  text-center'>per head:{data.response?.price}/-</div>
+           
             <div className='flex flex-wrap gap-11  m-auto '>
               <Link to='/user/planpkg'><button className='bg-orange-600 text-white rounded-lg w-40'>GO BACK</button></Link>
-          <Link to={`/user/Accomodatn/${id}`}> <button className='bg-orange-600 text-white rounded-lg w-40'>PROCEED</button></Link> </div>
-       <Link to={`/user/selectadventure/${id}`}> <button className='bg-orange-600 text-white rounded-lg w-40'>View Adventure</button></Link>
-      <Link to={`/user/chooseguide/${id}`}> <button className='bg-orange-600 text-white rounded-lg w-40'>guide</button></Link>
-    <Link to={`/user/bookingpage/${id}`}> <button className='bg-orange-600 text-white rounded-lg w-40'>BOOK</button></Link> 
+          </div>
+     
+    
+    <Link to={`/user/bookingpage/${id}`}> <button className='bg-orange-600 text-white rounded-lg w-40'>PROCEED</button></Link> 
 </div></div></div></div>
     
   )

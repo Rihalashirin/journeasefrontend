@@ -25,7 +25,7 @@ export const Uservwresortdetail = () => {
   return (
     <div className='userhome'>
         <div className='bg-white/50 w-[90%] p-3 ms-5 pt-2'>
-        <div className='font text-center text-[30px] text-amber-800 pb-4 uppercase font-bold animate-pulse'>{data.response?.propertyName} </div>
+        <div className='font text-center text-[30px] text-amber-800 pb-4 uppercase font-bold '>{data.response?.propertyName} </div>
         <img src={`http://localhost:4000/uploads/${data.response?.coverImage}`} className='m-auto w-[70%]'alt=" " srcSet=" "/>
         <div className='w-[90%] text-center glow'>{data.response?.description}</div>
         
@@ -42,7 +42,7 @@ export const Uservwresortdetail = () => {
         <div className=' bg-yellow-300 w-[80%] h-32 mb-24  text-red-600 ml-24 mt-9 p-2 rounded-lg shadow-xl border-l-2 border-r-2 border-t-2 border-b-2'>
         {data.response?.events}</div>
         {data.rooms?.map((item)=>(
-    <div className='flex bg-yellow-100 px-2 py-4 rounded text-yellow-300 animate-bounce  font-semibold font'>
+    <div className='flex bg-yellow-100 px-2 py-4 rounded text-yellow-300   font-semibold font'>
            
            luxury room:
            <img src={`http://localhost:4000/uploads/${item.image}`} className='m-auto w-48'alt=" " srcSet=" "/>
@@ -132,8 +132,8 @@ export const Uservwresortdetail = () => {
                 
         
         <div className='flex flex-wrap gap-8'>
-       <Link to='/user/Accomodatn'><button className='bg-orange-600 w-32 h-5'>GO BACK</button></Link> 
-        <button className='bg-orange-600 w-32 h-5'>PROCEED</button>
+        
+        
         </div>
 
         </div>

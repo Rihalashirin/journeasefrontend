@@ -38,17 +38,27 @@ export const Detailvwpkg = () => {
             <span>Discover Delhi's architectural heritage with a visit to the exquisite Humayun's Tomb, a masterpiece of Mughal architecture. Explore the Qutub Minar complex, marveling at the soaring minaret and the ancient iron pillar. This day offers a fascinating journey through the city's historical and artistic gems</span>
             <div className='font underline'>Day 4: Leisure and Departure</div>
             <p>Spend your final day at leisure, perhaps exploring local markets or indulging in optional activities. Bid farewell to Delhi, cherishing the memories of your "Delhi Delight" experience. Depart with a newfound appreciation for the city's cultural richness and historical grandeur</p>
-            <div className='font text-[20px] m-auto bg-yellow-600/90 h-8 w-96 text-white  text-center'>per head:{data.price}/-</div>  
+            <div>Travel info:</div> 
+            <div className='flex flex-wrap'></div>
+            <div>BUS-(30-60 People)</div>
+            <div>VAN-(8-15 People)</div>
+            <div>CAR-(4-5 People)</div>
+            <div>TWO WHEELER-(1 People)</div>
+
+            
+            <div className='font text-[20px] m-auto bg-yellow-600/90 h-8 w-96 text-white  text-center'>per head:{data.price}/-</div> 
+           
           </div>
+
         </div></div><div className='mt-28 pl-64 flex flex-wrap gap-3 '>
      <Link to={`/agency/editpkg/${id}`}> <button className='bg-yellow-700 w-36 rounded-full py-2 px-4'>Edit package</button></Link> 
      <Link to={`/agency/addpkg1/${id}`}> <button type='submit' className='bg-yellow-700 w-36  rounded-full py-2 px-4'>Add resort</button></Link>
      <Link to={`/agency/vwaddedresort/${id}`}> <button type='submit' className='bg-yellow-700 w-36  rounded-full py-2 px-4'>view resort</button></Link>
-     <Link to='/agency/assignguide'> <button type='submit' className='bg-yellow-700 w-36  rounded-full py-2 px-4'>Add guide</button></Link>
+     
      <Link to='/agency/vwaddedguide'> <button type='submit' className='bg-yellow-700 w-36  rounded-full py-2 px-4'>view guide</button></Link>
      </div>
      <div className='mt-6 pl-48 flex flex-wrap gap-3'>
-     <Link to='/agency/adddestination'><button type='submit' className='bg-yellow-700 w-52 text-white rounded-full py-2  px-4'>Add Destination</button></Link>
+     
      <Link to='/agency/addadventure'><button type='submit' className='bg-yellow-700 w-52  rounded-full py-2 px-4'>Add adventure</button></Link>
      <Link to={`/agency/adventure/${id}`}><button type='submit' className='bg-yellow-700 w-52  rounded-full py-2 px-4'>view adventure</button></Link>
      <Link to={`/agency/vwaddedadventure/${id}`}><button type='submit' className='bg-yellow-700 w-60  rounded-full py-2 px-4'>view added adventure</button></Link>

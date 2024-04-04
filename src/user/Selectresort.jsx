@@ -26,7 +26,7 @@ export const Selectresort = () => {
             {resortData.map((item)=>(
                 <div className=' pt-28 text-center text-white '>
                     <img src={`http://localhost:4000/uploads/${item.resort?.coverImage}`} className='m-auto w-28' alt="" srcset="" />
-                   <Link to={`/user/vwresortdet/${item.resort?._id}`}> <div className='font font-bold'>{item.resort?.propertyName}</div></Link>
+                   {/* <Link to={`/user/vwresortdet/${item.resort?._id}`}> <div className='font font-bold'>{item.resort?.propertyName}</div></Link> */}
                 </div>
                 ))}
                 </div>
