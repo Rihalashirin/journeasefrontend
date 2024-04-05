@@ -15,8 +15,8 @@ export const Mybookingtable = () => {
     },[])
   return (
     <div className='userhome'>
-        <table class="w-full text-sm text-center rtl:text-right  text-gray-500 dark:text-gray-400 dark:bg-gray-950/50">
-            <thead class="text-xs text-white uppercase  dark:bg-gray-950/90 dark:text-gray-400">
+        <table class="w-full text-sm text-center rtl:text-right   text-gray-500 dark:text-gray-400 dark:bg-gray-950/50">
+            <thead class="text-xs text-white uppercase bg-black dark:bg-gray-950/90 dark:text-gray-400">
                 <tr >
                     <th scope="col" class="px-3 py-3">
                         SLNO

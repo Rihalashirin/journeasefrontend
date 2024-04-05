@@ -111,7 +111,7 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                       id="country-option-1"
                       type="radio"
                       name="guide"
-                      value="true"
+                      value="yes"
                       class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
                      
                     />
@@ -129,7 +129,7 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                       id="country-option-2"
                       type="radio"
                       name="guide"
-                      value="false"
+                      value="no"
                       class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
                     />
                     <label
@@ -198,14 +198,14 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                       id="country-option-3"
                       type="radio"
                       name="experience"
-                      value="true"
+                      value="above 5 years"
                       class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:bg-gray-700 dark:border-gray-600"
                     />
                     <label
                       for="country-option-3"
                       class="block ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                     >
-                      Experience 5 Years
+                      Experience greater than 5 Years
                     </label>
                   </div>
                   <div class="flex items-center mb-4">
@@ -214,14 +214,14 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                       id="country-option-3"
                       type="radio"
                       name="experience"
-                      value="true"
+                      value="less than 5 years"
                       class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:bg-gray-700 dark:border-gray-600"
                     />
                     <label
                       for="country-option-3"
                       class="block ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                     >
-                      Experience 5 years
+                      Experience less than 5 years
                     </label>
                   </div>
                 </div>

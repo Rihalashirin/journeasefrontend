@@ -30,14 +30,14 @@ export const Detailvwpkg = () => {
 
           <p className=''>{data.basicDescription}</p>
             </div>
-            <div className='font underline'> Day 1: Historical Marvels</div>
-            <span>Embark on your Delhi adventure with a guided tour of the awe-inspiring Red Fort, a UNESCO World Heritage Site. Explore the intricate architecture and rich history encapsulated within its walls. Continue to the iconic India Gate, a symbol of national pride, and conclude the day with a visit to the serene Lotus Temple, offering a tranquil retreat.</span>
-            <div className='font underline'> Day 2: Culinary Delights and Cultural Exploration</div>
-            <span>Immerse yourself in the bustling markets of Chandni Chowk, where ancient traditions blend with modern vibrancy. Engage your senses with the tantalizing street food offerings and shop for local treasures. In the afternoon, savor the flavors of authentic Indian cuisine at carefully selected local restaurants, providing a delightful gastronomic experience.</span>
-            <div className='font underline'>Day 3: Architectural Wonders</div>
-            <span>Discover Delhi's architectural heritage with a visit to the exquisite Humayun's Tomb, a masterpiece of Mughal architecture. Explore the Qutub Minar complex, marveling at the soaring minaret and the ancient iron pillar. This day offers a fascinating journey through the city's historical and artistic gems</span>
-            <div className='font underline'>Day 4: Leisure and Departure</div>
-            <p>Spend your final day at leisure, perhaps exploring local markets or indulging in optional activities. Bid farewell to Delhi, cherishing the memories of your "Delhi Delight" experience. Depart with a newfound appreciation for the city's cultural richness and historical grandeur</p>
+            {data.destination?.map((item)=>(
+              <>
+            <div className='font underline'> Day {item?.Day}: {item.Destination}</div>
+            <span>{item.activities}</span>
+           
+            </>
+            ))}
+            
             <div>Travel info:</div> 
             <div className='flex flex-wrap'></div>
             <div>BUS-(30-60 People)</div>

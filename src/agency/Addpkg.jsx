@@ -71,8 +71,14 @@ export const Addpkg = () => {
     formData.append('uploadBrochure', data.uploadBrochure);
     formData.append('basicDescription', data.basicDescription);
     formData.append('detailedDescription', data.detailedDescription);
-    formData.append('agencyId', id);
-    formData.append('destination', JSON.stringify(destinations)); // Convert destinations array to JSON string
+    formData.append('agencyid', id);
+    
+    // Append the array of destination objects directly
+    destinations.forEach((destination, index) => {
+      formData.append(`destination[${index}][Day]`, destination.Day);
+      formData.append(`destination[${index}][Destination]`, destination.Destination);
+      formData.append(`destination[${index}][activities]`, destination.activities);
+    });
   
     try {
       // Send the FormData to the backend
@@ -86,6 +92,7 @@ export const Addpkg = () => {
       console.error('Error:', error);
     }
   };
+  
   
   return (
     <div className='bg-[#1a2954d6] h-[467px]' >
@@ -123,6 +130,7 @@ export const Addpkg = () => {
               </div>
               <div className="container mx-auto px-4 py-8">
       <button
+      type='button'
         onClick={addDay}
         className="bg-orange-500 mb-4 text-white text-[25px] px-4 py-2 rounded mt-4 hover:bg-orange-600"
       >

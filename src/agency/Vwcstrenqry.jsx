@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import seaview from './images/seaview.png'
 import adventure from './images/adventure.png'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+import axios from 'axios'
 
 export const Vwcstrenqry = () => {
+  const[data,setData]=useState('')
+  let {id}=useParams()
+  useEffect(()=>{
+    let fetchdata=async ()=>{
+        let response=await axios.get(`http://localhost:4000/agency/vwdetailbooking/${id}`)
+        console.log(response.data,'log for ----')
+        setData(response.data)
+    }
+    fetchdata()
+},[])
   return (
     <div className='pencil'>
         <div className='h-[64px] font text-[30px] font-bold m-0 text-left pl-10 '>

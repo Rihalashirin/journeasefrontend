@@ -160,7 +160,7 @@ root.render(
         <Route path='addpkg' element={<Addpkg/>}/>
         <Route path='addpkg1/:id' element={<Addpkg1/>}/>
         <Route path='cstmrenqry' element={<Cstmrenqry/>}/>
-        <Route path='detailcstrenqry' element={<Vwcstrenqry/>}/>
+        <Route path='detailcstrenqry/:id' element={<Vwcstrenqry/>}/>
         <Route path='assignguide' element={<Assignguide/>}/>
         <Route path='detailguide/:id' element={<Detlguide/>}/>
         <Route path='cnfrmguide' element={<Guidcnfrmtn/>}/>

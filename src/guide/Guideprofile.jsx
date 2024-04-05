@@ -42,7 +42,7 @@ export const Guideprofile = () => {
       
   }
   return (
-    <div className='bg-[#1a2954d6] h-[467px]'>
+    <div className='bg-[#1a2954d6] h-[600px]'>
     <div className='h-[64px] font text-[30px] font-bold m-0 text-left pl-10 '>
     <span className='text-white'>Update </span><span className='text-orange-600'>Profile</span>
   </div>

@@ -39,7 +39,7 @@ export const Reguser = () => {
             
         }
   return (
-    <div className='bg-[#1a2954d6] h-[467px]'>
+    <div className='bg-[#1a2954d6] h-[600px]'>
     <div className='h-[64px] font text-[30px] font-bold m-0 text-left pl-10 '>
     <span className='text-white'>Resgister as a </span><span className='text-orange-600'>User</span>
   </div>
@@ -69,10 +69,7 @@ export const Reguser = () => {
               <label for="image" class="block mb-2 text-sm font-medium text-white dark:text-white">Image:</label>
               <input onChange={handlefile}  name='image' type="file" id="image" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
-            <div >
-              <label for="idproof" class="block mb-2 text-sm font-medium text-white dark:text-white">ID proof:</label>
-              <input onChange={handlefile} name='idProof'type="file" id="idproof" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
-            </div>
+           
           </div>
           <div className='w-[25%]'>
 
@@ -84,6 +81,10 @@ export const Reguser = () => {
               <label for="post" class="block mb-2 text-sm font-medium text-white dark:text-white">ID Proof :</label>
               <input onChange={handleChange} value={data.idproof} type="file" id="post" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div> */}
+             <div >
+              <label for="idproof" class="block mb-2 text-sm font-medium text-white dark:text-white">ID proof:</label>
+              <input onChange={handlefile} name='idProof'type="file" id="idproof" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+            </div>
             <div >
               <label for="place" class="block mb-2 text-sm font-medium text-white dark:text-white">Place:</label>
               <input  onChange={handleChange} value={data.place} name='place' type="text" id="place" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />

@@ -1,7 +1,18 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export const Cstmrenqry = () => {
+    const [data,setData]=useState([''])
+    let id=localStorage.getItem('id')
+    useEffect(()=>{
+        let fetchdata=async ()=>{
+            let response=await axios.get(`http://localhost:4000/agency/vwbookingtable/${id}`)
+            console.log(response.data,'log for ----')
+            setData(response.data)
+        }
+        fetchdata()
+    },[])
   return (
     <div className='pencil'>
         <div className='h-[64px] font text-[30px] font-bold m-0 text-left pl-10 '>
@@ -11,8 +22,11 @@ export const Cstmrenqry = () => {
 
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <thead class="text-xs text-white bg-orange-600 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
+            <th scope="col" class="px-6 py-3">
+                   Sl.No
+                </th>
                 <th scope="col" class="px-6 py-3">
                     Name
                 </th>
@@ -31,70 +45,36 @@ export const Cstmrenqry = () => {
             </tr>
         </thead>
         <tbody>
+        {data.map((item,index)=>(
             <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                
+                
+                {/* <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     Akshay Kumar
-                </th>
+                </th> */}
                 <td class="px-6 py-4">
-                   Delhi Delight
+                {index+1}
                 </td>
                 <td class="px-6 py-4">
-                   4D
+                 {item.user?.name}
                 </td>
-                {/* <td class="px-6 py-4">
-                    $2999
-                </td> */}
-                {/* <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td> */}
-                <td class="px-6 py-4">
-                   <Link to='/agency/detailcstrenqry'><button className='bg-orange-600 text-white rounded-lg p-2'>View details</button></Link> 
-                </td>
-            </tr>
-            {/* <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Microsoft Surface Pro
-                </th>
-                <td class="px-6 py-4">
-                    White
+                <td class="px-6 py-4">  
+                {item.req?.packageName}
                 </td>
                 <td class="px-6 py-4">
-                    Laptop PC
+                  {item.req?.noOfDays}
+                  
                 </td>
-                <td class="px-6 py-4">
-                    $1999
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-            </tr>
-            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Magic Mouse 2
-                </th>
-                <td class="px-6 py-4">
-                    Black
-                </td>
-                <td class="px-6 py-4">
-                    Accessories
-                </td>
-                <td class="px-6 py-4">
-                    $99
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-            </tr> */}
-            {/* <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Google Pixel Phone
-                </th>
+                
+                
                
                 <td class="px-6 py-4">
-                    <button className='bg-orange-600 text-white rounded-lg p-2'>View details</button>
+                   <Link to={`/agency/detailcstrenqry/${item.booking?._id}`}><button className='bg-orange-600 text-white rounded-lg p-2'>View details</button></Link> 
                 </td>
-            </tr> */}
+            </tr>
            
+           
+            ))}
         </tbody>
     </table>
 </div>
