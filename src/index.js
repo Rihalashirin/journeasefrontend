@@ -139,7 +139,7 @@ root.render(
         <Route path='userpay' element={<Userpayment/>}/>
         <Route path='paysucccess' element={<Paysuccess/>}/>
         <Route path='addreview' element={<Addreview/>}/>
-        <Route path='writereview' element={<Writereview/>}/>
+        <Route path='writereview/:id' element={<Writereview/>}/>
         <Route path='vwpkgreview/:aid'element={<Uservwpkgreview/>}/>
         <Route path='vwreviewresort' element={<Uservwresortreview/>}/>
         <Route path='updateprofile' element={<Userprofile/>}/>
@@ -161,7 +161,7 @@ root.render(
         <Route path='addpkg1/:id' element={<Addpkg1/>}/>
         <Route path='cstmrenqry' element={<Cstmrenqry/>}/>
         <Route path='detailcstrenqry/:id' element={<Vwcstrenqry/>}/>
-        <Route path='assignguide' element={<Assignguide/>}/>
+        <Route path='assignguide/:aid' element={<Assignguide/>}/>
         <Route path='detailguide/:id' element={<Detlguide/>}/>
         <Route path='cnfrmguide' element={<Guidcnfrmtn/>}/>
         <Route path='adventure/:id' element={<Addpkg3/>}/>

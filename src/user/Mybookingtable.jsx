@@ -28,6 +28,7 @@ export const Mybookingtable = () => {
                         DETAILS
                     </th>
                     <th >STATUS</th>
+                    <th></th>
                    
                    
                 </tr>
@@ -49,7 +50,9 @@ export const Mybookingtable = () => {
                     PENDING  
                     </td>
                    
-                   
+                   <td>
+                 <Link to={`/user/writereview/${item.req?._id}`}> <button className='bg-orange-600 w-28'>REVIEW</button></Link>  
+                   </td>
                     
                 </tr>
                      ))}

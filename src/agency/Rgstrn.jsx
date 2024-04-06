@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 
+
 export const Rgstrn = () => {
   const [data,setData]=useState('')
   let handlefile=(event)=>{
@@ -60,7 +61,7 @@ export const Rgstrn = () => {
             </div>
             <div >
               <label for="address" class="block mb-2 text-sm font-medium text-white dark:text-white">Office Address :</label>
-              <input onChange={handleChange} value={data.officeaddress} name="officeAddress" type="text" id="address" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              <textarea onChange={handleChange} value={data.officeaddress} name="officeAddress" type="text" id="address" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
             
             <div >

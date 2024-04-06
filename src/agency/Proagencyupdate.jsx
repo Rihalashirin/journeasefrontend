@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import{toast,ToastContainer} from 'react-toastify'
 
 export const Proagencyupdate = () => {
   let id = localStorage.getItem("id");
@@ -45,7 +46,9 @@ export const Proagencyupdate = () => {
       }
     );
     console.log(response,'response');
+
     setrefresh(!refresh);
+    
   };
   return (
     <div className="bg-[#1a2954d6] h-[600px]">

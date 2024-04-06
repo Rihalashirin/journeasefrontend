@@ -36,9 +36,9 @@ export const Cstmrenqry = () => {
                 <th scope="col" class="px-6 py-3">
                    Days
                 </th>
-                {/* <th scope="col" class="px-6 py-3">
-                    Price
-                </th> */}
+                <th scope="col" class="px-6 py-3">
+                    Status
+                </th>
                 <th scope="col" class="px-6 py-3">
                     Action
                 </th>
@@ -65,6 +65,12 @@ export const Cstmrenqry = () => {
                   {item.req?.noOfDays}
                   
                 </td>
+                <td class="px-6 py-4">
+                  {item.booking?.status}
+                  
+                </td>
+                
+                
                 
                 
                

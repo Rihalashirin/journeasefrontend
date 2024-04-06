@@ -4,128 +4,62 @@ export const Guidemngwage = () => {
   return (
     <div className='guidehome'>
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg pt-10">
-    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-        <thead class="text-xs bg-gray-800 text-white uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-                <th scope="col" class="px-6 py-3">
-                   Enquiriy Name
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Trip Duration
-                </th>
-                <th scope="col" class="px-6 py-3">
-                   Location
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Guest Count
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Status
-                </th>
-                <th scope="col" class="px-6 py-3">
-                  Action 
-                </th>
-               
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    WellTrip planners
-                </th>
-                <td class="px-6 py-4">
-                   10/02/2024-14/02/2024
-                </td>
-                <td class="px-6 py-4">
-                  Delhi
-                </td>
-                <td class="px-6 py-4">
-                    4
-                </td>
-                <td class="px-6 py-4">
-                    pending
-                </td>
-               
-                <td class="px-3 py-4 flex flex-wrap flex-col gap-2 text-center">
-                    <a href="#" class="font-bold text-sm text-black bg-gray-400 hover:underline hover:bg-gray p-1"><input type="text"placeholder='enter wage' /></a>
-                    <a href="#" class="font-bold text-sm text-black bg-green-600 hover:underline hover:bg-orange-600 p-1" >Accept</a>
-                </td>
+        <div className='bg-white/50 w-[90%] p-3 ms-5 pt-2'>
+            <div className='font '>
+                <div className='text-[20px]'>
+                Basic info </div> <br />
+               Name  :  <br/>
+               Email :  <br/>
+               Mobile: <br/><br/>
+               <div className='font '>
+                <div className='text-[20px]'>
+                Travel info </div><br/>
+                <div className='flex flex-wrap gap-16'>
+                  <div>
+                Adults: <br/>
+                Children:
+                </div>
+                <div>
+                  Date:
+                </div>
                 
-                {/* <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 bg-gray-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-                 */}
-            </tr>
-            {/* <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Microsoft Surface Pro
-                </th>
-                <td class="px-6 py-4">
-                    White
-                </td>
-                <td class="px-6 py-4">
-                    Laptop PC
-                </td>
-                <td class="px-6 py-4">
-                    $1999
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-            </tr> */}
-            {/* <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Magic Mouse 2
-                </th>
-                <td class="px-6 py-4">
-                    Black
-                </td>
-                <td class="px-6 py-4">
-                    Accessories
-                </td>
-                <td class="px-6 py-4">
-                    $99
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-            </tr> */}
-            {/* <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Google Pixel Phone
-                </th>
-                <td class="px-6 py-4">
-                    Gray
-                </td>
-                <td class="px-6 py-4">
-                    Phone
-                </td>
-                <td class="px-6 py-4">
-                    $799
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-            </tr> */}
-            {/* <tr>
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Apple Watch 5
-                </th>
-                <td class="px-6 py-4">
-                    Red
-                </td>
-                <td class="px-6 py-4">
-                    Wearables
-                </td>
-                <td class="px-6 py-4">
-                    $999
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-            </tr> */}
-        </tbody>
-    </table>
+                </div><br />
+                <div className='text-[20px]'>
+                Package info </div><br/>
+                </div>
+             <div> ggggggggj</div><br/>
+             <div className='flex flex-wrap gap-10'>
+              <div>Guide :dfgfdgd </div>
+              <div>Health Assistant : </div>
+             </div>
+               <div className='text-[20px]'>
+                Accomodation Chosen </div><br/>
+                <div className='flex flexwrap  justify-between '>
+                <img src=" " alt="" srcset="" />
+                <div className='pt-10'>hotel <br />luxury</div>
+                <div className='flex flex-col gap-6 mt-3 '>
+                
+                </div>
+              
+               
+                </div>
+                <div className='text-[20px]'>
+                Adventure Chosen </div><br/>
+                <div className='flex flexwrap  justify-start '>
+                <img src=" " alt="" srcset="" />
+                <div className='pt-10'> <br />3000-5000/Head</div>
+                {/* <div className='font text-[10px] pt-16 '>3000-5000/Head</div> */}
+                </div>
+                
+                 <div className='mt-5'> booking status:</div>
+                 <div className='flex flex-wrap gap-14 ml-96'>
+                <button  className='bg-green-600 w-32 h-9 rounded-lg font-bold'>ACCEPT</button>
+                <button   className='bg-orange-600 w-32 h-9 rounded-lg font-bold'>REJECT</button>
+                </div>
+
+            </div>
+
+        </div>
 </div>
 </div>
     

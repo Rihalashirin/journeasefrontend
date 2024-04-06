@@ -124,10 +124,10 @@ export const Addpkg = () => {
                 <label for="full_name">Location</label>
                 <input onChange={handleChange} type="text" name="location" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
               </div>
-              <div class="md:col-span-5">
+              {/* <div class="md:col-span-5">
                 <label for="destination">Destination</label>
                 <input onChange={handleChange} type="text" name="destination" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
-              </div>
+              </div> */}
               <div className="container mx-auto px-4 py-8">
       <button
       type='button'
@@ -174,7 +174,7 @@ export const Addpkg = () => {
                   name=''
                   value={activity}
                   onChange={(e) => handleActivityChange(dayIndex, activityIndex, e.target.value)}
-                  className="border border-gray-300 rounded px-4 py-2 w-full"
+                  className="border border-gray-300 rounded px-4 py-2 w-80"
                 />
               </li>
             ))}
@@ -182,7 +182,7 @@ export const Addpkg = () => {
         </div>
       ))}
       <br />
-      <button className="bg-orange-600 rounded-lg p-2 text-white">Submit</button>
+     
     </div>
 
               <div class="md:col-span-5">
@@ -203,71 +203,16 @@ export const Addpkg = () => {
                 <input onChange={handlefile} type="file" name="uploadBrochure" id="brochure" class="h-10 border mt-1 w-60 rounded px-4 ms-6 bg-gray-50"   />
               </div>
 
-              {/* <div class="md:col-span-2">
-                <label for="city">Upload Brochure</label>
-                <input type="file" name="city" id="city" class="h-10 border mt-1 rounded px-4 ms-6  bg-gray-50" value="" placeholder="" />
-              </div> */}
+            
 
-              {/* <div class="md:col-span-2">
-                <label for="country">Country / region</label>
-                <div class="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                  <input name="country" id="country" placeholder="Country" class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
-                  <button tabindex="-1" class="cursor-pointer outline-none focus:outline-none transition-all text-gray-300 hover:text-red-600">
-                    <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <line x1="18" y1="6" x2="6" y2="18"></line>
-                      <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                  </button>
-                  <button tabindex="-1" for="show_more" class="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-300 hover:text-blue-600">
-                    <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                  </button>
-                </div>
-              </div> */}
+           
 
-              {/* <div class="md:col-span-2">
-                <label for="state">Basic Description</label>
-                <div class="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                  <input name="state" id="state" placeholder="State" class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
-                  <button tabindex="-1" class="cursor-pointer outline-none focus:outline-none transition-all text-gray-300 hover:text-red-600">
-                    <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <line x1="18" y1="6" x2="6" y2="18"></line>
-                      <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                  </button>
-                  <button tabindex="-1" for="show_more" class="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-300 hover:text-blue-600">
-                    <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                  </button>
-                </div>
-              </div> */}
-{/* 
-              <div class="md:col-span-1">
-                <label for="zipcode">Zipcode</label>
-                <input type="text" name="zipcode" id="zipcode" class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="" value="" />
-              </div> */}
+              
 
-              {/* <div class="md:col-span-5">
-                <div class="inline-flex items-center">
-                  <input type="checkbox" name="billing_same" id="billing_same" class="form-checkbox" />
-                  <label for="billing_same" class="ml-2">My billing address is different than above.</label>
-                </div>
-              </div> */}
 
-              {/* <div class="md:col-span-2">
-                <label for="soda">How many soda pops?</label>
-                <div class="h-10 w-28 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                  <button tabindex="-1" for="show_more" class="cursor-pointer outline-none focus:outline-none border-r border-gray-200 transition-all text-gray-500 hover:text-blue-600">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mx-2" viewBox="0 0 20 20" fill="currentColor">
-                      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                    </svg>
-                  </button>
-                  <input name="soda" id="soda" placeholder="0" class="px-2 text-center appearance-none outline-none text-gray-800 w-full bg-transparent" value="0" />
-                  <button tabindex="-1" for="show_more" class="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-500 hover:text-blue-600">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mx-2 fill-current" viewBox="0 0 20 20" fill="currentColor">
-                      <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
-                    </svg>
-                  </button>
-                </div>
-              </div> */}
+             
+
+            
       <div class="md:col-span-5">
                 <label for="full_name">Basic Description</label>
                 {/* <input type="text" name="" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" /> */}

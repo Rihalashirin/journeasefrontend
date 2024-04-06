@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 export const Editpkg = () => {
-    // let id=localStorage.getItem('id')
+   
     let {id}=useParams()
     const [tourDetails, setTourDetails] = useState([{ day: 1, destination: '', activities: [''] }]);
     const [userData,setUserData]=useState('')
@@ -85,14 +85,12 @@ export const Editpkg = () => {
 <div class="min-h-screen p-6 bg-[#1a2954d6] flex items-center justify-center">
   <div class="container max-w-screen-lg mx-auto">
     <div>
-      {/* <h2 class="font-semibold text-xl text-gray-600">Responsive Form</h2>
-      <p class="text-gray-500 mb-6">Form is mobile responsive. Give it a try.</p> */}
+     
 
       <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
         <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
           <div class="text-gray-600">
-            {/* <p class="font-medium text-lg">Personal Details</p>
-            <p>Please fill out all the fields.</p> */}
+           
           </div>
 
           <div class="lg:col-span-2 ">
@@ -105,10 +103,10 @@ export const Editpkg = () => {
                 <label for="full_name">Location</label>
                 <input onChange={handleChange}  placeholder={userData?.location}  type="text" name="location" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
               </div>
-              <div class="md:col-span-5">
+              {/* <div class="md:col-span-5">
                 <label for="destination">Destination</label>
                 <input onChange={handleChange}  placeholder={userData?.destination} type="text" name="destination" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
-              </div>
+              </div> */}
 
               <div className="container mx-auto px-4 py-8">
       <button
@@ -163,7 +161,7 @@ export const Editpkg = () => {
         </div>
       ))}
       <br />
-      <button className="bg-orange-600 rounded-lg p-2 text-white">Submit</button>
+     
     </div>
 
               <div class="md:col-span-5">

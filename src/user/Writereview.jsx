@@ -1,13 +1,39 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect } from 'react'
 import { useState } from 'react'
+import { useParams } from 'react-router-dom';
 
 export const Writereview = () => {
+    let id2=localStorage.getItem('id')
+    const [data,setData]=useState('')
+    const [data2,setData2]=useState([''])
+    let {id}=useParams()
     const [selectedStarCount, setSelectedStarCount] = useState(0);
     const [selectedHoverStarCount, setSelectHoverStarCount] = useState(0)
+    useEffect(()=>{
+        let fetchdata=async ()=>{
+            let response=await axios.get(`http://localhost:4000/user/vwpkgname/${id}`)
+            console.log(response.data)
+            setData(response.data)
+        }
+        fetchdata()
+    },[])
+    let handleChange=(event)=>{
+        setData({...data,[event.target.name]:event.target.value})
+    }
+    let handleSubmit=async (event)=>{
+        event.preventDefault()
+        setData(data)
+        console.log(data)
+       let response=await axios.post(`http://localhost:4000/user/addreview/${id2}`)
+       console.log(response);
+        
+    }
+
   return (
     <div className='userhome'>
         <div className=' font text-[30px] font-bold pl-5 pt-6 text-white'>
-            Delhi Delight
+            {data.pkg?.packageName}
           </div>
           <div className='bg-white/50 w-[90%] p-3 ms-5 pt-2 h-96'>
           {/* <body> */}
@@ -23,7 +49,10 @@ export const Writereview = () => {
             <span class="star" data-value="4">★</span>
             <span class="star" data-value="5">★</span>
         </div> */}
-        <div className='font-bold'>WelTrip Planners</div>
+        <div className='font-bold'>{data.agnc?.companyName}</div>
+        {data.destination?.map((item)=>(
+        <div className='font-bold text-white'>{item.pkg?.destination}</div>
+        ))}
         {/* <p>Share your review:</p> */}
         <textarea id="review"
                   placeholder="Write your review here">
@@ -37,10 +66,10 @@ export const Writereview = () => {
 {/* </body> */}
 <div className='font-bold'>Hotel Sea View</div>
         {/* <p>Share your review:</p> */}
-        <textarea id="review"
+        <textarea onChange={handleChange} id="review"
                   placeholder="Write your review here">
           </textarea>
-          <button className='bg-orange-600 w-28 mt-12 rounded-lg'>Post Review</button>
+          <button onClick={handleSubmit} className='bg-orange-600 w-28 mt-12 rounded-lg'>Post Review</button>
         {/* <button type="submit">Submit</button> */}
         <div className='app'>
             Star rating
