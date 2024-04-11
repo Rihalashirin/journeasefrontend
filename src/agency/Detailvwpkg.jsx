@@ -29,37 +29,41 @@ export const Detailvwpkg = () => {
             <div className='w-[78%]'>
 
           <p className=''>{data.basicDescription}</p>
+          <p className=''>{data.detailedDescription}</p>
             </div>
+            <div className=''>
             {data.destination?.map((item)=>(
-              <>
+              <> <div className='flex-row gap-2'>
             <div className='font underline'> Day {item?.Day}: {item.Destination}</div>
             <span>{item.activities}</span>
-           
+           </div>
             </>
             ))}
-            
+            </div>
+              </div>
             <div>Travel info:</div> 
-            <div className='flex flex-wrap'></div>
-            <div>BUS-(30-60 People)</div>
-            <div>VAN-(8-15 People)</div>
-            <div>CAR-(4-5 People)</div>
-            <div>TWO WHEELER-(1 People)</div>
-
+            {data.transports?.map((item)=>(
+            <div className='flex flex-wrap'>
+            <div>{item.noofppl}People:
+            {item.transportOption}</div>
+            <div>price:{item.price}</div>
+            </div>
+            ))}
             
             <div className='font text-[20px] m-auto bg-yellow-600/90 h-8 w-96 text-white  text-center'>per head:{data.price}/-</div> 
            
-          </div>
+        
 
-        </div></div><div className='mt-28 pl-64 flex flex-wrap gap-3 '>
+        </div></div><div className='mt-28 pl-96 flex flex-wrap gap-3 '>
      <Link to={`/agency/editpkg/${id}`}> <button className='bg-yellow-700 w-36 rounded-full py-2 px-4'>Edit package</button></Link> 
      <Link to={`/agency/addpkg1/${id}`}> <button type='submit' className='bg-yellow-700 w-36  rounded-full py-2 px-4'>Add resort</button></Link>
      <Link to={`/agency/vwaddedresort/${id}`}> <button type='submit' className='bg-yellow-700 w-36  rounded-full py-2 px-4'>view resort</button></Link>
      
-     <Link to='/agency/vwaddedguide'> <button type='submit' className='bg-yellow-700 w-36  rounded-full py-2 px-4'>view guide</button></Link>
+    
      </div>
-     <div className='mt-6 pl-48 flex flex-wrap gap-3'>
+     <div className='mt-6 pl-96 flex flex-wrap gap-3'>
      
-     <Link to='/agency/addadventure'><button type='submit' className='bg-yellow-700 w-52  rounded-full py-2 px-4'>Add adventure</button></Link>
+     {/* <Link to='/agency/addadventure'><button type='submit' className='bg-yellow-700 w-52  rounded-full py-2 px-4'>Add adventure</button></Link> */}
      <Link to={`/agency/adventure/${id}`}><button type='submit' className='bg-yellow-700 w-52  rounded-full py-2 px-4'>view adventure</button></Link>
      <Link to={`/agency/vwaddedadventure/${id}`}><button type='submit' className='bg-yellow-700 w-60  rounded-full py-2 px-4'>view added adventure</button></Link>
      </div>

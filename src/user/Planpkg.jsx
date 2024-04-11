@@ -45,11 +45,12 @@ useEffect(()=>{
       <div className='flex flex-wrap gap-9'>
         <div className='flex flex-wrap sm:gap-5  '>
         {agencyData.map((item)=>(
-          <div className=' pt-28 text-center text-white '>
+          <div className='bg-orange-300 ml-5 mt-4 rounded-lg'>
+          <div className=' pt-4 pl-2 pr-2 text-center  text-white '>
            <Link to={`/user/vwdetailpkg/${item.package?._id}`}><img src={`http://localhost:4000/uploads/${item.package?.coverImage}`} className='m-auto w-20' alt="" srcset="" /></Link> 
             <Link to={`/user/vwpkgreview/${item.agency?._id}`}><div className='font font-bold'>{item?.agency?.companyName} <br />{item.package?.packageName}</div></Link>
           </div>
-
+             </div>
         ))}
 
           <div>

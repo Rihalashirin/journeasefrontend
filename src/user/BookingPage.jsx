@@ -7,6 +7,7 @@ export default function BookingPage() {
   const [data, setData] = useState("");
   const [resortData, setResortdata] = useState([""]);
   const [agencydata, setAgencydata] = useState([""]);
+  const [transportdata, setTransportdata] = useState('')
   const [selectedResorts, setSelectedResorts] = useState([]);
   const [toggle, settoggle] = useState(false);
   const { id } = useParams();
@@ -29,10 +30,17 @@ export default function BookingPage() {
         console.log(response.data, "--------------------jh");
         setAgencydata(response.data);
 
+        const response2 = await axios.get(
+          `http://localhost:4000/user/detailvwpackage/${id}`
+        );
+        console.log(response2.data, "--------------------jh");
+        setTransportdata(response2.data);
+
         const response1 = await axios.get(
           `http://localhost:4000/user/vwaccomodation/${id}`
         );
         setResortdata(response1.data);
+
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -155,7 +163,7 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
     </label>
   </div> */}
               </fieldset>
-              <div className="font">Set preferences</div>
+              {/* <div className="font">Set preferences</div>
               <div className="flex flex-wrap gap-9">
                 <div className="flex flex-col gap-0">
                   <div class="flex items-center mb-4">
@@ -225,7 +233,7 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                     </label>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               <div class="flex items-center mb-4">
                 <input
@@ -279,8 +287,21 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                     onChange={handleChange}
                     name="child"
                     className="w-12"
-                  ></input>
+                  >
+
+                  </input>
+                  
+                  <div>Picking place:</div>
+                  <input type="text" className="w-48"></input>
                 </div>
+                <div>Travel info:</div>
+            {transportdata.response.transports?.map((item)=>(
+              <>
+            <div className='flex flex-wrap'></div>
+            <div>{item.transportOption}-{item.noofppl}People-{item.price}/-</div>
+           
+            </> 
+            ))}
               </div>
             </div>
             <Link to="/user/vwresortdet"></Link>
@@ -295,10 +316,11 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
       </div>
       <div className="flex flex-wrap sm:gap-5  ">
         {agencydata.map((item) => (
+          <div className="bg-orange-200 w-[200px] ml-5 rounded-lg">
           <div className=" pt-5 pl-6 text-center text-white ">
             <img
               src={`http://localhost:4000/uploads/${item.agency?.image}`}
-              className="m-auto w-24 h-24 rounded-2xl"
+              className="m-auto w-28 h-24 rounded-2xl"
               alt=""
               srcset=""
             />
@@ -311,6 +333,7 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
               checked={selectedResorts.includes(item.agency?._id)}
               onChange={() => handleResortCheckboxChange(item.agency?._id)}
             />
+          </div>
           </div>
         ))}
       </div>
@@ -328,7 +351,8 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
       
       <div className="flex flex-wrap sm:gap-5  ">
         {resortData.map((item) => (
-          <div className=" pt-28 text-center text-white ">
+          <div className="bg-orange-200 w-[200px] ml-5 rounded-lg">
+          <div className=" pt-4 text-center text-white ">
             <img
               onClick={() => handledetail(item.resort?._id)}
               src={`http://localhost:4000/uploads/${item.resort?.coverImage}`}
@@ -338,10 +362,11 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
             />
               <div className="font font-bold">{item.resort?.propertyName}</div>
           </div>
+          </div>
         ))}
       </div>
       <div className="font font-bold text-white pl-4 mb-4 mt-8">pick your date:</div>
-     <div className="bg-white w-36 ml-10 mb-5"> <input onChange={handleChange} name='date' type="date" className='bg-transparent border-white border-solid border-2 rounded '/></div>
+     <div className="bg-orange-200 w-36 ml-10 mb-5"> <input onChange={handleChange} name='date' type="date" className='bg-transparent border-white border-solid border-2 rounded '/></div>
       {toggle && (
         <div className="bg-white/50 w-[90%] p-3 ms-5 pt-2">
           <div className="font text-center text-[20px] text-amber-800 pb-4   ">

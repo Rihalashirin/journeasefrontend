@@ -17,6 +17,7 @@ export const Navhome = () => {
        <Link to='/agency/vwpkg'> <div className='font text-orange-600 '>PACKAGES</div></Link>
         <Link to='/agency/vwreviewagency'><div className='font text-orange-600 '>REVIEWS</div></Link>
        <Link to='/agency/vwphoto'> <div className='font text-orange-600 '>PHOTOS</div></Link>
+        <Link to='/agency/addadventure'><div className='font text-orange-600 '>ADVENTURES</div></Link> 
       
        
   

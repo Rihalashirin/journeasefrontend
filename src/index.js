@@ -117,10 +117,10 @@ root.render(
      <Route path='/guide' element={<Navguide/>}>
       <Route index element={<Guidehome/>}/>
       <Route path='guidemngenqry' element={<Guidemngenqry/>}/>
-      <Route path='guidemngwage' element={<Guidemngwage/>}/>
+      <Route path='guidemngwage/:id' element={<Guidemngwage/>}/>
       <Route path='photoupload' element={<Photosupload/>}/>
       <Route path='updatepro' element={<Guideprofile/>}/>
-      <Route path='issuewrite' element={<Issues/>}/>
+      <Route path='issuewrite/:id1' element={<Issues/>}/>
 
       </Route>
       

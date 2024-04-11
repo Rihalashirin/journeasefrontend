@@ -22,13 +22,16 @@ export const Mybookingtable = () => {
                         SLNO
                     </th>
                     <th scope="col" class="px-1 py-3">
+                        COMPANY NAME
+                    </th>
+                    <th scope="col" class="px-1 py-3">
                         PACKAGE
                     </th>
                     <th scope="col" class="px-1 py-3">
                         DETAILS
                     </th>
                     <th >STATUS</th>
-                    <th></th>
+                    
                    
                    
                 </tr>
@@ -40,6 +43,9 @@ export const Mybookingtable = () => {
                         {index+1}
                     </td >
                     <td >
+                    {item.agnc?.companyName} 
+                    </td>
+                    <td >
                     {item.package1?.packageName}
                     </td>
                     <td>
@@ -50,9 +56,9 @@ export const Mybookingtable = () => {
                     PENDING  
                     </td>
                    
-                   <td>
+                   {/* <td>
                  <Link to={`/user/writereview/${item.req?._id}`}> <button className='bg-orange-600 w-28'>REVIEW</button></Link>  
-                   </td>
+                   </td> */}
                     
                 </tr>
                      ))}

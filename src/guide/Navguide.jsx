@@ -13,7 +13,7 @@ export const Navguide = () => {
         </div>
         <div className='flex gap-5 items-center'>
        <Link to='/guide'> <div><img className='w-[40px] ' src={ homeicon} alt="" srcset="" /></div></Link>
-      <Link to='/guide/issuewrite'> <div className='font text-orange-600 '>ISSUES</div></Link> 
+      
         <Link to='/guide/guidemngenqry'><div className='font text-orange-600 '>ENQUIRIES</div></Link>
       <Link to='/guide/photoupload'> <div className='font text-orange-600 '>IMAGES</div></Link> 
         

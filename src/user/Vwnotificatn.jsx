@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export const Vwnotificatn = () => {
   return (
@@ -54,7 +55,7 @@ export const Vwnotificatn = () => {
                 <div className='flex justify-center'>
 
             
-                <button className='bg-orange-500 '>CONFIRM BOOKING</button>
+              <Link to='/user/userpay'>  <button className='bg-orange-500 '>CONFIRM BOOKING</button></Link>
                 </div>
         </div>
 

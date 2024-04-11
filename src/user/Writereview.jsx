@@ -10,30 +10,30 @@ export const Writereview = () => {
     let {id}=useParams()
     const [selectedStarCount, setSelectedStarCount] = useState(0);
     const [selectedHoverStarCount, setSelectHoverStarCount] = useState(0)
-    useEffect(()=>{
-        let fetchdata=async ()=>{
-            let response=await axios.get(`http://localhost:4000/user/vwpkgname/${id}`)
-            console.log(response.data)
-            setData(response.data)
-        }
-        fetchdata()
-    },[])
+    // useEffect(()=>{
+    //     let fetchdata=async ()=>{
+    //         let response=await axios.get(`http://localhost:4000/user/vwpkgname/${id}`)
+    //         console.log(response.data)
+    //         setData(response.data)
+    //     }
+    //     fetchdata()
+    // },[])
     let handleChange=(event)=>{
         setData({...data,[event.target.name]:event.target.value})
     }
-    let handleSubmit=async (event)=>{
-        event.preventDefault()
-        setData(data)
-        console.log(data)
-       let response=await axios.post(`http://localhost:4000/user/addreview/${id2}`)
-       console.log(response);
+    // let handleSubmit=async (event)=>{
+    //     event.preventDefault()
+    //     setData(data)
+    //     console.log(data)
+    //    let response=await axios.post(`http://localhost:4000/user/addreview/${id2}`)
+    //    console.log(response);
         
-    }
+    // }
 
   return (
     <div className='userhome'>
         <div className=' font text-[30px] font-bold pl-5 pt-6 text-white'>
-            {data.pkg?.packageName}
+           delhi delight
           </div>
           <div className='bg-white/50 w-[90%] p-3 ms-5 pt-2 h-96'>
           {/* <body> */}
@@ -49,10 +49,10 @@ export const Writereview = () => {
             <span class="star" data-value="4">★</span>
             <span class="star" data-value="5">★</span>
         </div> */}
-        <div className='font-bold'>{data.agnc?.companyName}</div>
-        {data.destination?.map((item)=>(
-        <div className='font-bold text-white'>{item.pkg?.destination}</div>
-        ))}
+        <div className='font-bold'></div>
+       
+        <div className='font-bold text-white'></div>
+       
         {/* <p>Share your review:</p> */}
         <textarea id="review"
                   placeholder="Write your review here">
@@ -69,7 +69,7 @@ export const Writereview = () => {
         <textarea onChange={handleChange} id="review"
                   placeholder="Write your review here">
           </textarea>
-          <button onClick={handleSubmit} className='bg-orange-600 w-28 mt-12 rounded-lg'>Post Review</button>
+          <button  className='bg-orange-600 w-28 mt-12 rounded-lg'>Post Review</button>
         {/* <button type="submit">Submit</button> */}
         <div className='app'>
             Star rating

@@ -95,8 +95,8 @@ export const Assignguide = () => {
     
   
 <div className='flex flex-wrap sm:gap-5  '>
-
-  <div className=' pt-28 text-center text-white '> 
+<div className='bg-orange-300 w-[100px] ml-5 mt-5 rounded-lg'>
+  <div className=' pt-4 text-center text-white p-2 '> 
  {/* <Link to={`/agency/detailguide/${item._id}`}>  */}
  <img  onClick={() => handledetail(item._id)} src={`http://localhost:4000/uploads/${item.image}`} className='m-auto w-24' alt="" srcset="" />
     <div className='font font-bold'>{item.name} <br /></div>
@@ -105,7 +105,7 @@ export const Assignguide = () => {
     Experience:(in years):{item.experienceYears}</div>
     
   </div>
-
+  </div>
   </div>
  ))}
   

@@ -74,9 +74,10 @@ export const Viewguideadmin = () => {
             <p className='font font-bold'> <img src={`http://localhost:4000/uploads/${data.idProof}`}alt="" className='w-44 h-16  ps-3 pt-3 '/></p>
 
 </div>
+<div className='flex flex-wrap gap-2'>
 <button onClick={()=>{handleSubmit('accepted',data._id)}} href="#" className=' font-bold bg-white  text-green-600 hover:underline w-32'>Accept</button>
 <button onClick={()=>{handleSubmit('rejected',data._id)}} href="#" className=' font-bold bg-white  text-green-600 hover:underline w-32'>Reject</button>
-
+</div>
        </div>
 
 

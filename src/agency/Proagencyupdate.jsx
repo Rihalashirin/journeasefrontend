@@ -51,7 +51,7 @@ export const Proagencyupdate = () => {
     
   };
   return (
-    <div className="bg-[#1a2954d6] h-[600px]">
+    <div className="bg-[#1a2954d6] h-[700px]">
       <div className="h-[64px] font text-[30px] font-bold m-0 text-left pl-10 ">
         <span className="text-white">Update </span>
         <span className="text-orange-600"> Profile</span>
@@ -98,19 +98,55 @@ export const Proagencyupdate = () => {
             </div>
             <div>
               <label
-                for="address"
+                for="Place"
                 class="block mb-2 text-sm font-medium text-white dark:text-white"
               >
-                Office Address :
+                Place :
               </label>
               <input
                 onChange={handleChange}
-                name="officeAddress"
+                name="place"
                 type="text"
-                id="address"
+                id="place"
                 class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
-                placeholder={userData.officeAddress}
-                value={userData.officeAddress}
+                placeholder={userData.place}
+                value={userData.place}
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="district"
+                class="block mb-2 text-sm font-medium text-white dark:text-white"
+              >
+                District :
+              </label>
+              <input
+                onChange={handleChange}
+                name="district"
+                type="text"
+                id="district"
+                class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                placeholder={userData.district}
+                value={userData.district}
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="district"
+                class="block mb-2 text-sm font-medium text-white dark:text-white"
+              >
+                Pin Number :
+              </label>
+              <input
+                onChange={handleChange}
+                name="pin"
+                type="number"
+                id="pin"
+                class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                placeholder={userData.pin}
+                value={userData.pin}
                 required
               />
             </div>
@@ -152,6 +188,24 @@ export const Proagencyupdate = () => {
                 class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
                 placeholder={userData.contactNumber}
                 value={userData.contactNumber}
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="contact"
+                class="block mb-2 text-sm font-medium text-white dark:text-white"
+              >
+                Contact Number(alternative) :
+              </label>
+              <input
+                onChange={handleChange}
+                name="contactNumberalternative"
+                type="number"
+                id="contact"
+                class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                placeholder={userData.contactNumberalternative}
+                value={userData.contactNumberalternative}
                 required
               />
             </div>

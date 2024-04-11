@@ -22,11 +22,13 @@ export const Reguser = () => {
             formData.append('age',data.age);
             formData.append('gender',data.gender);
             formData.append('contactNumber',data.contactNumber);
+            formData.append("contactNumberalternative",data.contactNumberalternative);
             formData.append('idProof',data.idProof);
             formData.append('email',data.email);
             formData.append('password',data.password);
             formData.append('image',data.image);
             formData.append('place',data.place);
+            formData.append('district',data.district);
             formData.append('userType','user');
       
           
@@ -66,6 +68,10 @@ export const Reguser = () => {
               <input onChange={handleChange}  name='contactNumber' type="contact" id="contact" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
             <div>
+              <label for="contact" class="block mb-2 text-sm font-medium text-white dark:text-white">Contact Number(alternative):</label>
+              <input onChange={handleChange}  name='contactNumberalternative' type="number" id="contact" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+            </div>
+            <div>
               <label for="image" class="block mb-2 text-sm font-medium text-white dark:text-white">Image:</label>
               <input onChange={handlefile}  name='image' type="file" id="image" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
@@ -77,10 +83,10 @@ export const Reguser = () => {
               <label for="house name" class="block mb-2 text-sm font-medium text-white dark:text-white">Image :</label>
               <input onChange={handleChange} value={data.img} name='img' type="file" id="house name" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required />
             </div> */}
-            {/* <div >
-              <label for="post" class="block mb-2 text-sm font-medium text-white dark:text-white">ID Proof :</label>
-              <input onChange={handleChange} value={data.idproof} type="file" id="post" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
-            </div> */}
+            <div >
+              <label for="district" class="block mb-2 text-sm font-medium text-white dark:text-white">District :</label>
+              <input onChange={handleChange} value={data.district} type="text" id="district" name='district' class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+            </div>
              <div >
               <label for="idproof" class="block mb-2 text-sm font-medium text-white dark:text-white">ID proof:</label>
               <input onChange={handlefile} name='idProof'type="file" id="idproof" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />

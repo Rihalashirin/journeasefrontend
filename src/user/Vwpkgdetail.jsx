@@ -22,7 +22,7 @@ export const Vwpkgdetail = () => {
             <div className='font text-white text-center text-[30px]'>{data.agency?.companyName} </div>
             <div className='font text-white text-center'>{data.agency?.officeAddress}</div>
           <div className='w-[208px] text-center'>
-          <span className='text-white font font-bold text-[30px] '> </span><span className='text-orange-600 font font-bold text-[30px]'> {data.response?.packageName}</span><br /><p className='font text-[20px]  '>{data.response?.noOfDays}</p>
+          <span className='text-white font font-bold text-[30px] '> </span><span className='text-orange-600 font font-bold text-[30px]'> {data.response?.packageName}</span><br /><p className='font text-[20px]  '>{data.response?.noOfDays}DAYS</p>
           </div>
           <div className='flex sm:gap-5 flex-wrap'>
             <img src={`http://localhost:4000/uploads/${data.response?.coverImage}`}  className='w-[150px] h-[150px]'/>
@@ -31,19 +31,15 @@ export const Vwpkgdetail = () => {
           <p className=''>{data.response?.basicDescription}</p>
           <p className=''>{data.response?.detailedDescription}</p>
             </div>
-            {data.response.destination?.map((item)=>(
+            {data.response?.destination?.map((item)=>(
               <>
-            <div className='font underline'> Day {item?.Day}: {item.Destination}</div>
+            <div className='font underline'> Day:{item.Day} {item.Destination}</div> 
             <span>{item.activities}</span>
+            
            
             </>
             ))}
-            <div>Travel info:</div> 
-            <div className='flex flex-wrap'></div>
-            <div>BUS-(30-60 People)</div>
-            <div>VAN-(8-15 People)</div>
-            <div>CAR-(4-5 People)</div>
-            <div>TWO WHEELER-(1 People)</div>
+            
             <div className='font text-[20px] m-auto bg-yellow-600/90 h-8 w-96 text-white  text-center'>per head:{data.response?.price}/-</div>
            
             <div className='flex flex-wrap gap-11  m-auto '>

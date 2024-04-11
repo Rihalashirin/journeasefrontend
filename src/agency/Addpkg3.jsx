@@ -77,8 +77,9 @@ let handleSubmit=async()=>{
             </form>
             <div className='flex flex-wrap sm:gap-10 '>
             {adventureData.map((item)=>(
-                <div className=' pt-28 text-center text-white '>
-                    <img src={`http://localhost:4000/uploads/${item.image}`} className='m-auto w-20' alt="" srcset="" />
+                <div className='bg-orange-600 w-[200px] ml-5 rounded-lg mt-5'>
+                <div className=' pt-4 text-center text-white mb-2 '>
+                    <img src={`http://localhost:4000/uploads/${item.image}`} className='m-auto w-28' alt="" srcset="" />
                     <div className='font font-bold'>{item.adventureName}</div>
                     <div className='font text-[10px]'>{item.price}</div>
                     <div className='font text-[10px]'>{item.description}</div>
@@ -92,7 +93,7 @@ let handleSubmit=async()=>{
                    <Link to='/agency/editadventure'>   <button className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Edit</button></Link>  
                  
                 </div>
-                
+                </div>
             ))}
                
                 {/* <div className=' pt-28 text-center text-white '>

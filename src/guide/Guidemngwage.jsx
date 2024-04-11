@@ -1,6 +1,26 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 export const Guidemngwage = () => {
+  const[data,setData]=useState('')
+  let {id}=useParams()
+  useEffect(()=>{
+    let fetchdata=async ()=>{
+        let response=await axios.get(`http://localhost:4000/guide/vwdetailbooking/${id}`)
+        console.log(response.data,'log for ----')
+        setData(response.data)
+    }
+    fetchdata()
+},[])
+let handleSubmit=async (status)=>{
+  // event.preventDefault()
+  setData(data)
+  console.log(data)
+ let response=await axios.put(`http://localhost:4000/guide/managebooking/${id}`,{status:status})
+ console.log(response);
+  
+}
   return (
     <div className='guidehome'>
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg pt-10">
@@ -8,16 +28,16 @@ export const Guidemngwage = () => {
             <div className='font '>
                 <div className='text-[20px]'>
                 Basic info </div> <br />
-               Name  :  <br/>
-               Email :  <br/>
-               Mobile: <br/><br/>
+               Name  :{data.user?.name}  <br/>
+               Email :{data.user?.email}  <br/>
+               Mobile:{data.user?.contactNumber} <br/><br/>
                <div className='font '>
                 <div className='text-[20px]'>
                 Travel info </div><br/>
                 <div className='flex flex-wrap gap-16'>
                   <div>
-                Adults: <br/>
-                Children:
+                Adults:{data.bookings?.adult} <br/>
+                Children:{data.bookings?.child}
                 </div>
                 <div>
                   Date:
@@ -27,10 +47,10 @@ export const Guidemngwage = () => {
                 <div className='text-[20px]'>
                 Package info </div><br/>
                 </div>
-             <div> ggggggggj</div><br/>
+             <div> {data.package1?.packageName}</div><br/>
              <div className='flex flex-wrap gap-10'>
-              <div>Guide :dfgfdgd </div>
-              <div>Health Assistant : </div>
+              <div>Guide :{data.bookings?.guide} </div>
+              <div>Health Assistant :{data.bookings?.health} </div>
              </div>
                <div className='text-[20px]'>
                 Accomodation Chosen </div><br/>
@@ -53,8 +73,8 @@ export const Guidemngwage = () => {
                 
                  <div className='mt-5'> booking status:</div>
                  <div className='flex flex-wrap gap-14 ml-96'>
-                <button  className='bg-green-600 w-32 h-9 rounded-lg font-bold'>ACCEPT</button>
-                <button   className='bg-orange-600 w-32 h-9 rounded-lg font-bold'>REJECT</button>
+                <button onClick={()=>{handleSubmit('Accepted')}}  className='bg-green-600 w-32 h-9 rounded-lg font-bold'>ACCEPT</button>
+                <button onClick={()=>{handleSubmit('Rejected')}}  className='bg-orange-600 w-32 h-9 rounded-lg font-bold'>REJECT</button>
                 </div>
 
             </div>

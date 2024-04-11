@@ -19,8 +19,9 @@ export const Rgstrn = () => {
           let formData = new FormData();
           formData.append('companyName',data.companyName);
           formData.append('licenseNumber',data.licenseNumber);
-          formData.append('officeAddress',data.officeAddress);
+          formData.append('pin',data.pin);
           formData.append('contactNumber',data.contactNumber);
+          formData.append("contactNumberalternative",data.contactNumberalternative)
           formData.append('licenseProof',data.licenseProof);
           formData.append('companyLogo',data.companyLogo);
           formData.append('email',data.email);
@@ -28,6 +29,9 @@ export const Rgstrn = () => {
           formData.append('aboutUs',data.aboutUs);
           formData.append('whyUs',data.whyUs);
           formData.append('description',data.description);
+          formData.append("place",data.place);
+          formData.append("district",data.district)
+          formData.append("ownerName",data.ownerName)
           formData.append('userType','agency');
           
 
@@ -60,8 +64,12 @@ export const Rgstrn = () => {
               <input onChange={handleChange} value={data.licensenumber} name="licenseNumber" type="text" id="licensenumber" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
             <div >
-              <label for="address" class="block mb-2 text-sm font-medium text-white dark:text-white">Office Address :</label>
-              <textarea onChange={handleChange} value={data.officeaddress} name="officeAddress" type="text" id="address" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              <label for="place" class="block mb-2 text-sm font-medium text-white dark:text-white">Place :</label>
+              <input onChange={handleChange} value={data.place} name="place" type="text" id="place" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+            </div>
+            <div >
+              <label for="district" class="block mb-2 text-sm font-medium text-white dark:text-white">District :</label>
+              <input onChange={handleChange} value={data.district} name="district" type="text" id="district" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
             
             <div >
@@ -69,25 +77,32 @@ export const Rgstrn = () => {
               <input onChange={handleChange} value={data.description} name="description" type="text" id="description" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
 
-            {/* <div>
-              <label for="email" class="block mb-2 text-sm font-medium text-white dark:text-white">Contact Number:</label>
-              <input type="email" id="place" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
-            </div> */}
+            <div>
+              <label for="Pin number" class="block mb-2 text-sm font-medium text-white dark:text-white">Pin Number:</label>
+              <input onChange={handleChange} name='pin' value={data.pinnumber} type="number" id="pin number"  class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+            </div>
             <div >
               <label for="contact" class="block mb-2 text-sm font-medium text-white dark:text-white">Contact Number :</label>
               <input onChange={handleChange} value={data.contact} name="contactNumber" type="number" id="contact" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
             <div >
-              <label for="licenseproof" class="block mb-2 text-sm font-medium text-white dark:text-white">Licence Proof :</label>
-              <input onChange={handlefile} value={data.proof} name="licenseProof" type="file" id="licenseproof" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required />
+              <label for="contact" class="block mb-2 text-sm font-medium text-white dark:text-white">Contact Number(alternative) :</label>
+              <input onChange={handleChange} value={data.contactNumberalternative} name="contactNumberalternative" type="number" id="contact" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
           </div>
           <div className='w-[25%]'>
 
-            
+          <div >
+              <label for="licenseproof" class="block mb-2 text-sm font-medium text-white dark:text-white">Licence Proof :</label>
+              <input onChange={handlefile} value={data.proof} name="licenseProof" type="file" id="licenseproof" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required />
+            </div>
             <div >
               <label for="logo" class="block mb-2 text-sm font-medium text-white dark:text-white">Company Logo :</label>
               <input onChange={handlefile} value={data.companylogo} name="companyLogo" type="file" id="logo" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+            </div>
+            <div >
+              <label for="owner" class="block mb-2 text-sm font-medium text-white dark:text-white"> Owner Name:</label>
+              <input onChange={handleChange} value={data.ownerName} name="ownerName" type="text" id="owner" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
             <div >
               <label for="aboutUs" class="block mb-2 text-sm font-medium text-white dark:text-white">About us :</label>

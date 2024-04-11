@@ -23,7 +23,9 @@ export const Rgstrresort = () => {
       formData.append('propertyName',data.propertyName);
       formData.append('registrationNumber',data.registrationNumber);
       formData.append('propertyAddress',data.propertyAddress);
+      formData.append('district',data.district);
       formData.append('contactNumber',data.contactNumber);
+      formData.append('contactNumberalternative',data.contactNumberalternative);
       formData.append('ownerName',data.ownerName);
       formData.append('coverImage',data.coverImage);
       formData.append('description',data.description);
@@ -45,7 +47,7 @@ export const Rgstrresort = () => {
   
 
   return (
-    <div className='bg-[#1a2954d6] h-[650px]'>
+    <div className='bg-[#1a2954d6] h-[850px]'>
         <div className='h-[64px] font text-[30px] font-bold m-0 text-left pl-10 '>
     <span className='text-white'>Resort</span><span className='text-orange-600'>Profile</span>
   </div>
@@ -65,11 +67,19 @@ export const Rgstrresort = () => {
             </div>
             <div >
               <label for="address" class="block mb-2 text-sm font-medium text-white dark:text-white">Property Address:</label>
-              <textarea onChange={handleChange}  name='propertyAddress' type="text" id="address" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              <input onChange={handleChange}  name='propertyAddress' type="text" id="address" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+            </div>
+            <div >
+              <label for="District" class="block mb-2 text-sm font-medium text-white dark:text-white">District:</label>
+              <input onChange={handleChange}  name='district' type="text" id="district" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
             <div>
               <label for="contactnumber" class="block mb-2 text-sm font-medium text-white dark:text-white">Contact Number:</label>
-              <input onChange={handleChange}  name='contactNumber' type="contactnumber" id="contactnumber" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              <input onChange={handleChange}  name='contactNumber' type="number" id="contactnumber" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+            </div>
+            <div>
+              <label for="contactnumber" class="block mb-2 text-sm font-medium text-white dark:text-white">Contact Number(alternative):</label>
+              <input onChange={handleChange}  name='contactNumberalternative' type="number" id="contactnumber" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
             <div >
               <label for="post" class="block mb-2 text-sm font-medium text-white dark:text-white">events :</label>

@@ -47,11 +47,11 @@ export const Viewpackage = () => {
   <div className='flex flex-wrap sm:gap-5  '>
    {data.map((item)=>(
     <> 
-  
-  <div className=' pt-28 text-center text-white '> 
- <Link to={`/agency/detailvwpkg/${item._id}`}><img src={`http://localhost:4000/uploads/${item.coverImage}`} className='m-auto w-20' alt="" srcset="" /></Link> 
-    <div className='font font-bold'>{item.location} <br />{item.noOfDays}DAYS</div>
-   
+  <div className='bg-yellow-200 w-[100px] ml-5 rounded-lg mt-4 '>
+  <div className=' text-center text-orange-600 pt-4'> 
+ <Link to={`/agency/detailvwpkg/${item._id}`}><img src={`http://localhost:4000/uploads/${item.coverImage}`} className='m-auto w-20 ' alt="" srcset="" /></Link> 
+    <div className='font font-bold'>{item.location} <br />{item.noOfDays}DAYS</div><br/>{item.category}
+    </div>
   </div>
   
   

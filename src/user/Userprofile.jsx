@@ -71,6 +71,10 @@ export const Userprofile = () => {
               <input onChange={handlechange} placeholder={userData.contactNumber} type="number" name='contactNumber' id="contactnumber" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder={userData.contactNumber}   />
             </div>
             <div>
+              <label for="contactnumber" class="block mb-2 text-sm font-medium text-white dark:text-white">Contact Number(alternative):</label>
+              <input onChange={handlechange} placeholder={userData.contactNumberalternative} type="number" name='contactNumberalternative' id="contactnumber" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder={userData.contactNumber}   />
+            </div>
+            <div>
               <label for="image" class="block mb-2 text-sm font-medium text-white dark:text-white">Image:</label>
               <input onChange={handlefile}  type="file" name='image' id="image" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder={userData.image}   />
             </div>
@@ -92,6 +96,10 @@ export const Userprofile = () => {
             <div >
               <label for="place" class="block mb-2 text-sm font-medium text-white dark:text-white">Place:</label>
               <input onChange={handlechange}  placeholder={userData.place} type="text"  name='place' id="place" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder={userData.place}   />
+            </div>
+            <div >
+              <label for="district" class="block mb-2 text-sm font-medium text-white dark:text-white">District:</label>
+              <input onChange={handlechange}  placeholder={userData.district} type="text"  name='district' id="place" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder={userData.place}   />
             </div>
             <div>
               <label for="email" class="block mb-2 text-sm font-medium text-white dark:text-white">Email:</label>

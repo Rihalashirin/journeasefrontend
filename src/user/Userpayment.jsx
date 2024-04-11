@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export const Userpayment = () => {
   return (
@@ -63,7 +64,7 @@ export const Userpayment = () => {
   </div>
   
   </form>
-  <button className='bg-orange-600 text-white w-24 rounded-lg float-end me-52'>PAY</button>
+ <Link to='/user/paysucccess'> <button className='bg-orange-600 text-white w-24 rounded-lg float-end me-52'>PAY</button></Link>
   <fieldset>
             <div className='bg-orange-600 w-28 text-white text-center float-end me-2'>Rs.47500</div>
   <legend class="sr-only">Countries</legend>
