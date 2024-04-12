@@ -103,6 +103,8 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
   console.log(selectedResorts1, "====================");
 
   return (
+    <>
+      
     <div className="userhome">
              <div>
             <div className="h-[64px] font text-[30px] font-bold m-0 text-left pl-10 ">
@@ -127,7 +129,7 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                       for="country-option-1"
                       class="block ms-2  text-sm font-medium text-gray-900 dark:text-gray-300"
                     >
-                      Yes,I would like to have a Guide.
+                      Yes,I would like to have a Guide.(extra charges will be applied)
                     </label>
                   </div>
 
@@ -248,7 +250,7 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                   for="country-option-3"
                   class="block ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                 >
-                  Yes,I would like to have Health assistant
+                  Yes,I would like to have Health assistant(extra charges will be applied)
                 </label>
               </div>
 
@@ -292,16 +294,24 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                   </input>
                   
                   <div>Picking place:</div>
-                  <input type="text" className="w-48"></input>
+                  <input onChange={handleChange} name="pickingplace" type="text" className="w-48"></input>
                 </div>
                 <div>Travel info:</div>
-            {transportdata.response.transports?.map((item)=>(
-              <>
-            <div className='flex flex-wrap'></div>
-            <div>{item.transportOption}-{item.noofppl}People-{item.price}/-</div>
-           
-            </> 
-            ))}
+{transportdata.response?.transports?.map((item, index)=>(
+  <div key={index}>
+    <input 
+      type="radio" 
+      id={`transport${index}`} 
+      name="selectedTransport" 
+      value={item.transportOption} 
+    />
+    <label htmlFor={`transport${index}`}>
+      {item.transportOption} - {item.noofppl} People - {item.price}/-
+    </label>
+  </div>
+))}
+
+
               </div>
             </div>
             <Link to="/user/vwresortdet"></Link>
@@ -366,7 +376,7 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
         ))}
       </div>
       <div className="font font-bold text-white pl-4 mb-4 mt-8">pick your date:</div>
-     <div className="bg-orange-200 w-36 ml-10 mb-5"> <input onChange={handleChange} name='date' type="date" className='bg-transparent border-white border-solid border-2 rounded '/></div>
+     <div className="bg-orange-200 w-36 ml-10 mb-5"> <input onChange={handleChange} name='date' type="datetime-local" className='bg-transparent border-white border-solid border-2 rounded '/></div>
       {toggle && (
         <div className="bg-white/50 w-[90%] p-3 ms-5 pt-2">
           <div className="font text-center text-[20px] text-amber-800 pb-4   ">
@@ -466,7 +476,7 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
               </table>
             </div>
 
-            <div className="font-bold ml-24 mt-5">
+            <div className="font-bold ml-24 mt-5 bg-yellow-950">
               {" "}
               Facilities
               {data.facilities?.map((item) => (
@@ -480,7 +490,7 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
             <button
               type="submit"
               onClick={() => selectResort(data.response._id)}
-              className="bg-orange-600 w-28 text-white py-2 px-4"
+              className="bg-orange-600 w-28 text-white mt-4 py-2 px-4"
             >
               submit
             </button>
@@ -490,5 +500,6 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
       )}{" "}
       
     </div>
+    </>
   );
 }

@@ -59,8 +59,18 @@ let handleChange=(event)=>{
                 Adults: {data?.response?.adult}<br/>
                 Children:{data.response?.child}
                 </div>
+                <div> picking place:{data?.response?.pickingplace}</div>
+
+              <div> Transportation:
+              {data?.package1?.transports.map((item)=>(
+                <>
+                {item.transportOption}
+                </>
+              ))}
+              </div> 
                 <div>
-                  Date:10/02/2024-14/02/2024
+                Date: {new Date(data.response?.date).toLocaleString()}
+
                 </div>
                 
                 </div>
