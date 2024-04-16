@@ -93,6 +93,8 @@ import BookingPage from './user/BookingPage';
 import { AdventureUpdate } from './agency/EditAdventure';
 import { Mybooking } from './user/Mybooking';
 import { Mybookingtable } from './user/Mybookingtable';
+import { Vwfeedbck } from './guide/Vwfeedbck';
+import { Vwimg } from './guide/Vwimg';
 
 
 
@@ -118,9 +120,11 @@ root.render(
       <Route index element={<Guidehome/>}/>
       <Route path='guidemngenqry' element={<Guidemngenqry/>}/>
       <Route path='guidemngwage/:id' element={<Guidemngwage/>}/>
-      <Route path='photoupload' element={<Photosupload/>}/>
+      <Route path='photoupload/:id2' element={<Photosupload/>}/>
       <Route path='updatepro' element={<Guideprofile/>}/>
       <Route path='issuewrite/:id1' element={<Issues/>}/>
+      <Route path='vwfeedbck/:id2' element={<Vwfeedbck/>}/>
+      <Route path='vwimage/:id2' element={<Vwimg/>}/>
 
       </Route>
       

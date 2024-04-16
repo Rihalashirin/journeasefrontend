@@ -62,11 +62,7 @@ let handleChange=(event)=>{
                 <div> picking place:{data?.response?.pickingplace}</div>
 
               <div> Transportation:
-              {data?.package1?.transports.map((item)=>(
-                <>
-                {item.transportOption}
-                </>
-              ))}
+           {data?.response?.selectedTransport}</div> <div>
               </div> 
                 <div>
                 Date: {new Date(data.response?.date).toLocaleString()}

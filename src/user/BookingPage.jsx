@@ -5,16 +5,18 @@ import { Link, useParams } from "react-router-dom";
 export default function BookingPage() {
   let id1=localStorage.getItem('id')
   const [data, setData] = useState("");
+  const [data1, setData1] = useState("");
   const [resortData, setResortdata] = useState([""]);
   const [agencydata, setAgencydata] = useState([""]);
   const [transportdata, setTransportdata] = useState('')
   const [selectedResorts, setSelectedResorts] = useState([]);
+  
   const [toggle, settoggle] = useState(false);
   const { id } = useParams();
 
   let handleChange = (event) => {
-    setData({ ...data, [event.target.name]: event.target.value });
-    console.log(data);
+    setData1({ ...data1, [event.target.name]: event.target.value });
+    console.log(data1);
   };
   let handleSubmit = async (event) => {
     event.preventDefault();
@@ -75,7 +77,7 @@ export default function BookingPage() {
   const submitResort = async () => {
     try {
       const response = await axios.post(`http://localhost:4000/user/booking`, {
-        ...data,
+        ...data1,
         packageid: id,
         resortId: selectedResorts1,
         adventureId: selectedResorts,
@@ -243,7 +245,7 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                   id="country-option-3"
                   type="radio"
                   name="health"
-                  value="true"
+                  value="yes"
                   class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:bg-gray-700 dark:border-gray-600"
                 />
                 <label
@@ -261,7 +263,7 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                     id="country-option-3"
                     type="radio"
                     name="health"
-                    value="false"
+                    value="No"
                     class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:bg-gray-700 dark:border-gray-600"
                   />
                   <label
@@ -300,6 +302,7 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
 {transportdata.response?.transports?.map((item, index)=>(
   <div key={index}>
     <input 
+    onChange={handleChange}
       type="radio" 
       id={`transport${index}`} 
       name="selectedTransport" 
@@ -360,23 +363,27 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
 
       
       <div className="flex flex-wrap sm:gap-5  ">
-        {resortData.map((item) => (
-          <div className="bg-orange-200 w-[200px] ml-5 rounded-lg">
-          <div className=" pt-4 text-center text-white ">
-            <img
-              onClick={() => handledetail(item.resort?._id)}
-              src={`http://localhost:4000/uploads/${item.resort?.coverImage}`}
-              className="m-auto w-28"
-              alt=""
-              srcset=""
-            />
-              <div className="font font-bold">{item.resort?.propertyName}</div>
-          </div>
-          </div>
-        ))}
+         {resortData.map((item) => (
+    <div key={item.resort?._id} className="bg-orange-200 w-[200px] ml-5 rounded-lg">
+      <div className="pt-4 text-center text-white">
+        <img
+          onClick={() => handledetail(item.resort?._id)}
+          src={`http://localhost:4000/uploads/${item?.resort?.coverImage}`}
+          className="m-auto w-28"
+          alt=""
+        />
+        <div className="font font-bold">{item?.resort?.propertyName}</div>
+        <input
+          type="checkbox"
+          checked={selectedResorts1.includes(item?.resort?._id)}
+          onChange={() => selectResort(item?.resort?._id)}
+        />
+      </div>
+    </div>
+  ))}
       </div>
       <div className="font font-bold text-white pl-4 mb-4 mt-8">pick your date:</div>
-     <div className="bg-orange-200 w-36 ml-10 mb-5"> <input onChange={handleChange} name='date' type="datetime-local" className='bg-transparent border-white border-solid border-2 rounded '/></div>
+     <div className="bg-orange-200 w-36 ml-10 mb-5"> <input onChange={handleChange} name='date' type="datetime-local" className='bg-transparent border-white border-solid border-2 rounded '/></div>
       {toggle && (
         <div className="bg-white/50 w-[90%] p-3 ms-5 pt-2">
           <div className="font text-center text-[20px] text-amber-800 pb-4   ">
@@ -385,7 +392,7 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
               {data.response?.propertyName}{" "}
             </div>
             <img
-              src={`http://localhost:4000/uploads/${data.response?.coverImage}`}
+              src={`http://localhost:4000/uploads/${data?.response?.coverImage}`}
               className="m-auto w-[70%]"
               alt=" "
               srcSet=" "
@@ -416,14 +423,14 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
               <div className="flex bg-yellow-100 px-2 py-4 rounded text-yellow-300   font-semibold font">
                 luxury room:
                 <img
-                  src={`http://localhost:4000/uploads/${item.image}`}
+                  src={`http://localhost:4000/uploads/${item?.image}`}
                   className="m-auto w-48"
                   alt=" "
                   srcSet=" "
                 />
                 standardroom:
                 <img
-                  src={`http://localhost:4000/uploads/${item.images}`}
+                  src={`http://localhost:4000/uploads/${item?.images}`}
                   className="m-auto w-48"
                   alt=" "
                   srcSet=" "
@@ -431,7 +438,7 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
               </div>
             ))}
 
-            <div class="  overflow-x-auto shadow-md sm:rounded-lg mt-40 w-[50%] ml-72">
+            <div class="  overflow-x-auto shadow-md sm:rounded-lg mt-4 w-[50%] ml-72">
               <table class="w-full text-sm text-center rtl:text-right  text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-black uppercase  dark:bg-gray-950/90 dark:text-gray-400 ">
                   <tr>
@@ -443,35 +450,50 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                 </thead>
                 <tbody>
                   {data.rooms?.map((item) => (
+                    <>
                     <tr class=" dark:border-gray-700 text-black bg-gray-950/40 hover:bg-slate-800/50">
                       <td scope="row" class="px-6 py-4 text-black">
                         luxury:
                       </td>
-                      <td class="px-6 py-4">{item.luxury}</td>
-                      <td class="px-6 py-4">{item.luxuryOccupancy}</td>
-                      <td>{item.luxuryprice}/-</td>
+                      <td class="px-6 py-4">{item?.luxury}</td>
+                      <td class="px-6 py-4">{item?.luxuryOccupancy}</td>
+                      <td>{item?.luxuryprice}/-</td>
                       <td>
-                        <button className="bg-black text-white w-20">
-                          Select
-                        </button>
+                        <input type="radio" onChange={handleChange} name='accomodatn' value="luxury" className="bg-black text-white w-20">
+                       
+                        </input>
                       </td>
                     </tr>
-                  ))}
-                  {data.rooms?.map((item) => (
                     <tr class=" dark:border-gray-700 text-black bg-gray-950/40 hover:bg-slate-800/50">
                       <td scope="row" class="px-6 py-4 text-black">
                         standard:
                       </td>
-                      <td class="px-6 py-4">{item.standard}</td>
-                      <td class="px-6 py-4">{item.standardOccupancy}</td>
-                      <td class="px-6 py-4">{item.standardPrice}/-</td>
+                      <td class="px-6 py-4">{item?.standard}</td>
+                      <td class="px-6 py-4">{item?.standardOccupancy}</td>
+                      <td class="px-6 py-4">{item?.standardPrice}/-</td>
                       <td>
-                        <button className="bg-black text-white w-20">
-                          Select
-                        </button>
+                      <input type="radio" onChange={handleChange} name='accomodatn' value="standard" className="bg-black text-white w-20">
+                         
+                        </input>
                       </td>
                     </tr>
+                    </>
                   ))}
+                  {/* {data.rooms?.map((item) => (
+                    <tr class=" dark:border-gray-700 text-black bg-gray-950/40 hover:bg-slate-800/50">
+                      <td scope="row" class="px-6 py-4 text-black">
+                        standard:
+                      </td>
+                      <td class="px-6 py-4">{item?.standard}</td>
+                      <td class="px-6 py-4">{item?.standardOccupancy}</td>
+                      <td class="px-6 py-4">{item?.standardPrice}/-</td>
+                      <td>
+                      <input type="radio" onChange={handleChange} name='standard' value={true} className="bg-black text-white w-20">
+                         
+                        </input>
+                      </td>
+                    </tr>
+                  ))} */}
                 </tbody>
               </table>
             </div>
@@ -481,19 +503,19 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
               Facilities
               {data.facilities?.map((item) => (
                 <div className="ml-14 mt-14 flex gap-10 ">
-                  <p>{item.name} kjkjh</p>
-                  <p>{item.luxury}</p>
-                  <p>{item.standard}</p>
+                  <p>{item?.name} kjkjh</p>
+                  <p>{item?.luxury}</p>
+                  <p>{item?.standard}</p>
                 </div>
               ))}
             </div>
-            <button
+            {/* <button
               type="submit"
-              onClick={() => selectResort(data.response._id)}
+              onClick={() => selectResort(data?.response?._id)}
               className="bg-orange-600 w-28 text-white mt-4 py-2 px-4"
             >
               submit
-            </button>
+            </button> */}
           </div>
    
         </div>

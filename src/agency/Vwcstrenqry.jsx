@@ -56,11 +56,7 @@ export const Vwcstrenqry = () => {
                 
                 <div>
                  Transportation:
-                 {data.package?.transports?.map((item)=>(
-                  <>
-                 {item.transportOption}
-                 </>
-))}
+                 {data?.booking?.selectedTransport}
                 </div>
                 
                 </div><br />
@@ -76,15 +72,21 @@ export const Vwcstrenqry = () => {
              
              </div>
                <div className='text-[20px]'>
+               
                 Accomodation Chosen </div><br/>
+                {data.resorts?.map((item)=>(
                 <div className='flex flexwrap  justify-between '>
-                <img src={`http://localhost:4000/uploads/${data.response?.coverImage}`} alt="" srcset="" />
-                <div className='pt-10'>hotel <br />luxury</div>
+                <img src={`http://localhost:4000/uploads/${item?.coverImage}`} alt="" srcset="" />
+                <div className='pt-10'>{item?.propertyName} <br /></div>
                 <div className='flex flex-col gap-6 mt-3 '>
                 
                 </div>
                <Link to={`/agency/assignguide/${id}`}> <button className='bg-orange-600 w-32 h-9 rounded-lg'>ASSIGN GUIDE</button></Link>
                 <button  className='bg-orange-600 w-32 h-9 rounded-lg'>ASSIGN A HA</button>
+                </div>
+                ))}
+                <div className='ml-32'>
+                {data.booking?.accomodatn}
                 </div>
                 <div className='text-[20px]'>
                 Adventure Chosen </div><br/>

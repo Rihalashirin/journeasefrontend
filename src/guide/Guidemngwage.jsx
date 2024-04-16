@@ -28,16 +28,18 @@ let handleSubmit=async (status)=>{
             <div className='font '>
                 <div className='text-[20px]'>
                 Basic info </div> <br />
-               Name  :{data.user?.name}  <br/>
-               Email :{data.user?.email}  <br/>
-               Mobile:{data.user?.contactNumber} <br/><br/>
+               Name  :{data.usr?.name}  <br/>
+               Email :{data.usr?.email}  <br/>
+               Mobile:{data.usr?.contactNumber} <br/><br/>
                <div className='font '>
                 <div className='text-[20px]'>
                 Travel info </div><br/>
                 <div className='flex flex-wrap gap-16'>
                   <div>
                 Adults:{data.bookings?.adult} <br/>
-                Children:{data.bookings?.child}
+                Children:{data.bookings?.child}<br/>
+                Transport option:{data.bookings?.transports}<br/>
+                picking place:{data.bookings?.pickingplace}
                 </div>
                 <div>
                   Date:
@@ -47,7 +49,9 @@ let handleSubmit=async (status)=>{
                 <div className='text-[20px]'>
                 Package info </div><br/>
                 </div>
-             <div> {data.package1?.packageName}</div><br/>
+             <div> {data.package1?.packageName}</div>
+             <div> {data.package1?.noOfDays}DAYS</div><br/>
+             <div>{data.package1?.category}</div>
              <div className='flex flex-wrap gap-10'>
               <div>Guide :{data.bookings?.guide} </div>
               <div>Health Assistant :{data.bookings?.health} </div>
@@ -55,7 +59,7 @@ let handleSubmit=async (status)=>{
                <div className='text-[20px]'>
                 Accomodation Chosen </div><br/>
                 <div className='flex flexwrap  justify-between '>
-                <img src=" " alt="" srcset="" />
+                <img src="" alt="" srcset="" />
                 <div className='pt-10'>hotel <br />luxury</div>
                 <div className='flex flex-col gap-6 mt-3 '>
                 
@@ -65,16 +69,17 @@ let handleSubmit=async (status)=>{
                 </div>
                 <div className='text-[20px]'>
                 Adventure Chosen </div><br/>
-                <div className='flex flexwrap  justify-start '>
-                <img src=" " alt="" srcset="" />
-                <div className='pt-10'> <br />3000-5000/Head</div>
-                {/* <div className='font text-[10px] pt-16 '>3000-5000/Head</div> */}
+                <div className='flex flexwrap gap-3 justify-start '>
+                <img src={`http://localhost:4000/uploads/${data?.adv?.image}`} className='w-24' alt="" srcset="" />
+                <div className='font text-[20px] pt-16 '>{data.adv?.adventureName}
+                 <br />{data?.adv?.price}/Head</div>
+              
                 </div>
                 
                  <div className='mt-5'> booking status:</div>
                  <div className='flex flex-wrap gap-14 ml-96'>
-                <button onClick={()=>{handleSubmit('Accepted')}}  className='bg-green-600 w-32 h-9 rounded-lg font-bold'>ACCEPT</button>
-                <button onClick={()=>{handleSubmit('Rejected')}}  className='bg-orange-600 w-32 h-9 rounded-lg font-bold'>REJECT</button>
+                <button onClick={()=>{handleSubmit('Accepted',data._id)}}  className='bg-green-600 w-32 h-9 rounded-lg font-bold'>ACCEPT</button>
+                <button onClick={()=>{handleSubmit('Rejected',data._id)}}  className='bg-orange-600 w-32 h-9 rounded-lg font-bold'>REJECT</button>
                 </div>
 
             </div>

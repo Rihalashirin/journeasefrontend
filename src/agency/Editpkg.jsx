@@ -7,7 +7,26 @@ export const Editpkg = () => {
     let {id}=useParams()
     const [tourDetails, setTourDetails] = useState([{ day: 1, destination: '', activities: [''] }]);
     const [userData,setUserData]=useState('')
+    const [transport, setTransport] = useState([{ noofpeople: '', transportOption: '',price:'' }]);
     const [refresh,setrefresh]=useState(false)
+    const addNoofppl = () => {
+      setTransport([...transport, { noofpeople: '', transportOption: '', price: '' }]);
+    };
+    const handleNoofpplChange = (pplIndex, value) => {
+      const updatedTransport = [...transport];
+      updatedTransport[pplIndex].noofpeople = value;
+      setTransport(updatedTransport);
+    };
+    const handleTransportChange = (pplIndex, value) => {
+      const updatedTransport = [...transport];
+      updatedTransport[pplIndex].transportOption = value;
+      setTransport(updatedTransport);
+    };
+    const handlepriceChange = (pplIndex, value) => {
+      const updatedTransport = [...transport];
+      updatedTransport[pplIndex].price = value;
+      setTransport(updatedTransport);
+    };
     useEffect(()=>{
       let fetchdata=async()=>{
         let response=await axios.get(`http://localhost:4000/agency/detailvwpkg/${id}`)
@@ -107,6 +126,7 @@ export const Editpkg = () => {
                 <label for="destination">Destination</label>
                 <input onChange={handleChange}  placeholder={userData?.destination} type="text" name="destination" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
               </div> */}
+              
 
               <div className="container mx-auto px-4 py-8">
       <button
@@ -123,9 +143,9 @@ export const Editpkg = () => {
             <input
               type="number"
               value={dayDetail.day}
-              name=''
+              name='Day'
               onChange={(e) => handleDayChange(dayIndex, e.target.value)}
-              placeholder="Day"
+              placeholder={tourDetails?.destination?.Day}
               readOnly
               className="border w-20 border-gray-300 rounded px-4 py-2  mr-2"
             />
@@ -133,16 +153,16 @@ export const Editpkg = () => {
               type="text"
               value={dayDetail.destination}
               onChange={(e) => handleDestinationChange(dayIndex, e.target.value)}
-              placeholder="Destination"
-              name=''
+              placeholder=""
+              name='Destination'
               className="border w-40 border-gray-300 rounded px-4 py-2  mr-2"
             />
-            <button
+            {/* <button
               onClick={() => removeDay(dayIndex)}
               className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
             >
               Remove
-            </button>
+            </button> */}
           </div>
           <label className="text-[20px] p-2 font-bold">Description:</label>
           <ul>
@@ -161,14 +181,29 @@ export const Editpkg = () => {
         </div>
       ))}
       <br />
-     
+      {userData.destination?.map((item)=>(
+              <> <div className=''>
+            <div className='font underline'> {item.Day} :{item.Destination}</div><br/>
+            <div className=''>{item.activities}</div>
+           </div>
+            </>
+            ))}
     </div>
+    
 
-              <div class="md:col-span-5">
+              <div class="md:col-span-5 flex flex-wrap gap-3">
                 <label for="email">Cover Image</label>
-                <input onChange={handlefile} type="file" name="coverImage" id="email" class="h-10 border mt-1 w-60 rounded px-4 ms-6 bg-gray-50"  placeholder="email@domain.com" />
+                <input onChange={handlefile} placeholder={userData?.coverImage} type="file" name="coverImage" id="email" class="h-10 border mt-1 w-60 rounded px-4 ms-6 bg-gray-50"  />
+                <img
+                  className="w-22 h-14"
+                  src={`http://localhost:4000/uploads/${userData.coverImage}`}
+                  alt=""
+                />
               </div>
-
+              
+             <div>
+            
+             </div>
               <div class="md:col-span-3">
                 <label for="days">No of days</label>
                 <input onChange={handleChange}  placeholder={userData?.noOfDays} type="text" name="noOfDays" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
@@ -177,11 +212,96 @@ export const Editpkg = () => {
                 <label for="days">price</label>
                 <input onChange={handleChange}  placeholder={userData?.price} type="number" name="price" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
               </div>
-              <div class="md:col-span-5">
+              <div class="md:col-span-5 flex flex-wrap">
                 <label for="email">upload Brochure</label>
-                <input onChange={handlefile} type="file" name="uploadBrochure" id="brochure" class="h-10 border mt-1 w-60 rounded px-4 ms-6 bg-gray-50"   />
+                <input onChange={handlefile} placeholder={userData?.uploadBrochure} type="file" name="uploadBrochure" id="brochure" class="h-10 border mt-1 w-60 rounded px-4 ms-6 bg-gray-50"   />
+                <img
+                  className="w-22 h-14"
+                  src={`http://localhost:4000/uploads/${userData.uploadBrochure}`}
+                  alt=""
+                />
               </div>
+              
+              <div>
+             
+              </div>
+              <div className="container mx-auto px-4 py-8">
+      <button
+      type='button'
+        onClick={addNoofppl}
+        className="bg-orange-500 mb-4 text-white text-[25px] px-4 py-2 rounded mt-4 hover:bg-orange-600"
+      >
+        +
+      </button>
+      <br />
+      {transport.map((noofpplDetail, pplIndex) => (
+        <div key={pplIndex} className="mb-8">
+          <div className="mb-2 flex gap-2 items-center">
+            {/* <label htmlFor="" className="text-[20px] p-2 font-bold">No of people </label> */}
+            <input onChange={(e) => handleNoofpplChange(pplIndex, e.target.value)} type='text' name='noofppl'   placeholder="No Of People" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id=""></input>
+            {/* <select>
+              
+              className="border w-20 border-gray-300 rounded px-4 py-2  mr-2"
+              <option value="">Select a count</option>
+              <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+              </select> */}
+           
+              <input
+                type="text"
+                value={noofpplDetail.transportOption}
+                onChange={(e) => handleTransportChange(pplIndex, e.target.value)}
+                placeholder="transportoption"
+                name='transportOption'
+                className="border w-40 border-gray-300 rounded px-4 py-2  mr-2"
+              />
+               <input
+                type="number"
+                value={noofpplDetail.price}
+                onChange={(e) => handlepriceChange(pplIndex, e.target.value)}
+                placeholder="price"
+                name='price'
+                className="border w-40 border-gray-300 rounded px-4 py-2  mr-2"
+              />
+            {/* <button
+              onClick={() => removeDay(dayIndex)}
+              className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+            >
+              Remove
+            </button> */}
+          </div>
+          {/* <label className="text-[20px] p-2 font-bold">Description:</label> */}
+          {/* <ul>
+            {dayDetail.activities.map((activity, activityIndex) => (
+              <li key={activityIndex} className="mb-2">
+                <input
+                  type="text"
+                  name=''
+                  value={activity}
+                  onChange={(e) => handleActivityChange(dayIndex, activityIndex, e.target.value)}
+                  className="border border-gray-300 rounded px-4 py-2 w-80"
+                />
+              </li>
+            ))}
+          </ul> */}
+        </div>
+      ))}
+      <br />
+      {userData.transports?.map((item)=>(
+            <div className='flex flex-wrap'>
+            <div>{item.noofppl}People:
+            {item.transportOption}</div>,
+            <div>price:{item.price}</div>/-
+            </div>
+            ))}
 
+      {
+
+
+      }
+     
+    </div>
               
 
               

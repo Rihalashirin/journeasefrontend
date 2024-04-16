@@ -29,10 +29,13 @@ export const Guidemngenqry = () => {
                    Company Name
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Trip Duration
+                    Date
                 </th>
                 <th scope="col" class="px-6 py-3">
                    Location
+                </th>
+                <th scope="col" class="px-6 py-3">
+                   Days
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Guest Count
@@ -46,7 +49,15 @@ export const Guidemngenqry = () => {
                 <th scope="col" class="px-6 py-3">
                   
                 </th>
-               
+                <th scope="col" class="px-6 py-3">
+                  
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -60,13 +71,17 @@ export const Guidemngenqry = () => {
                 </td>
                 
                 <td class="px-6 py-4">
-                   10/02/2024-14/02/2024
+                { new Date(item?.bookings?.date).toLocaleDateString()}
+               {/* {item?.bookings?.date} */}
                 </td>
                 <td class="px-6 py-4">
                   {item.pkg?.location}
                 </td>
                 <td class="px-6 py-4">
-                   2A,1C
+                  {item.pkg?.noOfDays}
+                </td>
+                <td class="px-6 py-4">
+                   {item.bookings?.adult},{item.bookings?.child}
                 </td>
                 <td class="px-6 py-4">
                   {item?.req?.status}
@@ -75,11 +90,20 @@ export const Guidemngenqry = () => {
                 <td class="px-3 py-4 flex flex-wrap flex-col gap-2 text-center">
 
                  {/* <Link to='/guide/guidemngwage'>  <a href="#" class="font-bold text-sm text-black bg-green-600 hover:underline hover:bg-gray p-1">Accept</a></Link>  */}
-                  <Link to={`/guide/guidemngwage/${item?.bookings?._id}`}> <button class="font-bold text-sm text-black bg-red-600 hover:underline hover:bg-orange-600 p-1 w-32" >View</button></Link> 
+                  <Link to={`/guide/guidemngwage/${item?.req?._id}`}> <button class="font-bold text-sm text-black bg-red-600 hover:underline hover:bg-orange-600 p-1 w-32" >View</button></Link> 
                 </td>
                 
                 <td>
-                <Link to={`/guide/issuewrite/${item.pkg?._id}`}>  <button class="font-bold text-sm text-black bg-red-600 hover:underline hover:bg-orange-600 p-1 w-32" >Feedback</button></Link>
+                <Link to={`/guide/issuewrite/${item?.bookings?._id}`}>  <button class="font-bold text-sm text-black bg-red-600 hover:underline hover:bg-orange-600 p-1 w-32" >Feedback</button></Link>
+                </td>
+                <td>
+               <Link to={`/guide/vwfeedbck/${item?.bookings?._id}`}><button class="font-bold text-sm text-black bg-red-600 hover:underline hover:bg-orange-600 p-1 w-32" >view feedback</button></Link> 
+                </td>
+                <td>
+                <Link to={`/guide/photoupload/${item?.bookings?._id}`}>  <button class="font-bold text-sm text-black bg-red-600 hover:underline hover:bg-orange-600 p-1 w-32" >Add image</button></Link>
+                </td>
+                <td>
+              <Link to={`/guide/vwimage/${item?.bookings?._id}`}> <button class="font-bold text-sm text-black bg-red-600 hover:underline hover:bg-orange-600 p-1 w-32" >View image</button></Link> 
                 </td>
             </tr>
            

@@ -28,7 +28,7 @@ export const Detailvwpkg = () => {
             <img src={`http://localhost:4000/uploads/${data.coverImage}`}  className='w-[150px] h-[150px]'/>
             <div className='w-[78%]'>
 
-          <p className=''>{data.basicDescription}</p>
+          <div className=''>{data.basicDescription}</div>
           <p className=''>{data.detailedDescription}</p>
             </div>
             <div className=''>
@@ -45,8 +45,8 @@ export const Detailvwpkg = () => {
             {data.transports?.map((item)=>(
             <div className='flex flex-wrap'>
             <div>{item.noofppl}People:
-            {item.transportOption}</div>
-            <div>price:{item.price}</div>
+            {item.transportOption}</div>,
+            <div>price:{item.price}</div>/-
             </div>
             ))}
             

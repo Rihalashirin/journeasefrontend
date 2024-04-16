@@ -7,23 +7,27 @@ import React, { useEffect, useState } from 'react'
 // import place6 from './Rectangle 41.png'
 // import place7 from './Rectangle 42.png'
 import axios from 'axios'
+import { useParams } from 'react-router-dom'
 
 export const Photosupload = () => {
   let id=localStorage.getItem('id')
+
+let {id2}=useParams()
+console.log(id2)
   const [data,setData]=useState('') 
   const [data1,setData1]=useState([''])
-  useEffect(()=>{
-  let fetchdata= async()=>{
-  let response= await axios.get(`http://localhost:4000/guide/vwimageguide/${id}`)
-  console.log(response.data1)
-  if(response.data1){
-  setData1(response.data1)
+  // useEffect(()=>{
+  // let fetchdata= async()=>{
+  // let response= await axios.get(`http://localhost:4000/guide/vwimageguide/${id}`)
+  // console.log(response.data1)
+  // if(response.data1){
+  // setData1(response.data1)
 
-  }
-  }
-  fetchdata()
-  },[]
-  )
+  // }
+  // }
+  // fetchdata()
+  // },[]
+  // )
 
 
   let handlefile=(event)=>{
@@ -41,6 +45,7 @@ let handleSubmit=async (event)=>{
   let formData=new FormData();
   formData.append('images',data.images);
   formData.append('guideid',id)
+  formData.append('bookingid',id2)
   setData(data)
   console.log(data)
   let response=await axios.post(`http://localhost:4000/guide/addimage`,formData,{
