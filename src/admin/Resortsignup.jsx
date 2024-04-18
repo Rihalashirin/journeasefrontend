@@ -62,6 +62,9 @@ export const Resortsignup = () => {
                    LOCATION
                 </th>
                 <th scope="col" class="px-6 py-3">
+                   DISTRICT
+                </th>
+                <th scope="col" class="px-6 py-3">
                     STATUS
                 </th>
                 
@@ -82,6 +85,9 @@ export const Resortsignup = () => {
                 </td>
                 <td class="px-6 py-4">
                {item.propertyAddress}
+                </td>
+                <td class="px-6 py-4">
+               {item.district}
                 </td>
                 <td class="px-6 py-4">
              {item.status}

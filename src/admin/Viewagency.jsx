@@ -47,9 +47,10 @@ export const Viewagency = () => {
             <p  className=' font font-bold'>{data.pin}</p>
 
 </div>
-<div className='flex flex-wrap text-white  text-center'>
+<div className='flex flex-wrap gap-2 text-white  text-center'>
             <p className='font font-bold text-yellow-500'>Contact Number:</p>
-            <p  className=' font font-bold'>{data.contactNumber}</p>
+            <p  className=' font font-bold'>{data.contactNumber}</p>,
+            <p className='font font-bold'>{data.contactNumberalternative}</p>
 
 </div>
 <div className='flex flex-wrap text-white   text-center'>
@@ -67,7 +68,7 @@ export const Viewagency = () => {
             <p > <img src={`http://localhost:4000/uploads/${data.licenseProof}`} alt="" className='w-44 h-16  ps-3 pt-3 '/></p>
 
 </div>
-<div className='flex flex-wrap text-white  text-center'>
+{/* <div className='flex flex-wrap text-white  text-center'>
             <div className='font font-bold text-yellow-500'>Description:</div>
             <div  className=' font font-bold'>{data.description}</div>
 
@@ -76,7 +77,7 @@ export const Viewagency = () => {
             <div className='font font-bold text-yellow-500'>About Us:</div>
             <div  className=' font font-bold'>{data.aboutUs}</div>
 
-</div>
+</div> */}
 <div className='flex flex-wrap gap-2'>
 <button onClick={()=>{handleSubmit('accepted',data._id)}} href="#" className=' font-bold bg-white  text-green-600 hover:underline w-32'>Accept</button>
 <button onClick={()=>{handleSubmit('rejected',data._id)}} href="#" className=' font-bold bg-white  text-green-600 hover:underline w-32'>Reject</button>

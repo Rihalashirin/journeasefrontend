@@ -53,7 +53,7 @@ export const Mybookingtable = () => {
                     </td>
                    
                     <td >
-                    PENDING  
+                    {item.req?.status}  
                     </td>
                    
                    {/* <td>

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 export const Userpayment = () => {
   return (
     <div className='userhome'>
+      <div>
         <div className=' font text-[30px] font-bold pl-5 pt-6 text-white'>
             Make Payment
           </div>
@@ -101,6 +102,7 @@ export const Userpayment = () => {
     </label>
   </div> */}
 </fieldset>
+</div>
     </div>
   )
 }

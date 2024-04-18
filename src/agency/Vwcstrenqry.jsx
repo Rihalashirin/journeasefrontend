@@ -14,12 +14,36 @@ export const Vwcstrenqry = () => {
         // console.log(data);
         // navigate('/organization/viewdeliveryboyorg')
         let response=await axios.put(`http://localhost:4000/agency/managebooking/${id}`,{status:status})
+        
       console.log(response);
       setdata1('')
       
 
       }
-      
+      let resortenquire=async(id,rid)=>{
+        let response=await axios.post('http://localhost:4000/agency/enquireresort',{...enqdata,bookingid:id,resortid:rid,})
+        console.log(response);
+      }
+
+
+
+      let health=async(status)=>{
+        let response=await axios.put(`http://localhost:4000/agency/assignhealth/${id}`,{healthstatus:status,healthwage:data.healthwage})
+      }
+      let handleChange=(event)=>{
+        setData({...data,[event.target.name]:event.target.value})
+        console.log(data);
+    }
+  
+    const [enqdata,setengData]=useState('')
+
+let enquiring=(event)=>{
+  setengData({...enqdata,[event.target.name]:event.target.value})
+  console.log(enqdata);
+
+}
+
+    
   useEffect(()=>{
     let fetchdata=async ()=>{
         let response=await axios.get(`http://localhost:4000/agency/vwdetailbooking/${id}`)
@@ -41,7 +65,9 @@ export const Vwcstrenqry = () => {
                 Basic info </div> <br />
                Name  :  {data.user?.name}<br/>
                Email :  {data.user?.email}<br/>
-               Mobile: {data.user?.contactNumber} <br/><br/>
+               Mobile: {data.user?.contactNumber} <br/>
+               {data.user?.contactNumberalternative}
+               <br/>
                <div className='font '>
                 <div className='text-[20px]'>
                 Travel info </div><br/>
@@ -75,20 +101,40 @@ export const Vwcstrenqry = () => {
                
                 Accomodation Chosen </div><br/>
                 {data.resorts?.map((item)=>(
-                <div className='flex flexwrap  justify-between '>
-                <img src={`http://localhost:4000/uploads/${item?.coverImage}`} alt="" srcset="" />
-                <div className='pt-10'>{item?.propertyName} <br /></div>
-                <div className='flex flex-col gap-6 mt-3 '>
+                <div className='flex flexwrap  gap-15 '>
+                <img className='w-[200px]' src={`http://localhost:4000/uploads/${item?.coverImage}`} alt="" srcset="" />
+                <div className='pt-10'>{item?.propertyName} <br /> <div> {data.booking?.accomodatn}</div></div>
                 
+              <br/>
+                <div className='flex flex-wrap gap-6  '>
+                  check-in
+                <input onChange={enquiring}  name='fromDate' type="date" className='bg-transparent h-5 border-white border-solid border-2 rounded'/>
+                check-out
+                <input onChange={enquiring} name='toDate' type="date" className='bg-transparent h-5 border-white border-solid border-2 rounded'/>
+                <button onClick={()=>resortenquire(data.booking?._id,item._id)} className='bg-orange-600 text-[15px] text-white w-40 h-9 rounded-lg'>ENQUIRE RESORT</button>
                 </div>
-               <Link to={`/agency/assignguide/${id}`}> <button className='bg-orange-600 w-32 h-9 rounded-lg'>ASSIGN GUIDE</button></Link>
-                <button  className='bg-orange-600 w-32 h-9 rounded-lg'>ASSIGN A HA</button>
+               
+                resort status:<br/>{data.booking?.resortstatus}
+              
                 </div>
+                  
                 ))}
-                <div className='ml-32'>
-                {data.booking?.accomodatn}
-                </div>
-                <div className='text-[20px]'>
+                <Link to={`/agency/assignguide/${id}`}> <button className='bg-orange-600 w-32 h-9 rounded-lg ml-[900px]'>ASSIGN GUIDE</button></Link>
+              <div className='flex flex-col ml-[500px]'> <div>guide status:{data.booking?.guidestatus}</div>
+              <div> guidewage:{data.booking?.wage}</div></div>
+                <button onClick={()=>health("assigned")}  className='bg-orange-600 w-32 ml-[900px] h-9 rounded-lg'>ASSIGN A HA</button>
+                <div className='ml-[100px]'>
+              <label for="name" class="block mb-2 text-sm font-medium  dark:text-white">Health Wage :</label>
+              <input onChange={handleChange}  name='healthwage' type="number" id="name" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg  focus:ring-blue-500 focus:border-blue-500 block w-24 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required />
+              {/* <button onClick={()=>enterwage(data.wage)} className='bg-orange-600 mt-2 rounded-lg px-2 py-2'>submit</button> */}
+            </div>
+                <div className='ml-[500px]'>HealthAssistant status:{data.booking?.healthstatus}</div> 
+                <div className='ml-[500px]'>healthwage:</div>
+                {/* <div className='ml-32'>
+                
+
+                </div> */}
+                <div className='text-[20px] '>
                 Adventure Chosen </div><br/>
                 {data.adventures?.map((item)=>(
                 <div className='flex flexwrap  justify-start '>

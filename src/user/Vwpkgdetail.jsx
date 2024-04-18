@@ -24,17 +24,18 @@ export const Vwpkgdetail = () => {
           <div className='w-[208px] text-center'>
           <span className='text-white font font-bold text-[30px] '> </span><span className='text-orange-600 font font-bold text-[30px]'> {data.response?.packageName}</span><br /><p className='font text-[20px]  '>{data.response?.noOfDays}DAYS</p>
           </div>
-          <div className='flex sm:gap-5 flex-wrap'>
+          <div className='flex flex-wrap sm:gap-5 '>
             <img src={`http://localhost:4000/uploads/${data.response?.coverImage}`}  className='w-[150px] h-[150px]'/>
-            <div className='w-[78%]'>
+            <div className='w-[60%]'>
 
           <p className=''>{data.response?.basicDescription}</p>
           <p className=''>{data.response?.detailedDescription}</p>
             </div>
+            </div>
             {data.response?.destination?.map((item)=>(
               <>
-            <div className='font underline'> Day:{item.Day} {item.Destination}</div> 
-            <span>{item.activities}</span>
+            <div className='font underline'> Day:{item.Day} {item.Destination}</div> <br/>
+            <div>{item.activities}</div>
             
            
             </>
@@ -42,13 +43,13 @@ export const Vwpkgdetail = () => {
             
             <div className='font text-[20px] m-auto bg-yellow-600/90 h-8 w-96 text-white  text-center'>per head:{data.response?.price}/-</div>
            
-            <div className='flex flex-wrap gap-11  m-auto '>
+            <div className='flex flex-wrap gap-2  '>
               <Link to='/user/planpkg'><button className='bg-orange-600 text-white rounded-lg w-40'>GO BACK</button></Link>
-          </div>
+          
      
     
     <Link to={`/user/bookingpage/${id}`}> <button className='bg-orange-600 text-white rounded-lg w-40'>PROCEED</button></Link> 
-</div></div></div></div>
+    </div></div></div></div>
     
   )
 }

@@ -1,7 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import resort from './Resort-Home.png'
+import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 export const Resortmngenqry = () => {
+    let id=localStorage.getItem("id")
+    const[data, setData] = useState([''])
+    useEffect(() => {
+      let fetchdata = async () => {
+        let response = await axios.get(
+          `http://localhost:4000/resort/vwrequestagency/${id}`
+        );
+        console.log(response.data);
+        setData(response.data);
+      };
+      fetchdata();
+    },[]);
+
   return (
     <div className='resorthome h-screen w-[100%]  '>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg pt-10 ">
@@ -12,7 +27,10 @@ export const Resortmngenqry = () => {
                    Enquiriy Name
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Stay Duration
+                    Check-in
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Check-out
                 </th>
                 <th scope="col" class="px-6 py-3">
                    Room Type
@@ -21,29 +39,40 @@ export const Resortmngenqry = () => {
                     Guest Count
                 </th>
                 <th scope="col" class="px-6 py-3">
+                    Status
+                </th>
+                <th scope="col" class="px-6 py-3">
                   Action
                 </th>
                
             </tr>
         </thead>
         <tbody>
+            {data.map((item,index)=>(
+                <>
             <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    WellTrip planners
+                    {item.agn?.companyName}
                 </th>
                 <td class="px-6 py-4">
-                   10/02/2024-14/02/2024
+                {new Date(item.req?.fromDate).toLocaleDateString()}
                 </td>
                 <td class="px-6 py-4">
-                  Luxury
+                {new Date(item.req?.toDate).toLocaleDateString()}
                 </td>
                 <td class="px-6 py-4">
-                    4
+                {item.bookings?.accomodatn}
+                </td>
+                <td class="px-6 py-4">
+                   {item.bookings?.adult}A,{item.bookings?.child}C
+                </td>
+                <td class="px-6 py-4">
+                  {item.req?.resortstatus}
                 </td>
                
                 <td class="px-3 py-4 flex flex-wrap flex-col gap-2 text-center">
-                    <a href="#" class="font-bold text-sm text-black bg-green-600 hover:underline hover:bg-gray p-1">Accept</a>
-                    <a href="#" class="font-bold text-sm text-black bg-red-600 hover:underline hover:bg-orange-600 p-1" >Reject</a>
+                    {/* <a href="#" class="font-bold text-sm text-black bg-green-600 hover:underline hover:bg-gray p-1">Accept</a> */}
+                 <Link to={`/resort/resortenterprice/${item?.req?._id}`} > <button class="font-bold text-sm text-black bg-red-600 hover:underline hover:bg-orange-600 p-1" >View</button></Link>  
                 </td>
                 
                 {/* <td class="px-6 py-4">
@@ -119,6 +148,8 @@ export const Resortmngenqry = () => {
                     <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                 </td>
             </tr> */}
+            </>
+        ))}
         </tbody>
     </table>
 </div>

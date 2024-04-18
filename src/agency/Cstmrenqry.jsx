@@ -37,10 +37,22 @@ export const Cstmrenqry = () => {
                    Days
                 </th>
                 <th scope="col" class="px-6 py-3">
+                   Resort Status
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Guide Status
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Health Status
+                </th>
+                <th scope="col" class="px-6 py-3">
                     Status
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Action
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    
                 </th>
             </tr>
         </thead>
@@ -66,6 +78,18 @@ export const Cstmrenqry = () => {
                   
                 </td>
                 <td class="px-6 py-4">
+                {item.booking?.resortstatus}
+                  
+                </td>
+                <td class="px-6 py-4">
+                 {item.booking?.guidestatus}
+                  
+                </td>
+                <td class="px-6 py-4">
+                  {item.booking?.healthstatus}
+                  
+                </td>
+                <td class="px-6 py-4">
                   {item.booking?.status}
                   
                 </td>
@@ -76,6 +100,9 @@ export const Cstmrenqry = () => {
                
                 <td class="px-6 py-4">
                    <Link to={`/agency/detailcstrenqry/${item.booking?._id}`}><button className='bg-orange-600 text-white rounded-lg p-2'>View details</button></Link> 
+                </td>
+                <td class='px-6 py-4'>
+                <button className='bg-orange-600 text-white rounded-lg p-2'>Reviews</button>
                 </td>
             </tr>
            

@@ -70,7 +70,7 @@ export const Editpkg = () => {
         setTourDetails(updatedTourDetails);
       };
     
-
+console.log(tourDetails,'---------------------');
 
       let handleChange=(event)=>{
         setData({...data,[event.target.name]:event.target.value})
@@ -78,6 +78,37 @@ export const Editpkg = () => {
     let handleSubmit=async (event)=>{
         event.preventDefault()
         const formData = new FormData();
+
+        const transports = transport.map((noofpplDetail)=>({
+          noofppl:noofpplDetail.noofpeople,
+          transportOption:noofpplDetail.transportOption,
+          price:noofpplDetail.price
+        }))
+           // Construct an array of destination objects
+          const destinations = tourDetails.map((dayDetail) => ({
+            Day: dayDetail.day,
+            Destination: dayDetail.destination,
+            activities: dayDetail.activities.join(', '), // Convert activities array to comma-separated string
+          }));
+         // Append destinations data to FormData
+tourDetails.forEach((dayDetail, index) => {
+  if (dayDetail && dayDetail.day && dayDetail.destination && dayDetail.activities.length > 0) {
+      formData.append(`destination[${index}][Day]`, dayDetail.day);
+      formData.append(`destination[${index}][Destination]`, dayDetail.destination);
+      formData.append(`destination[${index}][activities]`, dayDetail.activities.join(', '));
+  }
+});
+
+// Append transports data to FormData
+transport.forEach((transportDetail, index) => {
+  if (transportDetail && transportDetail.noofpeople && transportDetail.transportOption && transportDetail.price) {
+      formData.append(`transports[${index}][noofppl]`, transportDetail.noofpeople);
+      formData.append(`transports[${index}][transportOption]`, transportDetail.transportOption);
+      formData.append(`transports[${index}][price]`, transportDetail.price);
+  }
+});
+
+
           for (const key in data) {
           if (data[key]) {
             formData.append(key, data[key]);
@@ -183,8 +214,8 @@ export const Editpkg = () => {
       <br />
       {userData.destination?.map((item)=>(
               <> <div className=''>
-            <div className='font underline'> {item.Day} :{item.Destination}</div><br/>
-            <div className=''>{item.activities}</div>
+            <div className='font underline'> {item?.Day} :{item?.Destination}</div><br/>
+            <div className=''>{item?.activities}</div>
            </div>
             </>
             ))}

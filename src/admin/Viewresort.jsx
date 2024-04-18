@@ -34,6 +34,7 @@ export const Viewresort = () => {
 <div className='flex flex-wrap text-white gap-12 pt-3 text-center'>
             <p className='font-bold'>Property Address:</p>
             <p className='font font-bold'>{data.propertyAddress}</p>
+            <p className='font font-bold'>{data.district}</p>
 
 </div>
 <div className='flex flex-wrap text-white gap-4 pt-3 text-center'>

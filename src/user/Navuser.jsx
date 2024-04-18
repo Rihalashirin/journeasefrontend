@@ -12,7 +12,7 @@ export const Navuser = () => {
         </div>
         <div className='flex gap-5 items-center'>
          <Link to='/user'><div><img className='w-[40px]' src={ homeicon} alt="" srcset="" /></div></Link> 
-          <Link to='/user/plantrip'><div className='font text-orange-600 '>TRIP</div></Link>
+         <Link to='/user/planpkg'><div className='font text-orange-600 '>TRIP</div></Link>
            <Link to='/user/notificatn'><div className='font text-orange-600 '>NOTIFICATION</div></Link>
          {/* <Link to='/user/addreview'> <div className='font text-orange-600 '>REVIEW</div></Link> */}
          <Link to='/user/mybookingtable'> <div className='font text-orange-600 '>MYBOOKING</div></Link>

@@ -22,7 +22,7 @@ export const Detailvwpkg = () => {
         <div className='bg-white/50 w-[90%] p-3 ms-5 pt-2 shadow-2xl rounded-lg'>
           <div>
           <div className='w-[208px] text-center'>
-          <span className='text-white font font-bold text-[30px] '></span><span className='text-orange-600 font font-bold text-[30px] '> {data.packageName}</span><br /><p className='font text-[20px]  '>{data.noOfDays}</p>
+          <span className='text-white font font-bold text-[30px] '></span><span className='text-orange-600 font font-bold text-[30px] '> {data.packageName}</span><br /><p className='font text-[20px] font-semibold  '>{data.noOfDays}DAYS</p>
           </div>
           <div className='flex sm:gap-5 flex-wrap'>
             <img src={`http://localhost:4000/uploads/${data.coverImage}`}  className='w-[150px] h-[150px]'/>

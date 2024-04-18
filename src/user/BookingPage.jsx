@@ -15,6 +15,7 @@ export default function BookingPage() {
   const { id } = useParams();
 
   let handleChange = (event) => {
+    console.log(event.target.value,'---');
     setData1({ ...data1, [event.target.name]: event.target.value });
     console.log(data1);
   };

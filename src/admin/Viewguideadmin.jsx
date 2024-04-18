@@ -45,7 +45,8 @@ export const Viewguideadmin = () => {
 </div>
 <div className='flex flex-wrap text-white gap-4 pt-3 text-center'>
             <p className='font-bold'>Contact Number:</p>
-            <p className='font font-bold'>{data.contactNumber}</p>
+            <p className='font font-bold'>{data.contactNumber}</p>,
+            <p className='font font-bold'>{data.contactNumberalternative}</p>
 
 </div>
 <div className='flex flex-wrap text-white gap-12 pt-3 text-center'>
@@ -57,6 +58,7 @@ export const Viewguideadmin = () => {
 <div className='flex flex-wrap text-white gap-12 pt-3 text-center'>
             <p className='font-bold'>Address:</p>
             <p className='font font-bold'>{data.address}</p>
+            <p className='font font-bold'>{data.district}</p>
 
 </div>
 <div className='flex flex-wrap text-white gap-12 pt-3 text-center'>

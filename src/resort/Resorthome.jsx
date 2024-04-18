@@ -14,10 +14,10 @@ export const Resorthome = () => {
             <span className='text-white'>Welcome,</span><span className='text-orange-600'> Resort Owner</span>
           </div>
          <div className='flex gap-8 items-center justify-center pt-52 flex-wrap'>
-        <Link to='/resort/resortvwbooking'><div className='font text-white text-center'>
+        {/* <Link to='/resort/resortvwbooking'><div className='font text-white text-center'>
          <img src={bookicon} alt="" className='w-28 h-28 font ' srcset="" />
          Bookings
-         </div></Link>
+         </div></Link> */}
         <Link to='/resort/resortmngenqry'><div className='font text-white text-center'> <img src={enqryicon} alt="" className='w-28 h-28' srcset="" />
          Enquiries</div></Link>
          <Link to='/resort/resortvwreview'><div className='font text-white text-center'><img src={reviewicon} alt="" className='w-28 h-28' srcset="" />

@@ -13,7 +13,7 @@ export const Navresort = () => {
         </div>
         <div className='flex gap-5 items-center'>
        <Link to='/resort'><div><img className='w-[40px]' src={ homeicon} alt="" srcset="" /></div></Link> 
-       <Link to='/resort/resortvwbooking'> <div className='font text-orange-600 '>BOOKINGS</div></Link>
+       {/* <Link to='/resort/resortvwbooking'> <div className='font text-orange-600 '>BOOKINGS</div></Link> */}
        <Link to='/resort/resortmngenqry'> <div className='font text-orange-600 '>ENQUIRIES</div></Link>
       <Link to='/resort/resortvwreview'> <div className='font text-orange-600 '>REVIEWS</div></Link>
       <Link to='/regresort1'> <div className='font text-orange-600 '>ADD ROOM</div></Link>

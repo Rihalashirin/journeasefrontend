@@ -139,7 +139,7 @@ root.render(
         <Route path='chooseguide/:id' element={<Selectguide/>}/>
         <Route path='selectadventure/:id' element={<Selectadventure/>}/>
         <Route path='notificatn' element={<Notification/>}/>
-        <Route path='vwnotificatn' element={<Vwnotificatn/>}/>
+        <Route path='vwnotificatn/:id' element={<Vwnotificatn/>}/>
         <Route path='userpay' element={<Userpayment/>}/>
         <Route path='paysucccess' element={<Paysuccess/>}/>
         <Route path='addreview' element={<Addreview/>}/>
@@ -212,7 +212,7 @@ root.render(
       <Route index element={<Resorthome/>}/>
       <Route path='resortmngenqry' element={<Resortmngenqry/>}/>
       <Route path='resortvwbooking' element={<Vwbookingresort/>}/>
-      <Route path='resortenterprice' element={<Resortmngprice/>}/>
+      <Route path='resortenterprice/:id' element={<Resortmngprice/>}/>
       <Route path='resortvwreview' element={<Resortvwreview/>}/>
       <Route path='resortprofile' element={<Resortprofile/>}/>
       <Route path='updatereg2/:id' element={<Updatereg2/>}/>

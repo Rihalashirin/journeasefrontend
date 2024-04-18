@@ -9,6 +9,7 @@ export const Userprofile = () => {
   let handlefile=(event)=>{
     console.log(event.target.files);
     setData({...data,[event.target.name]:event.target.files[0]})
+    console.log(data);
   }
   useEffect(()=>{
     let fetchdata=async ()=>{
@@ -19,6 +20,7 @@ export const Userprofile = () => {
     fetchdata()
     
   },[refresh])
+
   const handlechange=(event)=>{
     setData({...data,[event.target.name]:event.target.value})
     console.log(data)
@@ -26,9 +28,9 @@ export const Userprofile = () => {
   let handleSubmit=async (event)=>{
     event.preventDefault()
     const formData = new FormData();
-    for (const key in userData) {
-      if (userData[key]) {
-        formData.append(key, userData[key]);
+    for (const key in data) {
+      if (data[key]) {
+        formData.append(key, data[key]);
       }
     }
 
@@ -42,6 +44,7 @@ export const Userprofile = () => {
   )
     console.log(response);
     setrefresh(!refresh)
+    setData('')
   }
   return (
     <div className='bg-[#1a2954d6] h-[600px]'>
@@ -72,7 +75,7 @@ export const Userprofile = () => {
             </div>
             <div>
               <label for="contactnumber" class="block mb-2 text-sm font-medium text-white dark:text-white">Contact Number(alternative):</label>
-              <input onChange={handlechange} placeholder={userData.contactNumberalternative} type="number" name='contactNumberalternative' id="contactnumber" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder={userData.contactNumber}   />
+              <input onChange={handlechange} placeholder={userData.contactNumberalternative} type="number" name='contactNumberalternative' id="" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder={userData.contactNumber}   />
             </div>
             <div>
               <label for="image" class="block mb-2 text-sm font-medium text-white dark:text-white">Image:</label>

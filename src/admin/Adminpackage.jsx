@@ -37,10 +37,10 @@ export const Adminpackage = () => {
                     image
                 </th>
                 <th scope="col" class="px-6 py-3">
-                   Brochure
+                   Location
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Description
+                    Category
                 </th>
             </tr>
         </thead>
@@ -63,10 +63,10 @@ export const Adminpackage = () => {
                     file
                 </td>
                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                   file
+                   {item.package?.location}
                 </td>
                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                   {item.package?.basicDescription}
+                   {item.package?.category}
                 </td>
                
             </tr>

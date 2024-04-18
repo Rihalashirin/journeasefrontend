@@ -81,29 +81,29 @@ export const Guidemngenqry = () => {
                   {item.pkg?.noOfDays}
                 </td>
                 <td class="px-6 py-4">
-                   {item.bookings?.adult},{item.bookings?.child}
+                   {item.bookings?.adult}A,{item.bookings?.child}C
                 </td>
                 <td class="px-6 py-4">
-                  {item?.req?.status}
+                  {item?.bookings?.guidestatus}
                 </td>
                
                 <td class="px-3 py-4 flex flex-wrap flex-col gap-2 text-center">
 
                  {/* <Link to='/guide/guidemngwage'>  <a href="#" class="font-bold text-sm text-black bg-green-600 hover:underline hover:bg-gray p-1">Accept</a></Link>  */}
-                  <Link to={`/guide/guidemngwage/${item?.req?._id}`}> <button class="font-bold text-sm text-black bg-red-600 hover:underline hover:bg-orange-600 p-1 w-32" >View</button></Link> 
+                  <Link to={`/guide/guidemngwage/${item?.req?._id}`}> <button class="font-bold text-[10px] text-black bg-red-600 hover:underline hover:bg-orange-600 p-1 w-20" >View</button></Link> 
                 </td>
                 
                 <td>
-                <Link to={`/guide/issuewrite/${item?.bookings?._id}`}>  <button class="font-bold text-sm text-black bg-red-600 hover:underline hover:bg-orange-600 p-1 w-32" >Feedback</button></Link>
+                <Link to={`/guide/issuewrite/${item?.bookings?._id}`}>  <button class="font-bold text-[10px] text-black bg-red-600 hover:underline hover:bg-orange-600 p-1 w-20" >Feedback</button></Link>
                 </td>
                 <td>
-               <Link to={`/guide/vwfeedbck/${item?.bookings?._id}`}><button class="font-bold text-sm text-black bg-red-600 hover:underline hover:bg-orange-600 p-1 w-32" >view feedback</button></Link> 
+               <Link to={`/guide/vwfeedbck/${item?.bookings?._id}`}><button class="font-bold text-[10px] text-black bg-red-600 hover:underline hover:bg-orange-600 p-1 w-20" >view feedback</button></Link> 
                 </td>
                 <td>
-                <Link to={`/guide/photoupload/${item?.bookings?._id}`}>  <button class="font-bold text-sm text-black bg-red-600 hover:underline hover:bg-orange-600 p-1 w-32" >Add image</button></Link>
+                <Link to={`/guide/photoupload/${item?.bookings?._id}`}>  <button class="font-bold text-[10px] text-black bg-red-600 hover:underline hover:bg-orange-600 p-1 w-20" >Add image</button></Link>
                 </td>
                 <td>
-              <Link to={`/guide/vwimage/${item?.bookings?._id}`}> <button class="font-bold text-sm text-black bg-red-600 hover:underline hover:bg-orange-600 p-1 w-32" >View image</button></Link> 
+              <Link to={`/guide/vwimage/${item?.bookings?._id}`}> <button class="font-bold text-[10px] text-black bg-red-600 hover:underline hover:bg-orange-600 p-1 w-20" >View image</button></Link> 
                 </td>
             </tr>
            
