@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
+import {toast,Toastcontainer} from 'react-toastify'
 
 export const Rgstrguide = () => {
   const [data,setData]=useState('')
@@ -10,16 +11,36 @@ export const Rgstrguide = () => {
   }
     
     
-     
+     let [ageval,setageval]=useState(false)
   let handleChange=(event)=>{
       setData({...data,[event.target.name]:event.target.value})
+      if (data.age < 18) {
+        setageval(true) 
+    }
+    else{
+      setageval(false)
+    }
+      console.log(typeof(data.age));
+      
   }
   let handleSubmit=async (event)=>{
       event.preventDefault()
-      let formData = new FormData();
-      formData.append('name',data.name);
-      formData.append('age',data.age);
-      formData.append('gender',data.gender);
+       if (data.cpassword !== data.password) {
+        toast.error("Passwords don't match");
+    }
+      
+      else {
+  
+         if(data.age<18){
+          toast.error("age should be greater than 18");
+         } 
+         else{
+
+       
+          let formData = new FormData();
+          formData.append('name',data.name);
+          formData.append('age',data.age);
+          formData.append('gender',data.gender);
       formData.append('contactNumber',data.contactNumber);
       formData.append('contactNumberalternative',data.contactNumberalternative);
       formData.append('idProof',data.idProof);
@@ -33,10 +54,21 @@ export const Rgstrguide = () => {
      
     
     formData.append('userType','guide')
-     let response=await axios.post('http://localhost:4000/user/registration',formData)
-     console.log(response);
+     let response=await axios.post('http://localhost:4000/user/registration',formData,{
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    }).then((res)=>{
+      setData(data);
+      toast.success('successfully registered')
+      console.log(data);
+    }).catch((err)=>{
+      toast.error(err.response.data.message || err.message || 'password doesnt match')
+    })
       
   }
+}
+}
   return (
     <div className='bg-[#1a2954d6] h-[800px]'>
     <div className='h-[64px] font text-[30px] font-bold m-0 text-left pl-10 '>
@@ -50,23 +82,57 @@ export const Rgstrguide = () => {
 
             <div >
               <label for="name" class="block mb-2 text-sm font-medium text-white dark:text-white">Name :</label>
-              <input onChange={handleChange}  name='name' type="name" id="name" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required />
+              <input onChange={handleChange}  name='name'pattern='^[a-zA-Z]*$' type="text" id="name" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required />
             </div>
             <div>
               <label for="age" class="block mb-2 text-sm font-medium text-white dark:text-white">Age:</label>
-              <input onChange={handleChange}  name='age'type="age" id="age" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
-            </div>
-            <div >
-              <label for="gender" class="block mb-2 text-sm font-medium text-white dark:text-white">Gender:</label>
-              <input onChange={handleChange}  name='gender' type="text" id="gender" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              <input onChange={handleChange}  name='age'type="number"  id="age" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+            {ageval && <label>age must be more than 18</label>}
             </div>
             <div>
+  <label htmlFor="gender" className="block mb-2 text-sm font-medium text-white dark:text-white">Gender:</label>
+  <div>
+    <label>
+      <input
+        type="radio"
+        name="gender"
+        value="male"
+        onChange={handleChange}
+        className="mr-2"
+        required
+      />
+      Male
+    </label>
+    <label className="ml-4">
+      <input
+        type="radio"
+        name="gender"
+        value="female"
+        onChange={handleChange}
+        className="mr-2"
+      />
+      Female
+    </label>
+    <label className="ml-4">
+      <input
+        type="radio"
+        name="gender"
+        value="other"
+        onChange={handleChange}
+        className="mr-2"
+      />
+      Other
+    </label>
+  </div>
+</div>
+
+            <div>
               <label for="contact" class="block mb-2 text-sm font-medium text-white dark:text-white">Contact Number:</label>
-              <input onChange={handleChange}  name='contactNumber' type="number" id="contact" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              <input onChange={handleChange}  name='contactNumber' type="tel" pattern='\d{10}'  title='please enter a valid phone number'  id="contact" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
             <div>
               <label for="contact" class="block mb-2 text-sm font-medium text-white dark:text-white">Contact Number(alternative):</label>
-              <input onChange={handleChange}  name='contactNumberalternative' type="number" id="contact" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              <input onChange={handleChange}  name='contactNumberalternative' pattern='\d{10}'  title='please enter a valid phone number'    type="tel" id="contact" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
             <div>
               <label for="location" class="block mb-2 text-sm font-medium text-white dark:text-white">Location of Expertise:</label>
@@ -101,11 +167,11 @@ export const Rgstrguide = () => {
             </div>
             <div >
               <label for="password" class="block mb-2 text-sm font-medium text-white dark:text-white">Password:</label>
-              <input onChange={handleChange}  name='password' type="password" id="password" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              <input onChange={handleChange}  name='password'  pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\b)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$' title='password must contain atleast one lowercase letter,one uppercase letter,one digit,one special character ,and be 8 to 30 characters long' type="password" id="password" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
             <div >
               <label for="password" class="block mb-2 text-sm font-medium text-white dark:text-white"> Confirm Password:</label>
-              <input  onChange={handleChange}  name='cpassword' type="password" id="password" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              <input  onChange={handleChange}  name='cpassword'  pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\b)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$' title='password must contain atleast one lowercase letter,one uppercase letter,one digit,one special character ,and be 8 to 30 characters long' type="password" id="password" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
           </div>
           

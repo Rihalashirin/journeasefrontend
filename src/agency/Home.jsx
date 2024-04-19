@@ -7,6 +7,7 @@ import uploads from './images/Group 114.png'
 
 
 import { Link } from 'react-router-dom'
+let id=localStorage.getItem('id')
 
 export const Home = () => {
   return (

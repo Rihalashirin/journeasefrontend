@@ -2,7 +2,18 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
 export const Vwreviewagency = () => {
-  
+    
+    const [data,setData]=useState([''])
+
+    useEffect(()=>{
+        let fetchdata=async ()=>{
+          let id=localStorage.getItem('id')
+            let response=await axios.get(`http://localhost:4000/agency/vwreview/${id}`)
+            console.log(response.data)
+            setData(response.data)
+        }
+        fetchdata()
+    },[])
  
   return (
     <div className='pencil'>

@@ -1,112 +1,118 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import axios from 'axios'
+import React, { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import axios from 'axios';
 
 export const Agencysignup = () => {
-    const [data,setData]=useState([''])
-   
-   
-    useEffect(()=>{
-        let fetchdata = async ()=>{
-            let response=await axios.get(`http://localhost:4000/admin/vwagency`)
-            console.log(response.data)
-            setData(response.data)
-        }
-        fetchdata()
-    },[])
-  return (
-    <div className='adminbg'>
-    <div className='flex flex-col gap-2'>
-     <div className=' font text-[30px] font-bold pl-5 pt-6'>
-          <span className='text-white'>Agency,</span><span className='text-orange-600'> Sign Ups</span>
-        </div>
-        <form class="flex items-center max-w-sm mx-auto">   
-    <label for="simple-search" class="sr-only">Search</label>
-    <div class="relative w-full">
-        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-            {/* <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5v10M3 5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm12 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0V6a3 3 0 0 0-3-3H9m1.5-2-2 2 2 2"/>
-            </svg> */}
-        </div>
-        <input type="text" id="simple-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search here..." required />
-    </div>
-    <button type="submit" class="p-2.5 ms-2 text-sm font-medium text-white bg-orange-600 rounded-lg border border-blue-700 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-        </svg>
-        <span class="sr-only">Search</span>
-    </button>
-</form>
-      {/* <div className='w-[90%] h-7 bg-white ms-16 me-10 rounded-lg flex flex-wrap flex-row justify-normal pl-5 items-center gap-[27rem]' >
-        <div className='font text-black'>Company Name</div>
-        <div className='font text-black'>OfficeAddress</div>
-        <div className='bg-white'></div>
-        
-      </div> */}
-      {/* <div className='w-[90%] h-16 bg-white ms-16 me-10 rounded-lg flex flex-wrap flex-row justify-between items-center pl-5 pr-8'>
-      <div className='font text-black'>Well Trip Planners</div>
-        <div className='font text-black'>Kerala</div>
-        <Link to='/admin/vwandacceptagency'><button className='font bg-orange-600 rounded-lg text-white '>View Details</button></Link>
-      </div> */}
-      <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <table class="w-full text-sm text-center rtl:text-right text-black dark:text-black">
-        <thead class="text-xs  text-black uppercase bg-[#9B9B9B] border-b-2 border-orange-600 dark:text-black">
-            <tr>
-                <th scope="col" class="px-6 py-3">
-                    SL NO.
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    COMPANY NAME
-                </th>
-                <th scope="col" class="px-6 py-3">
-                   PLACE
-                </th>
-                <th scope="col" class="px-6 py-3">
-                   DISTRICT
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    STATUS
-                </th>
-                
-                
-                <th scope="col" class="px-6 py-3">
-                    ACTION
-                </th>
-                
-            </tr>
-        </thead>
-        <tbody>
-            {data.map((item,index)=>(
+    const [data, setData] = useState([]);
+    const [search, setSearch] = useState('');
+    const [statusFilter, setStatusFilter] = useState('All');
 
-           
-            <tr class="bg-white border-b  font-semibold border-orange-600 hover:bg-[#f7b866d4]">
-                <td class="px-6 py-4 font-semibold">
-                    {index}
-                </td>
-                <td class="px-6 py-4">
-                    {item.companyName} 
-                </td>
-                <td class="px-6 py-4">
-                  {item.place}
-                </td>
-                <td class="px-6 py-4">
-                  {item.district}
-                </td>
-                <td class="px-6 py-4">
-                  {item.status}
-                </td>
-       
-                <td class="px-6 py-4 flex flex-wrap flex-col gap-2">
-                    {/* <a href="#" class="font-bold text-sm text-black bg-orange-600 hover:underline hover:bg-gray p-1">view details</a> */}
-                    <Link to={`/admin/vwandacceptagency/${item._id}`}><button className='w-32 font bg-orange-600 rounded-lg text-white '>View Details</button></Link>
-                </td>
-                
-            </tr>
-            ))} 
-        </tbody>
-    </table>
-</div>
-      </div>
-  </div>
-  )
-}
+    useEffect(() => {
+        let fetchdata = async () => {
+            let response = await axios.get(`http://localhost:4000/admin/vwagency`);
+            setData(response.data);
+        };
+        fetchdata();
+    }, []);
+
+    const filteredData = data.filter((item) => {
+        // Filter by status
+        if (statusFilter !== 'All' && item.status !== statusFilter) {
+            return false;
+        }
+        // Filter by search query
+        if (search.trim() !== '') {
+            const searchQuery = search.toLowerCase();
+            const companyName = item.companyName ? item.companyName.toLowerCase() : '';
+            const district = item.district ? item.district.toLowerCase() : '';
+            return companyName.includes(searchQuery) || district.includes(searchQuery);
+        }
+        return true; // If no search query, return all data
+    });
+    
+
+    const handleStatusChange = (e) => {
+        setStatusFilter(e.target.value);
+    };
+
+    return (
+        <div className="adminbg">
+            <div className="flex flex-col gap-2">
+                <div className="font text-[30px] font-bold pl-5 pt-6">
+                    <span className="text-white">Agency,</span>
+                    <span className="text-orange-600"> Sign Ups</span>
+                </div>
+                <form className="max-w-lg mx-auto pb-10">
+                    <div className="flex items-center">
+                        <div className="">
+                        <select
+    value={statusFilter}
+    onChange={handleStatusChange}
+    className="h-[41px] inline-flex items-center py-2.5 text-[100%] px-4 text-sm font-medium text-center text-gray-900 bg-gray-700 border border-gray-300 rounded-s-lg hover:bg-gray-300 focus:ring-4 focus:outline-none focus:ring-gray-700 dark:bg-gray-950/50 dark:hover:bg-gray-500 dark:focus:ring-gray-700 dark:text-white dark:border-gray-700"
+>
+    <option value="All">All</option>
+    <option value="accepted">Accepted</option>
+    <option value="rejected">Rejected</option>
+</select>
+                        </div>
+                        <div className="relative w-full">
+                            <input
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
+                                type="search"
+                                id="search-dropdown"
+                                className="block p-2.5 w-full z-20 text-sm text-white bg-slate-950/50 rounded-e-lg border-s-2 border border-gray-700 focus:ring-gray-700 focus:border-gray-700 dark:bg-gray-950/50 dark:border-s-orange-500 dark:border-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:border-gray-700 placeholder:text-white"
+                                placeholder="Search Agency"
+                                required
+                            />
+                        </div>
+                    </div>
+                </form>
+                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                    <table class="w-full text-sm text-center rtl:text-right text-black dark:text-black">
+                        <thead class="text-xs  text-black uppercase bg-[#9B9B9B] border-b-2 border-orange-600 dark:text-black">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    SL NO.
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    COMPANY NAME
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    PLACE
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    DISTRICT
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    STATUS
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    ACTION
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {filteredData.map((item, index) => (
+                                <tr class="bg-white border-b  font-semibold border-orange-600 hover:bg-[#f7b866d4]">
+                                    <td class="px-6 py-4 font-semibold">{index}</td>
+                                    <td class="px-6 py-4">{item.companyName}</td>
+                                    <td class="px-6 py-4">{item.place}</td>
+                                    <td class="px-6 py-4">{item.district}</td>
+                                    <td class="px-6 py-4">{item.status}</td>
+                                    <td class="px-6 py-4 flex flex-wrap flex-col gap-2">
+                                        <Link to={`/admin/vwandacceptagency/${item._id}`}>
+                                            <button className="w-32 font bg-orange-600 rounded-lg text-white ">
+                                                View Details
+                                            </button>
+                                        </Link>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    );
+};

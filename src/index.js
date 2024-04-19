@@ -95,7 +95,8 @@ import { Mybooking } from './user/Mybooking';
 import { Mybookingtable } from './user/Mybookingtable';
 import { Vwfeedbck } from './guide/Vwfeedbck';
 import { Vwimg } from './guide/Vwimg';
-
+import{ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -224,6 +225,7 @@ root.render(
     
     
     </Routes>
+    <ToastContainer></ToastContainer>
    </BrowserRouter>
   
   </React.StrictMode>
