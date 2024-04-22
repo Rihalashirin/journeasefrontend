@@ -22,17 +22,17 @@ export const Detailvwpkg = () => {
         <div className='bg-white/50 w-[90%] p-3 ms-5 pt-2 shadow-2xl rounded-lg'>
           <div>
           <div className='w-[208px] text-center'>
-          <span className='text-white font font-bold text-[30px] '></span><span className='text-orange-600 font font-bold text-[30px] '> {data.packageName}</span><br /><p className='font text-[20px] font-semibold  '>{data.noOfDays}DAYS</p>
+          <span className='text-white font font-bold text-[30px] '></span><span className='text-orange-600 font font-bold text-[30px] '> {data?.response?.packageName}</span><br /><p className='font text-[20px] font-semibold  '>{data?.response?.noOfDays}DAYS</p>
           </div>
           <div className='flex sm:gap-5 flex-wrap'>
-            <img src={`http://localhost:4000/uploads/${data.coverImage}`}  className='w-[150px] h-[150px]'/>
+            <img src={`http://localhost:4000/uploads/${data?.response?.coverImage}`}  className='w-[150px] h-[150px]'/>
             <div className='w-[78%]'>
 
-          <div className=''>{data.basicDescription}</div>
-          <p className=''>{data.detailedDescription}</p>
+          <div className=''>{data?.response?.basicDescription}</div>
+          <p className=''>{data?.response?.detailedDescription}</p>
             </div>
             <div className=''>
-            {data.destination?.map((item)=>(
+            {data?.response?.destination?.map((item)=>(
               <> <div className='flex-row gap-2'>
             <div className='font underline'> Day {item?.Day}: {item.Destination}</div>
             <span>{item.activities}</span>
@@ -42,7 +42,7 @@ export const Detailvwpkg = () => {
             </div>
               </div>
             <div>Travel info:</div> 
-            {data.transports?.map((item)=>(
+            {data?.response?.transports?.map((item)=>(
             <div className='flex flex-wrap'>
             <div>{item.noofppl}People:
             {item.transportOption}</div>,
@@ -55,9 +55,11 @@ export const Detailvwpkg = () => {
         
 
         </div></div><div className='mt-28 pl-96 flex flex-wrap gap-3 '>
-     <Link to={`/agency/editpkg/${id}`}> <button className='bg-yellow-700 w-36 rounded-full py-2 px-4'>Edit package</button></Link> 
-     <Link to={`/agency/addpkg1/${id}`}> <button type='submit' className='bg-yellow-700 w-36  rounded-full py-2 px-4'>Add resort</button></Link>
-     <Link to={`/agency/vwaddedresort/${id}`}> <button type='submit' className='bg-yellow-700 w-36  rounded-full py-2 px-4'>view resort</button></Link>
+     <Link to={`/agency/editpkg/${id}`}> <button className='bg-yellow-700 w-36 rounded-full py-2 px-4'>Edit package</button></Link>
+     <Link to={`/agency/adddefaulthotel/${id}`}><button type='submit' className='bg-yellow-700 w-36  rounded-full py-2 px-4'>Add Default Hotel</button> </Link>
+     <Link to={`/agency/adddefaultadventure/${id}`}> <button type='submit' className='bg-yellow-700 w-36  rounded-full py-2 px-4'>Add Default Adventure</button></Link>
+     <Link to={`/agency/addpkg1/${id}`}> <button type='submit' className='bg-yellow-700 w-36  rounded-full py-2 px-4'>Add Hotel</button></Link>
+     <Link to={`/agency/vwaddedresort/${id}`}> <button type='submit' className='bg-yellow-700 w-36  rounded-full py-2 px-4'>view Hotel</button></Link>
      
     
      </div>

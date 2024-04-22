@@ -98,6 +98,9 @@ console.log(transport,'jhugytfrdse');
     formData.append('basicDescription', data.basicDescription);
     formData.append('detailedDescription', data.detailedDescription);
     formData.append('category', data.category);
+    formData.append('noofpeople',data.noofpeople);
+    formData.append("defaultvehicle", data.defaultvehicle);
+    formData.append("vehicleimage", data.vehicleimage);
     formData.append('agencyid', id);
     
     // Append the array of destination objects directly
@@ -111,6 +114,8 @@ console.log(transport,'jhugytfrdse');
       formData.append(`transports[${index}][noofppl]`, transport.noofppl);
       formData.append(`transports[${index}][transportOption]`, transport.transportOption);
       formData.append(`transports[${index}][price]`,transport.price);
+      formData.append(`transports[${index}][transportImage]`, transport.transportImage);
+      
       
     });
   
@@ -168,6 +173,18 @@ console.log(transport,'jhugytfrdse');
               <div class="md:col-span-5">
                 <label for="category">Category</label>
                 <input onChange={handleChange} type="text" name="category" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
+              </div>
+              <div class="md:col-span-5">
+                <label for="category">No Of People</label>
+                <input onChange={handleChange} type="number" name="noofpeople" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
+              </div>
+              <div class="md:col-span-5">
+                <label for="category"> vehicle</label>
+                <input onChange={handleChange} type="text" name="defaultvehicle" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
+              </div>
+              <div class="md:col-span-5">
+                <label for="vehicle">Vehicle Image</label>
+                <input onChange={handlefile} type="file" name="vehicleimage" id="vehicle" class="h-10 border mt-1 w-60 rounded px-4 ms-6 bg-gray-50"  placeholder="email@domain.com" />
               </div>
               <div className="container mx-auto px-4 py-8">
       <button
@@ -283,6 +300,15 @@ console.log(transport,'jhugytfrdse');
                 name='price'
                 className="border w-40 border-gray-300 rounded px-4 py-2  mr-2"
               />
+              <label htmlFor="transportImage">Transport Image</label>
+          <input
+            onChange={handlefile}
+            type="file"
+            name="transportImage"
+            id="transportImage"
+            className="h-10 border mt-1 w-60 rounded px-4 ms-6 bg-gray-50"
+            placeholder="email@domain.com"
+          />
             {/* <button
               onClick={() => removeDay(dayIndex)}
               className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"

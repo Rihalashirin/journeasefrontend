@@ -23,8 +23,9 @@ export default function BookingPage() {
     event.preventDefault();
   };
 
-
+  const [minDate, setMinDate] = useState("");
   useEffect(() => {
+    setMinDate(new Date().toISOString().split("T")[0] + "T00:00");
     const fetchData = async () => {
       try {
         const response = await axios.get(
@@ -104,7 +105,7 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
   };
 
   console.log(selectedResorts1, "====================");
-
+  
   return (
     <>
       
@@ -384,7 +385,7 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
   ))}
       </div>
       <div className="font font-bold text-white pl-4 mb-4 mt-8">pick your date:</div>
-     <div className="bg-orange-200 w-36 ml-10 mb-5"> <input onChange={handleChange} name='date' type="datetime-local" className='bg-transparent border-white border-solid border-2 rounded '/></div>
+     <div className="bg-orange-200 w-36 ml-10 mb-5"> <input  min={minDate}  onChange={handleChange} name='date' type="datetime-local" className='bg-transparent border-white border-solid border-2 rounded '/></div>
       {toggle && (
         <div className="bg-white/50 w-[90%] p-3 ms-5 pt-2">
           <div className="font text-center text-[20px] text-amber-800 pb-4   ">

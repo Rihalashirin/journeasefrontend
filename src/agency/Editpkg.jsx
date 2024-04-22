@@ -153,10 +153,18 @@ transport.forEach((transportDetail, index) => {
                 <label for="full_name">Location</label>
                 <input onChange={handleChange}  placeholder={userData?.location}  type="text" name="location" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
               </div>
-              {/* <div class="md:col-span-5">
-                <label for="destination">Destination</label>
-                <input onChange={handleChange}  placeholder={userData?.destination} type="text" name="destination" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
-              </div> */}
+              <div class="md:col-span-5">
+                <label for="destination">Category</label>
+                <input onChange={handleChange}  placeholder={userData?.category} type="text" name="category" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
+              </div>
+              <div class="md:col-span-5">
+                <label for="destination">No of People</label>
+                <input onChange={handleChange}  placeholder={userData?.noofpeople} type="number" name="noofpeople" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
+              </div>
+              <div class="md:col-span-5">
+                <label for="destination">Vehicle</label>
+                <input onChange={handleChange}  placeholder={userData?.vehicle} type="text" name="vehicle" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
+              </div>
               
 
               <div className="container mx-auto px-4 py-8">

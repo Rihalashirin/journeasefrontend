@@ -17,7 +17,7 @@ export const Navuser = () => {
          {/* <Link to='/user/addreview'> <div className='font text-orange-600 '>REVIEW</div></Link> */}
          <Link to='/user/mybookingtable'> <div className='font text-orange-600 '>MYBOOKING</div></Link>
         
-       <Link to='/'><div className='font pr-5 text-center text-orange-600'>LOG OUT</div></Link> </div>        
+       </div>        
     </div>
     <Outlet/>
       

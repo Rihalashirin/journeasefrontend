@@ -17,7 +17,7 @@ export const Navguide = () => {
         <Link to='/guide/guidemngenqry'><div className='font text-orange-600 '>ENQUIRIES</div></Link>
         <Link to='/guide/updatepro'> <div className='font text-orange-600 '>PROFILE</div> </Link>
         
-      <Link to='/'><div className='font text-orange-600 pr-5 text-center'>LOG OUT</div></Link>  </div>        
+       </div>        
     </div>
     <Outlet/>
       

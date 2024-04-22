@@ -15,7 +15,7 @@ export const Adminnav = () => {
       <Link to='/admin/bookings'>  <div className='font text-orange-600 '>BOOKINGS</div></Link>
        <Link to='/admin/request'> <div className='font text-orange-600 '>REQUEST</div></Link>
        <Link to='/admin/pkg'><div className='font text-orange-600 '>PACKAGE</div></Link> 
-       <Link to='/'><div className='font pr-5 text-center text-orange-600'>LOG OUT</div></Link> </div>        
+       </div>        
     </div>
     <Outlet></Outlet>
     

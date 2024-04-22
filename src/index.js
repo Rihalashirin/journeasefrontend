@@ -97,6 +97,8 @@ import { Vwfeedbck } from './guide/Vwfeedbck';
 import { Vwimg } from './guide/Vwimg';
 import{ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Adddefaulthotel } from './agency/Adddefaulthotel';
+import { Adddefaultadventure } from './agency/Adddefaultadventure';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -185,6 +187,10 @@ root.render(
         <Route path='vwaddedadventure/:id' element={<Vwaddedadventure/>}/>
         {/* <Route path='adddestination' element={<AddDetails/>}/> */}
         <Route path='editadventure' element={<AdventureUpdate/>}/>
+        <Route path='adddefaulthotel/:id'element={<Adddefaulthotel/>}/>
+        <Route path='adddefaultadventure/:id' element={<Adddefaultadventure/>}/>
+
+       
 
         
         

@@ -1,17 +1,41 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import resorthome from './Resort-Home.png'
 import bookicon from './bookingicon.png'
 import enqryicon from './enqryicon.png'
 import reviewicon from './reviewsicon.png'
 import profileicon from './profileicon.png'
-import { Link } from 'react-router-dom'
-
+import { Link,useNavigate} from 'react-router-dom'
+import axios from 'axios';
 export const Resorthome = () => {
+  const navigate=useNavigate()
+  let logout=()=>{
+    localStorage.removeItem('id')
+    localStorage.removeItem('email')
+    navigate('/login')
+}
+  useEffect(()=>{
+    let auth=async ()=>{
+  
+      let id=localStorage.getItem('id')
+      let email=localStorage.getItem('email')
+      let response=await axios.post('http://localhost:4000/user/api/auth/authenticate',{_id:id,email:email})
+      console.log(response);
+      if(response==null){
+        navigate('/login')
+      }
+      else if(response?.data?.userType !=='resort'){
+        navigate('/login')
+      }
+  
+    }
+    auth()
+  },[])
   return (
     <div>
     <div className='resorthome h-screen w-[100%] '>
     <div className=' font text-[30px] font-bold pl-5 pt-6'>
-            <span className='text-white'>Welcome,</span><span className='text-orange-600'> Resort Owner</span>
+            <span className='text-white'>Welcome,</span><span className='text-orange-600'> Hotel Owner</span>
+            <div onClick={logout} className='font bg-white w-36 text-[20px] pr-5 text-end text-orange-600'>LOG OUT</div>
           </div>
          <div className='flex gap-8 items-center justify-center pt-52 flex-wrap'>
         {/* <Link to='/resort/resortvwbooking'><div className='font text-white text-center'>

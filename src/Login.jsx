@@ -19,6 +19,8 @@ const Login = () => {
     console.log(response);
     if(response.data){
       localStorage.setItem('id',response.data._id)
+      localStorage.setItem('email',response.data.email)
+
       if(response.data.userType=='user'){
         navigate('/user')
       }

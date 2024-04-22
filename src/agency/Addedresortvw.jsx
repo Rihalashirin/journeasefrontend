@@ -21,7 +21,7 @@ export const Addedresortvw = () => {
     <div className="bg-[#1a2954d6] h-screen">
       <div className="h-[64px] font text-[30px] font-bold m-0 text-left pl-10 ">
         <span className="text-white">Selected</span>
-        <span className="text-orange-600"> Resorts</span>
+        <span className="text-orange-600"> Hotels</span>
       </div>
      
 

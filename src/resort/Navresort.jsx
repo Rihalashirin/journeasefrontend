@@ -22,7 +22,7 @@ export const Navresort = () => {
       <Link to={`/resort/updatereg2/${id}`}> <div className='font text-orange-600 '>UPDATE ROOM</div></Link>
        
         
-       <Link to='/'> <div className='font pr-5 text-center text-orange-600'>LOG OUT</div></Link>
+      
         </div>        
     </div>
     <Outlet/>
