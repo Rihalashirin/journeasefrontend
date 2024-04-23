@@ -22,10 +22,10 @@ export const Vwpkgdetail = () => {
             <div className='font text-white text-center text-[30px]'>{data.agency?.companyName} </div>
             <div className='font text-white text-center'>{data.agency?.officeAddress}</div>
           <div className='w-[208px] text-center'>
-          <span className='text-white font font-bold text-[30px] '> </span><span className='text-orange-600 font font-bold text-[30px]'> {data.response?.packageName}</span><br /><p className='font text-[20px]  '>{data.response?.noOfDays}DAYS</p>
+          <span className='text-white font font-bold text-[30px] '> </span><span className='text-orange-600 font font-bold text-[30px]'> {data.response?.packageName}</span><br />{data.response?.price}/-per Head<p className='font text-[20px]  '>{data.response?.noOfDays}DAYS</p>
           </div>
           <div className='flex flex-wrap sm:gap-5 '>
-            <img src={`http://localhost:4000/uploads/${data.response?.coverImage}`}  className='w-[150px] h-[150px]'/>
+            <img src={`http://localhost:4000/uploads/${data.response?.coverImage}`}  className='w-[350px] h-[350px]'/>
             <div className='w-[60%]'>
 
           <p className=''>{data.response?.basicDescription}</p>
@@ -40,7 +40,26 @@ export const Vwpkgdetail = () => {
            
             </>
             ))}
-            
+            <div className='flex flex-wrap gap-5'>
+            <div className='flex-col'>
+            <div className='font-semibold text-orange-800 text-[20px]'> Adventures:</div> 
+            {data.response?.destination?.map((item)=>(
+              <>
+              <div className='font-semibold'>
+
+              </div>
+              </>
+           ))}   
+            </div>
+            <div className='flex-col'>
+            <div className='font-semibold text-orange-800 text-[20px]'> Accomodation:{}</div>
+            <img src={delhi} alt="" srcset="" />
+            </div>
+            <div className='flex-col'> 
+            <div className='font-semibold  text-orange-800  text-[20px]'>Transport:{data.response?.vehicle}</div>
+            <img src={delhi} alt="" srcset="" />
+            </div>
+            </div>
             <div className='font text-[20px] m-auto bg-yellow-600/90 h-8 w-96 text-white  text-center'>per head:{data.response?.price}/-</div>
            
             <div className='flex flex-wrap gap-2  '>

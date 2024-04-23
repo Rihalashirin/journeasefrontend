@@ -2,13 +2,15 @@ import React, { useState } from 'react'
 import arrow from './images/Arrow.png'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-
+import FileBase64 from 'react-filebase64';
 
 export const Addpkg = () => {
   let id=localStorage.getItem('id')
   const [tourDetails, setTourDetails] = useState([{ day: 1, destination: '', activities: [''] }]);
   const [transport, setTransport] = useState([{ noofpeople: '', transportOption: '',price:'' }]);
   const [data,setData]=useState('')
+
+const [transportImagedata, setTransportImage] = useState()
 
   let handlefile=(event)=>{
     console.log(event.target.files);
@@ -73,14 +75,20 @@ console.log(transport,'jhugytfrdse');
   }
 
   console.log(data,'----');
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
-  const transports = transport.map((noofpplDetail)=>({
-    noofppl:noofpplDetail.noofpeople,
-    transportOption:noofpplDetail.transportOption,
-    price:noofpplDetail.price
-  }))
-     // Construct an array of destination objects
+  
+    // Handling transport data
+    const transports = transport.map((noofpplDetail) => ({
+      noofppl: noofpplDetail.noofpeople,
+      transportOption: noofpplDetail.transportOption,
+      price: noofpplDetail.price,
+      transportImage: transportImagedata, // Use transport image data from state
+    }));
+  
+ 
+    // Construct an array of destination objects
     const destinations = tourDetails.map((dayDetail) => ({
       Day: dayDetail.day,
       Destination: dayDetail.destination,
@@ -91,32 +99,31 @@ console.log(transport,'jhugytfrdse');
     let formData = new FormData();
     formData.append('packageName', data.packageName);
     formData.append('location', data.location);
-    formData.append('coverImage', data.coverImage);
+    formData.append('coverImage', data.coverImage); // Append cover image base64 data
     formData.append('noOfDays', data.noOfDays);
     formData.append('price', data.price);
-    formData.append('uploadBrochure', data.uploadBrochure);
+    formData.append('uploadBrochure', data.uploadBrochure); // Append brochure base64 data
     formData.append('basicDescription', data.basicDescription);
     formData.append('detailedDescription', data.detailedDescription);
     formData.append('category', data.category);
-    formData.append('noofpeople',data.noofpeople);
-    formData.append("defaultvehicle", data.defaultvehicle);
-    formData.append("vehicleimage", data.vehicleimage);
+    formData.append('noofpeople', data.noofpeople);
+    formData.append('defaultvehicle', data.defaultvehicle);
+    formData.append('vehicleimage', data.vehicleimage);
     formData.append('agencyid', id);
-    
+  
     // Append the array of destination objects directly
     destinations.forEach((destination, index) => {
       formData.append(`destination[${index}][Day]`, destination.Day);
       formData.append(`destination[${index}][Destination]`, destination.Destination);
       formData.append(`destination[${index}][activities]`, destination.activities);
     });
+  
+    // Append the array of transport objects directly
     transports.forEach((transport, index) => {
-      console.log(transport);
       formData.append(`transports[${index}][noofppl]`, transport.noofppl);
       formData.append(`transports[${index}][transportOption]`, transport.transportOption);
-      formData.append(`transports[${index}][price]`,transport.price);
-      formData.append(`transports[${index}][transportImage]`, transport.transportImage);
-      
-      
+      formData.append(`transports[${index}][price]`, transport.price);
+      formData.append(`transports[${index}][transportImage]`, transport.transportImage); // Append transport image data
     });
   
     try {
@@ -131,6 +138,7 @@ console.log(transport,'jhugytfrdse');
       console.error('Error:', error);
     }
   };
+  
 
   // -----------------------------------------------------
 
@@ -183,9 +191,14 @@ console.log(transport,'jhugytfrdse');
                 <input onChange={handleChange} type="text" name="defaultvehicle" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
               </div>
               <div class="md:col-span-5">
-                <label for="vehicle">Vehicle Image</label>
-                <input onChange={handlefile} type="file" name="vehicleimage" id="vehicle" class="h-10 border mt-1 w-60 rounded px-4 ms-6 bg-gray-50"  placeholder="email@domain.com" />
+                <label for="full_name">Location</label>
+                <input onChange={handlefile} type="file" name="vehicleimage" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
               </div>
+              <div class="md:col-span-5">
+                <label for="vehicle">Vehicle Image</label>
+                <FileBase64
+        multiple={ false }
+        onDone={ (res)=>setTransportImage(res.base64) } />              </div>
               <div className="container mx-auto px-4 py-8">
       <button
       type='button'

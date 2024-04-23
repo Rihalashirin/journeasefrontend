@@ -15,10 +15,61 @@ export default function BookingPage() {
   const { id } = useParams();
 
   let handleChange = (event) => {
-    console.log(event.target.value,'---');
     setData1({ ...data1, [event.target.name]: event.target.value });
-    console.log(data1);
+  
+    // Check if the user selected "No" for the guide
+    if (event.target.name === "guide" && event.target.value === "no") {
+      // Reduce the transport price by 1000 if guide is not selected
+      let newPrice = parseFloat(transportdata.response.price) - (parseFloat(transportdata.response.noOfDays) * 1000);
+      setTransportdata((prevState) => ({
+        ...prevState,
+        response: {
+          ...prevState.response,
+          price: newPrice,
+        },
+      }));
+    }
+  
+    // Check if the user selected "Yes" for health assistant
+    if (event.target.name === "health" && event.target.value === "yes") {
+      // Increase the transport price by 1000 if health assistant is selected
+      let newPrice = parseFloat(transportdata.response.price) + (parseFloat(transportdata.response.noOfDays) * 1000);
+      setTransportdata((prevState) => ({
+        ...prevState,
+        response: {
+          ...prevState.response,
+          price: newPrice,
+        },
+      }));
+    }
+    // Check if the user selected luxury accommodation
+    if (event.target.name === "accomodatn" && event.target.value === "luxury") {
+        let newPrice = parseFloat(transportdata.response.price) + parseFloat(data.rooms?.luxuryprice);
+        console.log(data.rooms?.luxuryprice,'=======================');
+        setTransportdata((prevState) => ({
+          ...prevState,
+          response: {
+            ...prevState.response,
+            price: newPrice,
+          },
+        }));
+    }
+  
+    // Check if the user selected standard accommodation
+    if (event.target.name === "accomodatn" && event.target.value === "standard") {
+      // Add the standard room price to the transport price
+      
+        let newPrice = (parseFloat(transportdata.response.price) - parseFloat( transportdata?.response.defaulthotelprice)) + parseFloat(data.rooms.standardPrice);
+        setTransportdata((prevState) => ({
+          ...prevState,
+          response: {
+            ...prevState.response,
+            price: newPrice,
+          },
+        }));
+    }
   };
+  
   let handleSubmit = async (event) => {
     event.preventDefault();
   };
@@ -112,8 +163,8 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
     <div className="userhome">
              <div>
             <div className="h-[64px] font text-[30px] font-bold m-0 text-left pl-10 ">
-              <span className="text-white">Request a</span>
-              <span className="text-orange-600"> Guide</span>
+              <span className="text-white">Customise your</span>
+              <span className="text-orange-600"> Package</span>(optional)
             </div>
             <div className="bg-white/50 w-[90%] p-3 ms-5 pt-2">
               <fieldset>
@@ -296,7 +347,9 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                   >
 
                   </input>
-                  
+                  <div>
+                    Price : {transportdata?.response?.price }
+                  </div>
                   <div>Picking place:</div>
                   <input onChange={handleChange} name="pickingplace" type="text" className="w-48"></input>
                 </div>
@@ -421,24 +474,22 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
               {data.response?.events}
             </div>
 
-            {data.rooms?.map((item) => (
               <div className="flex bg-yellow-100 px-2 py-4 rounded text-yellow-300   font-semibold font">
                 luxury room:
                 <img
-                  src={`http://localhost:4000/uploads/${item?.image}`}
+                  src={`http://localhost:4000/uploads/${data.rooms?.image}`}
                   className="m-auto w-48"
                   alt=" "
                   srcSet=" "
                 />
                 standardroom:
                 <img
-                  src={`http://localhost:4000/uploads/${item?.images}`}
+                  src={`http://localhost:4000/uploads/${data.rooms?.images}`}
                   className="m-auto w-48"
                   alt=" "
                   srcSet=" "
                 />
               </div>
-            ))}
 
             <div class="  overflow-x-auto shadow-md sm:rounded-lg mt-4 w-[50%] ml-72">
               <table class="w-full text-sm text-center rtl:text-right  text-gray-500 dark:text-gray-400">
@@ -451,15 +502,14 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                   </tr>
                 </thead>
                 <tbody>
-                  {data.rooms?.map((item) => (
                     <>
                     <tr class=" dark:border-gray-700 text-black bg-gray-950/40 hover:bg-slate-800/50">
                       <td scope="row" class="px-6 py-4 text-black">
                         luxury:
                       </td>
-                      <td class="px-6 py-4">{item?.luxury}</td>
-                      <td class="px-6 py-4">{item?.luxuryOccupancy}</td>
-                      <td>{item?.luxuryprice}/-</td>
+                      <td class="px-6 py-4">{data?.rooms?.luxury}</td>
+                      <td class="px-6 py-4">{data?.rooms?.luxuryOccupancy}</td>
+                      <td>{data.rooms?.luxuryprice}/-</td>
                       <td>
                         <input type="radio" onChange={handleChange} name='accomodatn' value="luxury" className="bg-black text-white w-20">
                        
@@ -470,9 +520,9 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                       <td scope="row" class="px-6 py-4 text-black">
                         standard:
                       </td>
-                      <td class="px-6 py-4">{item?.standard}</td>
-                      <td class="px-6 py-4">{item?.standardOccupancy}</td>
-                      <td class="px-6 py-4">{item?.standardPrice}/-</td>
+                      <td class="px-6 py-4">{data?.rooms.standard}</td>
+                      <td class="px-6 py-4">{data?.rooms.standardOccupancy}</td>
+                      <td class="px-6 py-4">{data?.rooms.standardPrice}/-</td>
                       <td>
                       <input type="radio" onChange={handleChange} name='accomodatn' value="standard" className="bg-black text-white w-20">
                          
@@ -480,7 +530,6 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                       </td>
                     </tr>
                     </>
-                  ))}
                   {/* {data.rooms?.map((item) => (
                     <tr class=" dark:border-gray-700 text-black bg-gray-950/40 hover:bg-slate-800/50">
                       <td scope="row" class="px-6 py-4 text-black">
@@ -503,13 +552,13 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
             <div className="font-bold ml-24 mt-5 bg-yellow-950">
               {" "}
               Facilities
-              {data.facilities?.map((item) => (
+    
                 <div className="ml-14 mt-14 flex gap-10 ">
-                  <p>{item?.name} kjkjh</p>
-                  <p>{item?.luxury}</p>
-                  <p>{item?.standard}</p>
+                  <p>{data.facilities?.name} kjkjh</p>
+                  <p>{data.facilities?.luxury}</p>
+                  <p>{data.facilities?.standard}</p>
                 </div>
-              ))}
+      
             </div>
             {/* <button
               type="submit"

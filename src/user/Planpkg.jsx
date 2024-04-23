@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 export const Planpkg = () => {
-  const [data, setData] = useState(['']);
   const [agencyData, setAgencyData] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -37,14 +36,13 @@ export const Planpkg = () => {
       category.includes(searchLowerCase)
     );
   });
-  
 
   const handleSearchInputChange = event => {
     setSearchQuery(event.target.value);
   };
 
   return (
-    <div className="userhome">
+    <div className='bg-orange-800 w-[90%] p-3 ms-5 pt-2'>
       <div className="h-[64px] font text-[30px] font-bold m-0 text-left pl-10 ">
         <span className="text-white">Select a </span>
         <span className="text-orange-600"> Tour Planner</span>
@@ -67,40 +65,42 @@ export const Planpkg = () => {
             required
           />
         </div>
-        {/* <button
-          type="submit"
-          className="p-2.5 ms-2 text-sm font-medium text-white bg-orange-600 rounded-lg border border-blue-700 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        >
-          <svg
-            className="w-4 h-4"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 20 20"
-          >
-           
-          </svg>
-          <span className="sr-only">Search</span>
-        </button> */}
       </form>
-      <div className="flex flex-wrap gap-9">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
         {filteredData.map(item => (
-          <div key={item.package?._id} className="bg-orange-300 ml-5 mt-4 rounded-lg">
-            <div className="pt-4 pl-2 pr-2 text-center text-white">
-              <Link to={`/user/vwdetailpkg/${item.package?._id}`}>
-                <img
-                  src={`http://localhost:4000/uploads/${item.package?.coverImage}`}
-                  className="m-auto w-20"
-                  alt=""
-                />
-              </Link>
-              <Link to={`/user/vwpkgreview/${item.agency?._id}`}>
+          <div key={item.package?._id} className="bg-white shadow-md rounded-lg overflow-hidden">
+            <Link to={`/user/vwdetailpkg/${item.package?._id}`}>
+              <img
+                src={`http://localhost:4000/uploads/${item.package?.coverImage}`}
+                className="w-full h-40 object-cover"
+                alt=""
+              />
+            </Link>
+            <div className="p-4">
+              <h3 className="text-lg font-semibold text-gray-800 mb-2 truncate">
+                {item?.package?.packageName}
+              </h3>
+             <Link to={`/user/vwpkgreview/${item.agency?._id}`}> <p className="text-gray-600 underline">{item?.agency?.companyName}(about us)</p></Link>
+              <p className="text-gray-600">
+                Duration: {item?.package?.noOfDays} days
+              </p>
+              <p className="text-gray-600">
+                Location: {item?.package?.location}
+              </p>
+              <p className="text-gray-600">
+                Category: {item?.package?.category}
+              </p>
+              <p className=" text-orange-800">
+                No of people: {item?.package?.noofpeople}
+              </p>
+              <p className="text-orange-800">
+                Price: {item?.package?.price}/- per head
+              </p>
+              {/* <Link to={`/user/vwpkgreview/${item.agency?._id}`}>
                 <div className="font font-bold">
                   {item?.agency?.companyName} <br />
-                  {item?.package?.noofpeople},{item?.package?.vehicle}
-                  {item.package?.packageName}
-                </div>
-              </Link>
+                  </div>
+              </Link> */}
             </div>
           </div>
         ))}
