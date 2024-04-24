@@ -109,6 +109,7 @@ console.log(transport,'jhugytfrdse');
     formData.append('noofpeople', data.noofpeople);
     formData.append('defaultvehicle', data.defaultvehicle);
     formData.append('vehicleimage', data.vehicleimage);
+    formData.append("defaultvehicleprice", data.defaultvehicleprice)
     formData.append('agencyid', id);
   
     // Append the array of destination objects directly
@@ -187,6 +188,10 @@ console.log(transport,'jhugytfrdse');
                 <input onChange={handleChange} type="number" name="noofpeople" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
               </div>
               <div class="md:col-span-5">
+                <label for="category"> vehicle Amount</label>
+                <input onChange={handleChange} type="number" name="defaultvehicleprice" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
+              </div>
+              <div class="md:col-span-5">
                 <label for="category"> vehicle</label>
                 <input onChange={handleChange} type="text" name="defaultvehicle" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
               </div>
@@ -196,9 +201,11 @@ console.log(transport,'jhugytfrdse');
               </div>
               <div class="md:col-span-5">
                 <label for="vehicle">Vehicle Image</label>
-                <FileBase64
+                <input type="file" name='vehicleimage' onChange={handlefile} />
+                {/* <FileBase64
         multiple={ false }
-        onDone={ (res)=>setTransportImage(res.base64) } />              </div>
+        onDone={ (res)=>setTransportImage(res.base64) } />               */}
+        </div>
               <div className="container mx-auto px-4 py-8">
       <button
       type='button'

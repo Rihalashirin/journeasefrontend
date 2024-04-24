@@ -28,37 +28,49 @@ export const Viewpackage = () => {
       const location = item.location ? item.location.toLowerCase() : '';
       const category = item.category ? item.category.toLowerCase() : '';
       const noOfDays = item.noOfDays ? item.noOfDays.toString() : '';
-      // const adventureName = item.adventureName ? item.adventureName.toLowerCase() : '';
       
       return (
         location.includes(query.toLowerCase()) || 
         category.includes(query.toLowerCase()) ||
-        noOfDays.includes(query) 
-        // adventureName.includes(query.toLowerCase())
+        noOfDays.includes(query)
       );
     });
     setFilteredData(filtered);
   };
 
   return (
-    <div className='pencil'>
+    <div className='container mx-auto px-4 py-8 bg-yellow-500'>
       {/* Search input */}
       <input
         type="text"
         value={searchQuery}
         onChange={(e) => handleSearch(e.target.value)}
         placeholder="Search by location, days or category"
-        className="p-2.5 ml-96  border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-72 "
+        className="p-2.5 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:w-72 mx-auto"
       />
 
-      <div className='flex flex-wrap sm:gap-5 mt-5'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8'>
         {filteredData.map((item) => (
-          <div key={item._id} className='bg-yellow-200 w-[100px] ml-5 rounded-lg mt-4'>
-            <div className='text-center text-orange-600 pt-4'> 
-              <Link to={`/agency/detailvwpkg/${item._id}`}>
-                <img src={`http://localhost:4000/uploads/${item.coverImage}`} className='m-auto w-20 ' alt="" srcSet="" />
-              </Link> 
-              <div className='font font-bold'>{item.location} <br />{item.noOfDays} DAYS</div><br/>{item.category}
+          <div key={item._id} className='bg-white rounded-lg shadow-lg overflow-hidden'>
+            <Link to={`/agency/detailvwpkg/${item._id}`}>
+              <img
+                src={`http://localhost:4000/uploads/${item.coverImage}`}
+                alt={`${item.location} Package`}
+                className='w-full h-56 object-cover object-center'
+              />
+            </Link>
+            <div className='p-4'>
+              <h3 className='text-lg font-semibold text-gray-800'>{item.location}</h3>
+              <p className='text-gray-600 mt-2'>{item.noOfDays} Days</p>
+              <p className='text-gray-600 mt-2'>{item.category}</p>
+              <div className='mt-4'>
+                <Link
+                  to={`/agency/detailvwpkg/${item._id}`}
+                  className='text-blue-500 hover:text-blue-600 font-semibold text-sm'
+                >
+                  View Details
+                </Link>
+              </div>
             </div>
           </div>
         ))}

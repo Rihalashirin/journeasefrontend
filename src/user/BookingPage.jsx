@@ -20,12 +20,16 @@ export default function BookingPage() {
     // Check if the user selected "No" for the guide
     if (event.target.name === "guide" && event.target.value === "no") {
       // Reduce the transport price by 1000 if guide is not selected
-      let newPrice = parseFloat(transportdata.response.price) - (parseFloat(transportdata.response.noOfDays) * 1000);
+      console.log(transportdata[0].pkg?.price,'new datas');
+      let newPrice = parseFloat(transportdata[0].pkg?.price) - (parseFloat(transportdata[0].pkg?.noOfDays) * 1000);
       setTransportdata((prevState) => ({
         ...prevState,
-        response: {
-          ...prevState.response,
-          price: newPrice,
+        [0]: {
+          ...prevState[0],
+          pkg: {
+            ...prevState[0].pkg,
+            price: newPrice,
+          },
         },
       }));
     }
@@ -33,12 +37,15 @@ export default function BookingPage() {
     // Check if the user selected "Yes" for health assistant
     if (event.target.name === "health" && event.target.value === "yes") {
       // Increase the transport price by 1000 if health assistant is selected
-      let newPrice = parseFloat(transportdata.response.price) + (parseFloat(transportdata.response.noOfDays) * 1000);
+      let newPrice = parseFloat(transportdata[0].pkg?.price) + (parseFloat(transportdata[0].pkg?.noOfDays) * 1000);
       setTransportdata((prevState) => ({
         ...prevState,
-        response: {
-          ...prevState.response,
-          price: newPrice,
+        [0]: {
+          ...prevState[0],
+          pkg: {
+            ...prevState[0].pkg,
+            price: newPrice,
+          },
         },
       }));
     }
@@ -59,7 +66,7 @@ export default function BookingPage() {
     if (event.target.name === "accomodatn" && event.target.value === "standard") {
       // Add the standard room price to the transport price
       
-        let newPrice = (parseFloat(transportdata.response.price) - parseFloat( transportdata?.response.defaulthotelprice)) + parseFloat(data.rooms.standardPrice);
+        let newPrice = (parseFloat(transportdata.pkg?.price) - parseFloat( transportdata?.pkg?.defaulthotelprice)) + parseFloat(data.rooms.standardPrice);
         setTransportdata((prevState) => ({
           ...prevState,
           response: {
@@ -166,11 +173,17 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
               <span className="text-white">Customise your</span>
               <span className="text-orange-600"> Package</span>(optional)
             </div>
+          <div className="ml-10 text-white"> You can customise your package ,amount may vary according to it,if you skip default package will go</div> <br/>
+            <div className="text-center text-[20px] font  text-white">
+                   Package Price : {transportdata[0]?.pkg?.price }/-
+                  </div>
             <div className="bg-white/50 w-[90%] p-3 ms-5 pt-2">
               <fieldset>
+              <div className="text-orange-950 font-bold"> Guide:</div> 
                 <legend class="sr-only">Countries</legend>
                 <div className="flex flex-wrap justify-around">
-                  <div class="flex items-center mb-4">
+                  you will have a guide with you
+                  {/* <div class="flex items-center mb-4">
                     <input
                       onChange={handleChange}
                       id="country-option-1"
@@ -186,9 +199,10 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                     >
                       Yes,I would like to have a Guide.(extra charges will be applied)
                     </label>
-                  </div>
+                  </div> */}
 
                   <div class="flex items-center mb-4">
+                    
                     <input
                       onChange={handleChange}
                       id="country-option-2"
@@ -291,7 +305,7 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                   </div>
                 </div>
               </div> */}
-
+<div className="text-orange-950 font-bold"> Health Assistant:</div> 
               <div class="flex items-center mb-4">
                 <input
                   onChange={handleChange}
@@ -305,12 +319,12 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                   for="country-option-3"
                   class="block ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                 >
-                  Yes,I would like to have Health assistant(extra charges will be applied)
+                  Yes,I would like to have Health assistant
                 </label>
               </div>
 
               <div className="flex flex-wrap flex-col ">
-                <div class="flex items-center mb-4">
+                {/* <div class="flex items-center mb-4">
                   <input
                     onChange={handleChange}
                     id="country-option-3"
@@ -325,8 +339,8 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                   >
                     No,I don't want a Health Assistant
                   </label>
-                </div>
-                <div>Whom are you Traveling with:</div>
+                </div> */}
+                <div className="text-orange-950 font-bold"> Whom are you traveling with:</div> 
                 <div className="flex flex-wrap gap-5 font-medium">
                   <div>Adult:</div>
                   <input
@@ -347,14 +361,12 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                   >
 
                   </input>
-                  <div>
-                    Price : {transportdata?.response?.price }
-                  </div>
+                 
                   <div>Picking place:</div>
                   <input onChange={handleChange} name="pickingplace" type="text" className="w-48"></input>
                 </div>
                 <div>Travel info:</div>
-{transportdata.response?.transports?.map((item, index)=>(
+{transportdata[0].pkg?.transports?.map((item, index)=>(
   <div key={index}>
     <input 
     onChange={handleChange}

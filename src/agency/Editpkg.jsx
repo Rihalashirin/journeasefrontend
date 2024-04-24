@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import FileBase64 from 'react-filebase64';
 
 export const Editpkg = () => {
    
@@ -27,6 +28,8 @@ export const Editpkg = () => {
       updatedTransport[pplIndex].price = value;
       setTransport(updatedTransport);
     };
+    
+const [transportImagedata, setTransportImage] = useState()
     useEffect(()=>{
       let fetchdata=async()=>{
         let response=await axios.get(`http://localhost:4000/agency/detailvwpkg/${id}`)
@@ -161,11 +164,20 @@ transport.forEach((transportDetail, index) => {
                 <label for="destination">No of People</label>
                 <input onChange={handleChange}  placeholder={userData?.noofpeople} type="number" name="noofpeople" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
               </div>
+            
               <div class="md:col-span-5">
                 <label for="destination">Vehicle</label>
                 <input onChange={handleChange}  placeholder={userData?.vehicle} type="text" name="vehicle" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
               </div>
-              
+              <div class="md:col-span-5">
+                <label for="category"> vehicle Amount</label>
+                <input onChange={handleChange} placeholder={userData?.defaultvehicleprice} type="number" name="defaultvehicleprice" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
+              </div>
+              <div class="md:col-span-5">
+                <label for="vehicle">Vehicle Image</label>
+                <FileBase64
+        multiple={ false }
+        onDone={ (res)=>setTransportImage(res.base64) } />              </div>
 
               <div className="container mx-auto px-4 py-8">
       <button

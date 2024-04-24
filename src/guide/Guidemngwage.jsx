@@ -88,12 +88,12 @@ let handleSubmit=async (status,wage)=>{
                 <div className='font text-[20px] pt-5 '>{data.adv?.adventureName}
                  <br />{data?.adv?.price}/Head</div>
                  <div className='mt-5'> booking status:{data.bookings?.status}</div>
-                 wage:{data.bookings?.wage}
-                 <div >
+                 wage:1000/-per day
+                 {/* <div >
               <label for="name" class="block mb-2 text-sm font-medium  dark:text-white">Wage :</label>
               <input onChange={handleChange}  name='wage' type="number" id="name" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required />
-              {/* <button onClick={()=>enterwage(data.wage)} className='bg-orange-600 mt-2 rounded-lg px-2 py-2'>submit</button> */}
-            </div>
+          
+            </div> */}
                  <div className='flex flex-wrap gap-14 '>
                 <button onClick={()=>{handleSubmit('Accepted',data?.bookings?._id)}}  className='bg-green-600 w-32 h-9 rounded-lg font-bold'>ACCEPT</button>
                 <button onClick={()=>{handleSubmit('Rejected',data?.bookings?._id)}}  className='bg-orange-600 w-32 h-9 rounded-lg font-bold'>REJECT</button>
