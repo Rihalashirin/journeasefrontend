@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function BookingPage() {
   let id1=localStorage.getItem('id')
@@ -10,13 +11,24 @@ export default function BookingPage() {
   const [agencydata, setAgencydata] = useState([""]);
   const [transportdata, setTransportdata] = useState('')
   const [selectedResorts, setSelectedResorts] = useState([]);
-  
+  const [checkPeople,setCheckpeople]=useState('');
   const [toggle, settoggle] = useState(false);
   const { id } = useParams();
 
   let handleChange = (event) => {
     setData1({ ...data1, [event.target.name]: event.target.value });
   
+
+if(event.target.name=="adult" || event.target.name=="child"){
+let totalPeople= parseFloat(data1.adult)+parseFloat(data1.adult)
+console.log("total peoples", totalPeople);
+console.log("no of people", parseFloat(transportdata[0].pkg?.noofpeople));
+setCheckpeople(totalPeople)
+
+
+}
+
+
     // Check if the user selected "No" for the guide
     if (event.target.name === "guide" && event.target.value === "no") {
       // Reduce the transport price by 1000 if guide is not selected
@@ -51,13 +63,16 @@ export default function BookingPage() {
     }
     // Check if the user selected luxury accommodation
     if (event.target.name === "accomodatn" && event.target.value === "luxury") {
-        let newPrice = parseFloat(transportdata.response.price) + parseFloat(data.rooms?.luxuryprice);
+        let newPrice = parseFloat(transportdata[0].pkg?.price) + parseFloat(data.rooms?.luxuryprice);
         console.log(data.rooms?.luxuryprice,'=======================');
         setTransportdata((prevState) => ({
           ...prevState,
-          response: {
-            ...prevState.response,
-            price: newPrice,
+          [0]: {
+            ...prevState[0],
+            pkg: {
+              ...prevState[0].pkg,
+              price: newPrice,
+            },
           },
         }));
     }
@@ -66,14 +81,42 @@ export default function BookingPage() {
     if (event.target.name === "accomodatn" && event.target.value === "standard") {
       // Add the standard room price to the transport price
       
-        let newPrice = (parseFloat(transportdata.pkg?.price) - parseFloat( transportdata?.pkg?.defaulthotelprice)) + parseFloat(data.rooms.standardPrice);
+        let newPrice = (parseFloat(transportdata[0].pkg?.price) - parseFloat( transportdata?.pkg?.defaulthotelprice)) + parseFloat(data.rooms.standardPrice);
         setTransportdata((prevState) => ({
           ...prevState,
-          response: {
-            ...prevState.response,
-            price: newPrice,
+          [0]: {
+            ...prevState[0],
+            pkg: {
+              ...prevState[0].pkg,
+              price: newPrice,
+            },
           },
         }));
+    }
+    if (event.target.name === "selectedTransport" && event.target.checked) {
+      if(checkPeople>transportdata[0]?.pkg?.noofpeople){
+        alert("select a alternate ransport other than default")
+      }
+      let transportOption = transportdata[0]?.pkg?.transports.find(option => option.transportOption === event.target.value);
+      if (transportOption) {
+        console.log(transportOption.price,'rrrrr');
+        let bal=parseFloat(transportdata[0]?.pkg?.price)-parseFloat( transportdata[0]?.pkg?.defaultvehicleprice)
+        let newPrice =bal + parseFloat(transportOption.price);
+        console.log(bal,'balances');
+        console.log(transportdata[0]?.pkg?.price,"aaaa");
+        console.log(newPrice,"newprices");
+        console.log(transportdata[0]?.pkg?.defaultvehicleprice,"cccc");
+        setTransportdata((prevState) => ({
+          ...prevState,
+          [0]: {
+            ...prevState[0],
+            pkg: {
+              ...prevState[0].pkg,
+              price: newPrice,
+            },
+          },
+        }));
+      }
     }
   };
   
@@ -109,9 +152,9 @@ export default function BookingPage() {
     };
 
     fetchData();
-  }, [id]);
+  }, []);
 
-  const handleResortCheckboxChange = (resortId) => {
+  const handleResortCheckboxChange = (resortId,adventurePrice) => {
     const isSelected = selectedResorts.includes(resortId);
     if (isSelected) {
       const updatedSelection = selectedResorts.filter((id) => id !== resortId);
@@ -120,6 +163,19 @@ export default function BookingPage() {
       setSelectedResorts([...selectedResorts, resortId]);
     }
     console.log("Selected resorts:", selectedResorts);
+    let newPrice =parseFloat(transportdata[0]?.pkg?.price)+(adventurePrice*parseFloat(transportdata[0].pkg?.nofpeople));
+    console.log(newPrice,"wwww");
+    setTransportdata((prevState) => ({
+      ...prevState,
+      [0]: {
+        ...prevState[0],
+        pkg: {
+          ...prevState[0].pkg,
+          price: newPrice,
+        },
+      },
+    }));
+  
   };
 
   const handledetail = async (rid) => {
@@ -166,7 +222,7 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
   
   return (
     <>
-      
+      <ToastContainer/>
     <div className="userhome">
              <div>
             <div className="h-[64px] font text-[30px] font-bold m-0 text-left pl-10 ">
@@ -366,7 +422,8 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                   <input onChange={handleChange} name="pickingplace" type="text" className="w-48"></input>
                 </div>
                 <div>Travel info:</div>
-{transportdata[0].pkg?.transports?.map((item, index)=>(
+{transportdata[0]?.pkg?.transports?.map((item, index)=>(
+  parseInt(item.noofppl) >= checkPeople &&
   <div key={index}>
     <input 
     onChange={handleChange}
@@ -374,7 +431,15 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
       id={`transport${index}`} 
       name="selectedTransport" 
       value={item.transportOption} 
+      
+      
     />
+    <img
+              src={item.transportImage}
+              className="m-auto w-28 h-24 rounded-2xl"
+              alt=""
+              srcset=""
+            />
     <label htmlFor={`transport${index}`}>
       {item.transportOption} - {item.noofppl} People - {item.price}/-
     </label>
@@ -411,7 +476,7 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
             <input
               type="checkbox"
               checked={selectedResorts.includes(item.agency?._id)}
-              onChange={() => handleResortCheckboxChange(item.agency?._id)}
+              onChange={() => handleResortCheckboxChange(item.agency?._id,item.agency?.price)}
             />
           </div>
           </div>

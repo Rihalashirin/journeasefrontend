@@ -23,6 +23,7 @@ const [transportImagedata, setTransportImage] = useState()
   };
   const addNoofppl = () => {
     setTransport([...transport, { noofpeople: '', transportOption: '', price: '' }]);
+    setTransportImages([...transportImages, '']);
   };
 
   const handleDayChange = (dayIndex, value) => {
@@ -80,11 +81,11 @@ console.log(transport,'jhugytfrdse');
     event.preventDefault();
   
     // Handling transport data
-    const transports = transport.map((noofpplDetail) => ({
+    const transports = transport.map((noofpplDetail,index) => ({
       noofppl: noofpplDetail.noofpeople,
       transportOption: noofpplDetail.transportOption,
       price: noofpplDetail.price,
-      transportImage: transportImagedata, // Use transport image data from state
+      transportImage: transportImages[index] // Use transport image data from state
     }));
   
  
@@ -138,6 +139,13 @@ console.log(transport,'jhugytfrdse');
     } catch (error) {
       console.error('Error:', error);
     }
+  };
+  const [transportImages, setTransportImages] = useState(Array.from({ length: transport.length }, () => ''));
+
+  const handleTransportImage = (index, image) => {
+    const updatedTransportImages = [...transportImages];
+    updatedTransportImages[index] = image.base64;
+    setTransportImages(updatedTransportImages);
   };
   
 
@@ -320,15 +328,13 @@ console.log(transport,'jhugytfrdse');
                 name='price'
                 className="border w-40 border-gray-300 rounded px-4 py-2  mr-2"
               />
-              <label htmlFor="transportImage">Transport Image</label>
-          <input
-            onChange={handlefile}
-            type="file"
-            name="transportImage"
-            id="transportImage"
-            className="h-10 border mt-1 w-60 rounded px-4 ms-6 bg-gray-50"
-            placeholder="email@domain.com"
-          />
+            <div className="md:col-span-5">
+  <label htmlFor="transportImage">Transport Image</label>
+  <FileBase64
+    multiple={false}
+    onDone={(res) => handleTransportImage(pplIndex, res)}
+  />
+</div>
             {/* <button
               onClick={() => removeDay(dayIndex)}
               className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"

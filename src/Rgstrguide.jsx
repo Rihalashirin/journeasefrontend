@@ -87,7 +87,7 @@ export const Rgstrguide = () => {
             <div>
               <label for="age" class="block mb-2 text-sm font-medium text-white dark:text-white">Age:</label>
               <input onChange={handleChange}  name='age'type="number"  id="age" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
-            {ageval && <label>age must be more than 18</label>}
+            {/* {ageval && <label>age must be more than 18</label>} */}
             </div>
             <div>
   <label htmlFor="gender" className="block mb-2 text-sm font-medium text-white dark:text-white">Gender:</label>

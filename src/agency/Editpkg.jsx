@@ -276,7 +276,7 @@ transport.forEach((transportDetail, index) => {
               <div>
              
               </div>
-              <div className="container mx-auto px-4 py-8">
+              <div className="container  mx-auto px-4 py-8">
       <button
       type='button'
         onClick={addNoofppl}
@@ -287,7 +287,7 @@ transport.forEach((transportDetail, index) => {
       <br />
       {transport.map((noofpplDetail, pplIndex) => (
         <div key={pplIndex} className="mb-8">
-          <div className="mb-2 flex gap-2 items-center">
+          <div className="mb-2  flex gap-2 items-center">
             {/* <label htmlFor="" className="text-[20px] p-2 font-bold">No of people </label> */}
             <input onChange={(e) => handleNoofpplChange(pplIndex, e.target.value)} type='text' name='noofppl'   placeholder="No Of People" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id=""></input>
             {/* <select>
@@ -315,6 +315,15 @@ transport.forEach((transportDetail, index) => {
                 name='price'
                 className="border w-40 border-gray-300 rounded px-4 py-2  mr-2"
               />
+               {/* <label htmlFor="transportImage">Transport Image</label>
+          <input
+            onChange={handlefile}
+            type="file"
+            name="transportImage"
+            id="transportImage"
+            className="h-10 border mt-1 w-60 rounded px-4 ms-6 bg-gray-50"
+            placeholder="email@domain.com"
+          /> */}
             {/* <button
               onClick={() => removeDay(dayIndex)}
               className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"

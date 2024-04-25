@@ -29,17 +29,17 @@ export const Detailvwpkg = () => {
         <div>
           <div className='w-[208px] text-center'>
             <span className='text-white font font-bold text-[30px] '></span>
-            <span className='text-orange-600 font font-bold text-[30px] '>{data[0]?.response?.packageName}</span><br />
-            <p className='font text-[20px] font-semibold text-white '>{data[0]?.response?.noOfDays}DAYS</p>
+            <span className='text-orange-600 font font-bold text-[30px] '>{data[1]?.response?.packageName}</span><br />
+            <p className='font text-[20px] font-semibold text-white '>{data[1]?.response?.noOfDays}DAYS</p>
           </div>
           <div className='flex sm:gap-5 flex-wrap'>
-            <img src={`http://localhost:4000/uploads/${data[0]?.response?.coverImage}`} className='w-[150px] h-[150px]' />
+            <img src={`http://localhost:4000/uploads/${data[1]?.response?.coverImage}`} className='w-[150px] h-[150px]' />
             <div className='w-[78%]'>
-              <div className=''>{data[0]?.response?.basicDescription}</div>
-              <p className=''>{data[0]?.response?.detailedDescription}</p>
+              <div className=''>{data[1]?.response?.basicDescription}</div>
+              <p className=''>{data[1]?.response?.detailedDescription}</p>
             </div>
             <div className=''>
-              {data[0]?.response?.destination?.map((item, index) => (
+              {data[1]?.response?.destination?.map((item, index) => (
                 <div key={index} className='flex-row gap-2'>
                   <div className='font underline font-bold'> Day {item?.Day}: {item.Destination}</div>
                   <span>{item.activities}</span>
@@ -49,18 +49,19 @@ export const Detailvwpkg = () => {
           </div>
           <div className='font-bold'>Travel info:</div>
           <div className='flex flex-wrap gap-5'>
-            <div className=''>default: {data[0]?.response?.defaultvehicle}</div>
-            <div className=''>price: {data[0]?.response?.defaultvehicleprice}</div>
+            <div className=''>default: {data[1]?.response?.defaultvehicle}</div>
+            <div className=''>price: {data[1]?.response?.defaultvehicleprice}</div>
             <div className=''>
-              <img src={`http://localhost:4000/uploads/${data[0]?.response?.vehicleimage}`} className="m-auto w-28" alt="" srcSet="" />
+              <img src={`http://localhost:4000/uploads/${data[1]?.response?.vehicleimage}`} className="m-auto w-28" alt="" srcSet="" />
             </div>
           </div><br />
           <div className='flex flex-wrap gap-5'>
             customisation
-            {data[0]?.response?.transports?.map((item, index) => (
+            {data[1]?.response?.transports?.map((item, index) => (
               <div key={index} className='flex-col gap-4'>
                 <img className='w-[150px] h-[150px]' src={item?.transportImage} alt="sdsdf" />
                 <div className='font font-semibold text-center'>{item?.transportOption}</div>
+                <div className='font font-semibold text-center'>{item?.price}</div>
               </div>
             ))}
           </div>
@@ -72,8 +73,10 @@ export const Detailvwpkg = () => {
           <div className="bg-yellow-600/90 w-[200px] ml-5 rounded-lg">
             <div className=" pt-4 text-center text-black  pb-3 rounded-lg">
               Default Accommodation:
-              <img src={`http://localhost:4000/uploads/${data[0]?.defaultHotel?.coverImage}`} className="m-auto w-28" alt="" srcSet="" />
-              <div className="font font-bold">{data[0]?.defaultHotel?.propertyName}</div>
+              <img src={`http://localhost:4000/uploads/${data[1]?.defaultHotel?.coverImage}`} className="m-auto w-28" alt="" srcSet="" />
+              <div className="font font-bold">{data[1]?.defaultHotel?.propertyName}</div>
+              <div className="font font-bold">{data[1]?.defaultHotel?.defaulthotelprice}</div>
+              
             </div>
           </div>
           <div className="bg-yellow-600/90 w-[200px] ml-5 rounded-lg">
@@ -81,6 +84,7 @@ export const Detailvwpkg = () => {
               Default Adventure:
               <img src={`http://localhost:4000/uploads/${data[0]?.adventure?.image}`} className="m-auto w-28" alt="" srcSet="" />
               <div className="font font-bold">{data[0]?.adventure?.adventureName}</div>
+              <div className="font font-bold">{data[0]?.adventure?.price}/-</div>
             
             </div>
           </div>
