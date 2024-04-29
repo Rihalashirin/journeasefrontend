@@ -54,6 +54,7 @@ export const Resortmngprice = () => {
              <div className='flex flex-wrap gap-10'>
               <div>Guide :{data.bookings?.guide} </div>
               <div>Health Assistant :{data.bookings?.health} </div>
+              <div>Booking Status :{data.bookings?.status}</div>
              
 </div>
 <div className='flex flex-wrap gap-5 ml-72'>

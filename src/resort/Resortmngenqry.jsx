@@ -42,6 +42,9 @@ export const Resortmngenqry = () => {
                     Status
                 </th>
                 <th scope="col" class="px-6 py-3">
+                    Payment Status
+                </th>
+                <th scope="col" class="px-6 py-3">
                   Action
                 </th>
                
@@ -69,7 +72,10 @@ export const Resortmngenqry = () => {
                 <td class="px-6 py-4">
                   {item.req?.resortstatus}
                 </td>
-               
+                <td class="px-6 py-4">
+                 pending
+                </td>
+                
                 <td class="px-3 py-4 flex flex-wrap flex-col gap-2 text-center">
                     {/* <a href="#" class="font-bold text-sm text-black bg-green-600 hover:underline hover:bg-gray p-1">Accept</a> */}
                  <Link to={`/resort/resortenterprice/${item?.req?._id}`} > <button class="font-bold text-sm text-black bg-red-600 hover:underline hover:bg-orange-600 p-1" >View</button></Link>  

@@ -1,6 +1,16 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 
 export const Booking = () => {
+    const [data, setData] = useState([]);
+    useEffect(()=>{
+        let fetchdata = async ()=>{
+            let response=await axios.get(`http://localhost:4000/admin/vwbooking`)
+            console.log(response.data)
+            setData(response.data)
+        }
+        fetchdata()
+    },[])
   return (
     <div className='adminbg'>
         {/* table... */}

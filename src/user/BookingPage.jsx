@@ -61,38 +61,36 @@ setCheckpeople(totalPeople)
         },
       }));
     }
-    // Check if the user selected luxury accommodation
     if (event.target.name === "accomodatn" && event.target.value === "luxury") {
-        let newPrice = parseFloat(transportdata[0].pkg?.price) + parseFloat(data.rooms?.luxuryprice);
-        console.log(data.rooms?.luxuryprice,'=======================');
-        setTransportdata((prevState) => ({
-          ...prevState,
-          [0]: {
-            ...prevState[0],
-            pkg: {
-              ...prevState[0].pkg,
-              price: newPrice,
-            },
+      let newPrice = parseFloat(transportdata[0]?.pkg?.price) + parseFloat(data.rooms?.luxuryprice || 0);
+      setTransportdata((prevState) => ({
+        ...prevState,
+        [0]: {
+          ...prevState[0],
+          pkg: {
+            ...prevState[0].pkg,
+            price: newPrice,
           },
-        }));
+        },
+      }));
     }
-  
-    // Check if the user selected standard accommodation
+    
     if (event.target.name === "accomodatn" && event.target.value === "standard") {
-      // Add the standard room price to the transport price
-      
-        let newPrice = (parseFloat(transportdata[0].pkg?.price) - parseFloat( transportdata?.pkg?.defaulthotelprice)) + parseFloat(data.rooms.standardPrice);
-        setTransportdata((prevState) => ({
-          ...prevState,
-          [0]: {
-            ...prevState[0],
-            pkg: {
-              ...prevState[0].pkg,
-              price: newPrice,
-            },
+      let newPrice = (parseFloat(transportdata[0]?.pkg?.price) - parseFloat(transportdata[0]?.pkg?.defaulthotelprice || 0)) + parseFloat(data.rooms?.standardPrice || 0);
+      setTransportdata((prevState) => ({
+        ...prevState,
+        [0]: {
+          ...prevState[0],
+          pkg: {
+            ...prevState[0].pkg,
+            price: newPrice,
           },
-        }));
+        },
+      }));
     }
+    
+    
+    
     if (event.target.name === "selectedTransport" && event.target.checked) {
       if(checkPeople>transportdata[0]?.pkg?.noofpeople){
         alert("select a alternate ransport other than default")
@@ -154,30 +152,38 @@ setCheckpeople(totalPeople)
     fetchData();
   }, []);
 
-  const handleResortCheckboxChange = (resortId,adventurePrice) => {
+  const handleResortCheckboxChange = (resortId, adventurePrice) => {
     const isSelected = selectedResorts.includes(resortId);
     if (isSelected) {
       const updatedSelection = selectedResorts.filter((id) => id !== resortId);
       setSelectedResorts(updatedSelection);
+      // Subtract the adventure price when unchecking the checkbox
+      setTransportdata((prevState) => ({
+        ...prevState,
+        [0]: {
+          ...prevState[0],
+          pkg: {
+            ...prevState[0].pkg,
+            price: parseFloat(prevState[0].pkg.price) - parseFloat(adventurePrice),
+          },
+        },
+      }));
     } else {
       setSelectedResorts([...selectedResorts, resortId]);
-    }
-    console.log("Selected resorts:", selectedResorts);
-    let newPrice =parseFloat(transportdata[0]?.pkg?.price)+(adventurePrice*parseFloat(transportdata[0].pkg?.nofpeople));
-    console.log(newPrice,"wwww");
-    setTransportdata((prevState) => ({
-      ...prevState,
-      [0]: {
-        ...prevState[0],
-        pkg: {
-          ...prevState[0].pkg,
-          price: newPrice,
+      // Add the adventure price when checking the checkbox
+      setTransportdata((prevState) => ({
+        ...prevState,
+        [0]: {
+          ...prevState[0],
+          pkg: {
+            ...prevState[0].pkg,
+            price: parseFloat(prevState[0].pkg.price) + parseFloat(adventurePrice),
+          },
         },
-      },
-    }));
-  
+      }));
+    }
   };
-
+  
   const handledetail = async (rid) => {
     try {
       const response = await axios.get(
@@ -200,6 +206,7 @@ setCheckpeople(totalPeople)
         userId:id1
       });
       console.log(response);
+      toast.success('Booked successfully')
     } catch (error) {
       console.error("Error submitting resort:", error);
     }
@@ -597,9 +604,9 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                       <td scope="row" class="px-6 py-4 text-black">
                         standard:
                       </td>
-                      <td class="px-6 py-4">{data?.rooms.standard}</td>
-                      <td class="px-6 py-4">{data?.rooms.standardOccupancy}</td>
-                      <td class="px-6 py-4">{data?.rooms.standardPrice}/-</td>
+                      <td class="px-6 py-4">{data?.rooms?.standard}</td>
+                      <td class="px-6 py-4">{data?.rooms?.standardOccupancy}</td>
+                      <td class="px-6 py-4">{data?.rooms?.standardPrice}/-</td>
                       <td>
                       <input type="radio" onChange={handleChange} name='accomodatn' value="standard" className="bg-black text-white w-20">
                          
@@ -631,9 +638,9 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
               Facilities
     
                 <div className="ml-14 mt-14 flex gap-10 ">
-                  <p>{data.facilities?.name} kjkjh</p>
-                  <p>{data.facilities?.luxury}</p>
-                  <p>{data.facilities?.standard}</p>
+                  <p>{data?.facilities?.name} kjkjh</p>
+                  <p>{data?.facilities?.luxury}</p>
+                  <p>{data?.facilities?.standard}</p>
                 </div>
       
             </div>
