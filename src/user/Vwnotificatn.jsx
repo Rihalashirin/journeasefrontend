@@ -24,7 +24,7 @@ export const Vwnotificatn = () => {
     // setData(data)
     // console.log(data);
     // navigate('/organization/viewdeliveryboyorg')
-    let response=await axios.put(`http://localhost:4000/user/payment/${id}`,{status:'paid',BillAmount:totalAmount})
+    let response=await axios.put(`http://localhost:4000/user/payment/${id}`,{status:'paid'})
     
   console.log(response);
   setdata1('')
@@ -95,20 +95,20 @@ export const Vwnotificatn = () => {
   return (
     <div className='userhome'>
       <div className='bg-white/50 w-[90%] p-3 ms-5 pt-2'>
-        <div className='font flex flex-wrap gap-12 justify-between'>
+        {/* <div className='font flex flex-wrap gap-12 justify-between'>
           <div className='text-[20px] '>Package </div>
           <div>{data.package?.packageName}</div>
           <div>{data.booking?.adult}A,{data.booking?.child}C</div>
           <button className='bg-gray-400 w-28'>{data.package?.price}</button>
-        </div>
+        </div> */}
 
-        <div className='font flex flex-wrap gap-12 justify-between'>
+        {/* <div className='font flex flex-wrap gap-12 justify-between'>
           <div className='text-[20px] '>Transport </div>
           <div>{data.booking?.selectedTransport}</div>
           <button className='bg-gray-400 w-28'>{findTransportPrice()}</button>
-        </div>
+        </div> */}
 
-        <div className='font flex flex-wrap gap-12 justify-between'>
+        {/* <div className='font flex flex-wrap gap-12 justify-between'>
           <div className='text-[20px] '>Adventure </div>
           {data?.adventures?.map((item) => (
             <>
@@ -121,8 +121,8 @@ export const Vwnotificatn = () => {
               </div>
             </>
           ))}
-        </div>
-
+        </div> */}
+{/* 
         <div className='font flex flex-wrap gap-12 justify-between'>
           <div className='text-[20px] '>Accommodation </div>
           {data?.resorts?.map((item) => (
@@ -136,25 +136,25 @@ export const Vwnotificatn = () => {
               </div>
             </>
           ))}
-        </div>
+        </div> */}
 
-        {data?.guide?.map((item) => (
+        {/* {data?.guide?.map((item) => (
           <div className='font flex flex-wrap gap-12 justify-between'>
             <div className='text-[20px] '>Guide </div>
             <div>{item.name}</div>
             <button className='bg-gray-400 w-28'>{data.booking?.wage}</button>
           </div>
-        ))}
+        ))} */}
 
-        <div className='flex flex-wrap justify-between'>
+        {/* <div className='flex flex-wrap justify-between'>
           <div className='text-[20px] '>Health Assistant </div>
           <button className='bg-gray-400 w-28'>{data.booking?.healthwage}</button>
-        </div>
+        </div> */}
 
-        <div className='flex flex-wrap justify-between'>
-          <div className='text-[20px] '>Grand Total </div>
-          <button className='bg-orange-400 w-28 '>{totalAmount}</button>
-        </div>
+       
+         
+         
+       
 
         <div className='flex justify-center'>
           {/* <Link to='/user/userpay'>
@@ -208,10 +208,10 @@ export const Vwnotificatn = () => {
 <div>Name of the Card Holder</div> */}
 <form class="max-w-sm mx-auto" onSubmit={handleSubmit}>
    
-  {/* <div class="mb-3 flex flex-wrap  items-center w-[25rem] justify-between">
-   <div> <label for="email" class="block mb-2 text-sm  font-light text-white font  dark:text-white">Card Number</label></div>
-   <div> <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required /></div>
-  </div> */}
+  <div class="mb-3 flex flex-wrap  items-center w-[25rem] justify-between">
+   <div> <label for="email" class="block mb-2 text-sm  font-light text-white font  dark:text-white">Amount</label></div>
+   <div> <input   id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" readOnly value={data.booking?.BillAmount} placeholder="" required /></div>
+  </div>
   <div class="mb-3 flex flex-wrap w-[25rem] justify-between items-center">
    <div> <label for="email" class="block mb-2 text-sm  font-light text-white font  dark:text-white">CVV</label></div>
    <div> <input type="number" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required /></div>

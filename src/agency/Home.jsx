@@ -47,7 +47,7 @@ export const Home = () => {
         <Link to='/agency/vwpkg'> <div className='flex flex-col items-center gap-2'> <img src={vwpkg} alt="" className='w-20 '/><p>View Package</p></div> </Link>
           <Link to='/agency/cstmrenqry'> <div className='flex flex-col items-center gap-2'> <img src={mngenqry} alt="" className='w-20 ' /><p>Customer Enquiries</p></div> </Link> 
            <Link to='/agency/vwreviewagency'><div className='flex flex-col items-center gap-2'> <img src={revws} alt="" className='w-20' /><p>Customer Reviews</p></div> </Link> 
-           {/* <Link to='/agency/vwissuesagency'><div className='flex flex-col items-center gap-2'> <img src={uploads} alt="" className='w-20' /><p>Guide Uploads</p></div></Link> */}
+           <Link to='/agency/vwissuesagency'><div className='flex flex-col items-center gap-2'> <img src={uploads} alt="" className='w-20' /><p>Guide Uploads</p></div></Link>
           
 
       </div>

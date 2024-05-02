@@ -22,7 +22,7 @@ export const Vwfeedbck = () => {
         <div className='guidehome'>
     <div class="relative overflow-x-auto  sm:rounded-lg pt-10">
    <div className='bg-white text-black h-32 w-80 m-auto'>
-    <p className='text-black w-14'>{data?.issue}</p>
+    <p className='text-black w-full'>{data?.issue}</p>
    </div>
 </div>
 </div> 

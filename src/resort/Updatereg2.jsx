@@ -54,17 +54,17 @@ let handleSubmit=async (event)=>{
 
           <div className='w-[25%]  '>
 
-            <div className='mb-2'>
-              <label for="name" class="block mb-2 text-sm font-medium text-white dark:text-white">Room Types Available:</label>
+            <div className=''>
+              {/* <label for="name" class="block mb-2 text-sm font-medium text-white dark:text-white">Room Types Available:</label> */}
               <div className='flex flex-wrap items-center gap-10 text-[30px] '>
               <div className='flex gap-10 items-center  '>
 
-              <label for="name" class="block mb-2 text-sm font-medium text-white dark:text-white">Luxury:</label>
+              {/* <label for="name" class="block mb-2 text-sm font-medium text-white dark:text-white">Luxury:</label> */}
               {/* <input onChange={handleChange} type="checkbox" id="name" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" placeholder="" required /> */}
               </div>
               <div className='flex gap-10 items-center '>
 
-              <label for="name" class="block mb-2 text-sm font-medium text-white dark:text-white">Standard:</label>
+              {/* <label for="name" class="block mb-2 text-sm font-medium text-white dark:text-white">Standard:</label> */}
               {/* <input onChange={handleChange} type="checkbox" id="name" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" placeholder="" required /> */}
               </div>
               </div>

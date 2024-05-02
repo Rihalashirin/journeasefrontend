@@ -13,12 +13,12 @@ export const Adminpackage = () => {
         fetchdata()
     },[])
   return (
-    <div className='adminbg'>
+    <div className='bg-gray-500 h-[600px]'>
         
 
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg pt-4">
-    <table class="w-full text-sm text-center rtl:text-right text-gray-500 dark:text-gray-400">
-        <thead class="text-xs bg-gray-800 text-white uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <table class="w-full text-sm text-center rtl:text-right text-gray-500 dark:text-gray-400 ml-5 ">
+        <thead class="text-xs bg-gray-800 text-white uppercas dark:bg-gray-700 dark:text-gray-400">
             <tr>
             <th scope="col" class="px-6 py-3">
                     SL.NO
@@ -48,7 +48,7 @@ export const Adminpackage = () => {
            {data.map((item,index)=>(
             <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
             <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                  {index}
+                  {index+1}
                 </td>
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                    {item.agency?.companyName}
@@ -57,10 +57,11 @@ export const Adminpackage = () => {
                    {item.package?.packageName}
                 </td>
                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                 {item.package?.noOfDays}
+                 {item.package?.noOfDays} 
                 </td>
                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    file
+                <p >
+                    <a href={`http://localhost:4000/uploads/${item?.package?.coverImage}`}><img src={`http://localhost:4000/uploads/${item?.package?.coverImage}`} alt="" className='w-24 h-24  ps-3 pt-3 '/></a> </p>
                 </td>
                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                    {item.package?.location}

@@ -25,15 +25,15 @@ export const Viewguideadmin = () => {
 
 
   return (
-    <div className='adminbg'>
-     <div className='bg-slate-950/50 w-[800px] h-[800px] pl-24 ml-64  flex flex-col gap-2 '>
+    <div className='bg-gray-500'>
+     <div className='bg-slate-950/50 w-[800px] h-[850px] pl-24 ml-64  flex flex-col gap-2 '>
        <img src={`http://localhost:4000/uploads/${data.image}`} alt="" className='w-44 h-48  ps-3 pt-3 '/>
-       <div className='flex flex-wrap text-white gap-12 pt-3 text-center'>
+       <div className='flex flex-wrap text-white gap-4 pt-3 text-center'>
             <p className='font-bold'> Name:</p>
             <p className='font font-bold'>{data.name}</p>
 
 </div>
-<div className='flex flex-wrap text-white gap-12 pt-3 text-center'>
+<div className='flex flex-wrap text-white gap-4 pt-3 text-center'>
             <p className='font-bold'>Age:</p>
             <p className='font font-bold'>{data.age}</p>
 
@@ -57,7 +57,7 @@ export const Viewguideadmin = () => {
 
 <div className='flex flex-wrap text-white gap-12 pt-3 text-center'>
             <p className='font-bold'>Address:</p>
-            <p className='font font-bold'>{data.address}</p>
+            <p className='font font-bold'>{data.address}</p>,
             <p className='font font-bold'>{data.district}</p>
 
 </div>

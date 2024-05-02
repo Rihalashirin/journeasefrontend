@@ -10,7 +10,8 @@ export const Assignguide = () => {
   let id1=localStorage.getItem('id')
    const [data,setData]=useState([''])
    const[data1,setData1]=useState(false)
-   const [data2,setData2]=useState('')
+   const [data2,setData2]=useState('') 
+   const [data3,setData3]=useState('') 
  const[detail,setdetail]=useState('')
    let {aid}=useParams()
   //  let id=localStorage.getItem('id')
@@ -26,13 +27,27 @@ export const Assignguide = () => {
     }
     fetchdata()
    },[])
+   let handleChange=(event)=>{
+      setData3(event.target.value)
+  }
    let handleSubmit=async(event)=>{
-    event.preventDefault()
+    // event.preventDefault()
     setData2(data2)
     console.log(data2)
-    let response=await axios.post('http://localhost:4000/agency/enquireguide',{...data2,bookingid:aid,guideid:detail._id})
+    let response=await axios.post(`http://localhost:4000/agency/enquireguide/${aid}`,{...data2,bookingid:aid,guideid:detail._id,wage:data3})
     console.log(response)
+
   }
+  // let enterwage = async () => {
+  //   try {
+  //    
+  //     console.log(response1);
+  //     // Optionally, you can reset the wage field after submission
+  //     setData(prevData => ({ ...prevData, wage: '' }));
+  //   } catch (error) {
+  //     console.error("Error:", error);
+  //   }
+  // }
   const handledetail = async (id) => {
     try {
       const response = await axios.get(
@@ -54,9 +69,7 @@ export const Assignguide = () => {
     
    
      
-  // let handleChange=(event)=>{
-  //     setData({...data,[event.target.name]:event.target.value})
-  // }
+  
   // let handleSubmit=async (event)=>{
   //     event.preventDefault()
   //    let response=await axios.post('http://localhost:4000/user',data)
@@ -98,7 +111,7 @@ export const Assignguide = () => {
 <div className='bg-orange-300 w-[100px] ml-5 mt-5 rounded-lg'>
   <div className=' pt-4 text-center text-white p-2 '> 
  {/* <Link to={`/agency/detailguide/${item._id}`}>  */}
- <img  onClick={() => handledetail(item._id)} src={`http://localhost:4000/uploads/${item.image}`} className='m-auto w-24' alt="" srcset="" />
+ <img  onClick={() => handledetail(item._id)} src={`http://localhost:4000/uploads/${item.image}`} className=' w-24' alt="" srcset="" />
     <div className='font font-bold'>{item.name} <br /></div>
     <div>
    
@@ -124,18 +137,26 @@ export const Assignguide = () => {
             <span className='text-white'>{detail.name}</span>
         </div>
         <div className='bg-white/50 w-[90%] p-3 ms-5 pt-2 shadow-xl rounded-3xl h-80'>
-            <div className='flex flex-wrap gap-7'>
-            <img src={`http://localhost:4000/uploads/${detail.image}`} className='w-64' alt="" srcset="" />
-            
-            <div className='font font-bold text-black'>Name:{detail.name} 
-            <div className='font font-bold text-black'>Age:{detail.age}</div>
-            <div className='font font-bold'>Gender:{detail.gender}</div></div>
-            </div>
-            <div className='font font-bold pl-72 '>Address:{detail.address}</div>
-            <div className='font font-bold pl-72  '> Experience(in years):{detail.experienceYears}</div> 
-            <div className='font  font-bold pl-72 '>location of expertise:{detail.locationExpertise}</div>
+          <div className='flex flex-wrap gap-5'>
            
-            <button type='submit' onClick={handleSubmit} className='bg-orange-600 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded ml-80 mt-8'>ENQUIRE</button>
+           <div><img src={`http://localhost:4000/uploads/${detail.image}`} className='w-24' alt="" srcset="" /></div> 
+            <div>
+            <div className='font font-bold text-black'>Name:{detail.name} </div>
+            <div className='font font-bold text-black'>Age:{detail.age}</div>
+            <div className='font font-bold'>Gender:{detail.gender}</div>
+            <div className='font font-bold '>Address:{detail.address}</div>
+            <div className='font font-bold  '> Experience(in years):{detail.experienceYears}</div> 
+            <div className='font  font-bold  '>location of expertise:{detail.locationExpertise}</div></div>
+            
+            <div >
+              <label for="name" class="block mb-2 text-sm font-medium  dark:text-white">Wage :</label>
+              <input onChange={handleChange}  name='wage' type="number" id="name" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required />
+          
+            </div>
+            </div>
+            
+           
+            <button type='submit' onClick={()=>handleSubmit()} className='bg-orange-600 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded ml-80 mt-8'>ENQUIRE</button>
 
         </div>
 

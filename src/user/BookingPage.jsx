@@ -17,12 +17,13 @@ export default function BookingPage() {
 
   let handleChange = (event) => {
     setData1({ ...data1, [event.target.name]: event.target.value });
+    
   
 
 if(event.target.name=="adult" || event.target.name=="child"){
-let totalPeople= parseFloat(data1.adult)+parseFloat(data1.adult)
+let totalPeople= parseInt(data1.adult)+parseInt(data1.adult)
 console.log("total peoples", totalPeople);
-console.log("no of people", parseFloat(transportdata[0].pkg?.noofpeople));
+console.log("no of people", parseInt(transportdata[0].pkg?.noofpeople));
 setCheckpeople(totalPeople)
 
 
@@ -93,7 +94,7 @@ setCheckpeople(totalPeople)
     
     if (event.target.name === "selectedTransport" && event.target.checked) {
       if(checkPeople>transportdata[0]?.pkg?.noofpeople){
-        alert("select a alternate ransport other than default")
+        alert("select a alternate transport other than default")
       }
       let transportOption = transportdata[0]?.pkg?.transports.find(option => option.transportOption === event.target.value);
       if (transportOption) {
@@ -203,7 +204,8 @@ setCheckpeople(totalPeople)
         packageid: id,
         resortId: selectedResorts1,
         adventureId: selectedResorts,
-        userId:id1
+        userId:id1,
+        BillAmount:transportdata[0]?.pkg?.price
       });
       console.log(response);
       toast.success('Booked successfully')
@@ -405,7 +407,11 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                 </div> */}
                 <div className="text-orange-950 font-bold"> Whom are you traveling with:</div> 
                 <div className="flex flex-wrap gap-5 font-medium">
-                  <div>Adult:</div>
+                {  transportdata[0]?.pkg?.category == 'iv' ?
+                  <div>Teacher:</div>
+                  :
+                  <div>Adults:</div>
+              }
                   <input
                     type="number"
                     onChange={handleChange}
@@ -413,7 +419,11 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                     value={data.adult}
                     className="w-12"
                   ></input>
-                  <div>children:</div>
+                  {  transportdata[0]?.pkg?.category == 'iv' ?
+                  <div>Students:</div>
+                  :
+                  <div>Children:</div>
+                   }
                   <input
                     type="number"
                     value={data.child}
@@ -430,7 +440,8 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                 </div>
                 <div>Travel info:</div>
 {transportdata[0]?.pkg?.transports?.map((item, index)=>(
-  parseInt(item.noofppl) >= checkPeople &&
+  // parseInt(item?.noofppl) >= checkPeople &&
+  
   <div key={index}>
     <input 
     onChange={handleChange}
@@ -574,7 +585,7 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                   srcSet=" "
                 />
               </div>
-
+              4 person per room
             <div class="  overflow-x-auto shadow-md sm:rounded-lg mt-4 w-[50%] ml-72">
               <table class="w-full text-sm text-center rtl:text-right  text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-black uppercase  dark:bg-gray-950/90 dark:text-gray-400 ">
@@ -582,7 +593,7 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                     <th>Room type</th>
                     <th>No of rooms</th>
                     <th>Occupancy</th>
-                    <th>price</th>
+                    <th>price per room</th>
                   </tr>
                 </thead>
                 <tbody>

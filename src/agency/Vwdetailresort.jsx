@@ -50,16 +50,16 @@ export const Vwdetailresort = () => {
         </div>
       
          </div>
-         {data.rooms?.map((item)=>(
+       
          <div className='flex bg-yellow-100 px-2 py-4 rounded text-yellow-300  font-semibold font'>
            
          luxury room:
-         <img src={`http://localhost:4000/uploads/${item.image}`} className='m-auto w-48'alt=" " srcSet=" "/>
+         <img src={`http://localhost:4000/uploads/${data?.rooms?.image}`} className='m-auto w-48'alt=" " srcSet=" "/>
          standardroom:
-         <img src={`http://localhost:4000/uploads/${item.images}`} className='m-auto w-48'alt=" " srcSet=" "/>
+         <img src={`http://localhost:4000/uploads/${data?.rooms?.images}`} className='m-auto w-48'alt=" " srcSet=" "/>
         
         </div>
-         ))}
+         
 <div class="  overflow-x-auto shadow-md sm:rounded-lg mt-40 w-[50%] ml-72">
     <table class="w-full text-sm text-center rtl:text-right  text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-black uppercase  dark:bg-gray-950/90 dark:text-gray-400 ">
@@ -80,42 +80,42 @@ export const Vwdetailresort = () => {
             </tr>
         </thead>
         <tbody>
-            {data.rooms?.map((item)=>(
+            
             <tr class=" dark:border-gray-700 text-black bg-gray-950/40 hover:bg-slate-800/50">
                 <td scope="row" class="px-6 py-4 text-black">
                   luxury: 
                 </td>
                 <td class="px-6 py-4">
-                {item.luxury}
+                {data?.rooms?.luxury}
                 </td>
                 <td class="px-6 py-4">
-                   {item.luxuryOccupancy}
+                   {data?.rooms?.luxuryOccupancy}
                 </td>
                 <td class="px-6 py-4">
-                    {item.luxuryprice}/-
+                    {data?.rooms?.luxuryprice}/-
                 </td>
                 
             </tr>
             
-))}
- {data.rooms?.map((item)=>(
+
+ 
             <tr class=" dark:border-gray-700 text-black bg-gray-950/40 hover:bg-slate-800/50">
                 <td scope="row" class="px-6 py-4 text-black">
                   standard: 
                 </td>
                 <td class="px-6 py-4">
-                {item.standard}
+                {data?.rooms?.standard}
                 </td>
                 <td class="px-6 py-4">
-                   {item.standardOccupancy}
+                   {data?.rooms?.standardOccupancy}
                 </td>
                 <td class="px-6 py-4">
-                    {item.standardPrice}/-
+                    {data?.rooms?.standardPrice}/-
                 </td>
                 
             </tr>
             
-))}
+
 
 
             
@@ -127,13 +127,13 @@ export const Vwdetailresort = () => {
 
 
 <div className='font-bold ml-24 mt-5'> Facilities</div>
-{data.facilities?.map((item)=>(
+{/* {data?.facilities?.map((item)=>( */}
 <div className='ml-14 mt-14 flex gap-10 '>
-        <p>{item.name}</p>
-        <p>{item.luxury}</p>
-        <p>{item.standard}</p>
+        <p>{data?.facilities?.name}</p>
+        <p>{data?.facilities?.luxury}</p>
+        <p>{data?.facilities?.standard}</p>
         </div>
-        ))}
+        {/* ))} */}
        </div> 
    </div>
   )

@@ -36,10 +36,10 @@ export const Resortsignup = () => {
     };
 
   return (
-    <div className='adminbg'>
-      <div className='flex flex-col gap-2'>
+    <div className='bg-gray-500 h-[600px]'>
+      <div className='flex flex-col  gap-2'>
        <div className=' font text-[30px] font-bold pl-5 pt-6'>
-            <span className='text-white'>Resort,</span><span className='text-orange-600'> Sign Ups</span>
+            <span className='text-white'>Hotel,</span><span className='text-orange-600'> Sign Ups</span>
           </div>
           <form className="max-w-lg mx-auto pb-10">
                     <div className="flex items-center">
@@ -61,7 +61,7 @@ export const Resortsignup = () => {
                                 type="search"
                                 id="search-dropdown"
                                 className="block p-2.5 w-full z-20 text-sm text-white bg-slate-950/50 rounded-e-lg border-s-2 border border-gray-700 focus:ring-gray-700 focus:border-gray-700 dark:bg-gray-950/50 dark:border-s-orange-500 dark:border-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:border-gray-700 placeholder:text-white"
-                                placeholder="Search guides"
+                                placeholder="Search Hotels"
                                 required
                             />
                         </div>
@@ -79,14 +79,14 @@ export const Resortsignup = () => {
          <Link to='/admin/vwacceptresort'><button className='font bg-orange-600 rounded-lg text-white '>View Details</button></Link> 
         </div> */}
          <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <table class="w-full  text-sm text-center rtl:text-right text-black dark:text-black">
+    <table class=" w-full  text-sm text-center rtl:text-right text-black dark:text-black">
         <thead class="text-xs text-black uppercase bg-[#9B9B9B] border-b-2 border-orange-600 dark:text-black">
             <tr>
                 <th scope="col" class="px-6 py-3">
                     SL NO.
                 </th>
                 <th scope="col" class="px-6 py-3">
-                   RESORT NAME
+                   HOTEL NAME
                 </th>
                 <th scope="col" class="px-6 py-3">
                    LOCATION
@@ -108,7 +108,7 @@ export const Resortsignup = () => {
         {filteredData.map((item,index)=>(
             <tr class="bg-white border-b  font-semibold border-orange-600 hover:bg-[#f7b866d4]">
                 <td class="px-6 py-4 font-semibold">
-                   {index}
+                   {index+1}
                 </td>
                 <td class="px-6 py-4">
                     {item.propertyName}

@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 
 export const Guidemngwage = () => {
   const[data,setData]=useState('')
+  let gid=localStorage.getItem("id")
   let {id}=useParams()
   useEffect(()=>{
     let fetchdata=async ()=>{
@@ -20,20 +21,11 @@ let handleSubmit=async (status,wage)=>{
   // event.preventDefault()
   setData(data)
   console.log(data)
- let response=await axios.put(`http://localhost:4000/guide/managebooking/${id}`,{guidestatus:status,wage:data.wage})
+ let response=await axios.put(`http://localhost:4000/guide/managebooking/${id}`,{guidestatus:status,guideid:gid})
  console.log(response); 
   
 }
-// let enterwage = async () => {
-//   try {
-//     const response1 = await axios.put(`http://localhost:4000/guide/enterwage/${id}`, { wage: data.wage });
-//     console.log(response1);
-//     // Optionally, you can reset the wage field after submission
-//     setData(prevData => ({ ...prevData, wage: '' }));
-//   } catch (error) {
-//     console.error("Error:", error);
-//   }
-// }
+
   return (
     <div className='guidehome'>
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg pt-10">
@@ -72,7 +64,7 @@ let handleSubmit=async (status,wage)=>{
                <div className='text-[20px]'>
                 Accomodation Chosen </div><br/>
                 <div className='flex flexwrap gap-5 '>
-                <img src={`http://localhost:4000/uploads/${data?.resort?.coverImage}`} alt="" srcset="" />
+                <img src={`http://localhost:4000/uploads/${data?.resort?.coverImage}`} className='w-20' alt="" srcset="" />
                 <div className='pt-10'>{data?.resort?.propertyName}
                  <br />{data?.bookings?.accomodatn}</div>
                 {/* <div className='flex flex-col gap-6 mt-3 '>
@@ -88,12 +80,8 @@ let handleSubmit=async (status,wage)=>{
                 <div className='font text-[20px] pt-5 '>{data.adv?.adventureName}
                  <br />{data?.adv?.price}/Head</div>
                  <div className='mt-5'> booking status:{data.bookings?.status}</div>
-                 wage:1000/-per day
-                 {/* <div >
-              <label for="name" class="block mb-2 text-sm font-medium  dark:text-white">Wage :</label>
-              <input onChange={handleChange}  name='wage' type="number" id="name" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required />
-          
-            </div> */}
+                wage per day- {data.bookings?.wage}
+                
                  <div className='flex flex-wrap gap-14 '>
                 <button onClick={()=>{handleSubmit('Accepted',data?.bookings?._id)}}  className='bg-green-600 w-32 h-9 rounded-lg font-bold'>ACCEPT</button>
                 <button onClick={()=>{handleSubmit('Rejected',data?.bookings?._id)}}  className='bg-orange-600 w-32 h-9 rounded-lg font-bold'>REJECT</button>

@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import FileBase64 from 'react-filebase64';
+import { ToastContainer, toast } from "react-toastify";
 
 export const Editpkg = () => {
    
@@ -10,9 +11,12 @@ export const Editpkg = () => {
     const [userData,setUserData]=useState('')
     const [transport, setTransport] = useState([{ noofpeople: '', transportOption: '',price:'' }]);
     const [refresh,setrefresh]=useState(false)
-    const addNoofppl = () => {
-      setTransport([...transport, { noofpeople: '', transportOption: '', price: '' }]);
-    };
+
+   const addNoofppl = () => {
+    setTransport([...transport, { noofpeople: '', transportOption: '', price: '' }]);
+    setTransportImages([...transportImages, '']);
+  };
+
     const handleNoofpplChange = (pplIndex, value) => {
       const updatedTransport = [...transport];
       updatedTransport[pplIndex].noofpeople = value;
@@ -54,6 +58,7 @@ const [transportImagedata, setTransportImage] = useState()
         updatedTourDetails[dayIndex].day = value;
         setTourDetails(updatedTourDetails);
       };
+      
     
       const handleDestinationChange = (dayIndex, value) => {
         const updatedTourDetails = [...tourDetails];
@@ -82,11 +87,13 @@ console.log(tourDetails,'---------------------');
         event.preventDefault()
         const formData = new FormData();
 
-        const transports = transport.map((noofpplDetail)=>({
-          noofppl:noofpplDetail.noofpeople,
-          transportOption:noofpplDetail.transportOption,
-          price:noofpplDetail.price
-        }))
+       const transports = transport.map((noofpplDetail,index) => ({
+      noofppl: noofpplDetail.noofpeople,
+      transportOption: noofpplDetail.transportOption,
+      price: noofpplDetail.price,
+      transportImage: transportImages[index] // Use transport image data from state
+    }));
+  
            // Construct an array of destination objects
           const destinations = tourDetails.map((dayDetail) => ({
             Day: dayDetail.day,
@@ -103,13 +110,23 @@ tourDetails.forEach((dayDetail, index) => {
 });
 
 // Append transports data to FormData
-transport.forEach((transportDetail, index) => {
-  if (transportDetail && transportDetail.noofpeople && transportDetail.transportOption && transportDetail.price) {
-      formData.append(`transports[${index}][noofppl]`, transportDetail.noofpeople);
-      formData.append(`transports[${index}][transportOption]`, transportDetail.transportOption);
-      formData.append(`transports[${index}][price]`, transportDetail.price);
+transports.forEach((transport, index) => {
+  if (transport.noofppl && transport.transportOption && transport.price && transport.transportImage){
+
+    formData.append(`transports[${index}][noofppl]`, transport.noofppl);
+    formData.append(`transports[${index}][transportOption]`, transport.transportOption);
+    formData.append(`transports[${index}][price]`, transport.price);
+    formData.append(`transports[${index}][transportImage]`, transport.transportImage); // Append transport image data
   }
 });
+
+//  const [transportImages, setTransportImages] = useState(Array.from({ length: transport.length }, () => ''));
+
+//   const handleTransportImage = (index, image) => {
+//     const updatedTransportImages = [...transportImages];
+//     updatedTransportImages[index] = image.base64;
+//     setTransportImages(updatedTransportImages);
+//   };
 
 
           for (const key in data) {
@@ -125,9 +142,20 @@ transport.forEach((transportDetail, index) => {
        console.log(response);
        setrefresh(!refresh)
        setData('')
-        
+       toast.success('Package updated') 
     }
+    const [transportImages, setTransportImages] = useState(Array.from({ length: transport.length }, () => ''));
+
+    const handleTransportImage = (index, image) => {
+      console.log('fsfsf');
+      const updatedTransportImages = [...transportImages];
+      updatedTransportImages[index] = image.base64;
+      setTransportImages(updatedTransportImages);
+      console.log(transportImages);
+    };
   return (
+    <>
+    <ToastContainer/>
     <div>
         <div className='bg-[#1a2954d6] h-[467px]' >
          <div className='h-[64px] font text-[30px] font-bold m-0 text-left pl-10 '>
@@ -142,42 +170,47 @@ transport.forEach((transportDetail, index) => {
 
       <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
         <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
-          <div class="text-gray-600">
-           
-          </div>
+          
 
           <div class="lg:col-span-2 ">
             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
-              <div class="md:col-span-5">
+          
+              <div class="md:col-span-5 flex flex-wrap gap-1">
                 <label for="full_name">Package Name</label>
-                <input onChange={handleChange} placeholder={userData?.packageName} type="text" name="packageName" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
+                <input onChange={handleChange} placeholder={userData[1]?.response?.packageName} type="text" name="packageName" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
               </div>
-              <div class="md:col-span-5">
+              <div class="md:col-span-5 flex flex-wrap gap-5">
                 <label for="full_name">Location</label>
-                <input onChange={handleChange}  placeholder={userData?.location}  type="text" name="location" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
+                <input onChange={handleChange}  placeholder={userData[1]?.response?.location}  type="text" name="location" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
               </div>
               <div class="md:col-span-5">
                 <label for="destination">Category</label>
-                <input onChange={handleChange}  placeholder={userData?.category} type="text" name="category" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
+                <input onChange={handleChange}  placeholder={userData[1]?.response?.category} type="text" name="category" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
               </div>
               <div class="md:col-span-5">
                 <label for="destination">No of People</label>
-                <input onChange={handleChange}  placeholder={userData?.noofpeople} type="number" name="noofpeople" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
+                <input onChange={handleChange}  placeholder={userData[1]?.response?.noofpeople} type="number" name="noofpeople" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
               </div>
             
               <div class="md:col-span-5">
                 <label for="destination">Vehicle</label>
-                <input onChange={handleChange}  placeholder={userData?.vehicle} type="text" name="vehicle" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
+                <input onChange={handleChange}  placeholder={userData[1]?.response?.vehicle} type="text" name="vehicle" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
               </div>
               <div class="md:col-span-5">
                 <label for="category"> vehicle Amount</label>
-                <input onChange={handleChange} placeholder={userData?.defaultvehicleprice} type="number" name="defaultvehicleprice" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
+                <input onChange={handleChange} placeholder={userData[1]?.response?.defaultvehicleprice} type="number" name="defaultvehicleprice" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
               </div>
               <div class="md:col-span-5">
                 <label for="vehicle">Vehicle Image</label>
                 <FileBase64
         multiple={ false }
-        onDone={ (res)=>setTransportImage(res.base64) } />              </div>
+        onDone={ (res)=>setTransportImage(res.base64) } /> 
+          <img
+                  className="w-22 h-14"
+                  src={`http://localhost:4000/uploads/${userData[1]?.response?.vehicleimage}`}
+                  alt=""
+                />
+                     </div>
 
               <div className="container mx-auto px-4 py-8">
       <button
@@ -232,7 +265,7 @@ transport.forEach((transportDetail, index) => {
         </div>
       ))}
       <br />
-      {userData.destination?.map((item)=>(
+      {userData[1]?.response?.destination?.map((item)=>(
               <> <div className=''>
             <div className='font underline'> {item?.Day} :{item?.Destination}</div><br/>
             <div className=''>{item?.activities}</div>
@@ -244,10 +277,10 @@ transport.forEach((transportDetail, index) => {
 
               <div class="md:col-span-5 flex flex-wrap gap-3">
                 <label for="email">Cover Image</label>
-                <input onChange={handlefile} placeholder={userData?.coverImage} type="file" name="coverImage" id="email" class="h-10 border mt-1 w-60 rounded px-4 ms-6 bg-gray-50"  />
+                <input onChange={handlefile}type="file" name="coverImage" id="email" class="h-10 border mt-1 w-60 rounded px-4 ms-6 bg-gray-50"  />
                 <img
                   className="w-22 h-14"
-                  src={`http://localhost:4000/uploads/${userData.coverImage}`}
+                  src={`http://localhost:4000/uploads/${userData[1]?.response?.coverImage}`}
                   alt=""
                 />
               </div>
@@ -257,18 +290,18 @@ transport.forEach((transportDetail, index) => {
              </div>
               <div class="md:col-span-3">
                 <label for="days">No of days</label>
-                <input onChange={handleChange}  placeholder={userData?.noOfDays} type="text" name="noOfDays" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
+                <input onChange={handleChange}  placeholder={userData[1]?.response?.noOfDays} type="text" name="noOfDays" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
               </div>
               <div class="md:col-span-3">
                 <label for="days">price</label>
-                <input onChange={handleChange}  placeholder={userData?.price} type="number" name="price" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
+                <input onChange={handleChange}  placeholder={userData[1]?.response?.price} type="number" name="price" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
               </div>
               <div class="md:col-span-5 flex flex-wrap">
                 <label for="email">upload Brochure</label>
-                <input onChange={handlefile} placeholder={userData?.uploadBrochure} type="file" name="uploadBrochure" id="brochure" class="h-10 border mt-1 w-60 rounded px-4 ms-6 bg-gray-50"   />
+                <input onChange={handlefile} type="file" name="uploadBrochure" id="brochure" class="h-10 border mt-1 w-60 rounded px-4 ms-6 bg-gray-50"   />
                 <img
                   className="w-22 h-14"
-                  src={`http://localhost:4000/uploads/${userData.uploadBrochure}`}
+                  src={`http://localhost:4000/uploads/${userData[1]?.response?.uploadBrochure}`}
                   alt=""
                 />
               </div>
@@ -315,6 +348,13 @@ transport.forEach((transportDetail, index) => {
                 name='price'
                 className="border w-40 border-gray-300 rounded px-4 py-2  mr-2"
               />
+               <div className="md:col-span-5">
+  <label htmlFor="transportImage">Transport Image</label>
+  <FileBase64
+  multiple={false}
+  onDone={(res) => handleTransportImage(pplIndex, res)}
+/>
+</div>
                {/* <label htmlFor="transportImage">Transport Image</label>
           <input
             onChange={handlefile}
@@ -348,11 +388,16 @@ transport.forEach((transportDetail, index) => {
         </div>
       ))}
       <br />
-      {userData.transports?.map((item)=>(
+      {userData[1]?.response?.transports?.map((item)=>(
             <div className='flex flex-wrap'>
-            <div>{item.noofppl}People:
-            {item.transportOption}</div>,
-            <div>price:{item.price}</div>/-
+            <div>{item?.noofppl}People:
+            {item?.transportOption}</div>,
+            <div>price:{item?.price}</div>/-
+            <img
+                  className="w-22 h-14"
+                  src={item?.transportImage}
+                  alt=""
+                />
             </div>
             ))}
 
@@ -368,12 +413,12 @@ transport.forEach((transportDetail, index) => {
       <div class="md:col-span-5">
                 <label for="full_name">Basic Description</label>
                 {/* <input type="text" name="" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" /> */}
-                <textarea onChange={handleChange}  placeholder={userData?.basicDescription} name="basicDescription" id="" cols="30" rows="10"></textarea>
+                <textarea onChange={handleChange}  placeholder={userData[1]?.response?.basicDescription} name="basicDescription" id="" cols="30" rows="10"></textarea>
               </div>
               <div class="md:col-span-5">
                 <label for="full_name">Detailed Information</label>
                 {/* <input type="text" name="" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" /> */}
-                <textarea onChange={handleChange}  placeholder={userData?.detailedDescription} name="detailedDescription" id="" cols="30" rows="10"></textarea>
+                <textarea onChange={handleChange}  placeholder={userData[1]?.response?.detailedDescription} name="detailedDescription" id="" cols="30" rows="10"></textarea>
               </div>
               <div class="md:col-span-5 text-right">
                 <div class="inline-flex items-end">
@@ -397,5 +442,6 @@ transport.forEach((transportDetail, index) => {
 
     </div>
     </div>
+    </>
   )
 }

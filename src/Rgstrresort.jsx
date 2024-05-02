@@ -2,11 +2,11 @@ import React from 'react'
 import arrow from './agency/images/Arrow.png'
 import { useState } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 import {toast} from "react-toastify"
 
 export const Rgstrresort = () => {
-  const navigate=useNavigate()
+  // const navigate=useNavigate()
   const [data,setData]=useState('')
     
   let handlefile=(event)=>{
@@ -67,7 +67,7 @@ export const Rgstrresort = () => {
   return (
     <div className='bg-[#1a2954d6] h-[850px]'>
         <div className='h-[64px] font text-[30px] font-bold m-0 text-left pl-10 '>
-    <span className='text-white'>Resort</span><span className='text-orange-600'>Profile</span>
+    <span className='text-white'>Hotel</span><span className='text-orange-600'>Registration</span>
   </div>
   <form onSubmit={handleSubmit} class="w-[100%] ">
 

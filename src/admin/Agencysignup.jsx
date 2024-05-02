@@ -36,7 +36,7 @@ export const Agencysignup = () => {
     };
 
     return (
-        <div className="adminbg">
+        <div className="bg-gray-500 h-[600px] w-full">
             <div className="flex flex-col gap-2">
                 <div className="font text-[30px] font-bold pl-5 pt-6">
                     <span className="text-white">Agency,</span>
@@ -95,7 +95,7 @@ export const Agencysignup = () => {
                         <tbody>
                             {filteredData.map((item, index) => (
                                 <tr class="bg-white border-b  font-semibold border-orange-600 hover:bg-[#f7b866d4]">
-                                    <td class="px-6 py-4 font-semibold">{index}</td>
+                                    <td class="px-6 py-4 font-semibold">{index+1}</td>
                                     <td class="px-6 py-4">{item.companyName}</td>
                                     <td class="px-6 py-4">{item.place}</td>
                                     <td class="px-6 py-4">{item.district}</td>

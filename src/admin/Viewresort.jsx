@@ -23,7 +23,7 @@ export const Viewresort = () => {
     }
     
   return (
-    <div className='adminbg'>
+    <div className='bg-gray-500'>
         <div className='bg-slate-950/50 w-[800px] h-[800px] pl-24 ml-64  flex flex-col gap-2 '>
        <img src={`http://localhost:4000/uploads/${data.coverImage}`} alt="" className='w-44 h-48  ps-3 pt-3 '/>
        <div className='flex flex-wrap text-white gap-12 pt-3 text-center'>
@@ -33,7 +33,7 @@ export const Viewresort = () => {
 </div>
 <div className='flex flex-wrap text-white gap-12 pt-3 text-center'>
             <p className='font-bold'>Property Address:</p>
-            <p className='font font-bold'>{data.propertyAddress}</p>
+            <p className='font font-bold'>{data.propertyAddress}</p>,
             <p className='font font-bold'>{data.district}</p>
 
 </div>
@@ -45,6 +45,11 @@ export const Viewresort = () => {
 <div className='flex flex-wrap text-white gap-4 pt-3 text-center'>
             <p className='font-bold'>Contact Number:</p>
             <p className='font font-bold'>{data.contactNumber}</p>
+
+</div>
+<div className='flex flex-wrap text-white gap-4 pt-3 text-center'>
+            <p className='font-bold'>contact Number(alternative):</p>
+            <p className='font font-bold'>{data.contactNumberalternative}</p>
 
 </div>
 <div className='flex flex-wrap text-white gap-12 pt-3 text-center'>
@@ -60,15 +65,11 @@ export const Viewresort = () => {
 </div>
 <div className='flex flex-wrap text-white gap-12 pt-3 text-center'>
             <p className='font-bold'>Description:</p>
-            <p className='font font-bold'>{data.description}</p>
+            <p className='font font-bold w-[550px]'>{data.description}</p>
 
 </div>
-<div className='flex flex-wrap text-white gap-12 pt-3 text-center'>
-            <p className='font-bold'>About Us:</p>
-            <p className='font font-bold'>{data.aboutUs}</p>
 
-</div>
-<div className='flex flex-wrap gap-5'>
+<div className='flex flex-wrap gap-5 mb-6 ms-32'>
 <button onClick={()=>{handleSubmit('accepted',data._id)}} href="#" className=' font-bold bg-white  text-green-600 hover:underline w-32'>Accept</button>
 <button onClick={()=>{handleSubmit('rejected',data._id)}} href="#" className=' font-bold bg-white  text-green-600 hover:underline w-32'>Reject</button>
 </div>

@@ -19,7 +19,7 @@ export const Vwimg = () => {
            <div className='guidehome'>
             {data.map((item)=>(
     <div class="relative overflow-x-auto  sm:rounded-lg pt-10 flex flex-wrap">
-   <img src={`http://localhost:4000/uploads/${item.images}`} className='w-24 mb-3 bg-slate-100' alt="" srcset="" />
+   <img src={`http://localhost:4000/uploads/${item.images}`} className='w-32 h-32 ml-5 mb-3 bg-slate-100' alt="" srcset="" />
    
 </div>
 ))}

@@ -24,19 +24,24 @@ export const Detailvwpkg = () => {
   }, [id]);
 
   return (
-    <div className='pencil pt-10'>
+    <div className=' bg-yellow-500 pt-10'>
       <div className='bg-white/50 w-[90%] p-3 ms-5 pt-2 shadow-2xl rounded-lg'>
         <div>
           <div className='w-[208px] text-center'>
+          <Link to={`/agency/editpkg/${id}`}>
+          <button className='bg-yellow-700 w-36  ml-[900px] rounded-full py-2 px-4'>Edit package</button>
+        </Link>
             <span className='text-white font font-bold text-[30px] '></span>
             <span className='text-orange-600 font font-bold text-[30px] '>{data[1]?.response?.packageName}</span><br />
             <p className='font text-[20px] font-semibold text-white '>{data[1]?.response?.noOfDays}DAYS</p>
+            
           </div>
           <div className='flex sm:gap-5 flex-wrap'>
             <img src={`http://localhost:4000/uploads/${data[1]?.response?.coverImage}`} className='w-[150px] h-[150px]' />
             <div className='w-[78%]'>
               <div className=''>{data[1]?.response?.basicDescription}</div>
               <p className=''>{data[1]?.response?.detailedDescription}</p>
+              
             </div>
             <div className=''>
               {data[1]?.response?.destination?.map((item, index) => (
@@ -75,8 +80,10 @@ export const Detailvwpkg = () => {
               Default Accommodation:
               <img src={`http://localhost:4000/uploads/${data[1]?.defaultHotel?.coverImage}`} className="m-auto w-28" alt="" srcSet="" />
               <div className="font font-bold">{data[1]?.defaultHotel?.propertyName}</div>
-              <div className="font font-bold">{data[1]?.defaultHotel?.defaulthotelprice}</div>
-              
+              <div className="font font-bold">{data[1]?.response?.defaulthotelprice}/-</div>
+              <Link to={`/agency/adddefaulthotel/${id}`}>
+          <button type='submit' className='bg-yellow-700 w-36  rounded-full py-2 px-4'>Add Default Hotel</button>
+        </Link>
             </div>
           </div>
           <div className="bg-yellow-600/90 w-[200px] ml-5 rounded-lg">
@@ -85,36 +92,42 @@ export const Detailvwpkg = () => {
               <img src={`http://localhost:4000/uploads/${data[0]?.adventure?.image}`} className="m-auto w-28" alt="" srcSet="" />
               <div className="font font-bold">{data[0]?.adventure?.adventureName}</div>
               <div className="font font-bold">{data[0]?.adventure?.price}/-</div>
-            
+              <Link to={`/agency/adddefaultadventure/${id}`}>
+          <button type='submit' className='bg-yellow-700 w-36  rounded-full py-2 px-4'>Add Default Adventure</button>
+        </Link>
             </div>
           </div>
         </div>
-      </div>
-      <div className='mt-28 pl-96 flex flex-wrap gap-3 '>
-        <Link to={`/agency/editpkg/${id}`}>
-          <button className='bg-yellow-700 w-36 rounded-full py-2 px-4'>Edit package</button>
-        </Link>
-        <Link to={`/agency/adddefaulthotel/${id}`}>
-          <button type='submit' className='bg-yellow-700 w-36  rounded-full py-2 px-4'>Add Default Hotel</button>
-        </Link>
-        <Link to={`/agency/adddefaultadventure/${id}`}>
-          <button type='submit' className='bg-yellow-700 w-36  rounded-full py-2 px-4'>Add Default Adventure</button>
-        </Link>
+        <div className='flex flex-wrap gap-2'>
         <Link to={`/agency/addpkg1/${id}`}>
-          <button type='submit' className='bg-yellow-700 w-36  rounded-full py-2 px-4'>Add Hotel</button>
+          <button type='submit' className='bg-yellow-700 w-24 ml-6 mt-2 rounded-full py-2 px-4 text-[10px]'>Add Hotel</button>
         </Link>
         <Link to={`/agency/vwaddedresort/${id}`}>
-          <button type='submit' className='bg-yellow-700 w-36  rounded-full py-2 px-4'>view Hotel</button>
+          <button type='submit' className='bg-yellow-700 w-24 text-[10px] mt-2  rounded-full py-2 px-4'>view Hotel</button>
         </Link>
-      </div>
-      <div className='mt-6 pl-96 flex flex-wrap gap-3'>
         <Link to={`/agency/adventure/${id}`}>
-          <button type='submit' className='bg-yellow-700 w-52  rounded-full py-2 px-4'>view adventure</button>
+          <button type='submit' className='bg-yellow-700 w-32 text-[10px] mt-2 rounded-full py-2 px-4'>view adventure</button>
         </Link>
         <Link to={`/agency/vwaddedadventure/${id}`}>
-          <button type='submit' className='bg-yellow-700 w-60  rounded-full py-2 px-4'>view added adventure</button>
+          <button type='submit' className='bg-yellow-700 w-32 text-[10px] mt-2 rounded-full py-2 px-4'>view adventure</button>
         </Link>
+        </div>
+        <div className='flex flex-wrap gap-2'>
+       
+        
+        </div>
       </div>
+      <div className=' flex pt-6 ml-56 flex-wrap gap-3 '>
+       
+       
+       
+       
+       
+      
+      
+        
+        
+        </div>
     </div>
   );
 };

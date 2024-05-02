@@ -3,6 +3,7 @@ import arrow from './images/Arrow.png'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import FileBase64 from 'react-filebase64';
+import { ToastContainer, toast } from "react-toastify";
 
 export const Addpkg = () => {
   let id=localStorage.getItem('id')
@@ -79,6 +80,7 @@ console.log(transport,'jhugytfrdse');
   
   const handleSubmit = async (event) => {
     event.preventDefault();
+
   
     // Handling transport data
     const transports = transport.map((noofpplDetail,index) => ({
@@ -136,6 +138,7 @@ console.log(transport,'jhugytfrdse');
         }
       });
       console.log(response.data);
+      toast.success('Package Created')
     } catch (error) {
       console.error('Error:', error);
     }
@@ -143,9 +146,11 @@ console.log(transport,'jhugytfrdse');
   const [transportImages, setTransportImages] = useState(Array.from({ length: transport.length }, () => ''));
 
   const handleTransportImage = (index, image) => {
+    console.log('sdfsdf');
     const updatedTransportImages = [...transportImages];
     updatedTransportImages[index] = image.base64;
     setTransportImages(updatedTransportImages);
+    console.log(transportImages,'[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[');
   };
   
 
@@ -157,6 +162,8 @@ console.log(transport,'jhugytfrdse');
   
   
   return (
+    <>
+    <ToastContainer/>
     <div className='bg-[#1a2954d6] h-[467px]' >
          <div className='h-[64px] font text-[30px] font-bold m-0 text-left pl-10 '>
             <span className='text-white'>Add a </span><span className='text-orange-600'> Package</span>
@@ -170,14 +177,11 @@ console.log(transport,'jhugytfrdse');
       <p class="text-gray-500 mb-6">Form is mobile responsive. Give it a try.</p> */}
 
       <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
-        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
-          <div class="text-gray-600">
-            {/* <p class="font-medium text-lg">Personal Details</p>
-            <p>Please fill out all the fields.</p> */}
-          </div>
+        <div class="gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
+          
 
           <div class="lg:col-span-2 ">
-            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
+            <div class=" gap-4 gap-y-2 flex flex-wrap text-sm grid-cols-1 md:grid-cols-5">
               <div class="md:col-span-5">
                 <label for="full_name">Package Name</label>
                 <input onChange={handleChange} type="text" name="packageName" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
@@ -195,30 +199,37 @@ console.log(transport,'jhugytfrdse');
                 <label for="category">No Of People</label>
                 <input onChange={handleChange} type="number" name="noofpeople" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
               </div>
-              <div class="md:col-span-5">
-                <label for="category"> vehicle Amount</label>
-                <input onChange={handleChange} type="number" name="defaultvehicleprice" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
-              </div>
+             
               <div class="md:col-span-5">
                 <label for="category"> vehicle</label>
                 <input onChange={handleChange} type="text" name="defaultvehicle" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
               </div>
+               <div class="md:col-span-5">
+                <label for="category"> vehicle Amount</label>
+                <input onChange={handleChange} type="number" name="defaultvehicleprice" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
+              </div>
               <div class="md:col-span-5">
-                <label for="full_name">Location</label>
+                <label for="full_name">Vehicle Image</label>
                 <input onChange={handlefile} type="file" name="vehicleimage" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
               </div>
               <div class="md:col-span-5">
-                <label for="vehicle">Vehicle Image</label>
-                <input type="file" name='vehicleimage' onChange={handlefile} />
-                {/* <FileBase64
-        multiple={ false }
-        onDone={ (res)=>setTransportImage(res.base64) } />               */}
-        </div>
-              <div className="container mx-auto px-4 py-8">
+                <label for="email">Cover Image</label>
+                <input onChange={handlefile} type="file" name="coverImage" id="email" class="h-10 border mt-1 w-60 rounded px-4 ms-6 bg-gray-50"  placeholder="email@domain.com" />
+              </div>
+              <div class="md:col-span-3">
+                <label for="days">No of days</label>
+                <input onChange={handleChange} type="text" name="noOfDays" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
+              </div>
+              <div class="md:col-span-3">
+                <label for="days">price</label>
+                <input onChange={handleChange} type="number" name="price" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
+              </div>
+             
+              <div className="container ">
       <button
       type='button'
         onClick={addDay}
-        className="bg-orange-500 mb-4 text-white text-[25px] px-4 py-2 rounded mt-4 hover:bg-orange-600"
+        className="bg-orange-500 mb-4 text-white text-[25px] px-4 py-2 rounded  hover:bg-orange-600"
       >
         +
       </button>
@@ -267,29 +278,25 @@ console.log(transport,'jhugytfrdse');
           </ul>
         </div>
       ))}
-      <br />
+      
      
     </div>
-    
-
-              <div class="md:col-span-5">
-                <label for="email">Cover Image</label>
-                <input onChange={handlefile} type="file" name="coverImage" id="email" class="h-10 border mt-1 w-60 rounded px-4 ms-6 bg-gray-50"  placeholder="email@domain.com" />
+  
+    <div class=" flex flex-wrap gap-2">
+                <label for="full_name">Basic Description</label>
+                {/* <input type="text" name="" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" /> */}
+                <textarea onChange={handleChange} name="basicDescription" id="" cols="30" rows=""></textarea>
               </div>
-
-              <div class="md:col-span-3">
-                <label for="days">No of days</label>
-                <input onChange={handleChange} type="text" name="noOfDays" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
-              </div>
-              <div class="md:col-span-3">
-                <label for="days">price</label>
-                <input onChange={handleChange} type="number" name="price" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
-              </div>
-              <div class="md:col-span-5">
+              <div class="flex flex-wrap gap-2">
+                <label for="full_name">Detailed Information</label>
+                {/* <input type="text" name="" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" /> */}
+                <textarea onChange={handleChange} name="detailedDescription" id="" cols="30" rows=""></textarea>
+              </div> 
+              <div class="">
                 <label for="email">upload Brochure</label>
-                <input onChange={handlefile} type="file" name="uploadBrochure" id="brochure" class="h-10 border mt-1 w-60 rounded px-4 ms-6 bg-gray-50"   />
+                <input onChange={handlefile} type="file" name="uploadBrochure" id="brochure" class="h-10 border  w-60 rounded  ms-6 bg-gray-50"   />
               </div>
-              <div className="container mx-auto px-4 py-8">
+              <div className="container ">
       <button
       type='button'
         onClick={addNoofppl}
@@ -303,14 +310,7 @@ console.log(transport,'jhugytfrdse');
           <div className="mb-2 flex gap-2 items-center">
             {/* <label htmlFor="" className="text-[20px] p-2 font-bold">No of people </label> */}
             <input onChange={(e) => handleNoofpplChange(pplIndex, e.target.value)} type='text' name='noofppl'   placeholder="No Of People" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id=""></input>
-            {/* <select>
-              
-              className="border w-20 border-gray-300 rounded px-4 py-2  mr-2"
-              <option value="">Select a count</option>
-              <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-              </select> */}
+           
            
               <input
                 type="text"
@@ -328,34 +328,16 @@ console.log(transport,'jhugytfrdse');
                 name='price'
                 className="border w-40 border-gray-300 rounded px-4 py-2  mr-2"
               />
-            <div className="md:col-span-5">
+            <div className="md:col-span-5 flex flex-wrap gap-2 ">
   <label htmlFor="transportImage">Transport Image</label>
   <FileBase64
     multiple={false}
     onDone={(res) => handleTransportImage(pplIndex, res)}
   />
 </div>
-            {/* <button
-              onClick={() => removeDay(dayIndex)}
-              className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-            >
-              Remove
-            </button> */}
+           
           </div>
-          {/* <label className="text-[20px] p-2 font-bold">Description:</label> */}
-          {/* <ul>
-            {dayDetail.activities.map((activity, activityIndex) => (
-              <li key={activityIndex} className="mb-2">
-                <input
-                  type="text"
-                  name=''
-                  value={activity}
-                  onChange={(e) => handleActivityChange(dayIndex, activityIndex, e.target.value)}
-                  className="border border-gray-300 rounded px-4 py-2 w-80"
-                />
-              </li>
-            ))}
-          </ul> */}
+          
         </div>
       ))}
       <br />
@@ -367,31 +349,11 @@ console.log(transport,'jhugytfrdse');
       }
      
     </div>
-
-
-            
-
-           
-
-              
-
-
-             
-
-            
-      <div class="md:col-span-5">
-                <label for="full_name">Basic Description</label>
-                {/* <input type="text" name="" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" /> */}
-                <textarea onChange={handleChange} name="basicDescription" id="" cols="30" rows="10"></textarea>
-              </div>
-              <div class="md:col-span-5">
-                <label for="full_name">Detailed Information</label>
-                {/* <input type="text" name="" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" /> */}
-                <textarea onChange={handleChange} name="detailedDescription" id="" cols="30" rows="10"></textarea>
-              </div>
+  
+     
               <div class="md:col-span-5 text-right">
                 <div class="inline-flex items-end">
-                     <button type='submit' class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+                     <button type='submit' class="bg-orange-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
                 </div>
               </div>
               
@@ -402,9 +364,7 @@ console.log(transport,'jhugytfrdse');
       </div>
     </div>
 
-    {/* <a href="https://www.buymeacoffee.com/dgauderman" target="_blank" class="md:absolute bottom-0 right-0 p-4 float-right">
-      <img src="https://www.buymeacoffee.com/assets/img/guidelines/logo-mark-3.svg" alt="Buy Me A Coffee" class="transition-all rounded-full w-14 -rotate-45 hover:shadow-sm shadow-lg ring hover:ring-4 ring-white"/>
-    </a> */}
+   
   </div>
 </div>
                    
@@ -412,5 +372,6 @@ console.log(transport,'jhugytfrdse');
 </form>                  
 
     </div>
+    </>
   )
 }

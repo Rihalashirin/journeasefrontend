@@ -1,8 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export const Booking = () => {
     const [data, setData] = useState([]);
+    const[data1,setData1]=useState(false)
+    let handlereview=()=>{
+        setData1(!data1)
+    }
+    
     useEffect(()=>{
         let fetchdata = async ()=>{
             let response=await axios.get(`http://localhost:4000/admin/vwbooking`)
@@ -12,14 +18,18 @@ export const Booking = () => {
         fetchdata()
     },[])
   return (
-    <div className='adminbg'>
+    <div className='bg-gray-500 h-[600px]'>
         {/* table... */}
+        
         
 
 <div class="relative overflow-x-auto pt-14 pe-5 ps-5">
     <table class="w-full text-sm text-left rtl:text-right text-white ">
         <thead class="text-xs text-orange-400 uppercase bg-gray-50  ">
             <tr className='bg-gray-600 border-b  dark:border-gray-700'>
+            <th scope="col" class="px-6 py-3">
+                   Sl.No
+                </th>
                 <th scope="col" class="px-6 py-3">
                     Booking Name
                 </th>
@@ -30,10 +40,10 @@ export const Booking = () => {
                    Package
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Resort
+                    Hotel
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Reviews-Resort
+                    Reviews-Hotel
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Reviews-Package
@@ -41,26 +51,44 @@ export const Booking = () => {
             </tr>
         </thead>
         <tbody>
+        {data.map((item,index)=>(
+            <>
             <tr className='bg-white' >
+            <td class="px-6 py-4 text-black">
+            {index+1} 
+                </td>
                 <th scope="row" class="px-6 py-4 font-medium text-black whitespace-nowrap dark:text-black">
-                    Athira
+                    {item?.user?.name}
                 </th>
                 <td class="px-6 py-4 text-black">
-                    WellTrip Planners
+                    {item?.agency?.companyName}
                 </td>
                 <td class="px-6 py-4 text-black">
-                    delhi delight
+                   {item?.package?.packageName}
                 </td>
                 <td class="px-6 py-4 text-black">
-                   seav view 
+                    
+                   {item?.resort?.propertyName}
                 </td>
-                <td class="px-6 py-4">
-                    review description
+                <td class="px-6 py-4 text-black">
+                   
+                    {item?.resrw[0]?.review}
                 </td>
-                <td class="px-6 py-4">
-                    review description
+                <td class="px-6 py-4 text-black">
+                    
+                 <button onClick={handlereview} className='bg-orange-700 px-2 py-2 rounded-lg '>View</button>
                 </td>
             </tr>
+            {data1 &&
+            item?.rw?.map((item1)=>(
+                <>
+                <tr>
+                {item1.review}
+                </tr>
+                </>
+
+))}
+            
             {/* <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     Microsoft Surface Pro
@@ -89,9 +117,14 @@ export const Booking = () => {
                     $99
                 </td>
             </tr> */}
+            </>
+        ))} 
         </tbody>
     </table>
+    
 </div>
+
+
 
     </div>
   )

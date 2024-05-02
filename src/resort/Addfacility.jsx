@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { ToastContainer, toast } from "react-toastify";
 
 export const Addfacility = () => {
     const [data,setData]=useState('')
@@ -17,11 +18,13 @@ export const Addfacility = () => {
      let response=await axios.post('http://localhost:4000/resort/facilities',{...data,resortid:id})
      console.log(response);
   
-      
+     toast.success('facility Added')
   }
 
   return (
-    <div className='bg-[#1a2954d6] h-[467px]'>
+    <>
+    <ToastContainer/>
+    <div className='bg-[#1a2954d6] h-[540px]'>
  <div className='h-[64px] font text-[30px] font-bold m-0 text-left pl-10 '>
     <span className='text-white'>Add</span><span className='text-orange-600'>facilities</span>
   </div>
@@ -33,18 +36,19 @@ export const Addfacility = () => {
             </div>
     </div>
     <div >
-              <label for="name" class="block mb-2 text-sm font-medium text-white dark:text-white">luxury:</label>
+              <label for="name" class="block mb-2 ml-56 text-sm font-medium text-white dark:text-white">luxury:</label>
               <input onChange={handleChange}  name='luxury' type="checkbox" id="name" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required />
             </div>
             <div >
-              <label for="name" class="block mb-2 text-sm font-medium text-white dark:text-white">standard:</label>
+              <label for="name" class="block mb-2 ml-56 text-sm font-medium text-white dark:text-white">standard:</label>
               <input onChange={handleChange}  name='standard' type="checkbox" id="name" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required />
             </div>
-            <button type='submit' className='bg-orange-600'>submit</button>
+            <button type='submit' className='bg-orange-600 ml-56'>submit</button>
 
   </form>
  
 
     </div>
+    </>
   )
 }
