@@ -41,7 +41,7 @@ let handleSubmit=async (event)=>{
   return (
     <div className='bg-[#1a2954d6] '>
     <div className='h-[64px] font text-[30px] font-bold m-0 text-left pl-10 '>
-<span className='text-white'>Resgister as a </span><span className='text-orange-600'>Resort Facility</span>
+<span className='text-white'>Update</span><span className='text-orange-600'>Profile</span>
 </div>
 <form onSubmit={handleSubmit} class="w-[100%] ">
 

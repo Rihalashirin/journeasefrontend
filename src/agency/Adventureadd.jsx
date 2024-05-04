@@ -65,7 +65,7 @@ export const Adventureadd = () => {
       <label class="block uppercase tracking-wide text-black text-xs font-bold mb-2" for="grid-password">
        Upload Image
       </label>
-      <input onChange={handlefile} name='image' class="appearance-none block w-full bg-gray-200 text-white border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="file" placeholder=""/>
+      <input onChange={handlefile} name='image' class="appearance-none block w-full text-white border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="file" placeholder=""/>
       {/* <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like</p> */}
     </div>
   </div>
@@ -95,7 +95,7 @@ export const Adventureadd = () => {
       <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-zip">
        Description
       </label>
-      <input onChange={handleChange} name='description' class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" placeholder=""/>
+      <textarea onChange={handleChange} name='description' class="appearance-none block h-14 w-[200x] bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" placeholder=""/>
     </div>
   </div>
   <button className='bg-orange-600 w-32 text-white rounded-lg px-2 py-2 font-bold ml-52 mt-5'>SUBMIT</button>

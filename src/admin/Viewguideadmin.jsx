@@ -69,11 +69,11 @@ export const Viewguideadmin = () => {
 <div className='flex flex-wrap text-white gap-12 pt-3 text-center'>
             <p className='font-bold'>Experience(in years):</p>
             <p className='font font-bold'>{data.experienceYears}</p>
-
+                        
 </div>
 <div className='flex flex-wrap text-white gap-12 pt-3 text-center'>
             <p className='font-bold'>ID Proof:</p>
-            <p className='font font-bold'> <img src={`http://localhost:4000/uploads/${data.idProof}`}alt="" className='w-44 h-16  ps-3 pt-3 '/></p>
+            <a target='_blank' href={`http://localhost:4000/uploads/${data.idProof}`} download> <span>{data.idProof}</span></a>
 
 </div>
 <div className='flex flex-wrap gap-2'>

@@ -175,11 +175,11 @@ transports.forEach((transport, index) => {
           <div class="lg:col-span-2 ">
             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
           
-              <div class="md:col-span-5 flex flex-wrap gap-1">
+              <div class="md:col-span-5 ">
                 <label for="full_name">Package Name</label>
                 <input onChange={handleChange} placeholder={userData[1]?.response?.packageName} type="text" name="packageName" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
               </div>
-              <div class="md:col-span-5 flex flex-wrap gap-5">
+              <div class="md:col-span-5 ">
                 <label for="full_name">Location</label>
                 <input onChange={handleChange}  placeholder={userData[1]?.response?.location}  type="text" name="location" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
               </div>
@@ -194,7 +194,7 @@ transports.forEach((transport, index) => {
             
               <div class="md:col-span-5">
                 <label for="destination">Vehicle</label>
-                <input onChange={handleChange}  placeholder={userData[1]?.response?.vehicle} type="text" name="vehicle" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
+                <input onChange={handleChange}  placeholder={userData[1]?.response?.defaultvehicle} type="text" name="vehicle" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
               </div>
               <div class="md:col-span-5">
                 <label for="category"> vehicle Amount</label>

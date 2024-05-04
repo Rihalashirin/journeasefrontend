@@ -42,7 +42,7 @@ export const Resortmngenqry = () => {
                     Status
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Payment Status
+                    Payment Status Trip
                 </th>
                 <th scope="col" class="px-6 py-3">
                   Action
@@ -76,7 +76,7 @@ export const Resortmngenqry = () => {
                  
                 </td>
                 <td class="px-6 py-4">
-                
+                paid
                 </td>
                 
                 <td class="px-3 py-4 flex flex-wrap flex-col gap-2 text-center">

@@ -53,19 +53,19 @@ export const Vwissuesagency = () => {
                 {index+1}
                 </td>
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Akshay Kumar
+                    {item?.user?.name}
                 </th>
                 <td class="px-6 py-4">
-                   Delhi Delight
+                   {item?.pkg?.packageName}
                 </td>
                 <td class="px-6 py-4">
-                   Akshaykumar@gmail.com
+                  {item?.user?.email}
                 </td>
                 <td class="px-6 py-4">
-                  {item.booking?.date}
+                {new Date(item?.booking?.date).toLocaleString()}
                 </td>
                 <td class="px-6 py-4">
-                  there is a delay
+                  There is a delay 
                 </td>
                 {/* <td class="px-6 py-4">
                   

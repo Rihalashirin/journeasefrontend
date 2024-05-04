@@ -53,8 +53,13 @@ export const Vwcstrenqry = () => {
             <div className='text-[20px]'>Basic info</div> <br />
             Name: {data.user?.name}<br />
             Email: {data.user?.email}<br />
-            Mobile: {data.user?.contactNumber} <br />
-            {data.user?.contactNumberalternative}
+            Mobile: 9877665534<br/>
+            9054323434<br/>
+            Address:{data.user?.place}<br/>
+            {data.user?.district}
+
+            {/* {data.user?.contactNumber} <br /> */}
+            {/* {data.user?.contactNumberalternative} */}
             <br />
             <div className='font '>
               <div className='text-[20px]'>Travel info</div><br />
@@ -112,18 +117,18 @@ export const Vwcstrenqry = () => {
               <label for="name" class="block mb-2 text-sm font-medium  dark:text-white">Health Wage :</label>
               <input onChange={handleChange} name='healthwage' type="number" id="name" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg  focus:ring-blue-500 focus:border-blue-500 block w-24 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required />
             </div> */}
-            <div className='font'>{data?.hoteldefaultt?.propertyName}</div>
-            <img src={`http://localhost:4000/uploads/${data?.hoteldefaultt?.coverImage}`} className='w-24 mb-3' alt="" srcSet="" />
-            Check-in
-                  <input onChange={enquiring} name='fromDate' type="date" className='bg-transparent h-5 border-white border-solid border-2 rounded' min={new Date().toISOString().split("T")[0]} />
+            {/* <div className='font'>{data?.hoteldefaultt?.propertyName}</div> */}
+            {/* <img src={`http://localhost:4000/uploads/${data?.hoteldefaultt?.coverImage}`} className='w-24 mb-3' alt="" srcSet="" /> */}
+            {/* Check-in */}
+                  {/* <input onChange={enquiring} name='fromDate' type="date" className='bg-transparent h-5 border-white border-solid border-2 rounded' min={new Date().toISOString().split("T")[0]} />
                   Check-out
-                  <input onChange={enquiring} name='toDate' type="date" className='bg-transparent h-5 border-white border-solid border-2 rounded' min={enqdata.fromDate} />
-            <div className='ml-[500px]'>Health Assistant status: {data.booking?.healthstatus}</div>
+                  <input onChange={enquiring} name='toDate' type="date" className='bg-transparent h-5 border-white border-solid border-2 rounded' min={enqdata.fromDate} /> */}
+            {/* <div className='ml-[500px]'>Health Assistant status: {data.booking?.healthstatus}</div> */}
             {/* <div className='ml-[500px]'>Health Wage:</div> */}
             <div className='text-[20px] '>
-              Adventure Chosen
+              {/* Adventure Chosen */}
             </div><br />
-            {data.adventures ?
+            {/* {data.adventures ?
             data.adventures?.map((item) => (
               <div className='flex flexwrap  justify-start '>
               <img src={`http://localhost:4000/uploads/${item.image}`} className='w-24 mb-3' alt="" srcSet="" />
@@ -138,11 +143,11 @@ export const Vwcstrenqry = () => {
               <img src={`http://localhost:4000/uploads/${data?.defaultadventures[0]?.image}`} className='w-24 mb-3' alt="" srcSet="" />
             </>
             
-            }
+            } */}
 
 
 
-            <div className='mt-5'> booking status: {data.booking?.status}</div>
+            {/* <div className='mt-5'> booking status: {data.booking?.status}</div> */}
             <div className='flex flex-wrap gap-14 ml-96'>
               <button onClick={() => { handleSubmit('Accepted') }} className='bg-green-600 w-32 h-9 rounded-lg font-bold'>ACCEPT</button>
               <button onClick={() => { handleSubmit('Rejected') }} className='bg-orange-600 w-32 h-9 rounded-lg font-bold'>REJECT</button>

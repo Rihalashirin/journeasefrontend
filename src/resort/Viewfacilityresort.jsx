@@ -16,7 +16,7 @@ export const Viewfacilityresort = () => {
       },[])
 
   return (
-    <div className='bg-[#1a2954d6] h-[467px]'>
+    <div className='bg-[#1a2954d6] h-[600px]'>
        <table class="w-full text-sm text-center rtl:text-right text-black dark:text-black">
         <thead class="text-xs text-black uppercase bg-[#9B9B9B] border-b-2 border-orange-600 dark:text-black">
             <tr>
@@ -35,9 +35,9 @@ export const Viewfacilityresort = () => {
                 
                 
                 
-                {/* <th scope="col" class="px-6 py-3">
+                <th scope="col" class="px-6 py-3">
                     ACTION
-                </th> */}
+                </th>
                 
             </tr>
         </thead>
@@ -78,11 +78,11 @@ export const Viewfacilityresort = () => {
                 
                 
        
-                {/* <td class="px-6 py-4 flex flex-wrap  gap-2">
-                    <a href="#" class="font-bold text-sm text-black bg-orange-600 hover:underline hover:bg-gray p-1">view details</a>
-                    <Link to={`/resort/updatereg3/${id}`}> <button className='w-32 font bg-orange-600 rounded-lg text-white '>UPDATE</button></Link> 
-                   <button className='w-32 font bg-orange-600 rounded-lg text-white '>DELETE</button>
-                </td> */}
+                <td class="px-6 py-4 flex flex-wrap  gap-2">
+                    {/* <a href="#" class="font-bold text-sm text-black bg-orange-600 hover:underline hover:bg-gray p-1">view details</a> */}
+                    <Link to={`/resort/updatereg3/${item._id}`}> <button className='w-32  font mt-5 bg-orange-600 rounded-lg text-white '>UPDATE</button></Link> 
+                   {/* <button className='w-32 font bg-orange-600 rounded-lg mt-5 text-white '>DELETE</button> */}
+                </td>
                 
             </tr>
              ))}

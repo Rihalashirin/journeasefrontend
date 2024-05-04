@@ -16,6 +16,11 @@ export const Guideprofile = () => {
     };
     fetchdata();
   }, [refresh]); 
+  let handlefile=(event)=>{
+    console.log(event.target.files);
+    setData({...data,[event.target.name]:event.target.files[0]})
+    console.log(data);
+  }
      
   let handleChange=(event)=>{
       setData({...data,[event.target.name]:event.target.value})
@@ -85,7 +90,7 @@ export const Guideprofile = () => {
 
             <div >
               <label for="image" class="block mb-2 text-sm font-medium text-white dark:text-white">Image :</label>
-              <input onChange={handleChange}  name='image'  type="file" id="image" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder=""  />
+              <input onChange={handlefile}  name='image'  type="file" id="image" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder=""  />
             </div>
             <div >
               <label for="idproof" class="block mb-2 text-sm font-medium text-white dark:text-white">ID Proof :</label>

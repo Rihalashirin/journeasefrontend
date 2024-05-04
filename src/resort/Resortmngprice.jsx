@@ -30,8 +30,8 @@ export const Resortmngprice = () => {
                 Basic info </div> <br />
                Name  :{data.usr?.name}  <br/>
                Email :{data.usr?.email}  <br/>
-               Mobile:{data.usr?.contactNumber} <br/>
-                      {data.usr?.contactNumberalternative}<br/>
+               {/* Mobile:{data.usr?.contactNumber} <br/> */}
+                      {/* {data.usr?.contactNumberalternative}<br/> */}
 
                
            <div className='text-[20px] flex flex-wrap'>
@@ -53,7 +53,7 @@ export const Resortmngprice = () => {
              <div>{data.package1?.category}</div>
              <div className='flex flex-wrap gap-10'>
               <div>Guide :{data.bookings?.guide} </div>
-              <div>Health Assistant :{data.bookings?.health} </div>
+              <div>Health Assistant :{data.bookings?.health}:no </div>
               <div>Booking Status :{data.bookings?.status}</div>
              
 </div>

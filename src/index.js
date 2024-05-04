@@ -100,6 +100,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Adddefaulthotel } from './agency/Adddefaulthotel';
 import { Adddefaultadventure } from './agency/Adddefaultadventure';
 import { Vwrwpkg } from './admin/Vwrwpkg';
+import { Vwroom } from './resort/Vwroom';
+import { Forgot1 } from './Forgot1';
+import { Forgot2 } from './Forgot2';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -114,8 +117,9 @@ root.render(
      <Route path='/guideregister' element={<Rgstrguide/>}/>
      <Route path='/regresort' element={<Rgstrresort/>}/>
      <Route path='/regresort1' element={<Regresort1/>}/>
-    
+    <Route path='/forgot1'element={<Forgot1/>}/>
      <Route path='/userRegister' element={<Reguser/>}/>
+     <Route path='/forgot2/:email' element={<Forgot2/>}/>
     </Route>
 
     
@@ -227,7 +231,9 @@ root.render(
       <Route path='updatereg2/:id' element={<Updatereg2/>}/>
       <Route path='updatereg3/:id' element={<Updatereg3/>}/>
       <Route path='addfacilities' element={<Addfacility/>}/>
+      <Route path='viewroom'element={< Vwroom/>}/>
       <Route path='Viewfacility' element={<Viewfacilityresort/>}/>
+
     </Route>
 
     

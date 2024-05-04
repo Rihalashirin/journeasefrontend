@@ -4,6 +4,7 @@ import axios from 'axios';
 
 export const Addpkg1 = () => {
     const { id } = useParams();
+  
     const [resortData, setResortData] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedResorts, setSelectedResorts] = useState([]);
@@ -11,9 +12,9 @@ export const Addpkg1 = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/agency/findresort');
+                const response = await axios.get(`http://localhost:4000/agency/findresort/${id}`);
                 setResortData(response.data);
-            } catch (error) {
+            } catch (error) { 
                 console.error('Error fetching resort data:', error);
             }
         };

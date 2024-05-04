@@ -18,6 +18,11 @@ export const Proagencyupdate = () => {
     };
     fetchdata();
   }, [refresh]);
+  let handlefile=(event)=>{
+    console.log(event.target.files);
+    setData({...data,[event.target.name]:event.target.files[0]})
+    console.log(data);
+  }
 
   let handleChange = (event) => {
     console.log(event?.target?.name);
@@ -226,7 +231,7 @@ export const Proagencyupdate = () => {
                     Licence Proof :
                   </label>
                   <input
-                    onChange={handleChange}
+                    onChange={handlefile}
                     name="licenseProof"
                     type="file"
                     id="licenseproof"
@@ -236,11 +241,10 @@ export const Proagencyupdate = () => {
                     
                   />
                 </div>
-                <img
-                  className="w-22 h-14"
-                  src={`http://localhost:4000/uploads/${userData.licenseProof}`}
-                  alt="yfytf"
-                />
+                
+                <a target="_blank" href={`http://localhost:4000/uploads/${userData.licenseProof}`} download> <img className="w-[100px] h-14 " src={`http://localhost:4000/uploads/${userData.licenseProof}`} alt="click to view and dowload"></img> </a>
+                <a target='_blank' href={`http://localhost:4000/uploads/${userData.licenseProof}`} download ></a>
+        
               </div>
             </div>
             <div  className="flex  gap-1 justify-center items-center">
@@ -260,11 +264,13 @@ export const Proagencyupdate = () => {
             
                 
               />
-                       <img
+                  <a target="_blank" href={`http://localhost:4000/uploads/${userData.companyLogo}`} download> <img className="w-[100px] h-14 " src={`http://localhost:4000/uploads/${userData.companyLogo}`} alt="click to view and dowload"></img> </a>
+                <a target='_blank' href={`http://localhost:4000/uploads/${userData.companyLogo}`} download ></a>
+                       {/* <img
                   className="w-22 h-14"
                   src={`http://localhost:4000/uploads/${userData.companyLogo}`}
                   alt="yfytf"
-                />
+                /> */}
             </div>
             <div>
               <label

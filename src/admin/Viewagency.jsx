@@ -65,8 +65,9 @@ export const Viewagency = () => {
 </div>
 <div className='flex flex-wrap text-white   text-center'>
             <p className='font font-bold text-yellow-500'>License proof:</p>
-            <p > <img src={`http://localhost:4000/uploads/${data.licenseProof}`} alt="" className='w-44 h-16  ps-3 pt-3 '/></p>
-
+            {/* <p > <img src={`http://localhost:4000/uploads/${data.licenseProof}`} alt="" className='w-44 h-16  ps-3 pt-3 '/></p> */}
+            <a target="_blank" href={`http://localhost:4000/uploads/${data.licenseProof}`} download> <span>{data.licenseProof}</span></a>
+                 
 </div>
 {/* <div className='flex flex-wrap text-white  text-center'>
             <div className='font font-bold text-yellow-500'>Description:</div>
