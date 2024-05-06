@@ -47,7 +47,7 @@ export const Guideprofile = () => {
       
   }
   return (
-    <div className='bg-[#1a2954d6] h-[600px]'>
+    <div className='bg-[#1a2954d6] h-[800px]'>
     <div className='h-[64px] font text-[30px] font-bold m-0 text-left pl-10 '>
     <span className='text-white'>Update </span><span className='text-orange-600'>Profile</span>
   </div>
@@ -67,23 +67,23 @@ export const Guideprofile = () => {
             </div>
             <div >
               <label for="gender" class="block mb-2 text-sm font-medium text-white dark:text-white">Gender:</label>
-              <input onChange={handleChange} value={userData.gender} name='gender' type="text" id="gender" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
+              <input onChange={handleChange} placeholder={userData.gender} name='gender' type="text" id="gender" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
             </div>
             <div>
               <label for="contactnumber" class="block mb-2 text-sm font-medium text-white dark:text-white">Contact Number:</label>
-              <input onChange={handleChange} value={userData.contactNumber} name='contactNumber' type="number" id="contactnumber" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
+              <input onChange={handleChange} placeholder={userData.contactNumber} name='contactNumber' type="number" id="contactnumber" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
             </div>
             <div>
               <label for="place" class="block mb-2 text-sm font-medium text-white dark:text-white">Location of Expertise:</label>
-              <input onChange={handleChange} value={userData.locationExpertise} name='locationExpertise' type="text" id="place" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
+              <input onChange={handleChange} placeholder={userData.locationExpertise} name='locationExpertise' type="text" id="place" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
             </div>
             <div >
               <label for="address" class="block mb-2 text-sm font-medium text-white dark:text-white">Address :</label>
-              <input onChange={handleChange} value={userData.address} name='address' type="text" id="address" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
+              <input onChange={handleChange} placeholder={userData.address} name='address' type="text" id="address" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
             </div>
             <div >
               <label for="district" class="block mb-2 text-sm font-medium text-white dark:text-white">District :</label>
-              <input onChange={handleChange} value={userData.district} name='district' type="text" id="district" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
+              <input onChange={handleChange} placeholder={userData.district} name='district' type="text" id="district" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
             </div>
           </div>
           <div className='w-[25%]'>
@@ -92,21 +92,31 @@ export const Guideprofile = () => {
               <label for="image" class="block mb-2 text-sm font-medium text-white dark:text-white">Image :</label>
               <input onChange={handlefile}  name='image'  type="file" id="image" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder=""  />
             </div>
+            <a target="_blank" href={`http://localhost:4000/uploads/${userData.image}`} download> <img className="w-[100px] h-14 " src={`http://localhost:4000/uploads/${userData.image}`} alt="click to view and dowload"></img> </a>
+                <a target='_blank' href={`http://localhost:4000/uploads/${userData.image}`} download ></a>
+        
             <div >
               <label for="idproof" class="block mb-2 text-sm font-medium text-white dark:text-white">ID Proof :</label>
               <input onChange={handleChange}  name='idProof' type="file" id="idproof" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
             </div>
+            <a target="_blank" href={`http://localhost:4000/uploads/${userData.idProof}`} download> <img className="w-[100px] h-14 " src={`http://localhost:4000/uploads/${userData.idProof}`} alt="click to view and dowload"></img> </a>
+                <a target='_blank' href={`http://localhost:4000/uploads/${userData.idProof}`} download ></a>
+        
             <div >
               <label for="years" class="block mb-2 text-sm font-medium text-white dark:text-white">Experience(in years) :</label>
-              <input onChange={handleChange} value={userData.experienceYears} name='experienceYears' type="text" id="years" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
+              <input onChange={handleChange} placeholder={userData.experienceYears} name='experienceYears' type="text" id="years" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
             </div>
             <div>
               <label for="email" class="block mb-2 text-sm font-medium text-white dark:text-white">Email:</label>
-              <input onChange={handleChange} value={userData.email} name='email' type="email" id="email" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
+              <input onChange={handleChange} placeholder={userData.email} name='email' type="email" id="email" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
             </div>
             <div >
               <label for="password" class="block mb-2 text-sm font-medium text-white dark:text-white">Password:</label>
-              <input onChange={handleChange} value={userData.password} name='password' type="password" id="password" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
+              <input onChange={handleChange} placeholder={userData.password} name='password' type="password" id="password" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
+            </div>
+            <div >
+              <label for="cpassword" class="block mb-2 text-sm font-medium text-white dark:text-white">Confirm Password:</label>
+              <input onChange={handleChange}  pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\b)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$' title='password must contain atleast one lowercase letter,one uppercase letter,one digit,one special character ,and be 8 to 30 characters long' placeholder={userData.cpassword} name='cpassword' type="password" id="password" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"  />
             </div>
           </div>
           

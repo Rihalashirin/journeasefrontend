@@ -60,7 +60,7 @@ export const Addpkg3 = () => {
                                 checked={selectedResorts.includes(item._id)}
                                 onChange={() => handleResortCheckboxChange(item._id)}
                             />
-                            <Link to='/agency/editadventure'><button className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Edit</button></Link>
+                            <Link to=  {`/agency/editadventure/${item._id}`}><button className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Edit</button></Link>
                         </div>
                     </div>
                 ))}

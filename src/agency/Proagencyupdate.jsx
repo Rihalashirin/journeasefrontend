@@ -20,7 +20,7 @@ export const Proagencyupdate = () => {
   }, [refresh]);
   let handlefile=(event)=>{
     console.log(event.target.files);
-    setData({...data,[event.target.name]:event.target.files[0]})
+    setUserData({...setData,[event.target.name]:event.target.files[0]})
     console.log(data);
   }
 
@@ -35,6 +35,7 @@ export const Proagencyupdate = () => {
   };
   let handleSubmit = async (event) => {
     event.preventDefault();
+    window.location.reload();
     const formData = new FormData();
     for (const key in userData) {
       if (userData[key]) {
@@ -236,7 +237,7 @@ export const Proagencyupdate = () => {
                     type="file"
                     id="licenseproof"
                     class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
-                    placeholder={userData.licenseProof}
+                 
                   
                     
                   />

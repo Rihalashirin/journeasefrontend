@@ -10,7 +10,7 @@ export const Adddefaulthotel = () => {
 
   useEffect(() => {
     let fetchdata = async () => {
-      let response = await axios.get(`http://localhost:4000/agency/findresort`);
+      let response = await axios.get(`http://localhost:4000/agency/findresort/${id}`);
       console.log(response.data);
       setResortdata(response.data);
     };

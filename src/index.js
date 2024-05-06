@@ -191,7 +191,7 @@ root.render(
         <Route path='vwaddedguide'element={<Vwaddedguide/>}/>
         <Route path='vwaddedadventure/:id' element={<Vwaddedadventure/>}/>
         {/* <Route path='adddestination' element={<AddDetails/>}/> */}
-        <Route path='editadventure' element={<AdventureUpdate/>}/>
+        <Route path='editadventure/:id' element={<AdventureUpdate/>}/>
         <Route path='adddefaulthotel/:id'element={<Adddefaulthotel/>}/>
         <Route path='adddefaultadventure/:id' element={<Adddefaultadventure/>}/>
 

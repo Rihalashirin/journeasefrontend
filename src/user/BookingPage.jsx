@@ -15,19 +15,20 @@ export default function BookingPage() {
   const [toggle, settoggle] = useState(false);
   const { id } = useParams();
 
+
   let handleChange = (event) => {
     setData1({ ...data1, [event.target.name]: event.target.value });
-    
+     
+   
   
 
-if(event.target.name=="adult" || event.target.name=="child"){
-let totalPeople= parseInt(data1.adult)+parseInt(data1.adult)
-console.log("total peoples", totalPeople);
-console.log("no of people", parseInt(transportdata[0].pkg?.noofpeople));
-setCheckpeople(totalPeople)
+// if(event.target.name=="adult" || event.target.name=="child"){
+// console.log("total peoples", totalPeople);
+// console.log("no of people", parseInt(transportdata[0].pkg?.noofpeople));
+// setCheckpeople(totalPeople)
 
 
-}
+// }
 
 
     // Check if the user selected "No" for the guide
@@ -229,6 +230,30 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
 
   console.log(selectedResorts1, "====================");
   
+  let checking=()=>{
+    let totalPeople= parseInt(data1.adult)+parseInt(data1.child)
+    console.log("total peoples", totalPeople);
+    console.log("no of people", parseInt(transportdata[0].pkg?.noofpeople));
+    if(totalPeople>parseInt(transportdata[0].pkg?.noofpeople)||totalPeople<parseInt(transportdata[0].pkg?.noofpeople/2)){
+      return toast.error('sdfsdfd')
+      
+    }
+    setCheckpeople(totalPeople)
+
+    let newPrice=parseFloat(transportdata[0]?.pkg?.price)*parseInt(totalPeople)
+     setTransportdata((prevState) => ({
+          ...prevState,
+          [0]: {
+            ...prevState[0],
+            pkg: {
+              ...prevState[0].pkg,
+              price: newPrice,
+            },
+          },
+        }));
+          
+        }
+
   return (
     <>
       <ToastContainer/>
@@ -285,91 +310,11 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                   </div>
                 </div>
 
-                {/* <div class="flex items-center mb-4">
-    <input id="country-option-4" type="radio" name="countries" value="United Kingdom" class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus-ring-blue-600 dark:bg-gray-700 dark:border-gray-600"/>
-    <label for="country-option-4" class="block ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-      United Kingdom
-    </label>
-  </div> */}
+     
 
-                {/* <div class="flex items-center">
-    <input id="option-disabled" type="radio" name="countries" value="China" class="w-4 h-4 border-gray-200 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:bg-gray-700 dark:border-gray-600" disabled/>
-    <label for="option-disabled" class="block ms-2 text-sm font-medium text-gray-300 dark:text-gray-700">
-      China (disabled)
-    </label>
-  </div> */}
+   
               </fieldset>
-              {/* <div className="font">Set preferences</div>
-              <div className="flex flex-wrap gap-9">
-                <div className="flex flex-col gap-0">
-                  <div class="flex items-center mb-4">
-                    <input
-                      onChange={handleChange}
-                      id="country-option-3"
-                      type="radio"
-                      name="gender"
-                      value="male"
-                      class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                    <label
-                      for="country-option-3"
-                      class="block ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                    >
-                      male
-                    </label>
-                  </div>
-                  <div class="flex items-center mb-4">
-                    <input
-                      onChange={handleChange}
-                      id="country-option-3"
-                      type="radio"
-                      name="gender"
-                      value="female"
-                      class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                    <label
-                      for="country-option-3"
-                      class="block ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                    >
-                      female
-                    </label>
-                  </div>
-                </div>
-                <div className="flex flex-wrap flex-col ">
-                  <div class="flex items-center mb-4">
-                    <input
-                      onChange={handleChange}
-                      id="country-option-3"
-                      type="radio"
-                      name="experience"
-                      value="above 5 years"
-                      class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                    <label
-                      for="country-option-3"
-                      class="block ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                    >
-                      Experience greater than 5 Years
-                    </label>
-                  </div>
-                  <div class="flex items-center mb-4">
-                    <input
-                      onChange={handleChange}
-                      id="country-option-3"
-                      type="radio"
-                      name="experience"
-                      value="less than 5 years"
-                      class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                    <label
-                      for="country-option-3"
-                      class="block ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                    >
-                      Experience less than 5 years
-                    </label>
-                  </div>
-                </div>
-              </div> */}
+             
 <div className="text-orange-950 font-bold"> Health Assistant:</div> 
               <div class="flex items-center mb-4">
                 <input
@@ -389,28 +334,13 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
               </div>
 
               <div className="flex flex-wrap flex-col ">
-                {/* <div class="flex items-center mb-4">
-                  <input
-                    onChange={handleChange}
-                    id="country-option-3"
-                    type="radio"
-                    name="health"
-                    value="No"
-                    class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:bg-gray-700 dark:border-gray-600"
-                  />
-                  <label
-                    for="country-option-3"
-                    class="block ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                  >
-                    No,I don't want a Health Assistant
-                  </label>
-                </div> */}
+               
                 <div className="text-orange-950 font-bold"> Whom are you traveling with:</div> 
                 <div className="flex flex-wrap gap-5 font-medium">
-                {  transportdata[0]?.pkg?.category == 'iv' ?
+                {  transportdata[0]?.pkg?.category == 'iv'  || transportdata[0]?.pkg?.category == 'IV' ?
                   <div>Teacher:</div>
                   :
-                  <div>Adults:</div>
+                  <div>Adult:</div>
               }
                   <input
                     type="number"
@@ -419,10 +349,10 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                     value={data.adult}
                     className="w-12"
                   ></input>
-                  {  transportdata[0]?.pkg?.category == 'iv' ?
+                  {  transportdata[0]?.pkg?.category == 'iv' ||  transportdata[0]?.pkg?.category == 'IV' ?
                   <div>Students:</div>
                   :
-                  <div>Children:</div>
+                  <div>Child:</div>
                    }
                   <input
                     type="number"
@@ -434,6 +364,7 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                   >
 
                   </input>
+                  <button onClick={checking}>check</button>
                  
                   <div>Picking place:</div>
                   <input onChange={handleChange} name="pickingplace" type="text" className="w-48"></input>
@@ -452,12 +383,15 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
       
       
     />
-    <img
+   <img
               src={item.transportImage}
               className="m-auto w-28 h-24 rounded-2xl"
               alt=""
               srcset=""
             />
+             {/* <a target="_blank" href={`http://localhost:4000/uploads/${item.transportImage}`} download> <img className="w-[100px] h-14 " src={`http://localhost:4000/uploads/${item.transportImage}`} alt="click to view and dowload"></img> </a>
+                <a target='_blank' href={`http://localhost:4000/uploads/${item.transportImage}`} download ></a> */}
+        
     <label htmlFor={`transport${index}`}>
       {item.transportOption} - {item.noofppl} People - {item.price}/-
     </label>
@@ -490,6 +424,7 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
             <div className="font font-bold">
               {item.agency?.adventureName} <br />{" "}
               <div className="font font-light">{item.agency?.price}-/Head</div>
+              <div className="font font-light">{item.agency?.description}</div>
             </div>
             <input
               type="checkbox"
