@@ -76,7 +76,7 @@ export const Resortmngenqry = () => {
                  
                 </td>
                 <td class="px-6 py-4">
-                paid
+               {item.bookings?.status}
                 </td>
                 
                 <td class="px-3 py-4 flex flex-wrap flex-col gap-2 text-center">

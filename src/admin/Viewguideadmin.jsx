@@ -77,8 +77,25 @@ export const Viewguideadmin = () => {
 
 </div>
 <div className='flex flex-wrap gap-2'>
+{data.status === "pending" &&
+  <>
 <button onClick={()=>{handleSubmit('accepted',data._id)}} href="#" className=' font-bold bg-white  text-green-600 hover:underline w-32'>Accept</button>
 <button onClick={()=>{handleSubmit('rejected',data._id)}} href="#" className=' font-bold bg-white  text-green-600 hover:underline w-32'>Reject</button>
+</>
+}
+
+{data.status === "accepted" &&
+ <>
+ <button onClick={()=>{handleSubmit('rejected',data._id)}} href="#" className=' font-bold bg-white  text-green-600 hover:underline w-32'>Reject</button>
+ </>
+ }
+
+{data.status === 'rejected' &&
+
+<>
+<button onClick={()=>{handleSubmit('accepted',data._id)}} href="#" className=' font-bold bg-white  text-green-600 hover:underline w-32'>Accept</button>
+</>
+}
 </div>
        </div>
 

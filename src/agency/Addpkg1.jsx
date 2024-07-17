@@ -55,7 +55,7 @@ export const Addpkg1 = () => {
     };
 
     return (
-        <div className='pencil'>
+        <div className=' bg-yellow-500 pt-10 h-[600px]'>
             <div className='flex items-center max-w-sm mx-auto pt-7'>
                 <input
                     type='text'

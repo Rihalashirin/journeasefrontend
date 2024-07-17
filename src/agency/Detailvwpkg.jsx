@@ -106,7 +106,7 @@ export const Detailvwpkg = () => {
           <button type='submit' className='bg-yellow-700 w-24 text-[10px] mt-2  rounded-full py-2 px-4'>view Hotel</button>
         </Link>
         <Link to={`/agency/adventure/${id}`}>
-          <button type='submit' className='bg-yellow-700 w-32 text-[10px] mt-2 rounded-full py-2 px-4'>view adventure</button>
+          <button type='submit' className='bg-yellow-700 w-32 text-[10px] mt-2 rounded-full py-2 px-4'>select adventure</button>
         </Link>
         <Link to={`/agency/vwaddedadventure/${id}`}>
           <button type='submit' className='bg-yellow-700 w-32 text-[10px] mt-2 rounded-full py-2 px-4'>view adventure</button>

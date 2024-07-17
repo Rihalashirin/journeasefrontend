@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 export const Vwnotificatn = () => {
   const [data, setData] = useState(['']);
+  const navigate=useNavigate()
   const[data1,setdata1]= useState("");
   const [totalAmount, setTotalAmount] = useState(0);
   let { id } = useParams();
@@ -23,7 +24,7 @@ export const Vwnotificatn = () => {
   
     // setData(data)
     // console.log(data);
-    // navigate('/organization/viewdeliveryboyorg')
+    navigate('/user/mybookingtable')
     let response=await axios.put(`http://localhost:4000/user/payment/${id}`,{status:'paid'})
     
   console.log(response);
@@ -165,6 +166,7 @@ export const Vwnotificatn = () => {
         <div className=' font text-[30px] font-bold pl-5 pt-6 text-white'>
             Make Payment
           </div>
+          payment should be done within 24 hours else will be cancelled
           <fieldset>
             {/* <div className='bg-orange-600 w-28 text-white text-center float-end me-2'>Rs.47500</div> */}
   <legend class="sr-only">Countries</legend>
@@ -214,11 +216,11 @@ export const Vwnotificatn = () => {
   </div>
   <div class="mb-3 flex flex-wrap w-[25rem] justify-between items-center">
    <div> <label for="email" class="block mb-2 text-sm  font-light text-white font  dark:text-white">CVV</label></div>
-   <div> <input type="number" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required /></div>
+   <div> <input type="text" id="email" pattern='[0-9]*' title='please enter a valid pinnumber' maxLength={3} minLength={3} className="bg-gray-50 border border-gray-300  ma text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required /></div>
   </div>
   <div class="mb-3 flex flex-wrap w-[25rem] justify-between items-center">
    <div> <label for="email" class="block mb-2 text-sm  font-light text-white font  dark:text-white">Name of the Card Holder</label></div>
-   <div> <input type="text" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required /></div>
+   <div> <input type="text" id="name" pattern='^[a-zA-Z ]*$'  className="bg-gray-50 border type='text border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required /></div>
   </div>
   
  <button type='submit' className='bg-orange-600 text-white w-24 rounded-lg float-end me-52'>PAY</button>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import propic from './guideprofile.png'
 import addimg from './addimg.png'
 import issues from './issues.png'
@@ -8,33 +8,41 @@ import axios from 'axios';
 
 export const Guidehome = () => {
   const navigate=useNavigate()
+  const [data,setData] = useState("")
   let logout=()=>{
     localStorage.removeItem('id')
     localStorage.removeItem('email')
     navigate('/login')
 }
-  useEffect(()=>{
-    let auth=async ()=>{
+  // useEffect(()=>{
+  //   let auth=async ()=>{
   
-      let id=localStorage.getItem('id')
-      let email=localStorage.getItem('email')
-      let response=await axios.post('http://localhost:4000/user/api/auth/authenticate',{_id:id,email:email})
-      console.log(response);
-      if(response==null){
-        navigate('/login')
-      }
-      else if(response?.data?.userType !=='guide'){
-        navigate('/login')
-      }
+  //     let id=localStorage.getItem('id')
+  //     // let email=localStorage.getItem('email')
+  //     // let response=await axios.post('http://localhost:4000/user/api/auth/authenticate',{_id:id,email:email})
+  //     let response1=await axios.get(`http://localhost:4000/user/welcomename/${id}`)
+  //     // console.log(response);
+  //     setData(response1.data)
+  //     console.log(response1);
+
+  //     // if(response==null){
+  //     //   navigate('/login')
+  //     // }
+  //     // else if(response?.data?.userType !=='guide'){
+  //     //   navigate('/login')
+  //     // }
   
-    }
-    auth()
-  },[])
+  //   }
+  //   auth()
+  // },[])
   return (
     <div className='guidehome'>
         <div className=' font text-[30px] font-bold pl-5 pt-6'>
-            <span className='text-white'>Welcome,</span><span className='text-orange-600'> Phil</span>
-            <div onClick={logout} className='font bg-white w-36 text-[20px] pr-5 text-end text-orange-600'>LOG OUT</div>
+            <span className='text-white'>Welcome,</span><span className='text-orange-600'> Guide</span>
+            {/* <div onClick={logout} className='font bg-white w-36 text-[20px] pr-5 text-end text-orange-600'>LOG OUT</div> */}
+            <div className="font text-orange-600 text-[20px] bg-white w-28 p-2 rounded-lg">
+            <button onClick={logout}> LOGOUT </button>
+          </div>
           </div>
 
          

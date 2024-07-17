@@ -169,12 +169,12 @@ transports.forEach((transport, index) => {
      
 
       <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
-        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
+        <div class=" gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
           
 
           <div class="lg:col-span-2 ">
-            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
-          
+          <div class=" gap-4 gap-y-2 flex flex-wrap text-sm grid-cols-1 md:grid-cols-5">
+         
               <div class="md:col-span-5 ">
                 <label for="full_name">Package Name</label>
                 <input onChange={handleChange} placeholder={userData[1]?.response?.packageName} type="text" name="packageName" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
@@ -184,12 +184,20 @@ transports.forEach((transport, index) => {
                 <input onChange={handleChange}  placeholder={userData[1]?.response?.location}  type="text" name="location" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
               </div>
               <div class="md:col-span-5">
-                <label for="destination">Category</label>
+                <label for="days">No of days</label>
+                <input onChange={handleChange}  placeholder={userData[1]?.response?.noOfDays} type="text" name="noOfDays" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
+              </div>
+              <div class="md:col-span-5">
+                <label for="category">Category</label>
                 <input onChange={handleChange}  placeholder={userData[1]?.response?.category} type="text" name="category" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
               </div>
               <div class="md:col-span-5">
                 <label for="destination">No of People</label>
                 <input onChange={handleChange}  placeholder={userData[1]?.response?.noofpeople} type="number" name="noofpeople" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
+              </div>
+              <div class="md:col-span-3">
+                <label for="days">price</label>
+                <input onChange={handleChange}  placeholder={userData[1]?.response?.price} type="number" name="price" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
               </div>
             
               <div class="md:col-span-5">
@@ -200,7 +208,8 @@ transports.forEach((transport, index) => {
                 <label for="category"> vehicle Amount</label>
                 <input onChange={handleChange} placeholder={userData[1]?.response?.defaultvehicleprice} type="number" name="defaultvehicleprice" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
               </div>
-              <div class="md:col-span-5">
+              
+              <div class="md:col-span-5 flex flex-wrap gap-2">
                 <label for="vehicle">Vehicle Image</label>
                 <FileBase64
         multiple={ false }
@@ -211,6 +220,15 @@ transports.forEach((transport, index) => {
                   alt=""
                 />
                      </div>
+                     <div class="md:col-span-5 flex flex-wrap gap-3">
+                <label for="email">Cover Image</label>
+                <input onChange={handlefile}type="file" name="coverImage" id="email" class="h-10 border mt-1 w-60 rounded px-4 ms-6 bg-gray-50"  />
+                <img
+                  className="w-22 h-14"
+                  src={`http://localhost:4000/uploads/${userData[1]?.response?.coverImage}`}
+                  alt=""
+                />
+              </div>
 
               <div className="container mx-auto px-4 py-8">
       <button
@@ -275,28 +293,14 @@ transports.forEach((transport, index) => {
     </div>
     
 
-              <div class="md:col-span-5 flex flex-wrap gap-3">
-                <label for="email">Cover Image</label>
-                <input onChange={handlefile}type="file" name="coverImage" id="email" class="h-10 border mt-1 w-60 rounded px-4 ms-6 bg-gray-50"  />
-                <img
-                  className="w-22 h-14"
-                  src={`http://localhost:4000/uploads/${userData[1]?.response?.coverImage}`}
-                  alt=""
-                />
-              </div>
+            
               
              <div>
             
              </div>
-              <div class="md:col-span-3">
-                <label for="days">No of days</label>
-                <input onChange={handleChange}  placeholder={userData[1]?.response?.noOfDays} type="text" name="noOfDays" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
-              </div>
-              <div class="md:col-span-3">
-                <label for="days">price</label>
-                <input onChange={handleChange}  placeholder={userData[1]?.response?.price} type="number" name="price" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" />
-              </div>
-              <div class="md:col-span-5 flex flex-wrap">
+              
+              
+              {/* <div class="md:col-span-5 flex flex-wrap">
                 <label for="email">upload Brochure</label>
                 <input onChange={handlefile} type="file" name="uploadBrochure" id="brochure" class="h-10 border mt-1 w-60 rounded px-4 ms-6 bg-gray-50"   />
                 <img
@@ -304,7 +308,7 @@ transports.forEach((transport, index) => {
                   src={`http://localhost:4000/uploads/${userData[1]?.response?.uploadBrochure}`}
                   alt=""
                 />
-              </div>
+              </div> */}
               
               <div>
              
@@ -409,25 +413,27 @@ transports.forEach((transport, index) => {
     </div>
               
 
-              
-      <div class="md:col-span-5">
+      <div className=' flex flex-wrap gap-2'>        
+      <div class="flex flex-wrap gap-2">
                 <label for="full_name">Basic Description</label>
                 {/* <input type="text" name="" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" /> */}
                 <textarea onChange={handleChange}  placeholder={userData[1]?.response?.basicDescription} name="basicDescription" id="" cols="30" rows="10"></textarea>
               </div>
-              <div class="md:col-span-5">
+              <div class="flex flex-wrap gap-2">
                 <label for="full_name">Detailed Information</label>
                 {/* <input type="text" name="" className='h-10 border mt-1 w-60 rounded px-2 ms-6 bg-gray-50' id="" /> */}
                 <textarea onChange={handleChange}  placeholder={userData[1]?.response?.detailedDescription} name="detailedDescription" id="" cols="30" rows="10"></textarea>
               </div>
-              <div class="md:col-span-5 text-right">
+              </div>
+             
+              
+
+            </div>
+            <div class="md:col-span-5 text-right">
                 <div class="inline-flex items-end">
                 <button type='submit' class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">update</button>
                 </div>
               </div>
-              
-
-            </div>
           </div>
         </div>
       </div>

@@ -36,7 +36,7 @@ export const Uservwpkgreview = () => {
       <div className='font-semibold text-white  bg-orange-600 w-56 mx-auto px-2 py-2 text-center '>Customer Satisfaction</div><br/>
       <div className='flex flex-wrap gap-2'>
       {data1?.map((item)=>(
-
+ item?.review[0]?.review &&
      
       <div className="bg-white  rounded-lg w-[200px]  shadow-md p-4">
             <div className="flex justify-between items-center mb-2">

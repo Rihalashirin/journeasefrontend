@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { toast ,ToastContainer } from "react-toastify";
 
 export const Mybooking = () => {
   const [data, setData] = useState("");
@@ -8,7 +9,9 @@ export const Mybooking = () => {
   const [reviews, setreviews] = useState(false);
   const [reviewresort, setreviewresort] = useState("");
   const [reviewresorts, setreviewsresort] = useState(false);
+
   let { id } = useParams();
+ 
   useEffect(() => {
     let fetchdata = async () => {
       let response = await axios.get(
@@ -16,10 +19,16 @@ export const Mybooking = () => {
       );
       console.log(response.data, "log for ----");
       setData(response.data);
+     
+      
+
     };
     fetchdata();
   }, []);
-  let reasondrop = () => {
+
+  const [dest,setDest]=useState('')
+  let reasondrop = (dest) => {
+setDest(dest);
     setreviews(!reviews);
   };
   const [rdata,setRdata]= useState("");
@@ -40,8 +49,10 @@ export const Mybooking = () => {
     let response = await axios.post(`http://localhost:4000/user/addreview `, {
       ...review,
       bookingid: id,
-      destinationName: dname,
+      destinationName: dest,
+      
     });
+    toast.success("submitted");
     console.log(response);
   };
 
@@ -56,6 +67,7 @@ export const Mybooking = () => {
 
   return (
     <div className="userhome">
+      <ToastContainer/>
       <div className="bg-white/50 w-[90%] p-3 ms-5 pt-2">
         <div className="font ">
           <div className="text-[20px] text-red-950 font-bold ">
@@ -75,7 +87,7 @@ export const Mybooking = () => {
               <div className="underline">{item.Destination}</div>
               {data.booking.status == "paid" && (
                 <button
-                  onClick={reasondrop}
+                  onClick={()=>reasondrop(item.Destination)}
                   className="bg-orange-600 px-2 py-2 rounded-lg "
                 >
                   {" "}
@@ -96,6 +108,8 @@ export const Mybooking = () => {
                     ></input>
                   </div>
                   <div>
+              
+
                     <button
                       onClick={() =>  handleSubmit(item.Destination)}
                       type="submit"
@@ -141,60 +155,77 @@ export const Mybooking = () => {
             Accomodation Chosen{" "}
           </div>
           <br />
-{data.resorts?.map((item)=>(
-          <div className="flex flexwrap gap-20 ">
-            <img
-              className="w-[200px]"
-              src={`http://localhost:4000/uploads/${item?.resort?.coverImage}`}
-              alt=""
-              srcset=""
+          {data.resorts?.map((item) => (
+  <div key={item.resort._id} className="flex flexwrap gap-20">
+    {item.resort.coverImage && (
+      <div>
+        <img
+          className="w-[200px]"
+          src={`http://localhost:4000/uploads/${item.resort.coverImage}`}
+          alt=""
+        />
+        {data.booking.status === "paid" && (
+          <button
+            onClick={() => reason1drop(item.resort._id)}
+            className="bg-orange-600 px-1 py-1 h-10 mt-5 rounded-lg"
+          >
+            Add Review
+          </button>
+        )}
+        {reviewresorts && (
+          <div className="absolute top-[430px] bg-white p-9 pt-2 w-[400px] ml-36 pb-7 h-[170px] rounded-lg">
+            <div className="font-medium text-black mt-3">MY REVIEW:</div>
+            <div>
+              <input
+                onChange={handleresortChange}
+                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                name="review"
+                type="text"
+                id=""
               />
-              {data.booking.status == "paid" && (
-                <button
-                  onClick={()=>reason1drop(item.resort._id)}  
-                  className="bg-orange-600 px-1 py-1 h-10 mt-5 rounded-lg "
-                >
-                  {" "}
-                  Add Review
-                </button>
-              )}
-               {reviewresorts && (
-                <div className="absolute top-[430px] bg-white p-9 pt-2 w-[400px] ml-36 pb-7 h-[170px] rounded-lg">
-                  <div className="font-medium text-black mt-3">MY REVIEW:</div>
-                  <div>
-                    <input
-                      onChange={handleresortChange}
-                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      name="review"
-                      type="text"
-                      id=""
-                    ></input>
-                  </div>
-                  <div>
-                    <button
-                      onClick={() => resortreviews(item.resortId)}
-                      type="submit"
-                      className="w-full text-white bg-orange-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 h-9 mt-3"
-                    >
-                      SUBMIT
-                    </button>
-                  </div>
-                </div>
-              )}
-            <div className="pt-10">
-              <h4>
-                Property Name
-              </h4>
-              {item.resort.propertyName} <br />
             </div>
-            <div className="pt-10">
-              <h4>Price</h4>
-              {data.booking.accomodatn =='standard' && <span>{item.rooms.standardPrice}</span>}
-              {data.booking.accomodatn =='luxury' && <span>{item.rooms.luxuryprice}</span>} <br />
+            <div>
+              <button
+                onClick={() => resortreviews(item.resortId)}
+                type="submit"
+                className="w-full text-white bg-orange-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 h-9 mt-3"
+              >
+                SUBMIT
+              </button>
             </div>
           </div>
-              
+        )}
+      </div>
+    )}
+    <div className="pt-10">
+      <h4>Property Name</h4>
+      {item.resort.propertyName} <br />
+    </div>
+    <div className="pt-10">
+      <h4>Price</h4>
+      {data.booking.accomodatn === "standard" && (
+        <span>{item.rooms.standardPrice}</span>
+      )}
+      {data.booking.accomodatn === "luxury" && (
+        <span>{item.rooms.luxuryprice}</span>
+      )}{" "}
+      <br />
+    </div>
+  </div>
 ))}
+{!data.resorts?.some((item) => item.resort.coverImage) && (
+  <div>
+    <div>{data?.defaulthotel?.propertyName}</div>
+    <img
+      className="w-[200px]"
+      src={`http://localhost:4000/uploads/${data?.defaulthotel?.coverImage}`}
+      alt=""
+    />
+  </div>
+)}
+
+
+
 
 
 

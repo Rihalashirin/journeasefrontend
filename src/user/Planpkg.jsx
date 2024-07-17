@@ -170,7 +170,7 @@ export const Planpkg = () => {
                 No of people: {item?.package?.noofpeople}
               </div>
               <div className="text-orange-800">
-                Price: {item?.package?.price}/- per head
+                Price: {item?.package?.price}/- 
               </div>
             </div>
           </div>

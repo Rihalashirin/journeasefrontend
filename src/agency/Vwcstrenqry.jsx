@@ -7,6 +7,7 @@ export const Vwcstrenqry = () => {
   let { id } = useParams();
   const [data1, setdata1] = useState(['']);
   const [enqdata, setengData] = useState('');
+  const [refresh,setRefresh]=useState(false)
 
   let handleSubmit = async (status) => {
     let response = await axios.put(`http://localhost:4000/agency/managebooking/${id}`, { status: status });
@@ -20,6 +21,7 @@ export const Vwcstrenqry = () => {
   };
 
   let health = async (status) => {
+  setRefresh(!refresh)
     let response = await axios.put(`http://localhost:4000/agency/assignhealth/${id}`, { healthstatus: status, healthwage: data.healthwage });
   };
 
@@ -40,7 +42,7 @@ export const Vwcstrenqry = () => {
       setData(response.data);
     };
     fetchdata();
-  }, []);
+  }, [refresh]);
 
   return (
     <div className='pencil'>
@@ -112,7 +114,14 @@ export const Vwcstrenqry = () => {
               <div>Guide status: {data.booking?.guidestatus}</div>
               {/* <div>Guide wage: {data.booking?.wage}</div> */}
             </div>
-            <button onClick={() => health("assigned")} className='bg-orange-600 w-32 ml-[900px] h-9 rounded-lg'>ASSIGN A HA</button>
+            Health assistant status: {data.booking?.healthstatus}
+            {data.booking?.healthstatus=='pending' &&
+            <button onClick={() => health("assigned")} className='bg-orange-600 w-32 ml-[900px] text-[10px] h-9 rounded-lg'>ASSIGN  HEALTH ASSISTANT</button>
+            }
+                       {data.booking?.healthstatus=='assigned' &&
+
+            <button onClick={() => health("pending")} className='bg-orange-600 w-32 ml-[900px] text-[10px] h-9 rounded-lg'>UNASSIGN  HEALTH ASSISTANT</button>
+          }
             {/* <div className='ml-[100px]'>
               <label for="name" class="block mb-2 text-sm font-medium  dark:text-white">Health Wage :</label>
               <input onChange={handleChange} name='healthwage' type="number" id="name" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg  focus:ring-blue-500 focus:border-blue-500 block w-24 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required />

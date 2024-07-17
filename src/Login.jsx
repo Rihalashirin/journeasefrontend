@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { Toast } from 'bootstrap'
 import { ToastContainer, toast } from 'react-toastify'
+import { Link, useParams } from 'react-router-dom'
 
 
 
@@ -15,25 +16,26 @@ const Login = () => {
   let handleSubmit=async(event)=>{
     event.preventDefault()
     console.log(data)
+    setData(data)
     let response=await axios.post('http://localhost:4000/user/login',data)
     console.log(response);
     if(response.data){
       localStorage.setItem('id',response.data._id)
       localStorage.setItem('email',response.data.email)
 
-      if(response.data.userType=='user'){
+      if(response?.data?.userType=='user'){
         navigate('/user')
       }
-      else if(response.data.userType=='agency'){
-        if(response.data.status=='accepted'){
+      else if(response?.data?.userType=='agency'){
+        if(response?.data?.status=='accepted'){
         navigate('/agency')
       }
       else{
         toast.error("not accepted admin");
       }
     }
-      else if(response.data.userType=='resort'){
-        if(response.data.status=='accepted'){
+      else if(response?.data?.userType=='resort'){
+        if(response?.data?.status=='accepted'){
         
         navigate('/resort')
       }
@@ -41,15 +43,15 @@ const Login = () => {
         toast.error("not accepted admin");
       }
     }
-      else if(response.data.userType=='guide'){
-        if(response.data.status=='accepted'){
+      else if(response?.data?.userType=='guide'){
+        if(response?.data?.status=='accepted'){
         navigate('/guide')
       }
       else{
         toast.error("not accepted admin");
       }
     }
-      else if(response.data.userType=='admin'){
+      else if(response?.data?.userType=='admin'){
         navigate('/admin')
       }
     }
@@ -110,7 +112,7 @@ const Login = () => {
           <div className='text-center'>
             <button onClick={handleSubmit} type="submit" className='bg-orange-600 p-1 rounded-lg w-40 text-white' name="" id="" >LOGIN</button>
             </div>
-          <div className='forget font text-[10px] text-white underline italic text-center p-2'>forgot password</div>
+            <Link to='/forgot1'>    <div className='forget font text-[10px] text-white underline italic text-center p-2'>forgot password</div></Link>
 
           </form>
         </div > </div>

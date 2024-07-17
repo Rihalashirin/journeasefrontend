@@ -196,8 +196,8 @@ console.log(transport,'jhugytfrdse');
                 <input onChange={handleChange} type="text" name="category" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
               </div>
               <div class="md:col-span-5">
-                <label for="category">No Of People</label>
-                <input onChange={handleChange} type="number" name="noofpeople" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
+                <label for="no of people">No Of People</label>
+                <input onChange={handleChange} type="number" min='1' name="noofpeople" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
               </div>
              
               <div class="md:col-span-5">
@@ -206,7 +206,7 @@ console.log(transport,'jhugytfrdse');
               </div>
                <div class="md:col-span-5">
                 <label for="category"> vehicle Amount</label>
-                <input onChange={handleChange} type="number" name="defaultvehicleprice" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
+                <input onChange={handleChange} type="number" min='1' name="defaultvehicleprice" className='h-10 border mt-1 rounded px-2 ms-6 bg-gray-50 id=" '/>
               </div>
               <div class="md:col-span-5">
                 <label for="full_name">Vehicle Image</label>

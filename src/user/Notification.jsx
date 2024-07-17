@@ -15,7 +15,7 @@ export const Notification = () => {
     fetchdata();
   }, []);
   return (
-    <div className='userhome'>
+    <div className='userhome1'>
         <div className=' font text-[30px] font-bold pl-5 pt-6 text-white'>
             Notifications
           </div>

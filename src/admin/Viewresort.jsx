@@ -68,11 +68,29 @@ export const Viewresort = () => {
             <p className='font font-bold w-[550px]'>{data.description}</p>
 
 </div>
-
+{/* <p>{data.status}</p> */}
 <div className='flex flex-wrap gap-5 mb-6 ms-32'>
+  {data.status === "pending" &&
+  <>
 <button onClick={()=>{handleSubmit('accepted',data._id)}} href="#" className=' font-bold bg-white  text-green-600 hover:underline w-32'>Accept</button>
 <button onClick={()=>{handleSubmit('rejected',data._id)}} href="#" className=' font-bold bg-white  text-green-600 hover:underline w-32'>Reject</button>
+</>
+ }
+ {data.status === "accepted" &&
+ <>
+ <button onClick={()=>{handleSubmit('rejected',data._id)}} href="#" className=' font-bold bg-white  text-green-600 hover:underline w-32'>Reject</button>
+ </>
+ }
+
+{data.status === 'rejected' &&
+
+<>
+<button onClick={()=>{handleSubmit('accepted',data._id)}} href="#" className=' font-bold bg-white  text-green-600 hover:underline w-32'>Accept</button>
+</>
+}
+
 </div>
+
        </div>
 
 

@@ -2,11 +2,11 @@ import React from 'react'
 import arrow from './agency/images/Arrow.png'
 import { useState } from 'react'
 import axios from 'axios'
-// import { useNavigate } from 'react-router-dom'
-import {toast} from "react-toastify"
+import { useNavigate } from 'react-router-dom'
+import {ToastContainer, toast} from "react-toastify"
 
 export const Rgstrresort = () => {
-  // const navigate=useNavigate()
+  const navigate=useNavigate()
   const [data,setData]=useState('')
     
   let handlefile=(event)=>{
@@ -47,6 +47,7 @@ export const Rgstrresort = () => {
       formData.append('password',data.password);
 
       formData.append('userType','resort')
+      navigate('/')
       let response=await axios.post('http://localhost:4000/user/registration',formData,{
         headers: {
           'Content-Type': 'multipart/form-data'
@@ -60,12 +61,13 @@ export const Rgstrresort = () => {
        })
       
       }}
-    //  navigate('/regresort1')
+    
   } 
   
 
   return (
     <div className='bg-[#1a2954d6] h-[850px]'>
+      <ToastContainer/>
         <div className='h-[64px] font text-[30px] font-bold m-0 text-left pl-10 '>
     <span className='text-white'>Hotel</span><span className='text-orange-600'>Registration</span>
   </div>
@@ -88,8 +90,24 @@ export const Rgstrresort = () => {
               <input onChange={handleChange}  name='propertyAddress' type="text" id="address" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
             </div>
             <div >
-              <label for="District" class="block mb-2 text-sm font-medium text-white dark:text-white">District:</label>
-              <input onChange={handleChange}  name='district' type="text" id="district" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              <label for="district" class="block mb-2 text-sm font-medium text-white dark:text-white">District :</label>
+              <select onChange={handleChange} value={data.district} type="text" id="district" name='district' class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required >
+             <option value="">--Select district--</option>
+              <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+  <option value="Kollam">Kollam</option>
+  <option value="Pathanamthitta">Pathanamthitta</option>
+  <option value="Alappuzha">Alappuzha</option>
+  <option value="Kottayam">Kottayam</option>
+  <option value="Idukki">Idukki</option>
+  <option value="Ernakulam">Ernakulam</option>
+  <option value="Thrissur">Thrissur</option>
+  <option value="Palakkad">Palakkad</option>
+  <option value="Malappuram">Malappuram</option>
+  <option value="Kozhikode">Kozhikode</option>
+  <option value="Wayanad">Wayanad</option>
+  <option value="Kannur">Kannur</option>
+  <option value="Kasaragod">Kasaragod</option>
+              </select>
             </div>
             <div>
               <label for="contactnumber" class="block mb-2 text-sm font-medium text-white dark:text-white">Contact Number:</label>
@@ -120,7 +138,7 @@ export const Rgstrresort = () => {
 
             <div >
               <label for="ownername" class="block mb-2 text-sm font-medium text-white dark:text-white">Owner Name :</label>
-              <input onChange={handleChange}  pattern='^[a-zA-Z]*$'   name='ownerName' type="ownername" id="ownername" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required />
+              <input onChange={handleChange}  pattern='^[a-zA-Z ]*$'   name='ownerName' type="ownername" id="ownername" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required />
             </div>
             <div >
               <label for="coverimage" class="block mb-2 text-sm font-medium text-white dark:text-white">Cover Image:</label>

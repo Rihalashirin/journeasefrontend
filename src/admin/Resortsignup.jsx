@@ -15,6 +15,16 @@ export const Resortsignup = () => {
         }
         fetchdata()
     },[])
+    // const handleAlternativeLocationNames = (district) => {
+    //     const alternativeNames = {
+    //         'calicut': 'kozhikode',
+    //         'kochi': 'ernakulam',
+    //         'thiruvananthapuram': 'trivandrum'
+    //         // Add more alternative names as needed
+    //     };
+    //     return alternativeNames[district.toLowerCase()] || district;
+    // };
+
     const filteredData = data.filter((item) => {
         // Filter by status
         if (statusFilter !== 'All' && item.status !== statusFilter) {
@@ -23,9 +33,12 @@ export const Resortsignup = () => {
         // Filter by search query
         if (search.trim() !== '') {
             const searchQuery = search.toLowerCase();
-            const name = item.name ? item.name.toLowerCase() : '';
+            const name = item.propertyName ? item.propertyName.toLowerCase() : '';
             const district = item.district ? item.district.toLowerCase() : '';
-            return name.includes(searchQuery) || district.includes(searchQuery);
+            const propertyAddress = item.propertyAddress ? item.propertyAddress.toLowerCase() : ''; 
+            // const formattedDistrict = handleAlternativeLocationNames(district);
+            return name.includes(searchQuery) || district.includes(searchQuery) || propertyAddress.includes(searchQuery) ;
+
         }
         return true; // If no search query, return all data
     });
@@ -61,7 +74,7 @@ export const Resortsignup = () => {
                                 type="search"
                                 id="search-dropdown"
                                 className="block p-2.5 w-full z-20 text-sm text-white bg-slate-950/50 rounded-e-lg border-s-2 border border-gray-700 focus:ring-gray-700 focus:border-gray-700 dark:bg-gray-950/50 dark:border-s-orange-500 dark:border-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:border-gray-700 placeholder:text-white"
-                                placeholder="Search Hotels"
+                                placeholder="Search hotels or district"
                                 required
                             />
                         </div>

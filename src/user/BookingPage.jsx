@@ -231,11 +231,15 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
   console.log(selectedResorts1, "====================");
   
   let checking=()=>{
-    let totalPeople= parseInt(data1.adult)+parseInt(data1.child)
+    console.log(data1.child,'-------------');
+    if(!data1.child){
+      console.log('dsdsdfsd');
+    }
+    let totalPeople= parseInt(data1.adult) + (data1.child ? parseInt(data1.child):0)
     console.log("total peoples", totalPeople);
     console.log("no of people", parseInt(transportdata[0].pkg?.noofpeople));
-    if(totalPeople>parseInt(transportdata[0].pkg?.noofpeople)||totalPeople<parseInt(transportdata[0].pkg?.noofpeople/2)){
-      return toast.error('sdfsdfd')
+    if(totalPeople>parseInt((transportdata[0].pkg?.noofpeople+5))||totalPeople<parseInt(transportdata[0].pkg?.noofpeople/2)){
+      return toast.error(`Only ${Math.floor(transportdata[0].pkg?.noofpeople/2)}  - ${transportdata[0].pkg?.noofpeople+5} travelers allowed`)
       
     }
     setCheckpeople(totalPeople)
@@ -268,28 +272,53 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                    Package Price : {transportdata[0]?.pkg?.price }/-
                   </div>
             <div className="bg-white/50 w-[90%] p-3 ms-5 pt-2">
-              <fieldset>
+              
+             
+
+
+              <div className="flex flex-wrap flex-col ">
+               
+                <div className="text-orange-950 font-bold"> Whom are you traveling with:</div> 
+                <div className="flex flex-wrap gap-5 font-medium">
+                {  transportdata[0]?.pkg?.category == 'iv'  || transportdata[0]?.pkg?.category == 'IV' ?
+                  <div>Teacher:</div>
+                  :
+                  <div>Adult:</div>
+              }
+                  <input
+                    type="number"
+                    onChange={handleChange}
+                    name="adult"
+                    min='0'
+                    value={data.adult} 
+                    className="w-12"
+                  ></input>
+                  {  transportdata[0]?.pkg?.category == 'iv' ||  transportdata[0]?.pkg?.category == 'IV' ?
+                  <div>Students:</div>
+                  :
+                  <div>Child:</div>
+                   }
+                  <input
+                    type="number"
+                    value={data.child}
+                   min="0"
+                    onChange={handleChange}
+                    name="child"
+                    className="w-12 required:"
+                  >
+
+                  </input>
+                  <button onClick={checking}>check</button>
+                 
+                  <div>Picking place:</div>
+                  <input onChange={handleChange} name="pickingplace" type="text" className="w-48"></input>
+                </div>
+                <fieldset>
               <div className="text-orange-950 font-bold"> Guide:</div> 
                 <legend class="sr-only">Countries</legend>
                 <div className="flex flex-wrap justify-around">
                   you will have a guide with you
-                  {/* <div class="flex items-center mb-4">
-                    <input
-                      onChange={handleChange}
-                      id="country-option-1"
-                      type="radio"
-                      name="guide"
-                      value="yes"
-                      class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
-                     
-                    />
-                    <label
-                      for="country-option-1"
-                      class="block ms-2  text-sm font-medium text-gray-900 dark:text-gray-300"
-                    >
-                      Yes,I would like to have a Guide.(extra charges will be applied)
-                    </label>
-                  </div> */}
+                
 
                   <div class="flex items-center mb-4">
                     
@@ -314,8 +343,7 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
 
    
               </fieldset>
-             
-<div className="text-orange-950 font-bold"> Health Assistant:</div> 
+              <div className="text-orange-950 font-bold"> Health Assistant:</div> 
               <div class="flex items-center mb-4">
                 <input
                   onChange={handleChange}
@@ -332,71 +360,34 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
                   Yes,I would like to have Health assistant
                 </label>
               </div>
-
-              <div className="flex flex-wrap flex-col ">
-               
-                <div className="text-orange-950 font-bold"> Whom are you traveling with:</div> 
-                <div className="flex flex-wrap gap-5 font-medium">
-                {  transportdata[0]?.pkg?.category == 'iv'  || transportdata[0]?.pkg?.category == 'IV' ?
-                  <div>Teacher:</div>
-                  :
-                  <div>Adult:</div>
-              }
-                  <input
-                    type="number"
-                    onChange={handleChange}
-                    name="adult"
-                    value={data.adult}
-                    className="w-12"
-                  ></input>
-                  {  transportdata[0]?.pkg?.category == 'iv' ||  transportdata[0]?.pkg?.category == 'IV' ?
-                  <div>Students:</div>
-                  :
-                  <div>Child:</div>
-                   }
-                  <input
-                    type="number"
-                    value={data.child}
-
-                    onChange={handleChange}
-                    name="child"
-                    className="w-12"
-                  >
-
-                  </input>
-                  <button onClick={checking}>check</button>
-                 
-                  <div>Picking place:</div>
-                  <input onChange={handleChange} name="pickingplace" type="text" className="w-48"></input>
-                </div>
-                <div>Travel info:</div>
-{transportdata[0]?.pkg?.transports?.map((item, index)=>(
-  // parseInt(item?.noofppl) >= checkPeople &&
-  
-  <div key={index}>
-    <input 
-    onChange={handleChange}
-      type="radio" 
-      id={`transport${index}`} 
-      name="selectedTransport" 
-      value={item.transportOption} 
-      
-      
-    />
-   <img
-              src={item.transportImage}
-              className="m-auto w-28 h-24 rounded-2xl"
-              alt=""
-              srcset=""
-            />
-             {/* <a target="_blank" href={`http://localhost:4000/uploads/${item.transportImage}`} download> <img className="w-[100px] h-14 " src={`http://localhost:4000/uploads/${item.transportImage}`} alt="click to view and dowload"></img> </a>
-                <a target='_blank' href={`http://localhost:4000/uploads/${item.transportImage}`} download ></a> */}
-        
-    <label htmlFor={`transport${index}`}>
-      {item.transportOption} - {item.noofppl} People - {item.price}/-
-    </label>
+              <div className="travel-info">
+  <div className="font-bold">Travel info:</div>
+  <div className="card-group w-fit flex flex-wrap gap-2">
+    {transportdata[0]?.pkg?.transports?.map((item, index) => (
+      <div key={index} className="card ">
+       
+        <img
+          src={item.transportImage}
+          className="card-img-top w-32  h-32"
+          alt=""
+        />
+        <div className="card-body">
+          <h5 className="card-title">{item.transportOption}</h5>
+          <p className="card-text">No. of People: {item.noofppl}</p>
+          <p className="card-text">Price: {item.price}/-</p>
+        </div>
+        <input
+          onChange={handleChange}
+          type="radio"
+          id={`transport${index}`}
+          name="selectedTransport"
+          value={item.transportOption}
+          className="mt-2 mb-3"
+        />
+      </div>
+    ))}
   </div>
-))}
+</div>
 
 
               </div>
@@ -487,15 +478,16 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
             </div>
 
             <div className="flex flex-wrap justify-between ">
-              <div className="bg-white/45 w-72 mt-9 pl-3 rounded-lg text-amber-800 shadow-xl">
+              <div className="bg-white/45 w-72 mt-9 pl-3 rounded-lg h-20 text-amber-800 shadow-xl">
                 <div className="text-black text-[20px]">
-                  {data.response?.propertyAddress}
+                  {data.response?.propertyAddress}</div>
+                <div>  {data.response?.district}
                 </div>
               </div>
               <div className="bg-white/45 w-80 mt-9 pt-1 rounded-lg text-center shadow-xl text-amber-800">
                 <div className="text-black">{data.response?.aboutUs},</div>
               </div>
-              <div className="bg-white/45 w-80 mt-9 p-2 rounded-lg shadow-xl text-amber-800">
+              <div className="bg-white/45 w-80 mt-9 p-2 h-20 rounded-lg shadow-xl text-amber-800">
                 <div className="text-black">contact us:</div>
                 <div className="text-black">{data.response?.contactNumber}</div>
               </div>

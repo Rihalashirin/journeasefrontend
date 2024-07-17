@@ -116,7 +116,6 @@ root.render(
      <Route path='/agencyRegister' element={<Rgstrn/>}/>
      <Route path='/guideregister' element={<Rgstrguide/>}/>
      <Route path='/regresort' element={<Rgstrresort/>}/>
-     <Route path='/regresort1' element={<Regresort1/>}/>
     <Route path='/forgot1'element={<Forgot1/>}/>
      <Route path='/userRegister' element={<Reguser/>}/>
      <Route path='/forgot2/:email' element={<Forgot2/>}/>
@@ -233,6 +232,8 @@ root.render(
       <Route path='addfacilities' element={<Addfacility/>}/>
       <Route path='viewroom'element={< Vwroom/>}/>
       <Route path='Viewfacility' element={<Viewfacilityresort/>}/>
+     <Route path='regresort1' element={<Regresort1/>}/>
+
 
     </Route>
 

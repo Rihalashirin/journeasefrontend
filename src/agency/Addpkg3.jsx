@@ -10,7 +10,8 @@ export const Addpkg3 = () => {
 
     useEffect(() => {
         let fetchData = async () => {
-            let response = await axios.get(`http://localhost:4000/agency/findadventure`);
+            let response = await axios.get(`http://localhost:4000/agency/findadventure/${id}`);
+            console.log(response.data);
             setAdventureData(response.data);
         }
         fetchData();

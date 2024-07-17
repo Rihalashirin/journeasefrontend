@@ -26,7 +26,8 @@ export const Guidesignup = () => {
             const searchQuery = search.toLowerCase();
             const name = item.name ? item.name.toLowerCase() : '';
             const district = item.district ? item.district.toLowerCase() : '';
-            return name.includes(searchQuery) || district.includes(searchQuery);
+            const address = item.address ? item.address.toLowerCase() : "";
+            return name.includes(searchQuery) || district.includes(searchQuery) || address.includes(searchQuery);
         }
         return true; // If no search query, return all data
     });

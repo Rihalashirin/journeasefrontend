@@ -14,7 +14,7 @@ export const Vwroom = () => {
       },[])
   return (
     <div>
-               
+   <div className=' bg-[#1a2954d6] pt-10 h-[600px]'>          
 <div class="  overflow-x-auto shadow-md sm:rounded-lg mt-40 w-[50%] ml-72">
     <table class="w-full text-sm text-center rtl:text-right  text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-black uppercase  dark:bg-gray-950/90 dark:text-gray-400 ">
@@ -50,7 +50,7 @@ export const Vwroom = () => {
                    {data?.luxuryOccupancy}
                 </td>
                 <td class="px-6 py-4">
-                <a target="_blank" href={`http://localhost:4000/uploads/${data.images}`} download> <span>{data.image}</span></a>
+                <a target="_blank" href={`http://localhost:4000/uploads/${data?.images}`} download> <span>{data?.image}</span></a>
                 </td>
                 <td class="px-6 py-4">
                     {data?.luxuryprice}/-
@@ -71,7 +71,7 @@ export const Vwroom = () => {
                    {data?.standardOccupancy}
                 </td>
                 <td class="px-6 py-4">
-                <a target="_blank" href={`http://localhost:4000/uploads/${data.image}`} download> <span>{data.images}</span></a>
+                <a target="_blank" href={`http://localhost:4000/uploads/${data?.image}`} download> <span>{data?.images}</span></a>
                 </td>
                 <td class="px-6 py-4">
                     {data?.standardPrice}/-
@@ -88,6 +88,7 @@ export const Vwroom = () => {
     </table>
     
 </div> 
+</div>
     </div>
   )
 }

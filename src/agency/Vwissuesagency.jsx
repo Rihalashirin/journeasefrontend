@@ -65,7 +65,11 @@ export const Vwissuesagency = () => {
                 {new Date(item?.booking?.date).toLocaleString()}
                 </td>
                 <td class="px-6 py-4">
-                  There is a delay 
+                    {item.issue?.map((issues)=>(
+                        <>
+                  {issues.issue}
+                  </>
+                ))} 
                 </td>
                 {/* <td class="px-6 py-4">
                   

@@ -35,7 +35,7 @@ const handledetail = async (rid) => {
             <div className='font text-white text-center text-[30px]'>{data[0]?.agency?.companyName} </div>
             <div className='font text-white text-center'>{data[0]?.agency?.officeAddress}</div>
           <div className='w-[208px] text-center'>
-          <span className='text-white font font-bold text-[30px] '> </span><span className='text-orange-600 font font-bold text-[30px]'> {data[0]?.pkg?.packageName}</span><br />{data[0]?.pkg?.price}/-per Head<p className='font text-[20px]  '>{data[0]?.pkg?.noOfDays}DAYS</p>
+          <span className='text-white font font-bold text-[30px] '> </span><span className='text-orange-600 font font-bold text-[30px]'> {data[0]?.pkg?.packageName}</span><br /><div className='font text-[20px] m-auto bg-yellow-600/90 h-8 w-72 text-white  text-center'>{data[0]?.pkg?.price}/-per Head</div><p className='font text-[20px]  '>{data[0]?.pkg?.noOfDays}DAYS</p>
           </div>
           <div className='flex flex-wrap sm:gap-5 '>
             <img src={`http://localhost:4000/uploads/${data[0]?.pkg?.coverImage}`}  className='w-[350px] h-[350px] mb-5'/>
@@ -225,9 +225,9 @@ const handledetail = async (rid) => {
          
             </div>
             </div>
-            <div className='font text-[20px] m-auto bg-yellow-600/90 h-8 w-96 text-white  text-center'>{data[0]?.pkg?.price}/-</div>
+            
            
-            <div className='flex flex-wrap gap-2  '>
+            <div className='flex flex-wrap gap-2 ml-96 '>
               <Link to='/user/planpkg'><button className='bg-orange-600 text-white rounded-lg w-40'>GO BACK</button></Link>
           
      

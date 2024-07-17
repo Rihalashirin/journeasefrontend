@@ -2,9 +2,11 @@ import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 import {toast} from "react-toastify"
+import { useNavigate } from 'react-router-dom'
 
 export const Rgstrn = () => {
   const [data,setData]=useState('')
+  const navigate=useNavigate()
   let handlefile=(event)=>{
     console.log(event.target.files);
     setData({...data,[event.target.name]:event.target.files[0]})
@@ -45,6 +47,7 @@ export const Rgstrn = () => {
           
 
             event.preventDefault()
+            navigate('/')
            let response=await axios.post('http://localhost:4000/user/registration',formData,{
             headers: {
               'Content-Type': 'multipart/form-data'
@@ -84,7 +87,23 @@ export const Rgstrn = () => {
             </div>
             <div >
               <label for="district" class="block mb-2 text-sm font-medium text-white dark:text-white">District :</label>
-              <input onChange={handleChange} value={data.district} name="district" type="text" id="district" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+              <select onChange={handleChange} value={data.district} type="text" id="district" name='district' class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required >
+             <option value="">--Select district--</option>
+              <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+  <option value="Kollam">Kollam</option>
+  <option value="Pathanamthitta">Pathanamthitta</option>
+  <option value="Alappuzha">Alappuzha</option>
+  <option value="Kottayam">Kottayam</option>
+  <option value="Idukki">Idukki</option>
+  <option value="Ernakulam">Ernakulam</option>
+  <option value="Thrissur">Thrissur</option>
+  <option value="Palakkad">Palakkad</option>
+  <option value="Malappuram">Malappuram</option>
+  <option value="Kozhikode">Kozhikode</option>
+  <option value="Wayanad">Wayanad</option>
+  <option value="Kannur">Kannur</option>
+  <option value="Kasaragod">Kasaragod</option>
+              </select>
             </div>
             
             <div >
