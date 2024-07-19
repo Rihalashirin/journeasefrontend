@@ -6,7 +6,7 @@ export const Adminpackage = () => {
 
     useEffect(()=>{
         let fetchdata = async ()=>{
-            let response=await axios.get(`http://localhost:4000/admin/vwpackage`)
+            let response=await axios.get(`https://journeasebackend.onrender.com/admin/vwpackage`)
             console.log(response.data)
             setData(response.data)
         }
@@ -61,7 +61,7 @@ export const Adminpackage = () => {
                 </td>
                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                 <p >
-                    <a href={`http://localhost:4000/uploads/${item?.package?.coverImage}`}><img src={`http://localhost:4000/uploads/${item?.package?.coverImage}`} alt="" className='w-24 h-24  ps-3 pt-3 '/></a> </p>
+                    <a href={`https://journeasebackend.onrender.com/uploads/${item?.package?.coverImage}`}><img src={`https://journeasebackend.onrender.com/uploads/${item?.package?.coverImage}`} alt="" className='w-24 h-24  ps-3 pt-3 '/></a> </p>
                 </td>
                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                    {item.package?.location}

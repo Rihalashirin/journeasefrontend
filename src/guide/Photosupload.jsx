@@ -18,7 +18,7 @@ console.log(id2)
   const [data1,setData1]=useState([''])
   // useEffect(()=>{
   // let fetchdata= async()=>{
-  // let response= await axios.get(`http://localhost:4000/guide/vwimageguide/${id}`)
+  // let response= await axios.get(`https://journeasebackend.onrender.com/guide/vwimageguide/${id}`)
   // console.log(response.data1)
   // if(response.data1){
   // setData1(response.data1)
@@ -48,7 +48,7 @@ let handleSubmit=async (event)=>{
   formData.append('bookingid',id2)
   setData(data)
   console.log(data)
-  let response=await axios.post(`http://localhost:4000/guide/addimage`,formData,{
+  let response=await axios.post(`https://journeasebackend.onrender.com/guide/addimage`,formData,{
     headers:{
       'Content-Type':'multipart/form-data'
     }
@@ -80,7 +80,7 @@ let handleSubmit=async (event)=>{
 <button onClick={handleSubmit} className='bg-orange-600 w-32'>submit</button>
 <div className='flex flex-wrap gap-3 mt-5 bg-slate-300'>
  {data1.map((item)=>(
- <img src={`http://localhost:4000/uploads/${item.images}`} alt="" srcset="" />
+ <img src={`https://journeasebackend.onrender.com/uploads/${item.images}`} alt="" srcset="" />
 ))
 }
   

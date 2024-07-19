@@ -17,7 +17,7 @@ const Login = () => {
     event.preventDefault()
     console.log(data)
     setData(data)
-    let response=await axios.post('http://localhost:4000/user/login',data)
+    let response=await axios.post('https://journeasebackend.onrender.com/user/login',data)
     console.log(response);
     if(response.data){
       localStorage.setItem('id',response.data._id)
@@ -72,7 +72,7 @@ const Login = () => {
 //   let handleSubmit=async (event)=>{
 //     event.preventDefault()
 //     console.log(data);
-//     let response=await axios.post('http://localhost:4000/user/login',data)
+//     let response=await axios.post('https://journeasebackend.onrender.com/user/login',data)
 //     console.log(response);
 //     if(response.data){
 //       localStorage.setItem('id',response.data._id)

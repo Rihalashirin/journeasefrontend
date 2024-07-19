@@ -10,7 +10,7 @@ export const Selectresort = () => {
     const [resortData,setResortdata]=useState([''])
     useEffect(()=>{
       let fetchdata=async ()=>{
-          let response=await axios.get(`http://localhost:4000/user/vwaccomodation/${id}`)
+          let response=await axios.get(`https://journeasebackend.onrender.com/user/vwaccomodation/${id}`)
           console.log(response.data)
           setResortdata(response.data)
       }
@@ -25,7 +25,7 @@ export const Selectresort = () => {
           <div className='flex flex-wrap sm:gap-5  '>
             {resortData.map((item)=>(
                 <div className=' pt-28 text-center text-white '>
-                    <img src={`http://localhost:4000/uploads/${item.resort?.coverImage}`} className='m-auto w-28' alt="" srcset="" />
+                    <img src={`https://journeasebackend.onrender.com/uploads/${item.resort?.coverImage}`} className='m-auto w-28' alt="" srcset="" />
                    {/* <Link to={`/user/vwresortdet/${item.resort?._id}`}> <div className='font font-bold'>{item.resort?.propertyName}</div></Link> */}
                 </div>
                 ))}

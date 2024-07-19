@@ -7,7 +7,7 @@ export const Cstmrenqry = () => {
     let id=localStorage.getItem('id')
     useEffect(()=>{
         let fetchdata=async ()=>{
-            let response=await axios.get(`http://localhost:4000/agency/vwbookingtable/${id}`)
+            let response=await axios.get(`https://journeasebackend.onrender.com/agency/vwbookingtable/${id}`)
             console.log(response.data,'log for ----')
             setData(response.data)
         }

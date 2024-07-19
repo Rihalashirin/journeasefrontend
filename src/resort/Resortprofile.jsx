@@ -15,7 +15,7 @@ export const Resortprofile = () => {
 
   useEffect(()=>{
     let fetchdata=async ()=>{
-      let response=await axios.get(`http://localhost:4000/agency/vwagencyprofile/${id}`)
+      let response=await axios.get(`https://journeasebackend.onrender.com/agency/vwagencyprofile/${id}`)
       console.log(response.data)
       setUserData(response.data)
     }
@@ -32,7 +32,7 @@ let handleSubmit=async (event)=>{
         formData.append(key, data[key]);
       }
     }
-   let response=await axios.put(`http://localhost:4000/agency/agencyeditprofile/${id}`,formData)
+   let response=await axios.put(`https://journeasebackend.onrender.com/agency/agencyeditprofile/${id}`,formData)
    console.log(response);
    setrefresh(!refresh)
     

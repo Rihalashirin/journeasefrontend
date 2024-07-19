@@ -15,7 +15,7 @@ export const Addfacility = () => {
     }
     let handleSubmit=async (event)=>{
       event.preventDefault()
-     let response=await axios.post('http://localhost:4000/resort/facilities',{...data,resortid:id})
+     let response=await axios.post('https://journeasebackend.onrender.com/resort/facilities',{...data,resortid:id})
      console.log(response);
   
      toast.success('facility Added')

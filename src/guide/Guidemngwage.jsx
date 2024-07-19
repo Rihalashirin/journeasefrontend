@@ -8,7 +8,7 @@ export const Guidemngwage = () => {
   let {id}=useParams()
   useEffect(()=>{
     let fetchdata=async ()=>{
-        let response=await axios.get(`http://localhost:4000/guide/vwdetailbooking/${id}`)
+        let response=await axios.get(`https://journeasebackend.onrender.com/guide/vwdetailbooking/${id}`)
         console.log(response.data,'log for ----')
         setData(response.data)
     }
@@ -21,7 +21,7 @@ let handleSubmit=async (status,wage)=>{
   // event.preventDefault()
   setData(data)
   console.log(data)
- let response=await axios.put(`http://localhost:4000/guide/managebooking/${id}`,{guidestatus:status,guideid:gid})
+ let response=await axios.put(`https://journeasebackend.onrender.com/guide/managebooking/${id}`,{guidestatus:status,guideid:gid})
  console.log(response); 
   
 }
@@ -64,7 +64,7 @@ let handleSubmit=async (status,wage)=>{
                <div className='text-[20px]'>
                 Accomodation Chosen </div><br/>
                 <div className='flex flexwrap gap-5 '>
-                <img src={`http://localhost:4000/uploads/${data?.resort?.coverImage}`} className='w-20' alt="" srcset="" />
+                <img src={`https://journeasebackend.onrender.com/uploads/${data?.resort?.coverImage}`} className='w-20' alt="" srcset="" />
                 <div className='pt-10'>{data?.resort?.propertyName}
                  <br />{data?.bookings?.accomodatn}</div>
                 {/* <div className='flex flex-col gap-6 mt-3 '>
@@ -76,7 +76,7 @@ let handleSubmit=async (status,wage)=>{
                 <div className='text-[20px]'>
                 Adventure Chosen </div><br/>
                 <div className='flex flexwrap gap-5 justify-start '>
-                <img src={`http://localhost:4000/uploads/${data?.adv?.image}`} className='w-24' alt="" srcset="" />
+                <img src={`https://journeasebackend.onrender.com/uploads/${data?.adv?.image}`} className='w-24' alt="" srcset="" />
                 <div className='font text-[20px] pt-5 '>{data.adv?.adventureName}
                  <br />{data?.adv?.price}/Head</div>
                  <div className='mt-5'> booking status:{data.bookings?.status}</div>

@@ -18,7 +18,7 @@ export const AdventureUpdate = () => {
     // Fetch adventure data based on the ID when component mounts
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/agency/adventure/${id}`);
+        const response = await axios.get(`https://journeasebackend.onrender.com/agency/adventure/${id}`);
         setUserData(response.data);
       } catch (error) {
         console.error('Error fetching adventure data:', error);
@@ -46,7 +46,7 @@ export const AdventureUpdate = () => {
     }
 
     try {
-      const response = await axios.put(`http://localhost:4000/agency/adventureupdate/${id}`, formData, {
+      const response = await axios.put(`https://journeasebackend.onrender.com/agency/adventureupdate/${id}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -111,8 +111,8 @@ export const AdventureUpdate = () => {
               />
             </div>
              
-            <a target="_blank" href={`http://localhost:4000/uploads/${userData.image}`} download> <img className="w-[100px] h-14 " src={`http://localhost:4000/uploads/${userData.image}`} alt="click to view and dowload"></img> </a>
-                <a target='_blank' href={`http://localhost:4000/uploads/${userData.image}`} download ></a>
+            <a target="_blank" href={`https://journeasebackend.onrender.com/uploads/${userData.image}`} download> <img className="w-[100px] h-14 " src={`https://journeasebackend.onrender.com/uploads/${userData.image}`} alt="click to view and dowload"></img> </a>
+                <a target='_blank' href={`https://journeasebackend.onrender.com/uploads/${userData.image}`} download ></a>
           </div>
           <div className='flex flex-wrap -mx-3 mb-2'>
             <div className='w-full md:w-1/3 px-3 mb-6 md:mb-0'>

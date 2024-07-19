@@ -8,7 +8,7 @@ export const Vwreviewagency = () => {
     useEffect(()=>{
         let fetchdata=async ()=>{
           let id=localStorage.getItem('id')
-            let response=await axios.get(`http://localhost:4000/agency/vwreview/${id}`)
+            let response=await axios.get(`https://journeasebackend.onrender.com/agency/vwreview/${id}`)
             console.log(response.data)
             setData(response.data)
         }

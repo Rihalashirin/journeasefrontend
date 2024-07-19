@@ -12,7 +12,7 @@ export const Writereview = () => {
     const [selectedHoverStarCount, setSelectHoverStarCount] = useState(0)
     // useEffect(()=>{
     //     let fetchdata=async ()=>{
-    //         let response=await axios.get(`http://localhost:4000/user/vwpkgname/${id}`)
+    //         let response=await axios.get(`https://journeasebackend.onrender.com/user/vwpkgname/${id}`)
     //         console.log(response.data)
     //         setData(response.data)
     //     }
@@ -25,7 +25,7 @@ export const Writereview = () => {
     //     event.preventDefault()
     //     setData(data)
     //     console.log(data)
-    //    let response=await axios.post(`http://localhost:4000/user/addreview/${id2}`)
+    //    let response=await axios.post(`https://journeasebackend.onrender.com/user/addreview/${id2}`)
     //    console.log(response);
         
     // }

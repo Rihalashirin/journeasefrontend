@@ -7,7 +7,7 @@ export const Mybookingtable = () => {
  let id=localStorage.getItem('id')
     useEffect(()=>{
         let fetchdata=async ()=>{
-            let response=await axios.get(`http://localhost:4000/user/vwmybookingtable/${id}`)
+            let response=await axios.get(`https://journeasebackend.onrender.com/user/vwmybookingtable/${id}`)
             console.log(response.data,'log for ----')
             setData(response.data)
         }

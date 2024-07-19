@@ -9,7 +9,7 @@ export const Agencysignup = () => {
 
     useEffect(() => {
         let fetchdata = async () => {
-            let response = await axios.get(`http://localhost:4000/admin/vwagency`);
+            let response = await axios.get(`https://journeasebackend.onrender.com/admin/vwagency`);
             setData(response.data);
         };
         fetchdata();

@@ -7,7 +7,7 @@ export const Vwimg = () => {
   useEffect(() => {
     let fetchdata = async () => {
       let response = await axios.get(
-        `http://localhost:4000/guide/vwimageguide/${id2}`
+        `https://journeasebackend.onrender.com/guide/vwimageguide/${id2}`
       );
       console.log(response.data);
       setData(response.data);
@@ -19,7 +19,7 @@ export const Vwimg = () => {
            <div className='guidehome'>
             {data.map((item)=>(
     <div class="relative overflow-x-auto  sm:rounded-lg pt-10 flex flex-wrap">
-   <img src={`http://localhost:4000/uploads/${item.images}`} className='w-32 h-32 ml-5 mb-3 bg-slate-100' alt="" srcset="" />
+   <img src={`https://journeasebackend.onrender.com/uploads/${item.images}`} className='w-32 h-32 ml-5 mb-3 bg-slate-100' alt="" srcset="" />
    
 </div>
 ))}

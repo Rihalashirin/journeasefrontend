@@ -7,7 +7,7 @@ export const Notification = () => {
   useEffect(() => {
     let fetchdata = async () => {
       let response = await axios.get(
-        `http://localhost:4000/user/vwnotification/${id}`
+        `https://journeasebackend.onrender.com/user/vwnotification/${id}`
       );
       console.log(response.data, "log for ----");
       setData(response.data);

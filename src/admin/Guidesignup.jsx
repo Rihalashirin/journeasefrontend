@@ -10,7 +10,7 @@ export const Guidesignup = () => {
 
     useEffect(()=>{
         let fetchdata = async ()=>{
-            let response=await axios.get(`http://localhost:4000/admin/vwguide`)
+            let response=await axios.get(`https://journeasebackend.onrender.com/admin/vwguide`)
             console.log(response.data)
             setData(response.data)
         }

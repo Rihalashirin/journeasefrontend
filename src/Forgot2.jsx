@@ -12,7 +12,7 @@ export const Forgot2 = () => {
       let handleSubmit= ()=>{
        
         // event.preventDefault()
-    let response=axios.put(`http://localhost:4000/admin/changepass/${email}`,data)
+    let response=axios.put(`https://journeasebackend.onrender.com/admin/changepass/${email}`,data)
         console.log(response);
         setData('')
       }

@@ -11,8 +11,8 @@ export const Uservwpkgreview = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/user/detailvwagency/${aid}`);
-        const response2=await axios.get(`http://localhost:4000/user/vwreview/${aid}`);
+        const response = await axios.get(`https://journeasebackend.onrender.com/user/detailvwagency/${aid}`);
+        const response2=await axios.get(`https://journeasebackend.onrender.com/user/vwreview/${aid}`);
         setData(response.data);
         setData1(response2.data);
       } catch (error) {

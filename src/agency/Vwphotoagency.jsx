@@ -13,7 +13,7 @@ export const Vwphotoagency = () => {
   const [data, setData] = useState(['']);
   useEffect(() => {
     let fetchdata = async () => {
-      let response = await axios.get(`http://localhost:4000/agency/imageguide/${id}`);
+      let response = await axios.get(`https://journeasebackend.onrender.com/agency/imageguide/${id}`);
       console.log(response.data, 'log for ----');
       setData(response.data);
     };
@@ -26,7 +26,7 @@ export const Vwphotoagency = () => {
           </div>
           <div className='flex flex-wrap gap-6'>
           {data.map((item)=>(   
-  <img  className='w-32 pt-2 ps-2 pb-2' src={`http://localhost:4000/uploads/${item?.images}`}  alt="" srcset="" />
+  <img  className='w-32 pt-2 ps-2 pb-2' src={`https://journeasebackend.onrender.com/uploads/${item?.images}`}  alt="" srcset="" />
  
  
 ))}

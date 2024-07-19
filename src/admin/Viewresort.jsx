@@ -8,7 +8,7 @@ export const Viewresort = () => {
     let {id}=useParams()
     useEffect(()=>{
         let fetchdata=async ()=>{
-            let response=await axios.get(`http://localhost:4000/admin/detailvwresort/${id}`)
+            let response=await axios.get(`https://journeasebackend.onrender.com/admin/detailvwresort/${id}`)
             console.log(response.data)
             setData(response.data)
         }
@@ -17,7 +17,7 @@ export const Viewresort = () => {
     let handleSubmit=async(status,id)=>{
         
         setrefresh(!refresh)
-        let response=await axios.put(`http://localhost:4000/admin/manageagency/${id}`,{...data,status:status})
+        let response=await axios.put(`https://journeasebackend.onrender.com/admin/manageagency/${id}`,{...data,status:status})
         console.log(response)
         setData('')
     }
@@ -25,7 +25,7 @@ export const Viewresort = () => {
   return (
     <div className='bg-gray-500'>
         <div className='bg-slate-950/50 w-[800px] h-[800px] pl-24 ml-64  flex flex-col gap-2 '>
-       <img src={`http://localhost:4000/uploads/${data.coverImage}`} alt="" className='w-44 h-48  ps-3 pt-3 '/>
+       <img src={`https://journeasebackend.onrender.com/uploads/${data.coverImage}`} alt="" className='w-44 h-48  ps-3 pt-3 '/>
        <div className='flex flex-wrap text-white gap-12 pt-3 text-center'>
             <p className='font-bold'> Property Name:</p>
             <p className='font font-bold'>{data.propertyName}</p>

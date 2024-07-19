@@ -8,7 +8,7 @@ export const Booking = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/admin/vwbooking`);
+                const response = await axios.get(`https://journeasebackend.onrender.com/admin/vwbooking`);
                 setBookings(response.data);
             } catch (error) {
                 console.error("Error fetching bookings:", error);

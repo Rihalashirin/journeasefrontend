@@ -29,7 +29,7 @@ export const Adventureadd = () => {
       formData.append('agencyid',id);
       setData(data)
       console.log(data);
-   let response=await axios.post('http://localhost:4000/agency/adventureadd',formData,{
+   let response=await axios.post('https://journeasebackend.onrender.com/agency/adventureadd',formData,{
     headers: {
       'Content-Type': 'multipart/form-data'
     }

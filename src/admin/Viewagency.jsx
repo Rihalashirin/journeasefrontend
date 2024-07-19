@@ -9,7 +9,7 @@ export const Viewagency = () => {
 
     useEffect(()=>{
         let fetchdata=async ()=>{
-            let response=await axios.get(`http://localhost:4000/admin/detailvwagency/${id}`)
+            let response=await axios.get(`https://journeasebackend.onrender.com/admin/detailvwagency/${id}`)
             console.log(response.data)
             setData(response.data)
         }
@@ -18,7 +18,7 @@ export const Viewagency = () => {
     let handleSubmit=async(status,id)=>{
         
             setrefresh(!refresh)
-            let response=await axios.put(`http://localhost:4000/admin/manageagency/${id}`,{...data,status:status})
+            let response=await axios.put(`https://journeasebackend.onrender.com/admin/manageagency/${id}`,{...data,status:status})
             console.log(response)
             setData('')
         }
@@ -26,7 +26,7 @@ export const Viewagency = () => {
   return (
     <div className='adminbg'>
        <div className='bg-slate-950/50 w-[900px] h-[950px] p-10 ml-52 flex flex-col   '>
-       <img src={`http://localhost:4000/uploads/${data.companyLogo}`} alt="" className='w-44 h-48  ps-3 pt-3 '/>
+       <img src={`https://journeasebackend.onrender.com/uploads/${data.companyLogo}`} alt="" className='w-44 h-48  ps-3 pt-3 '/>
        <div className='flex flex-wrap text-white  text-center'>
             <p className=' font font-bold text-yellow-500'>Comapny Name:</p>
             <p  className=' font font-bold'>{data.companyName}</p>
@@ -65,8 +65,8 @@ export const Viewagency = () => {
 </div>
 <div className='flex flex-wrap text-white   text-center'>
             <p className='font font-bold text-yellow-500'>License proof:</p>
-            {/* <p > <img src={`http://localhost:4000/uploads/${data.licenseProof}`} alt="" className='w-44 h-16  ps-3 pt-3 '/></p> */}
-            <a target="_blank" href={`http://localhost:4000/uploads/${data.licenseProof}`} download> <span>{data.licenseProof}</span></a>
+            {/* <p > <img src={`https://journeasebackend.onrender.com/uploads/${data.licenseProof}`} alt="" className='w-44 h-16  ps-3 pt-3 '/></p> */}
+            <a target="_blank" href={`https://journeasebackend.onrender.com/uploads/${data.licenseProof}`} download> <span>{data.licenseProof}</span></a>
                  
 </div>
 {/* <div className='flex flex-wrap text-white  text-center'>

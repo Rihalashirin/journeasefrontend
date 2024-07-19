@@ -13,7 +13,7 @@ export const Forgot1 = () => {
 let navigate=useNavigate()
     const sendOTP = async () => {
         try {
-          const response = await axios.post('http://localhost:4000/admin/sendOTP', { email });
+          const response = await axios.post('https://journeasebackend.onrender.com/admin/sendOTP', { email });
           setMessage(response.data.message);
           console.log(response.data.otp,'--------------------');
           setVerifyotp(response.data.otp)

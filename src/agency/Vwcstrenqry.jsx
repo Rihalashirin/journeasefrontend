@@ -10,19 +10,19 @@ export const Vwcstrenqry = () => {
   const [refresh,setRefresh]=useState(false)
 
   let handleSubmit = async (status) => {
-    let response = await axios.put(`http://localhost:4000/agency/managebooking/${id}`, { status: status });
+    let response = await axios.put(`https://journeasebackend.onrender.com/agency/managebooking/${id}`, { status: status });
     console.log(response);
     setdata1('');
   };
 
   let resortenquire = async (id, rid) => {
-    let response = await axios.post('http://localhost:4000/agency/enquireresort', { ...enqdata, bookingid: id, resortid: rid });
+    let response = await axios.post('https://journeasebackend.onrender.com/agency/enquireresort', { ...enqdata, bookingid: id, resortid: rid });
     console.log(response);
   };
 
   let health = async (status) => {
   setRefresh(!refresh)
-    let response = await axios.put(`http://localhost:4000/agency/assignhealth/${id}`, { healthstatus: status, healthwage: data.healthwage });
+    let response = await axios.put(`https://journeasebackend.onrender.com/agency/assignhealth/${id}`, { healthstatus: status, healthwage: data.healthwage });
   };
 
   let handleChange = (event) => {
@@ -37,7 +37,7 @@ export const Vwcstrenqry = () => {
 
   useEffect(() => {
     let fetchdata = async () => {
-      let response = await axios.get(`http://localhost:4000/agency/vwdetailbooking/${id}`);
+      let response = await axios.get(`https://journeasebackend.onrender.com/agency/vwdetailbooking/${id}`);
       console.log(response.data, 'log for ----');
       setData(response.data);
     };
@@ -96,7 +96,7 @@ export const Vwcstrenqry = () => {
             </div><br />
             {data.resorts?.map((item) => (
               <div className='flex flexwrap  gap-15 '>
-                <img className='w-[200px]' src={`http://localhost:4000/uploads/${item?.coverImage}`} alt="" srcSet="" />
+                <img className='w-[200px]' src={`https://journeasebackend.onrender.com/uploads/${item?.coverImage}`} alt="" srcSet="" />
                 <div className='pt-10'>{item?.propertyName} <br /> <div> {data.booking?.accomodatn}</div></div>
                 <br />
                 <div className='flex flex-wrap gap-6  '>
@@ -127,7 +127,7 @@ export const Vwcstrenqry = () => {
               <input onChange={handleChange} name='healthwage' type="number" id="name" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg  focus:ring-blue-500 focus:border-blue-500 block w-24 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required />
             </div> */}
             {/* <div className='font'>{data?.hoteldefaultt?.propertyName}</div> */}
-            {/* <img src={`http://localhost:4000/uploads/${data?.hoteldefaultt?.coverImage}`} className='w-24 mb-3' alt="" srcSet="" /> */}
+            {/* <img src={`https://journeasebackend.onrender.com/uploads/${data?.hoteldefaultt?.coverImage}`} className='w-24 mb-3' alt="" srcSet="" /> */}
             {/* Check-in */}
                   {/* <input onChange={enquiring} name='fromDate' type="date" className='bg-transparent h-5 border-white border-solid border-2 rounded' min={new Date().toISOString().split("T")[0]} />
                   Check-out
@@ -140,7 +140,7 @@ export const Vwcstrenqry = () => {
             {/* {data.adventures ?
             data.adventures?.map((item) => (
               <div className='flex flexwrap  justify-start '>
-              <img src={`http://localhost:4000/uploads/${item.image}`} className='w-24 mb-3' alt="" srcSet="" />
+              <img src={`https://journeasebackend.onrender.com/uploads/${item.image}`} className='w-24 mb-3' alt="" srcSet="" />
               <div className='pt-10'>{item.adventureName} <br />{item.price}/Head</div>
               </div>
             ))
@@ -149,7 +149,7 @@ export const Vwcstrenqry = () => {
             <>
 
               <div className='font'>{data?.defaultadventures?.adventureName}</div>
-              <img src={`http://localhost:4000/uploads/${data?.defaultadventures[0]?.image}`} className='w-24 mb-3' alt="" srcSet="" />
+              <img src={`https://journeasebackend.onrender.com/uploads/${data?.defaultadventures[0]?.image}`} className='w-24 mb-3' alt="" srcSet="" />
             </>
             
             } */}

@@ -10,7 +10,7 @@ export const Adddefaultadventure = () => {
 
     useEffect(() => {
         const fetchdata = async () => {
-            const response = await axios.get('http://localhost:4000/agency/findadventure');
+            const response = await axios.get('https://journeasebackend.onrender.com/agency/findadventure');
             setAdventureData(response.data);
         };
         fetchdata();
@@ -27,7 +27,7 @@ export const Adddefaultadventure = () => {
     };
 
     const handleSubmit = async () => {
-        const response = await axios.put(`http://localhost:4000/agency/adddefaultadventure/${id}`, { defaultadventureId: selectedResorts });
+        const response = await axios.put(`https://journeasebackend.onrender.com/agency/adddefaultadventure/${id}`, { defaultadventureId: selectedResorts });
         console.log(response);
     };
 
@@ -63,7 +63,7 @@ export const Adddefaultadventure = () => {
                 {filteredAdventureData.map((item) => (
                     <div className='bg-orange-600 w-[200px] ml-5 rounded-lg mt-5' key={item._id}>
                         <div className='pt-4 text-center text-white mb-2'>
-                            <img src={`http://localhost:4000/uploads/${item.image}`} className='m-auto w-28' alt="" srcSet="" />
+                            <img src={`https://journeasebackend.onrender.com/uploads/${item.image}`} className='m-auto w-28' alt="" srcSet="" />
                             <div className='font font-bold'>{item.adventureName}</div>
                             <div className='font text-[10px]'>{item.price}</div>
                             <div className='font text-[10px]'>{item.location}</div>

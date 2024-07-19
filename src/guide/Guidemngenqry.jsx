@@ -8,7 +8,7 @@ export const Guidemngenqry = () => {
     useEffect(() => {
       let fetchdata = async () => {
         let response = await axios.get(
-          `http://localhost:4000/guide/vwrequestagency/${id}`
+          `https://journeasebackend.onrender.com/guide/vwrequestagency/${id}`
         );
         console.log(response.data);
         setData(response.data);

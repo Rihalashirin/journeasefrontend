@@ -10,7 +10,7 @@ export const Updatereg2 = () => {
   const [refresh,setrefresh]=useState(false)
   useEffect(()=>{
     let fetchdata=async()=>{
-      let response=await axios.get(`http://localhost:4000/resort/viewroom/${id}`)
+      let response=await axios.get(`https://journeasebackend.onrender.com/resort/viewroom/${id}`)
       console.log(response.data)
       setUserData(response.data)
     }
@@ -32,7 +32,7 @@ let handleSubmit=async (event)=>{
         formData.append(key, data[key]);
       }
     }
-   let response=await axios.put(`http://localhost:4000/resort/editroom/${id}`,formData,{
+   let response=await axios.put(`https://journeasebackend.onrender.com/resort/editroom/${id}`,formData,{
     headers: {
       "Content-Type": "multipart/form-data", // Set the content type for FormData
     }

@@ -11,7 +11,7 @@ export const Planpkg = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/user/findpackage');
+        const response = await axios.get('https://journeasebackend.onrender.com/user/findpackage');
         setAgencyData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -145,7 +145,7 @@ export const Planpkg = () => {
           <div key={item.package?._id} className="bg-white shadow-md rounded-lg overflow-hidden">
             <Link to={`/user/vwdetailpkg/${item.package?._id}`}>
               <img
-                src={`http://localhost:4000/uploads/${item.package?.coverImage}`}
+                src={`https://journeasebackend.onrender.com/uploads/${item.package?.coverImage}`}
                 className="w-full h-40 object-cover"
                 alt=""
               />

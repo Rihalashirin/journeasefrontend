@@ -15,7 +15,7 @@ export const Mybooking = () => {
   useEffect(() => {
     let fetchdata = async () => {
       let response = await axios.get(
-        `http://localhost:4000/user/viewbookigdetail/${id}`
+        `https://journeasebackend.onrender.com/user/viewbookigdetail/${id}`
       );
       console.log(response.data, "log for ----");
       setData(response.data);
@@ -37,7 +37,7 @@ setDest(dest);
     setreviewsresort(!reviewresorts);
   };
   let resortreviews = async () => {
-    let response = await axios.post(`http://localhost:4000/user/addresortreview `, {
+    let response = await axios.post(`https://journeasebackend.onrender.com/user/addresortreview `, {
       ...reviewresort,
       bookingid: id,
       resortId: rdata,
@@ -46,7 +46,7 @@ setDest(dest);
     console.log(response);
   };
   let handleSubmit = async (dname) => {
-    let response = await axios.post(`http://localhost:4000/user/addreview `, {
+    let response = await axios.post(`https://journeasebackend.onrender.com/user/addreview `, {
       ...review,
       bookingid: id,
       destinationName: dest,
@@ -161,7 +161,7 @@ setDest(dest);
       <div>
         <img
           className="w-[200px]"
-          src={`http://localhost:4000/uploads/${item.resort.coverImage}`}
+          src={`https://journeasebackend.onrender.com/uploads/${item.resort.coverImage}`}
           alt=""
         />
         {data.booking.status === "paid" && (
@@ -218,7 +218,7 @@ setDest(dest);
     <div>{data?.defaulthotel?.propertyName}</div>
     <img
       className="w-[200px]"
-      src={`http://localhost:4000/uploads/${data?.defaulthotel?.coverImage}`}
+      src={`https://journeasebackend.onrender.com/uploads/${data?.defaulthotel?.coverImage}`}
       alt=""
     />
   </div>
@@ -243,7 +243,7 @@ setDest(dest);
          
           <div className="flex flexwrap gap-20 justify-start ">
             <img
-              src={`http://localhost:4000/uploads/${item.image}`}
+              src={`https://journeasebackend.onrender.com/uploads/${item.image}`}
               className="w-[300px]"
               alt=""
               srcset=""

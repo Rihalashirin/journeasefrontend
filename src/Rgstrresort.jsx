@@ -48,7 +48,7 @@ export const Rgstrresort = () => {
 
       formData.append('userType','resort')
       navigate('/')
-      let response=await axios.post('http://localhost:4000/user/registration',formData,{
+      let response=await axios.post('https://journeasebackend.onrender.com/user/registration',formData,{
         headers: {
           'Content-Type': 'multipart/form-data'
         }

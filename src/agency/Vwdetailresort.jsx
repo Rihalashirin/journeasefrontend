@@ -11,7 +11,7 @@ export const Vwdetailresort = () => {
     const [data,setData]=useState('')
     useEffect(()=>{
         let fetchdata=async()=>{
-            let response=await axios.get(`http://localhost:4000/agency/detailvwresort/${rid}`)
+            let response=await axios.get(`https://journeasebackend.onrender.com/agency/detailvwresort/${rid}`)
             console.log(response.data)
             setData(response.data)
         }
@@ -26,7 +26,7 @@ export const Vwdetailresort = () => {
         <div className='bg-white/70 w-[90%] p-3 ms-5 pt-2 h-[100%]'>
           <div className='font text-center text-[30px] text-amber-800 pb-4 uppercase font-bold '>{data.response?.propertyName} </div>
           {/* <div className='flex flex-wrap justify-center gap-4'> */}
-         <img src={`http://localhost:4000/uploads/${data.response?.coverImage}`} className='m-auto w-[70%]'alt=" " srcSet=" "/>
+         <img src={`https://journeasebackend.onrender.com/uploads/${data.response?.coverImage}`} className='m-auto w-[70%]'alt=" " srcSet=" "/>
         
         <div className='w-[90%] text-center glow'>{data.response?.description}
         {/* </div> */}</div>
@@ -54,9 +54,9 @@ export const Vwdetailresort = () => {
          <div className='flex bg-yellow-100 px-2 py-4 rounded text-yellow-300  font-semibold font'>
            
          luxury room:
-         <img src={`http://localhost:4000/uploads/${data?.rooms?.image}`} className='m-auto w-48'alt=" " srcSet=" "/>
+         <img src={`https://journeasebackend.onrender.com/uploads/${data?.rooms?.image}`} className='m-auto w-48'alt=" " srcSet=" "/>
          standardroom:
-         <img src={`http://localhost:4000/uploads/${data?.rooms?.images}`} className='m-auto w-48'alt=" " srcSet=" "/>
+         <img src={`https://journeasebackend.onrender.com/uploads/${data?.rooms?.images}`} className='m-auto w-48'alt=" " srcSet=" "/>
         
         </div>
          

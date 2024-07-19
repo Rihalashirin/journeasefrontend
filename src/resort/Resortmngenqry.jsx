@@ -9,7 +9,7 @@ export const Resortmngenqry = () => {
     useEffect(() => {
       let fetchdata = async () => {
         let response = await axios.get(
-          `http://localhost:4000/resort/vwrequestagency/${id}`
+          `https://journeasebackend.onrender.com/resort/vwrequestagency/${id}`
         );
         console.log(response.data);
         setData(response.data);

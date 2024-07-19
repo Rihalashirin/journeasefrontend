@@ -33,7 +33,7 @@ export const Regresort1 = () => {
 
 
       
-     let response=await axios.post('http://localhost:4000/resort/room',formData)
+     let response=await axios.post('https://journeasebackend.onrender.com/resort/room',formData)
      console.log(response);
     //  navigate('/regresort2')
       

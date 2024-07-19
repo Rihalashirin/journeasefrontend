@@ -12,7 +12,7 @@ export const Vwnotificatn = () => {
 
   useEffect(() => {
     let fetchdata = async () => {
-      let response = await axios.get(`http://localhost:4000/user/notificationdetail/${id}`);
+      let response = await axios.get(`https://journeasebackend.onrender.com/user/notificationdetail/${id}`);
       console.log(response.data, 'log for ----');
       setData(response.data);
       calculateTotalAmount(response.data);
@@ -25,7 +25,7 @@ export const Vwnotificatn = () => {
     // setData(data)
     // console.log(data);
     navigate('/user/mybookingtable')
-    let response=await axios.put(`http://localhost:4000/user/payment/${id}`,{status:'paid'})
+    let response=await axios.put(`https://journeasebackend.onrender.com/user/payment/${id}`,{status:'paid'})
     
   console.log(response);
   setdata1('')

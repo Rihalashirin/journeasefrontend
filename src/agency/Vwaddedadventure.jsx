@@ -8,7 +8,7 @@ export const Vwaddedadventure = () => {
   useEffect(() => {
     let fetchdata = async () => {
       let response = await axios.get(
-        `http://localhost:4000/agency/viewPackageAdventure/${id}`
+        `https://journeasebackend.onrender.com/agency/viewPackageAdventure/${id}`
       );
       console.log(response.data);
       setData(response.data);
@@ -27,7 +27,7 @@ export const Vwaddedadventure = () => {
         {data.map((item)=>(
           <div className='bg-gray-400 w-[125px] ml-5 rounded-lg'>
         <div className=" pt-4 text-center text-black pl-2 pr-2 pb-2 ">
-          <img src={`http://localhost:4000/uploads/${item.resorts?.image}`} className="m-auto w-28" alt="" srcset="" />
+          <img src={`https://journeasebackend.onrender.com/uploads/${item.resorts?.image}`} className="m-auto w-28" alt="" srcset="" />
           <div className="font font-bold">{item?.resorts?.adventureName}</div>
           <div className="font font-bold">{item?.resorts?.aprice}</div>
           <div className="font font-bold">{item?.resorts?.location}</div>

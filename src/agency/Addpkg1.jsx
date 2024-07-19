@@ -12,7 +12,7 @@ export const Addpkg1 = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/agency/findresort/${id}`);
+                const response = await axios.get(`https://journeasebackend.onrender.com/agency/findresort/${id}`);
                 setResortData(response.data);
             } catch (error) { 
                 console.error('Error fetching resort data:', error);
@@ -45,7 +45,7 @@ export const Addpkg1 = () => {
 
     const handleSubmit = async () => {
         try {
-            const response = await axios.put(`http://localhost:4000/agency/addresortToPackage/${id}`, {
+            const response = await axios.put(`https://journeasebackend.onrender.com/agency/addresortToPackage/${id}`, {
                 resortId: selectedResorts,
             });
             console.log(response);
@@ -94,7 +94,7 @@ export const Addpkg1 = () => {
                         <div className='pt-4 text-center text-white'>
                             <Link to={`/agency/vwresortdetail/${item._id}`}>
                                 <img
-                                    src={`http://localhost:4000/uploads/${item.coverImage}`}
+                                    src={`https://journeasebackend.onrender.com/uploads/${item.coverImage}`}
                                     className='h-16 m-auto w-28 rounded-lg'
                                     alt=''
                                 />

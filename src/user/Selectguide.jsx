@@ -16,7 +16,7 @@ let handleSubmit=async (event)=>{
     event.preventDefault()
     setData(data)
     console.log(data)
-   let response=await axios.post(`http://localhost:4000/user/booking`,{...data,userId:id2,packageid:id})
+   let response=await axios.post(`https://journeasebackend.onrender.com/user/booking`,{...data,userId:id2,packageid:id})
    console.log(response);
     // navigate(`/user/selectadventure/${id}`)
 }

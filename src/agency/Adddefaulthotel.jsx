@@ -12,7 +12,7 @@ export const Adddefaulthotel = () => {
 
   useEffect(() => {
     let fetchdata = async () => {
-      let response = await axios.get(`http://localhost:4000/agency/findresort/${id}`);
+      let response = await axios.get(`https://journeasebackend.onrender.com/agency/findresort/${id}`);
       setResortdata(response.data);
     };
     fetchdata();
@@ -23,7 +23,7 @@ export const Adddefaulthotel = () => {
   };
 
   const handleSubmit = async () => {
-    let response = await axios.put(`http://localhost:4000/agency/adddefaulthotel/${id}`, { defaulthotelId: selectedResort });
+    let response = await axios.put(`https://journeasebackend.onrender.com/agency/adddefaulthotel/${id}`, { defaulthotelId: selectedResort });
     console.log(response);
   };
 
@@ -58,7 +58,7 @@ export const Adddefaulthotel = () => {
           <div className='bg-yellow-300 w-[150px] ml-5 mt-5 rounded-lg' key={item._id}>
             <div className='pt-4 text-center text-white'>
               <Link to={`/agency/vwresortdetail/${item._id}`}>
-                <img src={`http://localhost:4000/uploads/${item.coverImage}`} className='w-20 h-16 m-auto w-28 rounded-lg' alt="" srcSet="" />
+                <img src={`https://journeasebackend.onrender.com/uploads/${item.coverImage}`} className='w-20 h-16 m-auto w-28 rounded-lg' alt="" srcSet="" />
               </Link>
               <input
                 type="checkbox"

@@ -18,8 +18,8 @@ export const Userhome = () => {
 
 //     let id=localStorage.getItem('id')
 //     // let email=localStorage.getItem('email')
-//     // let response=await axios.post('http://localhost:4000/user/api/auth/authenticate',{_id:id,email:email})
-//     let response1=await axios.get(`http://localhost:4000/user/welcomename/${id}`)
+//     // let response=await axios.post('https://journeasebackend.onrender.com/user/api/auth/authenticate',{_id:id,email:email})
+//     let response1=await axios.get(`https://journeasebackend.onrender.com/user/welcomename/${id}`)
 //     // console.log(response);
 //     setData(response1.data)
 //     console.log(response1);

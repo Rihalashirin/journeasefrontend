@@ -16,7 +16,7 @@ export const Assignguide = () => {
 
   useEffect(() => {
     let fetchdata = async () => {
-      let response = await axios.get('http://localhost:4000/agency/findguide');
+      let response = await axios.get('https://journeasebackend.onrender.com/agency/findguide');
       console.log(response.data);
       if (response.data) {
         setData(response.data);
@@ -33,7 +33,7 @@ export const Assignguide = () => {
     // event.preventDefault()
     setData2(data2);
     console.log(data2);
-    let response = await axios.post(`http://localhost:4000/agency/enquireguide/${aid}`, {
+    let response = await axios.post(`https://journeasebackend.onrender.com/agency/enquireguide/${aid}`, {
       ...data2,
       bookingid: aid,
       guideid: detail._id,
@@ -46,7 +46,7 @@ export const Assignguide = () => {
 
   const handledetail = async (id) => {
     try {
-      const response = await axios.get(`http://localhost:4000/agency/detailguide/${id}`);
+      const response = await axios.get(`https://journeasebackend.onrender.com/agency/detailguide/${id}`);
       console.log(response.data);
       setDetail(response.data);
       if (response.data) {
@@ -113,7 +113,7 @@ export const Assignguide = () => {
         <div className="pt-4 text-center text-white p-2 ">
           <img
             onClick={() => handledetail(item._id)}
-            src={`http://localhost:4000/uploads/${item.image}`}
+            src={`https://journeasebackend.onrender.com/uploads/${item.image}`}
             className="w-24"
             alt=""
             srcSet=""
@@ -143,7 +143,7 @@ export const Assignguide = () => {
             <div className="flex flex-wrap gap-5">
               <div>
                 <img
-                  src={`http://localhost:4000/uploads/${detail.image}`}
+                  src={`https://journeasebackend.onrender.com/uploads/${detail.image}`}
                   className="w-24"
                   alt=""
                   srcSet=""

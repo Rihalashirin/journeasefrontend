@@ -9,7 +9,7 @@ export const Updatereg3 = () => {
 
   useEffect(() => {
     let fetchData = async () => {
-      let response = await axios.get(`http://localhost:4000/resort/viewfacility/${id}`)
+      let response = await axios.get(`https://journeasebackend.onrender.com/resort/viewfacility/${id}`)
       setUserData(response.data)
     }
     fetchData()
@@ -34,7 +34,7 @@ export const Updatereg3 = () => {
         formData.append(key, data[key]);
       }
     }
-    let response = await axios.put(`http://localhost:4000/resort/editfacility/${id}`, data,)
+    let response = await axios.put(`https://journeasebackend.onrender.com/resort/editfacility/${id}`, data,)
     console.log(response);
     setRefresh(!refresh)
     setData({})

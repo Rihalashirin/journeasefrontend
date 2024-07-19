@@ -6,7 +6,7 @@ export const Resortmngprice = () => {
     let {id}=useParams()
     useEffect(()=>{
       let fetchdata=async ()=>{
-          let response=await axios.get(`http://localhost:4000/resort/vwdetailbooking/${id}`)
+          let response=await axios.get(`https://journeasebackend.onrender.com/resort/vwdetailbooking/${id}`)
           console.log(response.data,'log for ----')
           setData(response.data)
       }
@@ -16,7 +16,7 @@ export const Resortmngprice = () => {
     // event.preventDefault()
     setData(data)
     console.log(data)
-   let response=await axios.put(`http://localhost:4000/resort/managebooking/${id}`,{resortstatus:status})
+   let response=await axios.put(`https://journeasebackend.onrender.com/resort/managebooking/${id}`,{resortstatus:status})
    console.log(response); 
     
   }

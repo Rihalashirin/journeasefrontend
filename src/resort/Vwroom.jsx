@@ -6,7 +6,7 @@ export const Vwroom = () => {
     const[data,setData]=useState([''])
     useEffect(()=>{
         let fetchdata=async ()=>{
-          let response=await axios.get(`http://localhost:4000/resort/viewroom/${id}`)
+          let response=await axios.get(`https://journeasebackend.onrender.com/resort/viewroom/${id}`)
           console.log(response.data)
           setData(response.data)
         }
@@ -50,7 +50,7 @@ export const Vwroom = () => {
                    {data?.luxuryOccupancy}
                 </td>
                 <td class="px-6 py-4">
-                <a target="_blank" href={`http://localhost:4000/uploads/${data?.images}`} download> <span>{data?.image}</span></a>
+                <a target="_blank" href={`https://journeasebackend.onrender.com/uploads/${data?.images}`} download> <span>{data?.image}</span></a>
                 </td>
                 <td class="px-6 py-4">
                     {data?.luxuryprice}/-
@@ -71,7 +71,7 @@ export const Vwroom = () => {
                    {data?.standardOccupancy}
                 </td>
                 <td class="px-6 py-4">
-                <a target="_blank" href={`http://localhost:4000/uploads/${data?.image}`} download> <span>{data?.images}</span></a>
+                <a target="_blank" href={`https://journeasebackend.onrender.com/uploads/${data?.image}`} download> <span>{data?.images}</span></a>
                 </td>
                 <td class="px-6 py-4">
                     {data?.standardPrice}/-

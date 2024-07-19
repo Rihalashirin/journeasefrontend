@@ -10,7 +10,7 @@ export const Vwpkgdetail = () => {
   const [toggle, settoggle] = useState(false);
   useEffect(()=>{
     let fetchdata=async ()=>{
-      let response=await axios.get(`http://localhost:4000/user/detailvwpackage/${id}`)
+      let response=await axios.get(`https://journeasebackend.onrender.com/user/detailvwpackage/${id}`)
       console.log(response.data)
         setData(response.data) 
     }
@@ -19,7 +19,7 @@ export const Vwpkgdetail = () => {
 const handledetail = async (rid) => {
   try {
     const response = await axios.get(
-      `http://localhost:4000/agency/detailvwresort/${rid}`
+      `https://journeasebackend.onrender.com/agency/detailvwresort/${rid}`
     );
     setData1(response.data);
     settoggle(true);
@@ -38,7 +38,7 @@ const handledetail = async (rid) => {
           <span className='text-white font font-bold text-[30px] '> </span><span className='text-orange-600 font font-bold text-[30px]'> {data[0]?.pkg?.packageName}</span><br /><div className='font text-[20px] m-auto bg-yellow-600/90 h-8 w-72 text-white  text-center'>{data[0]?.pkg?.price}/-per Head</div><p className='font text-[20px]  '>{data[0]?.pkg?.noOfDays}DAYS</p>
           </div>
           <div className='flex flex-wrap sm:gap-5 '>
-            <img src={`http://localhost:4000/uploads/${data[0]?.pkg?.coverImage}`}  className='w-[350px] h-[350px] mb-5'/>
+            <img src={`https://journeasebackend.onrender.com/uploads/${data[0]?.pkg?.coverImage}`}  className='w-[350px] h-[350px] mb-5'/>
             <div className='w-[60%]'>
 
           <p className=''>{data[0]?.pkg?.basicDescription}</p>
@@ -62,11 +62,11 @@ const handledetail = async (rid) => {
             
                 {item?.defaultadventure?.adventureName} 
               </div>
-              {/* <img src={`http://localhost:4000/uploads/${item?.defaultadventure?.image}`}  className='w-[100px] h-[100px] mb-5'/> */}
+              {/* <img src={`https://journeasebackend.onrender.com/uploads/${item?.defaultadventure?.image}`}  className='w-[100px] h-[100px] mb-5'/> */}
               <div>{item?.defaultadventure?.description}</div>
 
-              <a target="_blank" href={`http://localhost:4000/uploads/${item.defaultadventure?.image}`} download> <img className="w-[100px] h-14 " src={`http://localhost:4000/uploads/${item.defaultadventure?.image}`} alt="click to view and dowload"></img> </a>
-                <a target='_blank' href={`http://localhost:4000/uploads/${item.defaultadventure?.image}`} download ></a>
+              <a target="_blank" href={`https://journeasebackend.onrender.com/uploads/${item.defaultadventure?.image}`} download> <img className="w-[100px] h-14 " src={`https://journeasebackend.onrender.com/uploads/${item.defaultadventure?.image}`} alt="click to view and dowload"></img> </a>
+                <a target='_blank' href={`https://journeasebackend.onrender.com/uploads/${item.defaultadventure?.image}`} download ></a>
               </>
               
            ))} 
@@ -78,7 +78,7 @@ const handledetail = async (rid) => {
             
             {data[0]?.defaulthotel?.propertyName} 
           </div>
-            <img  onClick={() => handledetail(data[0].defaulthotel?._id)} src={`http://localhost:4000/uploads/${data[0]?.defaulthotel?.coverImage}`}  className='w-[100px] h-[100px] mb-5' alt="" srcset="" />
+            <img  onClick={() => handledetail(data[0].defaulthotel?._id)} src={`https://journeasebackend.onrender.com/uploads/${data[0]?.defaulthotel?.coverImage}`}  className='w-[100px] h-[100px] mb-5' alt="" srcset="" />
             {toggle && (
         <div className="bg-white/50 w-[90%] p-3 ms-5 pt-2">
           <div className="font text-center text-[20px] text-amber-800 pb-4   ">
@@ -88,7 +88,7 @@ const handledetail = async (rid) => {
             </div>
             <img
             
-              src={`http://localhost:4000/uploads/${data1?.response?.coverImage}`}
+              src={`https://journeasebackend.onrender.com/uploads/${data1?.response?.coverImage}`}
               className="m-auto w-[70%]"
               alt=" "
               srcSet=" "
@@ -118,14 +118,14 @@ const handledetail = async (rid) => {
               <div className="flex bg-yellow-100 px-2 py-4 rounded text-yellow-300   font-semibold font">
                 luxury room:
                 <img
-                  src={`http://localhost:4000/uploads/${data1.rooms?.image}`}
+                  src={`https://journeasebackend.onrender.com/uploads/${data1.rooms?.image}`}
                   className="m-auto w-48"
                   alt=" "
                   srcSet=" "
                 />
                 standardroom:
                 <img
-                  src={`http://localhost:4000/uploads/${data1.rooms?.images}`}
+                  src={`https://journeasebackend.onrender.com/uploads/${data1.rooms?.images}`}
                   className="m-auto w-48"
                   alt=" "
                   srcSet=" "
@@ -219,9 +219,9 @@ const handledetail = async (rid) => {
             
             {data[0]?.pkg?.defaultvehicle} 
           </div>
-            {/* <img src={`http://localhost:4000/uploads/${data[0]?.pkg?.vehicleimage}`} className='w-[100px] h-[100px] mb-5' alt="" srcset="" /> */}
-            <a target="_blank" href={`http://localhost:4000/uploads/${data[0]?.pkg?.vehicleimage}`} download> <img className="w-[100px] h-14 " src={`http://localhost:4000/uploads/${data[0]?.pkg?.vehicleimage}`} alt="click to view and dowload"></img> </a>
-                <a target='_blank' href={`http://localhost:4000/uploads/${data[0]?.pkg?.vehicleimage}`} download ></a>
+            {/* <img src={`https://journeasebackend.onrender.com/uploads/${data[0]?.pkg?.vehicleimage}`} className='w-[100px] h-[100px] mb-5' alt="" srcset="" /> */}
+            <a target="_blank" href={`https://journeasebackend.onrender.com/uploads/${data[0]?.pkg?.vehicleimage}`} download> <img className="w-[100px] h-14 " src={`https://journeasebackend.onrender.com/uploads/${data[0]?.pkg?.vehicleimage}`} alt="click to view and dowload"></img> </a>
+                <a target='_blank' href={`https://journeasebackend.onrender.com/uploads/${data[0]?.pkg?.vehicleimage}`} download ></a>
          
             </div>
             </div>

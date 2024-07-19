@@ -11,7 +11,7 @@ export const Viewpackage = () => {
   const [filteredData, setFilteredData] = useState([]);
 
   let handledelete=async (id)=>{
-    let response=await axios.delete(`http://localhost:4000/agency/deletepkg/${id}`)
+    let response=await axios.delete(`https://journeasebackend.onrender.com/agency/deletepkg/${id}`)
     console.log(response)
   }
 
@@ -19,7 +19,7 @@ export const Viewpackage = () => {
     const fetchData = async () => {
       try {
         const id1 = localStorage.getItem('id');
-        const response = await axios.get(`http://localhost:4000/agency/vwpkgagency/${id1}`);
+        const response = await axios.get(`https://journeasebackend.onrender.com/agency/vwpkgagency/${id1}`);
         setData(response.data);
         setFilteredData(response.data); // Initially set filtered data to all packages
       } catch (error) {
@@ -62,7 +62,7 @@ export const Viewpackage = () => {
           <div key={item._id} className='bg-white h-[370px] rounded-lg shadow-lg  overflow-hidden'>
             <Link to={`/agency/detailvwpkg/${item._id}`}>
               <img
-                src={`http://localhost:4000/uploads/${item.coverImage}`}
+                src={`https://journeasebackend.onrender.com/uploads/${item.coverImage}`}
                 alt={`${item.location} Package`}
                 className='w-full h-56 object-cover object-center'
               />

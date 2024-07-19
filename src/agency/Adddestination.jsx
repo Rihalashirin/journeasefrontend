@@ -38,7 +38,7 @@ export default function AddDetails() {
   // const handleSubmit = async () => {
   //   try {
   //     // Send a POST request to your API endpoint
-  //     await axios.post('http://localhost:4000/agency/adddestination', tourDetails);
+  //     await axios.post('https://journeasebackend.onrender.com/agency/adddestination', tourDetails);
   //     // Optionally, you can handle success or show a message to the user
   //     console.log('Tour details added successfully!');
   //   } catch (error) {

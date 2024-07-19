@@ -130,19 +130,19 @@ export default function BookingPage() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4000/user/vwadventure/${id}`
+          `https://journeasebackend.onrender.com/user/vwadventure/${id}`
         );
         console.log(response.data, "--------------------jh");
         setAgencydata(response.data);
 
         const response2 = await axios.get(
-          `http://localhost:4000/user/detailvwpackage/${id}`
+          `https://journeasebackend.onrender.com/user/detailvwpackage/${id}`
         );
         console.log(response2.data, "--------------------jh");
         setTransportdata(response2.data);
 
         const response1 = await axios.get(
-          `http://localhost:4000/user/vwaccomodation/${id}`
+          `https://journeasebackend.onrender.com/user/vwaccomodation/${id}`
         );
         setResortdata(response1.data);
 
@@ -189,7 +189,7 @@ export default function BookingPage() {
   const handledetail = async (rid) => {
     try {
       const response = await axios.get(
-        `http://localhost:4000/agency/detailvwresort/${rid}`
+        `https://journeasebackend.onrender.com/agency/detailvwresort/${rid}`
       );
       setData(response.data);
       settoggle(true);
@@ -200,7 +200,7 @@ export default function BookingPage() {
 
   const submitResort = async () => {
     try {
-      const response = await axios.post(`http://localhost:4000/user/booking`, {
+      const response = await axios.post(`https://journeasebackend.onrender.com/user/booking`, {
         ...data1,
         packageid: id,
         resortId: selectedResorts1,
@@ -407,7 +407,7 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
           <div className="bg-orange-200 w-[200px] ml-5 rounded-lg">
           <div className=" pt-5 pl-6 text-center text-white ">
             <img
-              src={`http://localhost:4000/uploads/${item.agency?.image}`}
+              src={`https://journeasebackend.onrender.com/uploads/${item.agency?.image}`}
               className="m-auto w-28 h-24 rounded-2xl"
               alt=""
               srcset=""
@@ -444,7 +444,7 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
       <div className="pt-4 text-center text-white">
         <img
           onClick={() => handledetail(item.resort?._id)}
-          src={`http://localhost:4000/uploads/${item?.resort?.coverImage}`}
+          src={`https://journeasebackend.onrender.com/uploads/${item?.resort?.coverImage}`}
           className="m-auto w-28"
           alt=""
         />
@@ -468,7 +468,7 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
               {data.response?.propertyName}{" "}
             </div>
             <img
-              src={`http://localhost:4000/uploads/${data?.response?.coverImage}`}
+              src={`https://journeasebackend.onrender.com/uploads/${data?.response?.coverImage}`}
               className="m-auto w-[70%]"
               alt=" "
               srcSet=" "
@@ -499,14 +499,14 @@ console.log(selectedResorts1,'[=[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]');
               <div className="flex bg-yellow-100 px-2 py-4 rounded text-yellow-300   font-semibold font">
                 luxury room:
                 <img
-                  src={`http://localhost:4000/uploads/${data.rooms?.image}`}
+                  src={`https://journeasebackend.onrender.com/uploads/${data.rooms?.image}`}
                   className="m-auto w-48"
                   alt=" "
                   srcSet=" "
                 />
                 standardroom:
                 <img
-                  src={`http://localhost:4000/uploads/${data.rooms?.images}`}
+                  src={`https://journeasebackend.onrender.com/uploads/${data.rooms?.images}`}
                   className="m-auto w-48"
                   alt=" "
                   srcSet=" "

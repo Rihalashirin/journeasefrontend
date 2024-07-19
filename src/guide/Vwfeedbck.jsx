@@ -10,7 +10,7 @@ export const Vwfeedbck = () => {
     useEffect(() => {
       let fetchdata = async () => {
         let response = await axios.get(
-          `http://localhost:4000/guide/vwfeedback/${id2}`
+          `https://journeasebackend.onrender.com/guide/vwfeedback/${id2}`
         );
         console.log(response.data);
         setData(response.data);

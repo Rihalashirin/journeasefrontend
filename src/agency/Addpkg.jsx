@@ -132,7 +132,7 @@ console.log(transport,'jhugytfrdse');
   
     try {
       // Send the FormData to the backend
-      let response = await axios.post('http://localhost:4000/agency/package', formData, {
+      let response = await axios.post('https://journeasebackend.onrender.com/agency/package', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

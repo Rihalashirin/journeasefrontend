@@ -10,7 +10,7 @@ export const Proagencyupdate = () => {
   useEffect(() => {
     let fetchdata = async () => {
       let response = await axios.get(
-        `http://localhost:4000/agency/vwagencyprofile/${id}`
+        `https://journeasebackend.onrender.com/agency/vwagencyprofile/${id}`
       );
       console.log(response.data);
       setUserData({...response.data});
@@ -43,7 +43,7 @@ export const Proagencyupdate = () => {
       }
     }
     let response = await axios.put(
-      `http://localhost:4000/agency/agencyeditprofile/${id}`,
+      `https://journeasebackend.onrender.com/agency/agencyeditprofile/${id}`,
       formData,
       {
         headers: {
@@ -245,8 +245,8 @@ export const Proagencyupdate = () => {
                   />
                 </div>
                 
-                <a target="_blank" href={`http://localhost:4000/uploads/${userData.licenseProof}`} download> <img className="w-[100px] h-14 " src={`http://localhost:4000/uploads/${userData.licenseProof}`} alt="click to view and dowload"></img> </a>
-                <a target='_blank' href={`http://localhost:4000/uploads/${userData.licenseProof}`} download ></a>
+                <a target="_blank" href={`https://journeasebackend.onrender.com/uploads/${userData.licenseProof}`} download> <img className="w-[100px] h-14 " src={`https://journeasebackend.onrender.com/uploads/${userData.licenseProof}`} alt="click to view and dowload"></img> </a>
+                <a target='_blank' href={`https://journeasebackend.onrender.com/uploads/${userData.licenseProof}`} download ></a>
         
               </div>
             </div>
@@ -267,11 +267,11 @@ export const Proagencyupdate = () => {
             
                 
               />
-                  <a target="_blank" href={`http://localhost:4000/uploads/${userData.companyLogo}`} download> <img className="w-[100px] h-14 " src={`http://localhost:4000/uploads/${userData.companyLogo}`} alt="click to view and dowload"></img> </a>
-                <a target='_blank' href={`http://localhost:4000/uploads/${userData.companyLogo}`} download ></a>
+                  <a target="_blank" href={`https://journeasebackend.onrender.com/uploads/${userData.companyLogo}`} download> <img className="w-[100px] h-14 " src={`https://journeasebackend.onrender.com/uploads/${userData.companyLogo}`} alt="click to view and dowload"></img> </a>
+                <a target='_blank' href={`https://journeasebackend.onrender.com/uploads/${userData.companyLogo}`} download ></a>
                        {/* <img
                   className="w-22 h-14"
-                  src={`http://localhost:4000/uploads/${userData.companyLogo}`}
+                  src={`https://journeasebackend.onrender.com/uploads/${userData.companyLogo}`}
                   alt="yfytf"
                 /> */}
             </div>

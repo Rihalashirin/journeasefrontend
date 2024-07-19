@@ -17,13 +17,13 @@ export const Detlguide = () => {
     setData2(data1)
     console.log(data1)
     
-    let response=await axios.post('http://localhost:4000/agency/guiderequest',{...data1,agencyid:id1,guideid:id})
+    let response=await axios.post('https://journeasebackend.onrender.com/agency/guiderequest',{...data1,agencyid:id1,guideid:id})
     console.log(response)
     
   }
   useEffect(()=>{
     let fetchdata=async()=>{
-      let response=await axios.get(`http://localhost:4000/agency/detailguide/${id}`)
+      let response=await axios.get(`https://journeasebackend.onrender.com/agency/detailguide/${id}`)
       console.log(response.data);
       if(response.data){
         setData(response.data)
@@ -42,7 +42,7 @@ export const Detlguide = () => {
         </div>
         <div className='bg-white/50 w-[90%] p-3 ms-5 pt-2 shadow-xl rounded-3xl h-80'>
             <div className='flex flex-wrap gap-7'>
-            <img src={`http://localhost:4000/uploads/${data.image}`} className='w-56' alt="" srcset="" />
+            <img src={`https://journeasebackend.onrender.com/uploads/${data.image}`} className='w-56' alt="" srcset="" />
             
             <div className='font font-bold text-black'>Name:{data.name} 
             <div className='font font-bold text-black'>Age:{data.age}</div>

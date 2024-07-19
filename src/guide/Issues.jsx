@@ -15,7 +15,7 @@ export const Issues = () => {
       event.preventDefault()
       setData(data)
       console.log(data)
-     let response=await axios.post(`http://localhost:4000/guide/addissue`,{...data,guideid:id,bookingid:id1})
+     let response=await axios.post(`https://journeasebackend.onrender.com/guide/addissue`,{...data,guideid:id,bookingid:id1})
      console.log(response);
       
   }

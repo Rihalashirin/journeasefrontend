@@ -8,7 +8,7 @@ export const Vwissuesagency = () => {
 
     useEffect(() => {
         let fetchdata = async () => {
-          let response = await axios.get(`http://localhost:4000/agency/vwguideuploads/${id}`);
+          let response = await axios.get(`https://journeasebackend.onrender.com/agency/vwguideuploads/${id}`);
           console.log(response.data, 'log for ----');
           setData(response.data);
         };

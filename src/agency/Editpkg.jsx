@@ -36,7 +36,7 @@ export const Editpkg = () => {
 const [transportImagedata, setTransportImage] = useState()
     useEffect(()=>{
       let fetchdata=async()=>{
-        let response=await axios.get(`http://localhost:4000/agency/detailvwpkg/${id}`)
+        let response=await axios.get(`https://journeasebackend.onrender.com/agency/detailvwpkg/${id}`)
         console.log(response.data)
         setUserData(response.data)
       }
@@ -134,7 +134,7 @@ transports.forEach((transport, index) => {
             formData.append(key, data[key]);
           }
         }
-       let response=await axios.put(`http://localhost:4000/agency/editpackage/${id}`,formData,{
+       let response=await axios.put(`https://journeasebackend.onrender.com/agency/editpackage/${id}`,formData,{
         headers: {
           "Content-Type": "multipart/form-data", // Set the content type for FormData
         }
@@ -216,7 +216,7 @@ transports.forEach((transport, index) => {
         onDone={ (res)=>setTransportImage(res.base64) } /> 
           <img
                   className="w-22 h-14"
-                  src={`http://localhost:4000/uploads/${userData[1]?.response?.vehicleimage}`}
+                  src={`https://journeasebackend.onrender.com/uploads/${userData[1]?.response?.vehicleimage}`}
                   alt=""
                 />
                      </div>
@@ -225,7 +225,7 @@ transports.forEach((transport, index) => {
                 <input onChange={handlefile}type="file" name="coverImage" id="email" class="h-10 border mt-1 w-60 rounded px-4 ms-6 bg-gray-50"  />
                 <img
                   className="w-22 h-14"
-                  src={`http://localhost:4000/uploads/${userData[1]?.response?.coverImage}`}
+                  src={`https://journeasebackend.onrender.com/uploads/${userData[1]?.response?.coverImage}`}
                   alt=""
                 />
               </div>
@@ -305,7 +305,7 @@ transports.forEach((transport, index) => {
                 <input onChange={handlefile} type="file" name="uploadBrochure" id="brochure" class="h-10 border mt-1 w-60 rounded px-4 ms-6 bg-gray-50"   />
                 <img
                   className="w-22 h-14"
-                  src={`http://localhost:4000/uploads/${userData[1]?.response?.uploadBrochure}`}
+                  src={`https://journeasebackend.onrender.com/uploads/${userData[1]?.response?.uploadBrochure}`}
                   alt=""
                 />
               </div> */}

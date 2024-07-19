@@ -8,7 +8,7 @@ export const Viewfacilityresort = () => {
     const [userData,setUserData]=useState([''])
     useEffect(()=>{
         let fetchdata=async ()=>{
-          let response=await axios.get(`http://localhost:4000/resort/viewfacilityresort/${id}`)
+          let response=await axios.get(`https://journeasebackend.onrender.com/resort/viewfacilityresort/${id}`)
           console.log(response.data)
           setUserData(response.data)
         }

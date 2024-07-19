@@ -8,7 +8,7 @@ export const Addedresortvw = () => {
 
   useEffect(() => {
     let fetchdata = async () => {
-      let response = await axios.get(`http://localhost:4000/agency/viewPackageResort/${id}`);
+      let response = await axios.get(`https://journeasebackend.onrender.com/agency/viewPackageResort/${id}`);
       console.log(response.data);
       setData(response.data);
     };
@@ -17,7 +17,7 @@ export const Addedresortvw = () => {
 
   const handleRemoveHotel = async (resortId) => {
     try {
-      await axios.delete(`http://localhost:4000/agency/removeHotel/${id}/${resortId}`);
+      await axios.delete(`https://journeasebackend.onrender.com/agency/removeHotel/${id}/${resortId}`);
       setData(data.filter(item => item.resorts._id !== resortId));
     } catch (error) {
       console.error("Error removing hotel:", error);
@@ -35,7 +35,7 @@ export const Addedresortvw = () => {
         {data?.map((item) => (
           <div key={item.resorts?._id} className="bg-slate-300 w-[200px] ml-5 rounded-lg">
             <div className="pt-4 text-center text-black pb-3 rounded-lg">
-              <img src={`http://localhost:4000/uploads/${item.resorts?.coverImage}`} className="m-auto w-28" alt="" />
+              <img src={`https://journeasebackend.onrender.com/uploads/${item.resorts?.coverImage}`} className="m-auto w-28" alt="" />
               <div className="font font-bold">{item.resorts?.propertyName}</div>
               <button onClick={() => handleRemoveHotel(item.resorts?._id)} className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Remove</button>
             </div>

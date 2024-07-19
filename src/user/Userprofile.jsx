@@ -13,7 +13,7 @@ export const Userprofile = () => {
   }
   useEffect(()=>{
     let fetchdata=async ()=>{
-      let response=await axios.get(`http://localhost:4000/agency/vwagencyprofile/${id}`)
+      let response=await axios.get(`https://journeasebackend.onrender.com/agency/vwagencyprofile/${id}`)
       console.log(response.data);
       setUserData(response.data)
     }
@@ -35,7 +35,7 @@ export const Userprofile = () => {
     }
 
 
-    let response=await axios.put(`http://localhost:4000/agency/agencyeditprofile/${id}`,formData,
+    let response=await axios.put(`https://journeasebackend.onrender.com/agency/agencyeditprofile/${id}`,formData,
     {
       headers: {
         "Content-Type": "multipart/form-data", // Set the content type for FormData
@@ -81,8 +81,8 @@ export const Userprofile = () => {
               <label for="image" class="block mb-2 text-sm font-medium text-white dark:text-white">Image:</label>
               <input onChange={handlefile}  type="file" name='image' id="image" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder={userData.image}   />
             </div>
-            <a target="_blank" href={`http://localhost:4000/uploads/${userData.image}`} download> <img className="w-[100px] h-14 " src={`http://localhost:4000/uploads/${userData.image}`} alt="click to view and dowload"></img> </a>
-                <a target='_blank' href={`http://localhost:4000/uploads/${userData.image}`} download ></a>
+            <a target="_blank" href={`https://journeasebackend.onrender.com/uploads/${userData.image}`} download> <img className="w-[100px] h-14 " src={`https://journeasebackend.onrender.com/uploads/${userData.image}`} alt="click to view and dowload"></img> </a>
+                <a target='_blank' href={`https://journeasebackend.onrender.com/uploads/${userData.image}`} download ></a>
         
           
           </div>
@@ -93,8 +93,8 @@ export const Userprofile = () => {
               <label for="idproof" class="block mb-2 text-sm font-medium text-white dark:text-white">ID Proof :</label>
               <input onChange={handlefile} type="file" name='idProof' id="idproof" class="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder={userData.idProof}   />
             </div>
-            <a target="_blank" href={`http://localhost:4000/uploads/${userData.idProof}`} download> <img className="w-[100px] h-14 " src={`http://localhost:4000/uploads/${userData.idProof}`} alt="click to view and dowload"></img> </a>
-                <a target='_blank' href={`http://localhost:4000/uploads/${userData.idProof}`} download ></a>
+            <a target="_blank" href={`https://journeasebackend.onrender.com/uploads/${userData.idProof}`} download> <img className="w-[100px] h-14 " src={`https://journeasebackend.onrender.com/uploads/${userData.idProof}`} alt="click to view and dowload"></img> </a>
+                <a target='_blank' href={`https://journeasebackend.onrender.com/uploads/${userData.idProof}`} download ></a>
         
             <div >
               <label for="place" class="block mb-2 text-sm font-medium text-white dark:text-white">Place:</label>

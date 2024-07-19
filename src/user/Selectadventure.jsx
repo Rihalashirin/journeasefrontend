@@ -11,7 +11,7 @@ export const Selectadventure = () => {
   const [agencyData,setAgencydata]=useState([''])
   useEffect(()=>{
     let fetchdata=async ()=>{
-        let response=await axios.get(`http://localhost:4000/user/vwadventure/${id}`)
+        let response=await axios.get(`https://journeasebackend.onrender.com/user/vwadventure/${id}`)
         console.log(response.data)
         setAgencydata(response.data)
     }
@@ -22,7 +22,7 @@ let handleSubmit=async (event)=>{
   event.preventDefault()
   setData(data)
   console.log(data)
- let response=await axios.put(`http://localhost:4000/user/booking/${id}`,{adventureId:selectedResorts,userId:id2,packageid:id})
+ let response=await axios.put(`https://journeasebackend.onrender.com/user/booking/${id}`,{adventureId:selectedResorts,userId:id2,packageid:id})
  console.log(response);
   // navigate(`/user/selectadventure/${id}`)
 }
@@ -60,7 +60,7 @@ console.log(selectedResorts,';ij')
         <div className='flex flex-wrap sm:gap-5  '>
         {agencyData.map((item)=>(
           <div className=' pt-28 text-center text-white '>
-            <img src={`http://localhost:4000/uploads/${item.agency?.image}`} className='m-auto w-24 h-24 rounded-2xl' alt="" srcset="" />
+            <img src={`https://journeasebackend.onrender.com/uploads/${item.agency?.image}`} className='m-auto w-24 h-24 rounded-2xl' alt="" srcset="" />
             <div className='font font-bold'>{item.agency?.adventureName} <br /> <div className='font font-light'>{item.agency?.price}-/Head</div></div>
             <input
                         type="checkbox"
