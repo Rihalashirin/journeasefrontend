@@ -101,7 +101,7 @@ import { Vwrwpkg } from './admin/Vwrwpkg';
 import { Vwroom } from './resort/Vwroom';
 import { Forgot1 } from './Forgot1';
 import { Forgot2 } from './Forgot2';
-import { Mngbooking } from './agency/Mngbooking';
+// import { Mngbooking } from './agency/Mngbooking';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -175,7 +175,7 @@ root.render(
         <Route path='adventure/:id' element={<Addpkg3/>}/>
         <Route path='enqryfinal' element={<Enqryfinal/>}/>
         <Route path='cnfrmbooking' element={<Confrmbooking/>}/>
-        <Route path='managebooking' element={<Mngbooking/>}/>
+        {/* <Route path='managebooking' element={<Mngbooking/>}/> */}
         <Route path='vwreviewagency' element={<Vwreviewagency/>}/>
         <Route path='vwphoto/:id' element={<Vwphotoagency/>}/>
         <Route path='updateproagency' element={<Proagencyupdate/>}/>
