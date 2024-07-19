@@ -15,7 +15,7 @@ export const Guidemngenqry = () => {
       };
       fetchdata();
     },[]);
-
+//jyuju
   return (
      <div className='guidehome'>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg pt-10">
