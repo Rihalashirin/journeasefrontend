@@ -40,7 +40,6 @@ import { Viewresort } from './admin/Viewresort';
 import { Addpkg3 } from './agency/Addpkg3';
 import { Enqryfinal } from './agency/Enqryfinal';
 import { Confrmbooking } from './agency/Confrmbooking';
-import { Mngbooking } from './agency/Mngbooking';
 import { Resortmngenqry } from './resort/Resortmngenqry';
 import { Vwbookingresort } from './resort/Vwbookingresort';
 import { Resortmngprice } from './resort/Resortmngprice';
@@ -88,7 +87,6 @@ import { Editpkg } from './agency/Editpkg';
 import { Addedresortvw } from './agency/Addedresortvw';
 import { Vwaddedguide } from './agency/Vwaddedguide';
 import { Vwaddedadventure } from './agency/Vwaddedadventure';
-// import AddDetails from './agency/Adddestination';
 import BookingPage from './user/BookingPage';
 import { AdventureUpdate } from './agency/EditAdventure';
 import { Mybooking } from './user/Mybooking';
@@ -103,8 +101,7 @@ import { Vwrwpkg } from './admin/Vwrwpkg';
 import { Vwroom } from './resort/Vwroom';
 import { Forgot1 } from './Forgot1';
 import { Forgot2 } from './Forgot2';
-
-
+import { Mngbooking } from './agency/Mngbooking';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
